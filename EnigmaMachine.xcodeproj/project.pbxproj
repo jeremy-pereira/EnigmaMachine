@@ -11,6 +11,8 @@
 		FC3D16121A9CAE5B00FE44B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3D16111A9CAE5B00FE44B9 /* Images.xcassets */; };
 		FC3D16151A9CAE5C00FE44B9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC3D16131A9CAE5C00FE44B9 /* MainMenu.xib */; };
 		FC3D16211A9CAE5C00FE44B9 /* EnigmaMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D16201A9CAE5C00FE44B9 /* EnigmaMachineTests.swift */; };
+		FC3D162D1A9CAF1800FE44B9 /* Rotor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D162C1A9CAF1800FE44B9 /* Rotor.swift */; };
+		FC3D162F1A9CB01600FE44B9 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D162E1A9CB01600FE44B9 /* Connection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,9 @@
 		FC3D161A1A9CAE5C00FE44B9 /* EnigmaMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnigmaMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC3D161F1A9CAE5C00FE44B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC3D16201A9CAE5C00FE44B9 /* EnigmaMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnigmaMachineTests.swift; sourceTree = "<group>"; };
+		FC3D162A1A9CAE8D00FE44B9 /* EnigmaMachine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EnigmaMachine.entitlements; sourceTree = "<group>"; };
+		FC3D162C1A9CAF1800FE44B9 /* Rotor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotor.swift; sourceTree = "<group>"; };
+		FC3D162E1A9CB01600FE44B9 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 		FC3D16011A9CAE5B00FE44B9 = {
 			isa = PBXGroup;
 			children = (
+				FC3D162B1A9CAED700FE44B9 /* Components */,
 				FC3D160C1A9CAE5B00FE44B9 /* EnigmaMachine */,
 				FC3D161D1A9CAE5C00FE44B9 /* EnigmaMachineTests */,
 				FC3D160B1A9CAE5B00FE44B9 /* Products */,
@@ -73,6 +79,7 @@
 		FC3D160C1A9CAE5B00FE44B9 /* EnigmaMachine */ = {
 			isa = PBXGroup;
 			children = (
+				FC3D162A1A9CAE8D00FE44B9 /* EnigmaMachine.entitlements */,
 				FC3D160F1A9CAE5B00FE44B9 /* AppDelegate.swift */,
 				FC3D16111A9CAE5B00FE44B9 /* Images.xcassets */,
 				FC3D16131A9CAE5C00FE44B9 /* MainMenu.xib */,
@@ -104,6 +111,16 @@
 				FC3D161F1A9CAE5C00FE44B9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC3D162B1A9CAED700FE44B9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FC3D162C1A9CAF1800FE44B9 /* Rotor.swift */,
+				FC3D162E1A9CB01600FE44B9 /* Connection.swift */,
+			);
+			name = Components;
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +172,11 @@
 				TargetAttributes = {
 					FC3D16091A9CAE5B00FE44B9 = {
 						CreatedOnToolsVersion = 6.3;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					FC3D16191A9CAE5C00FE44B9 = {
 						CreatedOnToolsVersion = 6.3;
@@ -205,6 +227,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3D162D1A9CAF1800FE44B9 /* Rotor.swift in Sources */,
+				FC3D162F1A9CB01600FE44B9 /* Connection.swift in Sources */,
 				FC3D16101A9CAE5B00FE44B9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EnigmaMachine/EnigmaMachine.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = EnigmaMachine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -332,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EnigmaMachine/EnigmaMachine.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = EnigmaMachine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
