@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC3D16101A9CAE5B00FE44B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D160F1A9CAE5B00FE44B9 /* AppDelegate.swift */; };
+		FC3D16121A9CAE5B00FE44B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3D16111A9CAE5B00FE44B9 /* Images.xcassets */; };
+		FC3D16151A9CAE5C00FE44B9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC3D16131A9CAE5C00FE44B9 /* MainMenu.xib */; };
+		FC3D16211A9CAE5C00FE44B9 /* EnigmaMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D16201A9CAE5C00FE44B9 /* EnigmaMachineTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC3D161B1A9CAE5C00FE44B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC3D16021A9CAE5B00FE44B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC3D16091A9CAE5B00FE44B9;
+			remoteInfo = EnigmaMachine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FC3D160A1A9CAE5B00FE44B9 /* EnigmaMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnigmaMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC3D160E1A9CAE5B00FE44B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC3D160F1A9CAE5B00FE44B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC3D16111A9CAE5B00FE44B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FC3D16141A9CAE5C00FE44B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FC3D161A1A9CAE5C00FE44B9 /* EnigmaMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnigmaMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC3D161F1A9CAE5C00FE44B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC3D16201A9CAE5C00FE44B9 /* EnigmaMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnigmaMachineTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC3D16071A9CAE5B00FE44B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC3D16171A9CAE5C00FE44B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FC3D16011A9CAE5B00FE44B9 = {
+			isa = PBXGroup;
+			children = (
+				FC3D160C1A9CAE5B00FE44B9 /* EnigmaMachine */,
+				FC3D161D1A9CAE5C00FE44B9 /* EnigmaMachineTests */,
+				FC3D160B1A9CAE5B00FE44B9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FC3D160B1A9CAE5B00FE44B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC3D160A1A9CAE5B00FE44B9 /* EnigmaMachine.app */,
+				FC3D161A1A9CAE5C00FE44B9 /* EnigmaMachineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC3D160C1A9CAE5B00FE44B9 /* EnigmaMachine */ = {
+			isa = PBXGroup;
+			children = (
+				FC3D160F1A9CAE5B00FE44B9 /* AppDelegate.swift */,
+				FC3D16111A9CAE5B00FE44B9 /* Images.xcassets */,
+				FC3D16131A9CAE5C00FE44B9 /* MainMenu.xib */,
+				FC3D160D1A9CAE5B00FE44B9 /* Supporting Files */,
+			);
+			path = EnigmaMachine;
+			sourceTree = "<group>";
+		};
+		FC3D160D1A9CAE5B00FE44B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC3D160E1A9CAE5B00FE44B9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC3D161D1A9CAE5C00FE44B9 /* EnigmaMachineTests */ = {
+			isa = PBXGroup;
+			children = (
+				FC3D16201A9CAE5C00FE44B9 /* EnigmaMachineTests.swift */,
+				FC3D161E1A9CAE5C00FE44B9 /* Supporting Files */,
+			);
+			path = EnigmaMachineTests;
+			sourceTree = "<group>";
+		};
+		FC3D161E1A9CAE5C00FE44B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC3D161F1A9CAE5C00FE44B9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC3D16091A9CAE5B00FE44B9 /* EnigmaMachine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC3D16241A9CAE5C00FE44B9 /* Build configuration list for PBXNativeTarget "EnigmaMachine" */;
+			buildPhases = (
+				FC3D16061A9CAE5B00FE44B9 /* Sources */,
+				FC3D16071A9CAE5B00FE44B9 /* Frameworks */,
+				FC3D16081A9CAE5B00FE44B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EnigmaMachine;
+			productName = EnigmaMachine;
+			productReference = FC3D160A1A9CAE5B00FE44B9 /* EnigmaMachine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FC3D16191A9CAE5C00FE44B9 /* EnigmaMachineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC3D16271A9CAE5C00FE44B9 /* Build configuration list for PBXNativeTarget "EnigmaMachineTests" */;
+			buildPhases = (
+				FC3D16161A9CAE5C00FE44B9 /* Sources */,
+				FC3D16171A9CAE5C00FE44B9 /* Frameworks */,
+				FC3D16181A9CAE5C00FE44B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC3D161C1A9CAE5C00FE44B9 /* PBXTargetDependency */,
+			);
+			name = EnigmaMachineTests;
+			productName = EnigmaMachineTests;
+			productReference = FC3D161A1A9CAE5C00FE44B9 /* EnigmaMachineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC3D16021A9CAE5B00FE44B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Jeremy Pereira";
+				TargetAttributes = {
+					FC3D16091A9CAE5B00FE44B9 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					FC3D16191A9CAE5C00FE44B9 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = FC3D16091A9CAE5B00FE44B9;
+					};
+				};
+			};
+			buildConfigurationList = FC3D16051A9CAE5B00FE44B9 /* Build configuration list for PBXProject "EnigmaMachine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC3D16011A9CAE5B00FE44B9;
+			productRefGroup = FC3D160B1A9CAE5B00FE44B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC3D16091A9CAE5B00FE44B9 /* EnigmaMachine */,
+				FC3D16191A9CAE5C00FE44B9 /* EnigmaMachineTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC3D16081A9CAE5B00FE44B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC3D16121A9CAE5B00FE44B9 /* Images.xcassets in Resources */,
+				FC3D16151A9CAE5C00FE44B9 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC3D16181A9CAE5C00FE44B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC3D16061A9CAE5B00FE44B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC3D16101A9CAE5B00FE44B9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC3D16161A9CAE5C00FE44B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC3D16211A9CAE5C00FE44B9 /* EnigmaMachineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC3D161C1A9CAE5C00FE44B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC3D16091A9CAE5B00FE44B9 /* EnigmaMachine */;
+			targetProxy = FC3D161B1A9CAE5C00FE44B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FC3D16131A9CAE5C00FE44B9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC3D16141A9CAE5C00FE44B9 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC3D16221A9CAE5C00FE44B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FC3D16231A9CAE5C00FE44B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FC3D16251A9CAE5C00FE44B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = EnigmaMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FC3D16261A9CAE5C00FE44B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = EnigmaMachine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FC3D16281A9CAE5C00FE44B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EnigmaMachineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnigmaMachine.app/Contents/MacOS/EnigmaMachine";
+			};
+			name = Debug;
+		};
+		FC3D16291A9CAE5C00FE44B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EnigmaMachineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnigmaMachine.app/Contents/MacOS/EnigmaMachine";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC3D16051A9CAE5B00FE44B9 /* Build configuration list for PBXProject "EnigmaMachine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC3D16221A9CAE5C00FE44B9 /* Debug */,
+				FC3D16231A9CAE5C00FE44B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC3D16241A9CAE5C00FE44B9 /* Build configuration list for PBXNativeTarget "EnigmaMachine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC3D16251A9CAE5C00FE44B9 /* Debug */,
+				FC3D16261A9CAE5C00FE44B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FC3D16271A9CAE5C00FE44B9 /* Build configuration list for PBXNativeTarget "EnigmaMachineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC3D16281A9CAE5C00FE44B9 /* Debug */,
+				FC3D16291A9CAE5C00FE44B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FC3D16021A9CAE5B00FE44B9 /* Project object */;
+}
