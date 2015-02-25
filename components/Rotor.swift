@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class Rotor
+{
+    var leftRight: Connection = Wiring.identity
+    var rightLeft: Connection = Wiring.identity
+
+    init(){}
+}

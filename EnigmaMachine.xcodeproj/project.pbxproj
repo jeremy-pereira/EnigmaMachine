@@ -13,6 +13,8 @@
 		FC3D16211A9CAE5C00FE44B9 /* EnigmaMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D16201A9CAE5C00FE44B9 /* EnigmaMachineTests.swift */; };
 		FC3D162D1A9CAF1800FE44B9 /* Rotor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D162C1A9CAF1800FE44B9 /* Rotor.swift */; };
 		FC3D162F1A9CB01600FE44B9 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D162E1A9CB01600FE44B9 /* Connection.swift */; };
+		FC3D16311A9DC07D00FE44B9 /* TestRotorWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D16301A9DC07D00FE44B9 /* TestRotorWiring.swift */; };
+		FC3D16351A9DED8400FE44B9 /* TestLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D16341A9DED8400FE44B9 /* TestLetter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		FC3D162A1A9CAE8D00FE44B9 /* EnigmaMachine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EnigmaMachine.entitlements; sourceTree = "<group>"; };
 		FC3D162C1A9CAF1800FE44B9 /* Rotor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotor.swift; sourceTree = "<group>"; };
 		FC3D162E1A9CB01600FE44B9 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		FC3D16301A9DC07D00FE44B9 /* TestRotorWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorWiring.swift; sourceTree = "<group>"; };
+		FC3D16341A9DED8400FE44B9 /* TestLetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLetter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			children = (
 				FC3D16201A9CAE5C00FE44B9 /* EnigmaMachineTests.swift */,
 				FC3D161E1A9CAE5C00FE44B9 /* Supporting Files */,
+				FC3D16301A9DC07D00FE44B9 /* TestRotorWiring.swift */,
+				FC3D16341A9DED8400FE44B9 /* TestLetter.swift */,
 			);
 			path = EnigmaMachineTests;
 			sourceTree = "<group>";
@@ -237,7 +243,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3D16311A9DC07D00FE44B9 /* TestRotorWiring.swift in Sources */,
 				FC3D16211A9CAE5C00FE44B9 /* EnigmaMachineTests.swift in Sources */,
+				FC3D16351A9DED8400FE44B9 /* TestLetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
