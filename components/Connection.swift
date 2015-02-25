@@ -9,14 +9,14 @@
 import Foundation
 
 
-enum Letter: Character
+public enum Letter: Character
 {
 	case A = "A", B = "B", C = "C", D = "D", E = "E", F = "F", G = "G", H = "H",
          I = "I", J = "J", K = "K", L = "L", M = "M", N = "N", O = "O", P = "P",
     	 Q = "Q", R = "R", S = "S", T = "T", U = "U", V = "V", W = "W", X = "X",
     	 Y = "Y", Z = "Z"
 
-    var ordinal: Int
+    public var ordinal: Int
     {
         get
         {
@@ -80,10 +80,15 @@ enum Letter: Character
         }
     }
 
-    static func letter(#ordinal: Int) -> Letter
+    public static func letter(#ordinal: Int) -> Letter
     {
         var ret: Letter
-        switch (ordinal % 26)
+        var normalisedOrdinal = ordinal % 26
+        if normalisedOrdinal < 0
+        {
+            normalisedOrdinal = 26 + normalisedOrdinal
+        }
+        switch (normalisedOrdinal)
         {
         case 0:
             ret = Letter.A
