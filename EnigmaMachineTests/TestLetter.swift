@@ -10,7 +10,8 @@ import Cocoa
 import XCTest
 import EnigmaMachine
 
-class TestLetter: XCTestCase {
+class TestLetter: XCTestCase
+{
 
     override func setUp() {
         super.setUp()

@@ -9,13 +9,23 @@
 import Foundation
 
 
-public enum Letter: Character
+/**
+
+Enumeration of all the letters that Enigma can deal with
+
+*/
+public enum Letter: Character, ForwardIndexType
 {
 	case A = "A", B = "B", C = "C", D = "D", E = "E", F = "F", G = "G", H = "H",
          I = "I", J = "J", K = "K", L = "L", M = "M", N = "N", O = "O", P = "P",
     	 Q = "Q", R = "R", S = "S", T = "T", U = "U", V = "V", W = "W", X = "X",
     	 Y = "Y", Z = "Z"
 
+/**
+    
+The ordinal of the letter.  A is assumed to have ordinal 0 and Z ordinal 25.
+
+*/
     public var ordinal: Int
     {
         get
@@ -79,7 +89,15 @@ public enum Letter: Character
             return ret
         }
     }
+/**
+    
+Get the letter for a particular ordinal.  Ordinals < 0 and > 25 are treated as 
+if they are modulo 26.
+    
+:param: ordinal The ordinal to translate into a letter.
+:returns: The letter for the given ordinal.
 
+*/
     public static func letter(#ordinal: Int) -> Letter
     {
         var ret: Letter
@@ -147,15 +165,42 @@ public enum Letter: Character
         }
         return ret
     }
+
+    public func successor() -> Letter
+    {
+		return Letter.letter(ordinal: self.ordinal + 1)
+    }
 }
 
-protocol Connection
+/**
+Protocol defining a connection from a set of 26 input letters to 26 output 
+letters.
+*/
+public protocol Connection
 {
+/**
+The subscript is the mapping function from the input letter to the output letter.
+
+:param: index The input letter
+:returns: The output letter.
+*/
     subscript(index: Letter) -> Letter { get }
+/**
+
+The inverse connection.  Defines what would happen if input and output are 
+reversed.  The implication is that the mapping from input to output must be 
+1:1 and defined for all 26 letters.
+
+*/
     var inverse: Connection { get }
 }
 
-class Wiring: Connection
+/**
+
+A class representing a fixed set of wirings from one letter to another.
+
+*/
+public class Wiring: Connection
 {
     private var lookup: [Letter]
     	= [Letter.A, Letter.B, Letter.C, Letter.D, Letter.E, Letter.F, Letter.G,
@@ -164,16 +209,19 @@ class Wiring: Connection
            Letter.V, Letter.W, Letter.X, Letter.Y, Letter.Z]
 
 /**
-    Initialise a connection.  The map contains letters that don't map to 
-    themselves.  By default the connection is the identity map.
+    Initialise a wiring.  The map contains letters that don't map to
+    themselves.  By default the wiring is the identity map.
 */
-    init(map: [Letter : Letter])
+    public init(map: [Letter : Letter])
     {
+        // TODO: Ensure we get a 1:1 mapping.
 		for key in map.keys
         {
             lookup[key.ordinal] = map[key]!
         }
     }
+
+    private var calculatedInverse: Connection?
 
     init(invert: Wiring)
     {
@@ -183,16 +231,29 @@ class Wiring: Connection
             lookup[letter.ordinal] = Letter.letter(ordinal: index)
             index++
         }
+        calculatedInverse = invert
     }
 
-    subscript(index: Letter) -> Letter
+    public subscript(index: Letter) -> Letter
     {
 		return lookup[index.ordinal]
     }
 
-    lazy var inverse: Connection = { return Wiring(invert: self) }()
+    public var inverse: Connection
+    {
+        if calculatedInverse == nil
+        {
+            calculatedInverse = Wiring(invert: self)
+        }
+        return calculatedInverse!
+    }
 
-    static let identity: Connection = identityConnection
+    /**
+    
+    A standard straight through connection that maps every letter to itself
+
+	*/
+    public static let identity: Connection = identityConnection
 }
 
 private let identityConnection = Wiring(map: [:])
