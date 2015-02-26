@@ -14,12 +14,12 @@ import Foundation
 Enumeration of all the letters that Enigma can deal with
 
 */
-public enum Letter: Character, ForwardIndexType
+public enum Letter: Character, ForwardIndexType, Comparable, Printable
 {
 	case A = "A", B = "B", C = "C", D = "D", E = "E", F = "F", G = "G", H = "H",
          I = "I", J = "J", K = "K", L = "L", M = "M", N = "N", O = "O", P = "P",
     	 Q = "Q", R = "R", S = "S", T = "T", U = "U", V = "V", W = "W", X = "X",
-    	 Y = "Y", Z = "Z"
+    	 Y = "Y", Z = "Z", UpperBound = "$"
 
 /**
     
@@ -85,6 +85,8 @@ The ordinal of the letter.  A is assumed to have ordinal 0 and Z ordinal 25.
                 ret = 24
             case Z:
                 ret = 25
+            case .UpperBound:
+                ret = Int.max
             }
             return ret
         }
@@ -168,8 +170,34 @@ if they are modulo 26.
 
     public func successor() -> Letter
     {
-		return Letter.letter(ordinal: self.ordinal + 1)
+        return self == Letter.Z ? Letter.UpperBound
+        						: Letter.letter(ordinal: self.ordinal + 1)
     }
+
+    public var description: String
+    {
+        get { return "\(self.rawValue)" }
+    }
+}
+
+public func &+(left: Letter, right: Letter) -> Letter
+{
+    return Letter.letter(ordinal: left.ordinal + right.ordinal)
+}
+
+public func &-(left: Letter, right: Letter) -> Letter
+{
+    return Letter.letter(ordinal: left.ordinal - right.ordinal)
+}
+
+public func <(left: Letter, right: Letter) -> Bool
+{
+    return left.ordinal < right.ordinal
+}
+
+public func ==(left: Letter, right: Letter) -> Bool
+{
+    return left.ordinal == right.ordinal
 }
 
 /**
@@ -185,14 +213,6 @@ The subscript is the mapping function from the input letter to the output letter
 :returns: The output letter.
 */
     subscript(index: Letter) -> Letter { get }
-/**
-
-The inverse connection.  Defines what would happen if input and output are 
-reversed.  The implication is that the mapping from input to output must be 
-1:1 and defined for all 26 letters.
-
-*/
-    var inverse: Connection { get }
 }
 
 /**
@@ -221,7 +241,29 @@ public class Wiring: Connection
         }
     }
 
-    private var calculatedInverse: Connection?
+    public convenience init(string: String)
+    {
+        var stringMap: [Letter : Letter] = [:]
+        var stringIndex = string.startIndex
+        for input in Letter.A ... Letter.Z
+        {
+			let index = input.ordinal
+            let toChar = string[stringIndex]
+			let toLetter = Letter(rawValue: toChar)
+            if let toLetter = toLetter
+            {
+				stringMap[input] = toLetter
+            }
+            else
+            {
+                fatalError("Initialising wiring from string: string has invalid character")
+            }
+            stringIndex++
+        }
+        self.init(map: stringMap)
+    }
+
+    private weak var calculatedInverse: Wiring?
 
     init(invert: Wiring)
     {
@@ -241,11 +283,14 @@ public class Wiring: Connection
 
     public var inverse: Connection
     {
-        if calculatedInverse == nil
+        var ret = calculatedInverse
+        if ret == nil
         {
-            calculatedInverse = Wiring(invert: self)
+            ret = Wiring(invert: self)
+            ret!.calculatedInverse = self
+            calculatedInverse = ret
         }
-        return calculatedInverse!
+        return ret!
     }
 
     /**
@@ -253,7 +298,7 @@ public class Wiring: Connection
     A standard straight through connection that maps every letter to itself
 
 	*/
-    public static let identity: Connection = identityConnection
+    public static let identity: Wiring = identityConnection
 }
 
 private let identityConnection = Wiring(map: [:])

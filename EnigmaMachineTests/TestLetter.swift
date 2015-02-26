@@ -60,6 +60,17 @@ class TestLetter: XCTestCase
         }
     }
 
+    func testRange()
+    {
+        var count = 0
+        for input in Letter.A ... Letter.Z
+        {
+            println("\(count): \(input)")
+            count++
+        }
+        XCTAssert(count == 26, "Not enough letters (\(count))")
+    }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {

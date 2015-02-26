@@ -36,7 +36,7 @@ class TestRotorWiring: XCTestCase
 
     func testThreeWay()
     {
-        let connection: Connection = Wiring(map: [ Letter.B : Letter.Z, Letter.Z : Letter.M, Letter.M : Letter.B])
+        let connection: Wiring = Wiring(map: [ Letter.B : Letter.Z, Letter.Z : Letter.M, Letter.M : Letter.B])
 
         XCTAssert(connection[Letter.A] == Letter.A, "A connection should be straight through")
         XCTAssert(connection[Letter.B] == Letter.Z, "B connection should go to Z")
