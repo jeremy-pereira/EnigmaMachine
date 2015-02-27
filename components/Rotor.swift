@@ -8,26 +8,22 @@
 
 import Foundation
 
-let wiringI = Wiring(string: "EKMFLGDQVZNTOWYHXUSPAIBRCJ")
+let wiringI   = Wiring(string: "EKMFLGDQVZNTOWYHXUSPAIBRCJ")
+let wiringII  = Wiring(string: "AJDKSIRUXBLHWTMCQGZNPYFVOE")
+let wiringIII = Wiring(string: "BDFHJLCPRTXVZNYEIWGAKMUSQO")
 
 /**
 
 Class representing an Enigma rotor
 
 */
-public class Rotor
+public class Rotor: Connector
 {
 
     var wiring: Wiring = Wiring.identity
     var notch: Letter
-/**
-	The connection going right to left through the rotor.
-*/
-    public var rightToLeft: Connection
-/**
-    The connection going left to right through the rotor.
-*/
-    public var leftToRight: Connection
+    public var forward: Connection
+    public var reverse: Connection
 /**
 
 The ring stellung for the rotor.  This is the offset of the wiring to the outer
@@ -42,8 +38,8 @@ ring.  For new rotors defaults to A
         self.notch = notch
         let rToL = RotorConnection(isRightToLeft: true)
         let lToR = RotorConnection(isRightToLeft: false)
-        self.leftToRight = lToR
-        self.rightToLeft = rToL
+        self.reverse = lToR
+        self.forward = rToL
         rToL.rotor = self
         lToR.rotor = self
     }
@@ -59,26 +55,15 @@ class RotorConnection: Connection
         self.isRightToLeft = isRightToLeft
     }
 
-    subscript(input: Letter) -> Letter
+    subscript(input: Letter) -> Letter?
     {
-		return isRightToLeft ? (rotor!.wiring[input &+ rotor!.ringStellung] &- rotor!.ringStellung)
-							 : (rotor!.wiring.inverse[input &+ rotor!.ringStellung] &- rotor!.ringStellung)
+		return isRightToLeft ? (rotor!.wiring.forward[input &+ rotor!.ringStellung]! &- rotor!.ringStellung)
+							 : (rotor!.wiring.reverse[input &+ rotor!.ringStellung]! &- rotor!.ringStellung)
     }
 
-    var internalInverse: Connection?
-
-    var inverse: Connection
+    func makeInverse() -> Connection?
     {
-		get
-        {
-			if internalInverse == nil
-            {
-                let iv =  RotorConnection(isRightToLeft: !self.isRightToLeft)
-                internalInverse = iv
-                iv.internalInverse = self
-            }
-            return internalInverse!
-        }
+        fatalError("Cannot invoke makeInverse in ClosureConnection")
     }
 }
 
@@ -92,5 +77,31 @@ public class RotorI: Rotor
     public init()
     {
         super.init(wiring: wiringI, notch: Letter.Q)
+    }
+}
+
+/**
+
+German military rotor II
+
+*/
+public class RotorII: Rotor
+{
+    public init()
+    {
+        super.init(wiring: wiringII, notch: Letter.E)
+    }
+}
+
+/**
+
+German military rotor III
+
+*/
+public class RotorIII: Rotor
+{
+    public init()
+    {
+        super.init(wiring: wiringIII, notch: Letter.V)
     }
 }

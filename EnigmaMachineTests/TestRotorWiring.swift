@@ -26,11 +26,11 @@ class TestRotorWiring: XCTestCase
 
     func testIdentity()
     {
-        let connection: Connection = Wiring.identity
+        let connection: Connector = Wiring.identity
 
         for letter in Letter.A ... Letter.Z
         {
-            XCTAssert(connection[letter] == letter, "Identity connection failed for \(letter)")
+            XCTAssert(connection.forward[letter] == letter, "Identity connection failed for \(letter)")
         }
     }
 
@@ -38,9 +38,9 @@ class TestRotorWiring: XCTestCase
     {
         let connection: Wiring = Wiring(map: [ Letter.B : Letter.Z, Letter.Z : Letter.M, Letter.M : Letter.B])
 
-        XCTAssert(connection[Letter.A] == Letter.A, "A connection should be straight through")
-        XCTAssert(connection[Letter.B] == Letter.Z, "B connection should go to Z")
-        let inverse = connection.inverse
+        XCTAssert(connection.forward[Letter.A] == Letter.A, "A connection should be straight through")
+        XCTAssert(connection.forward[Letter.B] == Letter.Z, "B connection should go to Z")
+        let inverse = connection.reverse
         XCTAssert(inverse[Letter.A] == Letter.A, "A connection should be straight through")
         XCTAssert(inverse[Letter.B] == Letter.M, "B connection should go to Z")
     }

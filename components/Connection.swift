@@ -210,34 +210,131 @@ public protocol Connection
 The subscript is the mapping function from the input letter to the output letter.
 
 :param: index The input letter
-:returns: The output letter.
+:returns: The output letter if a mapping exists.
 */
-    subscript(index: Letter) -> Letter { get }
+    subscript(index: Letter) -> Letter? { get }
+
+/**
+Creates an inverse connection if it is possible to do so (requires 1:1 letter 
+mapping).
+    
+`connection.inverse[connection[aLetter]] == aLetter`
+
+:returns: The inverse connection or nil if it couldn't be done, e.g. if two 
+    inputs map to the same output.
+*/
+    func makeInverse() -> Connection?
 }
+
+/**
+Protocol for an object that has connections.  A connector always has forward
+and reverse connections.
+*/
+public protocol Connector
+{
+    var forward: Connection { get }
+    var reverse: Connection { get }
+}
+
+/**
+
+A connection that uses a dictionary to map inputs to outputs.  
+
+When you create it supply a dictionary of mappings.  By default each letter is 
+mapped to itself so the map supplied to init need only contain non identity 
+mappings.
+
+*/
+class DictionaryConnection: Connection
+{
+    var map: [Letter : Letter] = [:]
+
+    init(map: [Letter: Letter])
+    {
+        for letter in Letter.A ... Letter.Z
+        {
+			self.map[letter] = letter
+        }
+        for key in map.keys
+        {
+            self.map[key] = map[key]
+        }
+    }
+
+    subscript(index: Letter) -> Letter?
+    {
+        get
+        {
+            return map[index]
+        }
+    }
+
+    func makeInverse() -> Connection?
+    {
+        var newMap: [Letter : Letter] = [:]
+        for key in map.keys
+        {
+            /*
+			 *  If there already exists an entry for the inverse key, it means
+			 *  two letters map to the same output.  Therefore the inverse 
+             *  would be ambiguous.
+			 */
+            if newMap[map[key]!] != nil
+            {
+                return nil
+            }
+			newMap[map[key]!] = key
+        }
+        return DictionaryConnection(map: newMap)
+    }
+}
+
+class ClosureConnection: Connection
+{
+    var mappingFunc: (Letter) -> Letter?
+
+    init(mappingFunc: (Letter) -> Letter?)
+    {
+        self.mappingFunc = mappingFunc
+    }
+
+    subscript(letter: Letter) -> Letter?
+    {
+        return mappingFunc(letter)
+    }
+
+    func makeInverse() -> Connection?
+    {
+        fatalError("Cannot invoke makeInverse in ClosureConnection")
+    }
+
+}
+
 
 /**
 
 A class representing a fixed set of wirings from one letter to another.
 
 */
-public class Wiring: Connection
+public class Wiring: Connector
 {
-    private var lookup: [Letter]
-    	= [Letter.A, Letter.B, Letter.C, Letter.D, Letter.E, Letter.F, Letter.G,
-           Letter.H, Letter.I, Letter.J, Letter.K, Letter.L, Letter.M, Letter.N,
-           Letter.O, Letter.P, Letter.Q, Letter.R, Letter.S, Letter.T, Letter.U,
-           Letter.V, Letter.W, Letter.X, Letter.Y, Letter.Z]
-
+    public var forward: Connection
+    public var reverse: Connection
 /**
     Initialise a wiring.  The map contains letters that don't map to
     themselves.  By default the wiring is the identity map.
 */
     public init(map: [Letter : Letter])
     {
-        // TODO: Ensure we get a 1:1 mapping.
-		for key in map.keys
+        let forwardMap = DictionaryConnection(map: map)
+        forward = forwardMap
+        if let reverseMap = forwardMap.makeInverse()
         {
-            lookup[key.ordinal] = map[key]!
+			reverse = reverseMap
+        }
+        else
+        {
+            fatalError("Reverse map for wiring would be ambiguous")
         }
     }
 
@@ -261,36 +358,6 @@ public class Wiring: Connection
             stringIndex++
         }
         self.init(map: stringMap)
-    }
-
-    private weak var calculatedInverse: Wiring?
-
-    init(invert: Wiring)
-    {
-        var index = 0
-		for letter in invert.lookup
-        {
-            lookup[letter.ordinal] = Letter.letter(ordinal: index)
-            index++
-        }
-        calculatedInverse = invert
-    }
-
-    public subscript(index: Letter) -> Letter
-    {
-		return lookup[index.ordinal]
-    }
-
-    public var inverse: Connection
-    {
-        var ret = calculatedInverse
-        if ret == nil
-        {
-            ret = Wiring(invert: self)
-            ret!.calculatedInverse = self
-            calculatedInverse = ret
-        }
-        return ret!
     }
 
     /**

@@ -29,8 +29,8 @@ class TestRotor: XCTestCase
     {
     	let rotorI = RotorI()
         rotorI.ringStellung = Letter.A
-        XCTAssert(rotorI.rightToLeft[Letter.A] == Letter.E, "Rotor I has wrong letter A")
-        XCTAssert(rotorI.rightToLeft[Letter.Z] == Letter.J, "Rotor I has wrong letter A")
+        XCTAssert(rotorI.forward[Letter.A] == Letter.E, "Rotor I has wrong letter A")
+        XCTAssert(rotorI.forward[Letter.Z] == Letter.J, "Rotor I has wrong letter A")
     }
 
     func testPerformanceExample() {
