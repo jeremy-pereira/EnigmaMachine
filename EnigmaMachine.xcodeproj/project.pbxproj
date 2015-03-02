@@ -16,6 +16,8 @@
 		FC3D162F1A9CB01600FE44B9 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D162E1A9CB01600FE44B9 /* Connection.swift */; };
 		FC3D16311A9DC07D00FE44B9 /* TestRotorWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D16301A9DC07D00FE44B9 /* TestRotorWiring.swift */; };
 		FC3D16351A9DED8400FE44B9 /* TestLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D16341A9DED8400FE44B9 /* TestLetter.swift */; };
+		FC6C9F0A1AA4E7FA0013352B /* PlugBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F091AA4E7FA0013352B /* PlugBoard.swift */; };
+		FC6C9F0C1AA4EB060013352B /* TestPlugBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F0B1AA4EB060013352B /* TestPlugBoard.swift */; };
 		FC9AF86C1A9F9F8600335A29 /* TestRotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */; };
 		FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,8 @@
 		FC3D162E1A9CB01600FE44B9 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		FC3D16301A9DC07D00FE44B9 /* TestRotorWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorWiring.swift; sourceTree = "<group>"; };
 		FC3D16341A9DED8400FE44B9 /* TestLetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLetter.swift; sourceTree = "<group>"; };
+		FC6C9F091AA4E7FA0013352B /* PlugBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugBoard.swift; sourceTree = "<group>"; };
+		FC6C9F0B1AA4EB060013352B /* TestPlugBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPlugBoard.swift; sourceTree = "<group>"; };
 		FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorCradle.swift; sourceTree = "<group>"; };
 		FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorCradle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +119,7 @@
 				FC3D16341A9DED8400FE44B9 /* TestLetter.swift */,
 				FC1C64441A9E346E0050FA14 /* TestRotor.swift */,
 				FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */,
+				FC6C9F0B1AA4EB060013352B /* TestPlugBoard.swift */,
 			);
 			path = EnigmaMachineTests;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				FC3D162C1A9CAF1800FE44B9 /* Rotor.swift */,
 				FC3D162E1A9CB01600FE44B9 /* Connection.swift */,
 				FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */,
+				FC6C9F091AA4E7FA0013352B /* PlugBoard.swift */,
 			);
 			name = Components;
 			path = components;
@@ -245,6 +251,7 @@
 				FC3D162D1A9CAF1800FE44B9 /* Rotor.swift in Sources */,
 				FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */,
 				FC3D162F1A9CB01600FE44B9 /* Connection.swift in Sources */,
+				FC6C9F0A1AA4E7FA0013352B /* PlugBoard.swift in Sources */,
 				FC3D16101A9CAE5B00FE44B9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +264,7 @@
 				FC3D16311A9DC07D00FE44B9 /* TestRotorWiring.swift in Sources */,
 				FC3D16211A9CAE5C00FE44B9 /* EnigmaMachineTests.swift in Sources */,
 				FC9AF86C1A9F9F8600335A29 /* TestRotorCradle.swift in Sources */,
+				FC6C9F0C1AA4EB060013352B /* TestPlugBoard.swift in Sources */,
 				FC3D16351A9DED8400FE44B9 /* TestLetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
