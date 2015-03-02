@@ -18,6 +18,8 @@ public class RotorSlot: Connector
     private var _rotor: Rotor?
     private var _rotorPosition: Letter?
 
+    var pawlEngaged: Bool = false
+
     public var rotor: Rotor?
     {
         return _rotor
@@ -87,13 +89,45 @@ Insert a rotor into this slot at the given position.
         _rotorPosition = position
     }
 
-    public func rotate()
+    private func rotate()
     {
         if let rotorPosition = _rotorPosition
         {
             _rotorPosition = rotorPosition &+ 1
         }
     }
+
+    var isNotchAligned: Bool
+    {
+		get
+        {
+            var ret = false
+            if let rotorPosition = rotorPosition
+            {
+                if let notch = rotor?.notch
+                {
+					ret = notch == rotorPosition
+                }
+            }
+            return ret
+        }
+    }
+
+/**
+
+Try to rotate the rotor in the slot by one letter.  This will only work if the
+pawl is engaged.
+
+*/
+    public func tryToRotate()
+    {
+        if pawlEngaged
+        {
+            rotate()
+        }
+    }
+
+
 }
 
 /**
@@ -170,7 +204,21 @@ public class RotorCradle: Connector
 
     public func rotate()
     {
-		slot[0].rotate()
+        for slotNumber in 0 ..< (slot.count - 1)
+        {
+            if slot[slotNumber].isNotchAligned
+            {
+                slot[slotNumber].pawlEngaged = true
+                slot[slotNumber + 1].pawlEngaged = true
+            }
+        }
+        slot[0].pawlEngaged = true // First rotor always advances
+
+        for aSlot in slot
+        {
+			aSlot.tryToRotate()
+            aSlot.pawlEngaged = false
+        }
     }
 
 }
