@@ -8,9 +8,11 @@
 
 import Foundation
 
-let wiringI   = Wiring(string: "EKMFLGDQVZNTOWYHXUSPAIBRCJ")
-let wiringII  = Wiring(string: "AJDKSIRUXBLHWTMCQGZNPYFVOE")
-let wiringIII = Wiring(string: "BDFHJLCPRTXVZNYEIWGAKMUSQO")
+public let wiringI   = Wiring(string: "EKMFLGDQVZNTOWYHXUSPAIBRCJ")
+public let wiringII  = Wiring(string: "AJDKSIRUXBLHWTMCQGZNPYFVOE")
+public let wiringIII = Wiring(string: "BDFHJLCPRTXVZNYEIWGAKMUSQO")
+
+public let wiringReflectorB = Wiring(string: "YRUHQSLDPXNGOKMIEBFZCWVJAT")
 
 /**
 
@@ -63,7 +65,7 @@ class RotorConnection: Connection
 
     func makeInverse() -> Connection?
     {
-        fatalError("Cannot invoke makeInverse in ClosureConnection")
+        fatalError("Cannot invoke makeInverse in RotorConnection")
     }
 }
 
@@ -105,3 +107,27 @@ public class RotorIII: Rotor
         super.init(wiring: wiringIII, notch: Letter.V)
     }
 }
+
+public class Reflector: Connector
+{
+    public var forward: Connection = nullConnection
+    public var reverse: Connection = nullConnection
+    public var wiring: Wiring
+
+    init(wiring: Wiring)
+    {
+        if !wiring.isReciprocal || wiring.hasStraightThrough
+        {
+            fatalError("Invalid wiring for a reflector")
+        }
+        self.wiring = wiring
+        forward = ClosureConnection
+        {
+			letter in
+            return self.wiring.forward[letter]
+        }
+        reverse = forward
+    }
+}
+
+public let reflectorB = Reflector(wiring: wiringReflectorB)

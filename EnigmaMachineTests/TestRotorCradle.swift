@@ -17,9 +17,10 @@ class TestRotorCradle: XCTestCase
     override func setUp()
     {
         super.setUp()
-		standardCradle.slot[0].rotor = RotorI()
-        standardCradle.slot[1].rotor = RotorII()
-        standardCradle.slot[2].rotor = RotorIII()
+        standardCradle.slot[0].insertRotor(RotorIII(), position: Letter.A)
+        standardCradle.slot[1].insertRotor(RotorII() , position: Letter.A)
+        standardCradle.slot[2].insertRotor(RotorI()  , position: Letter.A)
+        standardCradle.insertReflector(reflectorB    , position: Letter.A)
     }
     
     override func tearDown() {
@@ -29,11 +30,21 @@ class TestRotorCradle: XCTestCase
 
     func testBasic()
     {
-        XCTAssert(standardCradle.forward[Letter.A] == Letter.B, "Letter 1 incorrect")
-        XCTAssert(standardCradle.forward[Letter.A] == Letter.D, "Letter 2 incorrect")
-        XCTAssert(standardCradle.forward[Letter.A] == Letter.Z, "Letter 3 incorrect")
-        XCTAssert(standardCradle.forward[Letter.A] == Letter.G, "Letter 4 incorrect")
-        XCTAssert(standardCradle.forward[Letter.A] == Letter.O, "Letter 5 incorrect")
+        standardCradle.rotate()
+        var letter = standardCradle.forward[Letter.A]
+        XCTAssert(letter! == Letter.B, "Letter 1 incorrect, (\(letter))")
+        standardCradle.rotate()
+        letter = standardCradle.forward[Letter.A]
+        XCTAssert(letter! == Letter.D, "Letter 2 incorrect, (\(letter))")
+        standardCradle.rotate()
+        letter = standardCradle.forward[Letter.A]
+        XCTAssert(letter! == Letter.Z, "Letter 3 incorrect, (\(letter))")
+        standardCradle.rotate()
+        letter = standardCradle.forward[Letter.A]
+        XCTAssert(letter! == Letter.G, "Letter 4 incorrect, (\(letter))")
+        standardCradle.rotate()
+        letter = standardCradle.forward[Letter.A]
+        XCTAssert(letter! == Letter.O, "Letter 5 incorrect, (\(letter))")
     }
 
     func testPerformanceExample() {

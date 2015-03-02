@@ -185,6 +185,11 @@ public func &+(left: Letter, right: Letter) -> Letter
     return Letter.letter(ordinal: left.ordinal + right.ordinal)
 }
 
+public func &+(left: Letter, right: Int) -> Letter
+{
+    return Letter.letter(ordinal: left.ordinal + right)
+}
+
 public func &-(left: Letter, right: Letter) -> Letter
 {
     return Letter.letter(ordinal: left.ordinal - right.ordinal)
@@ -293,7 +298,7 @@ class ClosureConnection: Connection
 {
     var mappingFunc: (Letter) -> Letter?
 
-    init(mappingFunc: (Letter) -> Letter?)
+    init(_ mappingFunc: (Letter) -> Letter?)
     {
         self.mappingFunc = mappingFunc
     }
@@ -310,6 +315,15 @@ class ClosureConnection: Connection
 
 }
 
+class NullConnection: ClosureConnection
+{
+    init()
+    {
+        super.init({ letter in return nil })
+    }
+}
+
+public let nullConnection: Connection = NullConnection()
 
 /**
 
@@ -361,11 +375,41 @@ public class Wiring: Connector
     }
 
     /**
-    
+
     A standard straight through connection that maps every letter to itself
 
 	*/
     public static let identity: Wiring = identityConnection
+
+    public lazy var isReciprocal: Bool = {
+        var ret = true
+        for var letter = Letter.A ; letter < Letter.UpperBound && ret ; ++letter
+        {
+            let intermediate = self.forward[letter]
+            if let intermediate = intermediate
+            {
+				ret = self.forward[intermediate] == letter
+            }
+            else
+            {
+                ret = false
+            }
+        }
+        return ret
+    }()
+
+    public lazy var hasStraightThrough: Bool = {
+        var ret = false
+        for var letter = Letter.A ; letter < Letter.UpperBound && !ret ; ++letter
+        {
+            let intermediate = self.forward[letter]
+            if let intermediate = intermediate
+            {
+                ret = intermediate == letter
+            }
+        }
+        return ret
+    }()
 }
 
 private let identityConnection = Wiring(map: [:])

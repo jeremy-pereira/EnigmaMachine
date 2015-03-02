@@ -45,6 +45,18 @@ class TestRotorWiring: XCTestCase
         XCTAssert(inverse[Letter.B] == Letter.M, "B connection should go to Z")
     }
 
+    func testReciprocal()
+    {
+		XCTAssert(wiringReflectorB.isReciprocal, "Reflector wiring should be reciprocal")
+        XCTAssert(!wiringI.isReciprocal, "wiringI should not be reciprocal")
+    }
+
+    func testHasStraightThrough()
+    {
+        XCTAssert(!wiringReflectorB.hasStraightThrough, "Reflector wiring should have no straight throughs")
+        XCTAssert(wiringI.hasStraightThrough, "wiringI should have straight through on S")
+    }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
