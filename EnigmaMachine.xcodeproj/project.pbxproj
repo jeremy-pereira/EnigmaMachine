@@ -20,6 +20,8 @@
 		FC6C9F0C1AA4EB060013352B /* TestPlugBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F0B1AA4EB060013352B /* TestPlugBoard.swift */; };
 		FC6C9F0E1AA5D1FC0013352B /* EnigmaMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F0D1AA5D1FC0013352B /* EnigmaMachine.swift */; };
 		FC6C9F101AA5D2BC0013352B /* TestEnigmaMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F0F1AA5D2BC0013352B /* TestEnigmaMachine.swift */; };
+		FC6C9F121AA607770013352B /* AbstractEnigmaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F111AA607770013352B /* AbstractEnigmaController.swift */; };
+		FC6C9F141AA6090A0013352B /* AbstractEnigmaWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */; };
 		FC9AF86C1A9F9F8600335A29 /* TestRotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */; };
 		FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,8 @@
 		FC6C9F0B1AA4EB060013352B /* TestPlugBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPlugBoard.swift; sourceTree = "<group>"; };
 		FC6C9F0D1AA5D1FC0013352B /* EnigmaMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnigmaMachine.swift; sourceTree = "<group>"; };
 		FC6C9F0F1AA5D2BC0013352B /* TestEnigmaMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEnigmaMachine.swift; sourceTree = "<group>"; };
+		FC6C9F111AA607770013352B /* AbstractEnigmaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractEnigmaController.swift; sourceTree = "<group>"; };
+		FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AbstractEnigmaWindow.xib; sourceTree = "<group>"; };
 		FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorCradle.swift; sourceTree = "<group>"; };
 		FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorCradle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +106,8 @@
 				FC3D16111A9CAE5B00FE44B9 /* Images.xcassets */,
 				FC3D16131A9CAE5C00FE44B9 /* MainMenu.xib */,
 				FC3D160D1A9CAE5B00FE44B9 /* Supporting Files */,
+				FC6C9F111AA607770013352B /* AbstractEnigmaController.swift */,
+				FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */,
 			);
 			path = EnigmaMachine;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6C9F141AA6090A0013352B /* AbstractEnigmaWindow.xib in Resources */,
 				FC3D16121A9CAE5B00FE44B9 /* Images.xcassets in Resources */,
 				FC3D16151A9CAE5C00FE44B9 /* MainMenu.xib in Resources */,
 			);
@@ -260,6 +267,7 @@
 				FC3D162F1A9CB01600FE44B9 /* Connection.swift in Sources */,
 				FC6C9F0A1AA4E7FA0013352B /* PlugBoard.swift in Sources */,
 				FC3D16101A9CAE5B00FE44B9 /* AppDelegate.swift in Sources */,
+				FC6C9F121AA607770013352B /* AbstractEnigmaController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

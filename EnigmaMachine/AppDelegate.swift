@@ -9,19 +9,30 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate
+{
 
     @IBOutlet weak var window: NSWindow!
 
+    var abstractEnigmas: [AbstractEnigmaController] = []
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(aNotification: NSNotification)
+    {
         // Insert code here to initialize your application
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(aNotification: NSNotification)
+    {
         // Insert code here to tear down your application
     }
 
+    @IBAction func showAbstractEnigma(sender: AnyObject)
+    {
+        var controller = AbstractEnigmaController()
+        abstractEnigmas.append(controller)
+        controller.showWindow(sender)
+        // TODO: A mechanism to get rid of the controller when we are done
+    }
 
 }
 
