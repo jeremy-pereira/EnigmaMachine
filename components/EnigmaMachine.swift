@@ -8,11 +8,30 @@
 
 import Foundation
 
+
+public protocol EnigmaObserver: AnyObject
+{
+    func stateChanged(machine: EnigmaMachine)
+}
+
 public class EnigmaMachine
 {
+
+    private class Observer
+    {
+        weak var observer: EnigmaObserver?
+        init(observer: EnigmaObserver)
+        {
+            self.observer = observer
+        }
+    }
+
     var rotorCradle: RotorCradle = RotorCradle()
     var plugboard: PlugBoard = PlugBoard()
     public var litLamp: Letter?
+
+
+    private var observers: [Observer] = []
 
     public init()
     {
@@ -31,15 +50,18 @@ Insert a rotor in a given slot with the given start position
     public func insertRotor(rotor: Rotor, inSlot slotNumber: Int, position: Letter)
     {
 		rotorCradle.slot[slotNumber].insertRotor(rotor, position: position)
+        notifyStateChange()
     }
     public func insertReflector(reflector: Reflector, position: Letter)
     {
 		rotorCradle.insertReflector(reflector, position: position)
+        notifyStateChange()
     }
 
     public func plugInPair(pair: (Letter, Letter))
     {
         plugboard.plugInPair(pair)
+        notifyStateChange()
     }
 
     public func keyDown(aLetter: Letter)
@@ -58,12 +80,17 @@ Insert a rotor in a given slot with the given start position
                 currentLetter = plugboard.reverse[resultLetter]
             }
             litLamp = currentLetter
+            notifyStateChange()
         }
     }
 
     public func keyUp()
     {
-        litLamp = nil
+        if litLamp != nil
+        {
+            litLamp = nil
+			notifyStateChange()
+        }
     }
 
     public var rotorReadOut: [Letter?]
@@ -77,6 +104,28 @@ Insert a rotor in a given slot with the given start position
 
             }
             return ret
+        }
+    }
+
+/**
+
+Classes that are interested in state changes of the enigma machine use this
+function to register themselves.  Only a `weak` reference is held.
+
+:param: anObserver The new observer
+
+*/
+    public func registerObserver(anObserver: EnigmaObserver)
+    {
+		observers.append(Observer(observer: anObserver))
+    }
+
+    private func notifyStateChange()
+    {
+        var actualObservers = observers.filter{ observer in observer.observer != nil}.map{ $0.observer! }
+        for observer in actualObservers
+        {
+            observer.stateChanged(self)
         }
     }
 }

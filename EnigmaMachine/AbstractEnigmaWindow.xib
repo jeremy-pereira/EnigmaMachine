@@ -6,6 +6,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AbstractEnigmaController" customModule="EnigmaMachine" customModuleProvider="target">
             <connections>
+                <outlet property="ringDisplay1" destination="APg-4O-RDx" id="IGu-bL-58l"/>
+                <outlet property="ringDisplay2" destination="K6t-Fu-VOF" id="DT7-fz-6o5"/>
+                <outlet property="ringDisplay3" destination="PEu-h8-wfS" id="pR1-4Z-xc1"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="wrq-gc-v8E"/>
             </connections>
         </customObject>
