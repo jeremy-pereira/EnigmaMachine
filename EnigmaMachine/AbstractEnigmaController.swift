@@ -46,4 +46,19 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
             ringDisplay3.stringValue = String(letter.rawValue)
         }
     }
+
+    @IBAction func keyPressed(sender: AnyObject)
+    {
+		if let key = sender as? NSButton
+        {
+			if let identifier = key.identifier
+            {
+                let idUpperCase = identifier.uppercaseString
+                let idChar = idUpperCase[idUpperCase.startIndex]
+                let letter = Letter(rawValue: idChar)
+                enigmaMachine.keyDown(letter!)
+                enigmaMachine.keyUp()
+            }
+        }
+    }
 }
