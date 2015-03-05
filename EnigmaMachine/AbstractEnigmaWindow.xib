@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AbstractEnigmaController" customModule="EnigmaMachine" customModuleProvider="target">
             <connections>
+                <outlet property="outputLetters" destination="gOw-Ku-sTL" id="aUN-Im-Ra1"/>
                 <outlet property="ringDisplay1" destination="APg-4O-RDx" id="IGu-bL-58l"/>
                 <outlet property="ringDisplay2" destination="K6t-Fu-VOF" id="DT7-fz-6o5"/>
                 <outlet property="ringDisplay3" destination="PEu-h8-wfS" id="pR1-4Z-xc1"/>
@@ -106,7 +107,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="zQe-g6-B8o">
-                                    <rect key="frame" x="0.0" y="0.0" width="238" height="134"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="86" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -233,7 +234,7 @@
                         </popUpButtonCell>
                     </popUpButton>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lx-9g-pXo">
-                        <rect key="frame" x="16" y="247" width="51" height="32"/>
+                        <rect key="frame" x="14" y="247" width="51" height="32"/>
                         <buttonCell key="cell" type="push" title="Q" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mFY-C0-le6">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -291,13 +292,6 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOB-QB-7m6">
                         <rect key="frame" x="316" y="247" width="50" height="32"/>
                         <buttonCell key="cell" type="push" title="U" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zce-hK-pat">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzx-zh-sA9">
-                        <rect key="frame" x="19" y="181" width="49" height="32"/>
-                        <buttonCell key="cell" type="push" title="P" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tkj-Az-F4V">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -413,6 +407,13 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uxd-9c-uq3">
                         <rect key="frame" x="67" y="181" width="49" height="32"/>
                         <buttonCell key="cell" type="push" title="Y" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dc4-fD-AFg">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzx-zh-sA9">
+                        <rect key="frame" x="15" y="181" width="49" height="32"/>
+                        <buttonCell key="cell" type="push" title="P" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tkj-Az-F4V">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>

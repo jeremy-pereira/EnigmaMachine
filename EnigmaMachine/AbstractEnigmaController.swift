@@ -15,6 +15,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
     @IBOutlet var ringDisplay1: NSTextField!
     @IBOutlet var ringDisplay2: NSTextField!
     @IBOutlet var ringDisplay3: NSTextField!
+    @IBOutlet var outputLetters: NSTextField!
 
 	override convenience init()
     {
@@ -57,6 +58,10 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
                 let idChar = idUpperCase[idUpperCase.startIndex]
                 let letter = Letter(rawValue: idChar)
                 enigmaMachine.keyDown(letter!)
+                if let outputLetter = enigmaMachine.litLamp
+                {
+					outputLetters.stringValue.append(outputLetter.rawValue)
+                }
                 enigmaMachine.keyUp()
             }
         }
