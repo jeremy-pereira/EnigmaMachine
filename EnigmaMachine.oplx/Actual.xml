@@ -79,6 +79,12 @@
   <resource id="r1">
     <name>Jeremy</name>
     <type>Staff</type>
+    <schedule>
+      <calendar name="Time Off" editable="yes" overtime="no"/>
+      <calendar name="Overtime" editable="yes" overtime="yes">
+        <event start="2015-03-09T08:30:00.000Z" end="2015-03-09T09:30:00.000Z" sd="5180" st="30600" ed="5180" et="34200"/>
+      </calendar>
+    </schedule>
   </resource>
   <top-task idref="t-1"/>
   <task id="t-1">
@@ -88,7 +94,7 @@
   </task>
   <task id="t1">
     <title>Respond to real keyboard events</title>
-    <leveled-start>2015-03-19T08:24:42.000Z</leveled-start>
+    <leveled-start>2015-03-19T08:30:00.000Z</leveled-start>
     <effort>7200</effort>
     <assignment idref="r1"/>
   </task>
@@ -98,22 +104,23 @@
     <child-task idref="t9"/>
     <child-task idref="t11"/>
     <child-task idref="t10"/>
+    <child-task idref="t12"/>
   </task>
   <task id="t3">
     <title>Light box</title>
-    <leveled-start>2015-03-20T08:24:42.000Z</leveled-start>
+    <leveled-start>2015-03-20T08:30:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t4">
     <title>Remove default window</title>
-    <leveled-start>2015-03-26T08:24:42.000Z</leveled-start>
+    <leveled-start>2015-03-26T08:30:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t5">
     <title>Plugboard</title>
-    <leveled-start>2015-04-01T07:24:42.000Z</leveled-start>
+    <leveled-start>2015-04-01T07:30:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
@@ -129,13 +136,13 @@
   </task>
   <task id="t7">
     <title>Better rotor display</title>
-    <leveled-start>2015-04-07T07:24:42.000Z</leveled-start>
+    <leveled-start>2015-04-07T07:30:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t8">
     <title>Bombe</title>
-    <leveled-start>2015-04-13T07:24:42.000Z</leveled-start>
+    <leveled-start>2015-04-13T07:30:00.000Z</leveled-start>
     <effort>86400</effort>
     <assignment idref="r1"/>
   </task>
@@ -153,15 +160,24 @@
   </task>
   <task id="t10">
     <title>Drag and drop to rotor cradle</title>
-    <leveled-start>2015-03-13T08:24:42.000Z</leveled-start>
+    <leveled-start>2015-03-09T09:47:16.727Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t11">
     <title>Table view</title>
     <leveled-start>2015-03-09T08:24:42.905Z</leveled-start>
-    <effort>28800</effort>
+    <effort>3918</effort>
+    <effort-done>3918</effort-done>
     <locked-start-date>2015-03-09T08:24:42.905Z</locked-start-date>
+    <locked-end-date>2015-03-09T09:30:00.000Z</locked-end-date>
+    <recalculate>effort</recalculate>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t12">
+    <title>Ringstellung changer in table view</title>
+    <leveled-start>2015-03-13T08:30:00.000Z</leveled-start>
+    <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <critical-path root="-1" enabled="false" resources="false">

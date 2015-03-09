@@ -64,4 +64,14 @@ there are two rotors with the same name, we take the first one only.
     }
 
     public var count: Int { return rotor.count }
+
+    public func rotor(index: Int) -> Rotor?
+    {
+        var ret: Rotor?
+		if index >= 0 && index < rotor.count
+        {
+			ret = rotor[index]
+        }
+        return ret
+    }
 }

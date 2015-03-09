@@ -85,12 +85,42 @@
     <change idref="t10" attribute="resourceLeveledDate" type="date" from="2015-03-19T07:40:00.000Z" to="2015-03-13T08:24:42.000Z" resolved="yes"/>
     <change idref="t11" attribute="resourceLeveledDate" type="date" from="2015-03-13T07:40:00.000Z" to="2015-03-09T08:24:42.905Z" resolved="yes"/>
   </task-change-set>
-  <task-change-set user="Jeremy Pereira" date="2015-03-09T08:25:30.948Z" timestamp="2015-03-09T08:25:30.948Z">
-    <change idref="t11" attribute="startLockedDate" type="date" to="2015-03-09T08:24:42.905Z"/>
+  <task-change-set user="Jeremy Pereira" date="2015-03-09T09:28:36.836Z" timestamp="2015-03-09T09:28:36.836Z">
+    <change idref="t11" attribute="startLockedDate" type="date" to="2015-03-09T08:24:42.905Z" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jeremy Pereira" date="2015-03-09T09:29:35.265Z" timestamp="2015-03-09T09:29:35.265Z">
+    <change idref="t1" attribute="resourceLeveledDate" type="date" from="2015-03-19T08:24:42.000Z" to="2015-03-13T08:30:00.000Z" resolved="yes"/>
+    <change idref="t12" to="t2" to-position="3" resolved="yes">
+      <change idref="t12" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t12" attribute="title" type="string" to="Ringstellung changer in table view"/>
+    </change>
+    <change idref="t3" attribute="resourceLeveledDate" type="date" from="2015-03-20T08:24:42.000Z" to="2015-03-16T08:30:00.000Z" resolved="yes"/>
+    <change idref="t4" attribute="resourceLeveledDate" type="date" from="2015-03-26T08:24:42.000Z" to="2015-03-20T08:30:00.000Z" resolved="yes"/>
+    <change idref="t5" attribute="resourceLeveledDate" type="date" from="2015-04-01T07:24:42.000Z" to="2015-03-26T08:30:00.000Z" resolved="yes"/>
+    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-07T07:24:42.000Z" to="2015-04-01T07:30:00.000Z" resolved="yes"/>
+    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-13T07:24:42.000Z" to="2015-04-07T07:30:00.000Z" resolved="yes"/>
+    <change idref="t10" attribute="resourceLeveledDate" type="date" from="2015-03-13T08:24:42.000Z" to="2015-03-09T09:30:00.000Z" resolved="yes"/>
+    <change idref="t11" attribute="resourceAssignmentType" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t11" attribute="effort" type="real" from="28800" to="3918" resolved="yes"/>
+    <change idref="t11" attribute="endLockedDate" type="date" to="2015-03-09T09:30:00.000Z" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Jeremy Pereira" date="2015-03-09T09:47:44.437Z" timestamp="2015-03-09T09:47:44.437Z">
+    <change idref="t1" attribute="resourceLeveledDate" type="date" from="2015-03-13T08:30:00.000Z" to="2015-03-19T08:30:00.000Z"/>
+    <change idref="t3" attribute="resourceLeveledDate" type="date" from="2015-03-16T08:30:00.000Z" to="2015-03-20T08:30:00.000Z"/>
+    <change idref="t4" attribute="resourceLeveledDate" type="date" from="2015-03-20T08:30:00.000Z" to="2015-03-26T08:30:00.000Z"/>
+    <change idref="t5" attribute="resourceLeveledDate" type="date" from="2015-03-26T08:30:00.000Z" to="2015-04-01T07:30:00.000Z"/>
+    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-01T07:30:00.000Z" to="2015-04-07T07:30:00.000Z"/>
+    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-07T07:30:00.000Z" to="2015-04-13T07:30:00.000Z"/>
+    <change idref="t10" attribute="resourceLeveledDate" type="date" from="2015-03-09T09:30:00.000Z" to="2015-03-09T09:47:16.727Z"/>
+    <change idref="t11" attribute="internalEffortDone" type="real" from="0" to="3918"/>
+    <change idref="t12" attribute="resourceLeveledDate" type="date" to="2015-03-13T08:30:00.000Z"/>
   </task-change-set>
   <resource-change-set user="Jeremy Pereira" date="2015-03-09T07:40:28.745Z" timestamp="2015-03-09T07:40:28.745Z">
     <change idref="r-1" attribute="standardHoursString" type="string" from="-;-;-;-;-;-;-" to=";27000,30600,66600,70200;27000,30600,66600,70200;27000,30600,66600,70200;27000,30600,66600,70200;27000,30600,66600,70200;" resolved="yes"/>
     <change idref="r1" attribute="name" type="string" from="Resource 1" to="Jeremy" resolved="yes"/>
+  </resource-change-set>
+  <resource-change-set user="Jeremy Pereira" date="2015-03-09T09:28:36.835Z" timestamp="2015-03-09T09:28:36.835Z">
+    <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCgCAAAAAAAAAEBAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAJ" to="YnBsaXN0MDChAdQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmAAIChMWGRwfIicAAAAAAAABAQAAAAAAAAAJAAAAAAAAAAAAAAAAAAAALA==" resolved="yes"/>
   </resource-change-set>
   <metadata-change-set user="Jeremy Pereira" date="2015-03-09T07:29:30.520Z" timestamp="2015-03-09T07:29:30.520Z">
     <change idref="m1" attribute="fixedDate" type="date" from="2007-01-01T20:00:00.000Z" to="2015-03-09T08:00:00.000Z" resolved="yes"/>

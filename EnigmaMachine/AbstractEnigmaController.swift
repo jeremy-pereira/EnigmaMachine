@@ -8,14 +8,51 @@
 
 import Cocoa
 
+class  RotorBoxDataSource: NSObject, NSTableViewDataSource
+{
+    private var rotorBox: SpareRotorBox
+
+    init(rotorBox: SpareRotorBox)
+    {
+        self.rotorBox = rotorBox
+    }
+
+    func numberOfRowsInTableView(tableView: NSTableView) -> Int
+    {
+        return self.rotorBox.count
+    }
+
+    func tableView(                 tableView: NSTableView,
+		objectValueForTableColumn tableColumn: NSTableColumn?,
+        								  row: Int) -> AnyObject?
+    {
+        var ret: NSString?
+		let rotor = rotorBox.rotor(row)
+        if let rotor = rotor
+        {
+            if tableColumn?.identifier == "ring"
+            {
+                ret = rotor.name
+            }
+            else if tableColumn?.identifier == "ringStellung"
+            {
+                ret = "\(rotor.ringStellung.rawValue)"
+            }
+        }
+        return ret
+    }
+}
+
 class AbstractEnigmaController: NSWindowController, EnigmaObserver
 {
     var enigmaMachine: EnigmaMachine = EnigmaMachine()
+    var rotorBoxDataSource = RotorBoxDataSource(rotorBox: SpareRotorBox())
 
     @IBOutlet var ringDisplay1: NSTextField!
     @IBOutlet var ringDisplay2: NSTextField!
     @IBOutlet var ringDisplay3: NSTextField!
     @IBOutlet var outputLetters: NSTextField!
+    @IBOutlet var rotorBoxView: NSTableView!
 
 	override convenience init()
     {
@@ -29,6 +66,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
         enigmaMachine.insertRotor(RotorI(), inSlot: 2, position: Letter.A)
         enigmaMachine.insertRotor(RotorII(), inSlot: 1, position: Letter.A)
         enigmaMachine.insertRotor(RotorIII(), inSlot: 0, position: Letter.A)
+        rotorBoxView.setDataSource(rotorBoxDataSource)
     }
 
     func stateChanged(machine: EnigmaMachine)
