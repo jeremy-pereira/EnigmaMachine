@@ -24,6 +24,8 @@
 		FC6C9F141AA6090A0013352B /* AbstractEnigmaWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */; };
 		FC9AF86C1A9F9F8600335A29 /* TestRotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */; };
 		FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */; };
+		FCF0E1411AAD86E000DBC483 /* SpareRotorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF0E1401AAD86E000DBC483 /* SpareRotorBox.swift */; };
+		FCF0E1431AAD88DC00DBC483 /* TestRotorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF0E1421AAD88DC00DBC483 /* TestRotorBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AbstractEnigmaWindow.xib; sourceTree = "<group>"; };
 		FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorCradle.swift; sourceTree = "<group>"; };
 		FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorCradle.swift; sourceTree = "<group>"; };
+		FCF0E1401AAD86E000DBC483 /* SpareRotorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpareRotorBox.swift; sourceTree = "<group>"; };
+		FCF0E1421AAD88DC00DBC483 /* TestRotorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 				FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */,
 				FC6C9F0B1AA4EB060013352B /* TestPlugBoard.swift */,
 				FC6C9F0F1AA5D2BC0013352B /* TestEnigmaMachine.swift */,
+				FCF0E1421AAD88DC00DBC483 /* TestRotorBox.swift */,
 			);
 			path = EnigmaMachineTests;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */,
 				FC6C9F091AA4E7FA0013352B /* PlugBoard.swift */,
 				FC6C9F0D1AA5D1FC0013352B /* EnigmaMachine.swift */,
+				FCF0E1401AAD86E000DBC483 /* SpareRotorBox.swift */,
 			);
 			name = Components;
 			path = components;
@@ -261,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF0E1411AAD86E000DBC483 /* SpareRotorBox.swift in Sources */,
 				FC6C9F0E1AA5D1FC0013352B /* EnigmaMachine.swift in Sources */,
 				FC3D162D1A9CAF1800FE44B9 /* Rotor.swift in Sources */,
 				FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */,
@@ -279,6 +286,7 @@
 				FC3D16311A9DC07D00FE44B9 /* TestRotorWiring.swift in Sources */,
 				FC3D16211A9CAE5C00FE44B9 /* EnigmaMachineTests.swift in Sources */,
 				FC9AF86C1A9F9F8600335A29 /* TestRotorCradle.swift in Sources */,
+				FCF0E1431AAD88DC00DBC483 /* TestRotorBox.swift in Sources */,
 				FC6C9F0C1AA4EB060013352B /* TestPlugBoard.swift in Sources */,
 				FC6C9F101AA5D2BC0013352B /* TestEnigmaMachine.swift in Sources */,
 				FC3D16351A9DED8400FE44B9 /* TestLetter.swift in Sources */,

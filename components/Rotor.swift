@@ -11,6 +11,8 @@ import Foundation
 public let wiringI   = Wiring(string: "EKMFLGDQVZNTOWYHXUSPAIBRCJ")
 public let wiringII  = Wiring(string: "AJDKSIRUXBLHWTMCQGZNPYFVOE")
 public let wiringIII = Wiring(string: "BDFHJLCPRTXVZNYEIWGAKMUSQO")
+public let wiringIV = Wiring(string: "ESOVPZJAYQUIRHXLNFTGKDCMWB")
+public let wiringV = Wiring(string: "VZBRGITYUPSDNHLXAWMJQOFECK")
 
 public let wiringReflectorB = Wiring(string: "YRUHQSLDPXNGOKMIEBFZCWVJAT")
 
@@ -21,7 +23,7 @@ Class representing an Enigma rotor
 */
 public class Rotor: Connector
 {
-
+    public var name: String
     var wiring: Wiring = Wiring.identity
     var notch: Letter
     public var forward: Connection
@@ -34,8 +36,9 @@ ring.  For new rotors defaults to A
 */
     public var ringStellung: Letter = Letter.A
 
-    init(wiring: Wiring, notch: Letter)
+    init(name: String, wiring: Wiring, notch: Letter)
     {
+        self.name = name
         self.wiring = wiring
         self.notch = notch
         let rToL = RotorConnection(isRightToLeft: true)
@@ -78,7 +81,7 @@ public class RotorI: Rotor
 {
     public init()
     {
-        super.init(wiring: wiringI, notch: Letter.Q)
+        super.init(name: "I", wiring: wiringI, notch: Letter.Q)
     }
 }
 
@@ -91,7 +94,7 @@ public class RotorII: Rotor
 {
     public init()
     {
-        super.init(wiring: wiringII, notch: Letter.E)
+        super.init(name: "II", wiring: wiringII, notch: Letter.E)
     }
 }
 
@@ -104,7 +107,33 @@ public class RotorIII: Rotor
 {
     public init()
     {
-        super.init(wiring: wiringIII, notch: Letter.V)
+        super.init(name: "III", wiring: wiringIII, notch: Letter.V)
+    }
+}
+
+/**
+
+German military rotor IV
+
+*/
+public class RotorIV: Rotor
+{
+    public init()
+    {
+        super.init(name: "IV", wiring: wiringIV, notch: Letter.J)
+    }
+}
+
+/**
+
+German military rotor V
+
+*/
+public class RotorV: Rotor
+{
+    public init()
+    {
+        super.init(name: "V", wiring: wiringV, notch: Letter.Z)
     }
 }
 
