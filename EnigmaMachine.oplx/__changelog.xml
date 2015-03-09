@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
   <version>2.1</version>
+  <task-change-set user="Jeremy Pereira" date="2015-03-09T07:37:59.405Z" timestamp="2015-03-09T07:37:59.405Z">
+    <change idref="t6" to="t-1" to-position="0">
+      <change idref="t6" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t6" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t6" attribute="title" type="string" to="Enigma Machine"/>
+    </change>
+    <change idref="t8" to="t-1" to-position="1">
+      <change idref="t8" attribute="effort" type="real" from="28800" to="86400"/>
+      <change idref="t8" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t8" attribute="resourceLeveledDate" type="date" to="2015-04-07T07:00:00.000Z"/>
+      <change idref="t8" attribute="title" type="string" to="Bombe"/>
+    </change>
+    <change idref="t1" attribute="title" type="string" from="Task 1" to="Respond to real keyboard events"/>
+    <change idref="t1" attribute="effort" type="real" from="28800" to="7200"/>
+    <change idref="t1" attribute="internalAssignments" type="string" from="" to="1"/>
+    <change idref="t1" attribute="resourceLeveledDate" type="date" to="2015-03-09T08:00:00.000Z"/>
+    <change idref="t1" from="t-1" from-position="0" to="t6" to-position="0"/>
+    <change idref="t2" to="t6" to-position="1">
+      <change idref="t2" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t2" attribute="resourceLeveledDate" type="date" to="2015-03-10T08:00:00.000Z"/>
+      <change idref="t2" attribute="title" type="string" to="Rotors in a box"/>
+    </change>
+    <change idref="t3" to="t6" to-position="2">
+      <change idref="t3" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t3" attribute="resourceLeveledDate" type="date" to="2015-03-16T08:00:00.000Z"/>
+      <change idref="t3" attribute="title" type="string" to="Light box"/>
+    </change>
+    <change idref="t4" to="t6" to-position="3">
+      <change idref="t4" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t4" attribute="resourceLeveledDate" type="date" to="2015-03-20T08:00:00.000Z"/>
+      <change idref="t4" attribute="title" type="string" to="Remove default window"/>
+    </change>
+    <change idref="t5" to="t6" to-position="4">
+      <change idref="t5" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t5" attribute="resourceLeveledDate" type="date" to="2015-03-26T08:00:00.000Z"/>
+      <change idref="t5" attribute="title" type="string" to="Plugboard"/>
+    </change>
+    <change idref="t7" to="t6" to-position="5">
+      <change idref="t7" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t7" attribute="resourceLeveledDate" type="date" to="2015-04-01T07:00:00.000Z"/>
+      <change idref="t7" attribute="title" type="string" to="Better rotor display"/>
+    </change>
+  </task-change-set>
+  <resource-change-set user="Jeremy Pereira" date="2015-03-09T07:37:59.405Z" timestamp="2015-03-09T07:37:59.405Z">
+    <change idref="r-1" attribute="standardHoursString" type="string" from="-;-;-;-;-;-;-" to=";27000,30600,66600,70200;27000,30600,66600,70200;27000,30600,66600,70200;27000,30600,66600,70200;27000,30600,66600,70200;"/>
+    <change idref="r1" attribute="name" type="string" from="Resource 1" to="Jeremy"/>
+  </resource-change-set>
   <metadata-change-set user="Jeremy Pereira" date="2015-03-09T07:29:30.520Z" timestamp="2015-03-09T07:29:30.520Z">
     <change idref="m1" attribute="fixedDate" type="date" from="2007-01-01T20:00:00.000Z" to="2015-03-09T08:00:00.000Z" resolved="yes"/>
   </metadata-change-set>

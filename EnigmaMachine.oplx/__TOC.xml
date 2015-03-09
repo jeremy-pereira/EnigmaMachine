@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
-  <window x="367" y="268" w="1330" h="909">
+  <window x="337" y="245" w="1407" h="909">
     <editing-scenario>j3I0nGHZem1</editing-scenario>
     <view>task</view>
     <change-tracking/>
     <draw-folded/>
     <status-display>basic</status-display>
     <task-view>
-      <split-view-divider-position>306</split-view-divider-position>
-      <outline x="0" y="0" w="306" h="810">
+      <split-view-divider-position>636</split-view-divider-position>
+      <outline x="0" y="0" w="636" h="810">
         <column name="Violations" width="20"/>
         <column name="Notes" width="20"/>
-        <column name="Title" width="191"/>
+        <column name="Title" width="330"/>
         <column name="Effort" width="70"/>
+        <column name="%Done" width="87"/>
+        <column name="Prerequisites" width="102"/>
+        <expanded-items idrefs="t6"/>
+        <selected-items-at-filter-time idrefs="t4 t7 t2 t5 t8 t3 t6"/>
       </outline>
-      <gantt-view x="-29" y="0" w="1023" h="810">
+      <gantt-view x="-50" y="0" w="770" h="810">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
@@ -46,15 +50,15 @@
         <task-bar-label task-type="task" position="right">
           <key>Assigned</key>
         </task-bar-label>
-        <scale scale-name="Automatic" full-day-width="300">
-          <selected/>
-        </scale>
+        <scale scale-name="Automatic" full-day-width="300"/>
         <scale scale-name="Day" full-day-width="1215"/>
         <scale scale-name="Hour" full-day-width="65880"/>
         <scale scale-name="Minute" full-day-width="64800"/>
         <scale scale-name="Month" full-day-width="34.5"/>
         <scale scale-name="Quarter" full-day-width="9.6"/>
-        <scale scale-name="Week" full-day-width="162"/>
+        <scale scale-name="Week" full-day-width="233.092">
+          <selected/>
+        </scale>
         <scale scale-name="Year" full-day-width="2.3625"/>
       </gantt-view>
     </task-view>
@@ -110,7 +114,7 @@
     </resource-view>
     <calendar>
       <split-view-divider-position>290</split-view-divider-position>
-      <outline x="0" y="0" w="290" h="496">
+      <outline x="0" y="0" w="290" h="775">
         <column name="IM" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
@@ -121,15 +125,15 @@
     </calendar>
   </window>
   <project>
-    <next-task-id>2</next-task-id>
+    <next-task-id>9</next-task-id>
     <next-resource-id>2</next-resource-id>
     <scenario id="j3I0nGHZem1" name="Actual" filename="Actual.xml"/>
     <date-display dates="true" times="true" seconds="false"/>
     <numbering-style>wbs</numbering-style>
     <critical-path-slack>0</critical-path-slack>
     <currency-format>£1,234.56</currency-format>
-    <duration-format hours-per-day="8" hours-per-week="40" hours-per-month="160" hours-per-year="1920" hours="true" days="true" weeks="true"/>
-    <effort-format hours-per-day="8" hours-per-week="40" hours-per-month="160" hours-per-year="1920" hours="true" days="true" weeks="true"/>
+    <duration-format hours-per-day="2" hours-per-week="10" hours-per-month="40" hours-per-year="480" hours="true"/>
+    <effort-format hours-per-day="2" hours-per-week="10" hours-per-month="40" hours-per-year="480" hours="true"/>
     <base-style>
       <style/>
     </base-style>
