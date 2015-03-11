@@ -127,7 +127,15 @@ pawl is engaged.
         }
     }
 
+	public func removeRotor() -> Rotor?
+    {
+        var ret: Rotor? = self.rotor
 
+        _rotor = nil
+        _rotorPosition = nil
+
+		return ret
+    }
 }
 
 /**

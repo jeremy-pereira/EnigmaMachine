@@ -48,6 +48,33 @@ ring.  For new rotors defaults to A
         rToL.rotor = self
         lToR.rotor = self
     }
+
+    var description: String { return "EnigmaMachine.\(name) rs \(ringStellung)" }
+
+    public class func makeMilitaryI() -> Rotor
+    {
+        return Rotor(name: "I", wiring: wiringI, notch: Letter.Q)
+    }
+
+    public class func makeMilitaryII() -> Rotor
+    {
+        return Rotor(name: "II", wiring: wiringII, notch: Letter.E)
+    }
+
+    public class func makeMilitaryIII() -> Rotor
+    {
+        return Rotor(name: "III", wiring: wiringIII, notch: Letter.V)
+    }
+
+    public class func makeMilitaryIV() -> Rotor
+    {
+        return Rotor(name: "IV", wiring: wiringIV, notch: Letter.J)
+    }
+
+    public class func makeMilitaryV() -> Rotor
+    {
+        return Rotor(name: "V", wiring: wiringV, notch: Letter.Z)
+    }
 }
 
 class RotorConnection: Connection
@@ -70,70 +97,10 @@ class RotorConnection: Connection
     {
         fatalError("Cannot invoke makeInverse in RotorConnection")
     }
-}
 
-/**
-
-German military rotor I
-
-*/
-public class RotorI: Rotor
-{
-    public init()
+    var connectionString: String
     {
-        super.init(name: "I", wiring: wiringI, notch: Letter.Q)
-    }
-}
-
-/**
-
-German military rotor II
-
-*/
-public class RotorII: Rotor
-{
-    public init()
-    {
-        super.init(name: "II", wiring: wiringII, notch: Letter.E)
-    }
-}
-
-/**
-
-German military rotor III
-
-*/
-public class RotorIII: Rotor
-{
-    public init()
-    {
-        super.init(name: "III", wiring: wiringIII, notch: Letter.V)
-    }
-}
-
-/**
-
-German military rotor IV
-
-*/
-public class RotorIV: Rotor
-{
-    public init()
-    {
-        super.init(name: "IV", wiring: wiringIV, notch: Letter.J)
-    }
-}
-
-/**
-
-German military rotor V
-
-*/
-public class RotorV: Rotor
-{
-    public init()
-    {
-        super.init(name: "V", wiring: wiringV, notch: Letter.Z)
+		return rotor!.wiring.connectionString
     }
 }
 

@@ -15,7 +15,11 @@ A box of rotors that can be used in an enigma machine.
 */
 public class SpareRotorBox
 {
-    var rotor: [Rotor] = [ RotorI(), RotorII(), RotorIII(), RotorIV(), RotorV()]
+    var rotor: [Rotor] = [ Rotor.makeMilitaryI(),
+        				   Rotor.makeMilitaryII(),
+                           Rotor.makeMilitaryIII(),
+                           Rotor.makeMilitaryIV(),
+                           Rotor.makeMilitaryV() ]
 
     public init()
     {
@@ -71,6 +75,19 @@ there are two rotors with the same name, we take the first one only.
 		if index >= 0 && index < rotor.count
         {
 			ret = rotor[index]
+        }
+        return ret
+    }
+
+    public func rotorsAtIndexes(indexes: NSIndexSet) -> [Rotor]
+    {
+        var ret: [Rotor] = []
+        for (index, rotor) in enumerate(self.rotor)
+        {
+			if indexes.containsIndex(index)
+            {
+                ret.append(rotor)
+            }
         }
         return ret
     }

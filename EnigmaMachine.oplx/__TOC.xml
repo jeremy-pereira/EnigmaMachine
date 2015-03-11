@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
-  <window x="757" y="464" w="1407" h="909">
+  <window x="337" y="245" w="1407" h="909">
     <editing-scenario>j3I0nGHZem1</editing-scenario>
     <view>task</view>
     <change-tracking/>
@@ -8,7 +8,7 @@
     <status-display>basic</status-display>
     <task-view>
       <split-view-divider-position>636</split-view-divider-position>
-      <outline x="0" y="0" w="636" h="810">
+      <outline x="0" y="0" w="636" h="790">
         <column name="Violations" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Title" width="330"/>
@@ -16,9 +16,9 @@
         <column name="%Done" width="87"/>
         <column name="Prerequisites" width="102"/>
         <expanded-items idrefs="t6 t2"/>
-        <selected-items-at-filter-time idrefs="t9 t4 t10 t7 t2 t5 t12 t8 t3 t11 t6"/>
+        <selected-items-at-filter-time idrefs="t8 t13 t4 t9 t11 t5 t6 t12 t2 t7 t10 t3"/>
       </outline>
-      <gantt-view x="-53" y="0" w="770" h="810">
+      <gantt-view x="-46" y="0" w="770" h="790">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
@@ -51,27 +51,27 @@
           <key>Assigned</key>
         </task-bar-label>
         <scale scale-name="Automatic" full-day-width="300"/>
-        <scale scale-name="Day" full-day-width="1215"/>
+        <scale scale-name="Day" full-day-width="1215">
+          <selected/>
+        </scale>
         <scale scale-name="Hour" full-day-width="65880"/>
         <scale scale-name="Minute" full-day-width="64800"/>
         <scale scale-name="Month" full-day-width="34.5"/>
         <scale scale-name="Quarter" full-day-width="9.6"/>
-        <scale scale-name="Week" full-day-width="233.092">
-          <selected/>
-        </scale>
+        <scale scale-name="Week" full-day-width="613.145"/>
         <scale scale-name="Year" full-day-width="2.3625"/>
       </gantt-view>
     </task-view>
     <resource-view>
       <split-view-divider-position>306</split-view-divider-position>
-      <outline x="0" y="0" w="306" h="531">
+      <outline x="0" y="0" w="306" h="810">
         <column name="IM" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
         <column name="Resource" width="150"/>
         <column name="#" width="75"/>
       </outline>
-      <timeline x="-71" y="0" w="564" h="531">
+      <timeline x="-193" y="0" w="1072" h="810">
         <show-project-end/>
         <task-bar-label task-type="group" position="left">
           <key>Title</key>
@@ -125,7 +125,7 @@
     </calendar>
   </window>
   <project>
-    <next-task-id>13</next-task-id>
+    <next-task-id>14</next-task-id>
     <next-resource-id>2</next-resource-id>
     <scenario id="j3I0nGHZem1" name="Actual" filename="Actual.xml"/>
     <date-display dates="true" times="true" seconds="false"/>

@@ -17,9 +17,9 @@ class TestEnigmaMachine: XCTestCase
     override func setUp()
     {
         super.setUp()
-        enigmaMachine.insertRotor(RotorIII(), inSlot: 0, position: Letter.A)
-        enigmaMachine.insertRotor(RotorII() , inSlot: 1, position: Letter.A)
-        enigmaMachine.insertRotor(RotorI()  , inSlot: 2, position: Letter.A)
+        enigmaMachine.insertRotor(Rotor.makeMilitaryIII(), inSlot: 0, position: Letter.A)
+        enigmaMachine.insertRotor(Rotor.makeMilitaryII() , inSlot: 1, position: Letter.A)
+        enigmaMachine.insertRotor(Rotor.makeMilitaryI()  , inSlot: 2, position: Letter.A)
         enigmaMachine.insertReflector(reflectorB, position: Letter.A)
     }
     

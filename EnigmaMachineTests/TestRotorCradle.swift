@@ -17,9 +17,9 @@ class TestRotorCradle: XCTestCase
     override func setUp()
     {
         super.setUp()
-        standardCradle.slot[0].insertRotor(RotorIII(), position: Letter.A)
-        standardCradle.slot[1].insertRotor(RotorII() , position: Letter.A)
-        standardCradle.slot[2].insertRotor(RotorI()  , position: Letter.A)
+        standardCradle.slot[0].insertRotor(Rotor.makeMilitaryIII(), position: Letter.A)
+        standardCradle.slot[1].insertRotor(Rotor.makeMilitaryII() , position: Letter.A)
+        standardCradle.slot[2].insertRotor(Rotor.makeMilitaryI()  , position: Letter.A)
         standardCradle.insertReflector(reflectorB    , position: Letter.A)
     }
     

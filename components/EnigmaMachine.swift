@@ -52,6 +52,14 @@ Insert a rotor in a given slot with the given start position
 		rotorCradle.slot[slotNumber].insertRotor(rotor, position: position)
         notifyStateChange()
     }
+
+    public func removeRotorFromSlot(slotNumber: Int) -> Rotor?
+    {
+        let ret = rotorCradle.slot[slotNumber].removeRotor()
+        notifyStateChange()
+        return ret
+    }
+
     public func insertReflector(reflector: Reflector, position: Letter)
     {
 		rotorCradle.insertReflector(reflector, position: position)

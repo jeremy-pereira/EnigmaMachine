@@ -27,7 +27,8 @@ class TestRotor: XCTestCase
 
     func testRotorI()
     {
-    	let rotorI = RotorI()
+    	let rotorI = Rotor.makeMilitaryI()
+        println("rotor I description is \(rotorI)")
         rotorI.ringStellung = Letter.A
         XCTAssert(rotorI.forward[Letter.A] == Letter.E, "Rotor I has wrong letter A")
         XCTAssert(rotorI.forward[Letter.Z] == Letter.J, "Rotor I has wrong letter A")

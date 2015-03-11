@@ -16,6 +16,7 @@
 		FC3D162F1A9CB01600FE44B9 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D162E1A9CB01600FE44B9 /* Connection.swift */; };
 		FC3D16311A9DC07D00FE44B9 /* TestRotorWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D16301A9DC07D00FE44B9 /* TestRotorWiring.swift */; };
 		FC3D16351A9DED8400FE44B9 /* TestLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D16341A9DED8400FE44B9 /* TestLetter.swift */; };
+		FC5774F81AB0247100947999 /* RotorTextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5774F71AB0247100947999 /* RotorTextBox.swift */; };
 		FC6C9F0A1AA4E7FA0013352B /* PlugBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F091AA4E7FA0013352B /* PlugBoard.swift */; };
 		FC6C9F0C1AA4EB060013352B /* TestPlugBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F0B1AA4EB060013352B /* TestPlugBoard.swift */; };
 		FC6C9F0E1AA5D1FC0013352B /* EnigmaMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F0D1AA5D1FC0013352B /* EnigmaMachine.swift */; };
@@ -53,6 +54,7 @@
 		FC3D162E1A9CB01600FE44B9 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		FC3D16301A9DC07D00FE44B9 /* TestRotorWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorWiring.swift; sourceTree = "<group>"; };
 		FC3D16341A9DED8400FE44B9 /* TestLetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLetter.swift; sourceTree = "<group>"; };
+		FC5774F71AB0247100947999 /* RotorTextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorTextBox.swift; sourceTree = "<group>"; };
 		FC6C9F091AA4E7FA0013352B /* PlugBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugBoard.swift; sourceTree = "<group>"; };
 		FC6C9F0B1AA4EB060013352B /* TestPlugBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPlugBoard.swift; sourceTree = "<group>"; };
 		FC6C9F0D1AA5D1FC0013352B /* EnigmaMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnigmaMachine.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				FC3D160D1A9CAE5B00FE44B9 /* Supporting Files */,
 				FC6C9F111AA607770013352B /* AbstractEnigmaController.swift */,
 				FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */,
+				FC5774F71AB0247100947999 /* RotorTextBox.swift */,
 			);
 			path = EnigmaMachine;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF0E1411AAD86E000DBC483 /* SpareRotorBox.swift in Sources */,
+				FC5774F81AB0247100947999 /* RotorTextBox.swift in Sources */,
 				FC6C9F0E1AA5D1FC0013352B /* EnigmaMachine.swift in Sources */,
 				FC3D162D1A9CAF1800FE44B9 /* Rotor.swift in Sources */,
 				FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */,

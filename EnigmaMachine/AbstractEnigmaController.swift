@@ -8,9 +8,58 @@
 
 import Cocoa
 
+@objc class RotorPasteBoardWrapper: NSObject, NSPasteboardWriting, NSPasteboardReading
+{
+    var rotor: Rotor
+
+    init(rotor: Rotor)
+    {
+        self.rotor = rotor
+    }
+
+    required init!(pasteboardPropertyList propertyList: AnyObject!, ofType type: String!)
+    {
+        self.rotor = Rotor.makeMilitaryI()
+    }
+
+    // MARK: Writing
+
+    func writableTypesForPasteboard(pasteboard: NSPasteboard!) -> [AnyObject]!
+    {
+        println("Called writable types")
+        return RotorPasteBoardWrapper.readableTypesForPasteboard(pasteboard)
+    }
+
+    func writingOptionsForType(type: String!, pasteboard: NSPasteboard!) -> NSPasteboardWritingOptions
+    {
+        return NSPasteboardWritingOptions(0)
+    }
+
+    func pasteboardPropertyListForType(type: String!) -> AnyObject!
+    {
+        var ret: String?
+
+        if type == NSPasteboardTypeString
+        {
+            println("Dragging string")
+			ret = "\(rotor.name), \(rotor.ringStellung)"
+        }
+        return ret
+    }
+
+    // MARK: Reading
+
+    class func readableTypesForPasteboard(pasteboard: NSPasteboard!) -> [AnyObject]!
+    {
+        println("Called readable types")
+        return [NSPasteboardTypeString]
+    }
+}
+
 class  RotorBoxDataSource: NSObject, NSTableViewDataSource
 {
     private var rotorBox: SpareRotorBox
+    weak var enigmaController: AbstractEnigmaController!
 
     init(rotorBox: SpareRotorBox)
     {
@@ -20,6 +69,12 @@ class  RotorBoxDataSource: NSObject, NSTableViewDataSource
     func numberOfRowsInTableView(tableView: NSTableView) -> Int
     {
         return self.rotorBox.count
+    }
+
+    func insertRotor(newRotor: Rotor)
+    {
+        self.rotorBox.add(newRotor)
+        self.enigmaController.rotorBoxView.reloadData()
     }
 
     func tableView(                 tableView: NSTableView,
@@ -41,12 +96,26 @@ class  RotorBoxDataSource: NSObject, NSTableViewDataSource
         }
         return ret
     }
+
+    func tableView(           tableView: NSTableView,
+        writeRowsWithIndexes rowIndexes: NSIndexSet,
+        			toPasteboard pboard: NSPasteboard) -> Bool
+    {
+        assert(rowIndexes.count == 1, "Cannot handle drag of multiple rotors")
+        let draggingRotors = rotorBox.rotorsAtIndexes(rowIndexes)
+        enigmaController.rotorBeingDragged = draggingRotors[0]
+        let wrapper = RotorPasteBoardWrapper(rotor: draggingRotors[0])
+        pboard.writeObjects([wrapper])
+
+        return true
+    }
 }
 
 class AbstractEnigmaController: NSWindowController, EnigmaObserver
 {
     var enigmaMachine: EnigmaMachine = EnigmaMachine()
-    var rotorBoxDataSource = RotorBoxDataSource(rotorBox: SpareRotorBox())
+    var rotorBeingDragged: Rotor?
+    var rotorBoxDataSource: RotorBoxDataSource = RotorBoxDataSource(rotorBox: SpareRotorBox())
 
     @IBOutlet var ringDisplay1: NSTextField!
     @IBOutlet var ringDisplay2: NSTextField!
@@ -57,16 +126,17 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
 	override convenience init()
     {
         self.init(windowNibName: "AbstractEnigmaWindow")
+        rotorBoxDataSource.enigmaController = self
     }
 
     override func windowDidLoad()
     {
         enigmaMachine.registerObserver(self)
         enigmaMachine.insertReflector(reflectorB, position: Letter.A)
-        enigmaMachine.insertRotor(RotorI(), inSlot: 2, position: Letter.A)
-        enigmaMachine.insertRotor(RotorII(), inSlot: 1, position: Letter.A)
-        enigmaMachine.insertRotor(RotorIII(), inSlot: 0, position: Letter.A)
         rotorBoxView.setDataSource(rotorBoxDataSource)
+        ringDisplay1.registerForDraggedTypes([NSPasteboardTypeString])
+        ringDisplay2.registerForDraggedTypes([NSPasteboardTypeString])
+        ringDisplay3.registerForDraggedTypes([NSPasteboardTypeString])
     }
 
     func stateChanged(machine: EnigmaMachine)

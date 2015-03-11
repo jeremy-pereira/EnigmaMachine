@@ -229,6 +229,14 @@ mapping).
     inputs map to the same output.
 */
     func makeInverse() -> Connection?
+/**
+A string representation of the connections.  It should consist of a 26 character
+string.  The character at each index is the mapping for the letter with the 
+ordinal of the index.
+    
+If a connection from a letter returns nil, use - in the string.
+*/
+    var connectionString: String { get }
 }
 
 /**
@@ -292,6 +300,23 @@ class DictionaryConnection: Connection
         }
         return DictionaryConnection(map: newMap)
     }
+
+    lazy var connectionString: String =
+    {
+        var ret: String = ""
+        for letter in Letter.A ... Letter.Z
+        {
+            if let aMapping = self.map[letter]
+            {
+                ret.append(aMapping.rawValue)
+            }
+            else
+            {
+                ret.append(Character("-"))
+            }
+        }
+        return ret
+    }()
 }
 
 class ClosureConnection: Connection
@@ -313,6 +338,25 @@ class ClosureConnection: Connection
         fatalError("Cannot invoke makeInverse in ClosureConnection")
     }
 
+    var connectionString: String
+    {
+		get
+        {
+            var ret: String = ""
+            for letter in Letter.A ... Letter.Z
+            {
+                if let aMapping = self[letter]
+                {
+                    ret.append(aMapping.rawValue)
+                }
+                else
+                {
+                    ret.append(Character("-"))
+                }
+            }
+            return ret
+        }
+    }
 }
 
 class NullConnection: ClosureConnection
@@ -373,6 +417,11 @@ public class Wiring: Connector
         }
         self.init(map: stringMap)
     }
+
+    public lazy var connectionString: String =
+    {
+		return self.forward.connectionString
+    }()
 
     /**
 
