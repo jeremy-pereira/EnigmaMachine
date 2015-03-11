@@ -60,6 +60,14 @@ Insert a rotor in a given slot with the given start position
         return ret
     }
 
+    public func setRotorPosition(newPosition: Letter, slotNumber: Int)
+    {
+		if let rotor = self.removeRotorFromSlot(slotNumber)
+        {
+            self.insertRotor(rotor, inSlot: slotNumber, position: newPosition)
+        }
+    }
+
     public func insertReflector(reflector: Reflector, position: Letter)
     {
 		rotorCradle.insertReflector(reflector, position: position)
@@ -113,6 +121,18 @@ Insert a rotor in a given slot with the given start position
             }
             return ret
         }
+    }
+
+    public func rotorPositionForSlot(slotNumber: Int) -> Letter?
+    {
+        var ret: Letter?
+
+        if slotNumber >= 0 && slotNumber < self.rotorCradle.slot.count
+        {
+
+			ret = self.rotorCradle.slot[slotNumber].rotorPosition
+        }
+        return ret
     }
 
 /**

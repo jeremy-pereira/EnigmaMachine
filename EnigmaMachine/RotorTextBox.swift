@@ -16,13 +16,15 @@ Overriding the text box seems to be the only way to accept a drag operation.
 class RotorTextBox: NSTextField
 {
     @IBOutlet weak var enigmaController: AbstractEnigmaController!
+    @IBOutlet weak var stepper: NSStepper!
+
+    var lastStepperValue = 0
 
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
     {
         var ret = NSDragOperation.None
         if enigmaController.rotorBeingDragged != nil
         {
-            println("Dragging entered");
 			ret = NSDragOperation.Move
         }
         return ret
@@ -34,7 +36,6 @@ class RotorTextBox: NSTextField
         if let rotorBeingDragged = enigmaController.rotorBeingDragged
         {
             enigmaController.rotorBoxDataSource.removeRotor(rotorBeingDragged)
-            println("perform drag");
             if let identifier = self.identifier
             {
                 let ringIndex = identifier.toInt()!
@@ -52,4 +53,20 @@ class RotorTextBox: NSTextField
         return ret
     }
 
+    @IBAction func stepperChanged(sender: AnyObject)
+    {
+        let thisStepperValue = stepper.integerValue
+        let difference = thisStepperValue - lastStepperValue
+        lastStepperValue = stepper.integerValue
+
+        let slotNumber = self.identifier!.toInt()!
+
+		println("Step \(difference)")
+
+        if let rotorPosition = enigmaController.enigmaMachine.rotorPositionForSlot(slotNumber)
+        {
+            let newRotorPosition = rotorPosition &+ difference
+            enigmaController.enigmaMachine.setRotorPosition(newRotorPosition, slotNumber: self.identifier!.toInt()!)
+        }
+    }
 }

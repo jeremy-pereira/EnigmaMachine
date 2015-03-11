@@ -27,7 +27,10 @@
                 <subviews>
                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7j-zi-nXe">
                         <rect key="frame" x="39" y="465" width="19" height="27"/>
-                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="Z3a-XF-WvE"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="25" valueWraps="YES" id="Z3a-XF-WvE"/>
+                        <connections>
+                            <action selector="stepperChanged:" target="APg-4O-RDx" id="gMX-HO-PQx"/>
+                        </connections>
                     </stepper>
                     <textField identifier="2" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APg-4O-RDx" customClass="RotorTextBox" customModule="EnigmaMachine" customModuleProvider="target">
                         <rect key="frame" x="20" y="468" width="23" height="22"/>
@@ -38,11 +41,15 @@
                         </textFieldCell>
                         <connections>
                             <outlet property="enigmaController" destination="-2" id="cFK-qH-w7L"/>
+                            <outlet property="stepper" destination="S7j-zi-nXe" id="BdZ-eg-NOC"/>
                         </connections>
                     </textField>
                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEB-y4-wfg">
                         <rect key="frame" x="82" y="465" width="19" height="27"/>
-                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="qSa-ea-MEj"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="25" valueWraps="YES" id="qSa-ea-MEj"/>
+                        <connections>
+                            <action selector="stepperChanged:" target="K6t-Fu-VOF" id="5RK-WG-m9q"/>
+                        </connections>
                     </stepper>
                     <textField identifier="1" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K6t-Fu-VOF" customClass="RotorTextBox" customModule="EnigmaMachine" customModuleProvider="target">
                         <rect key="frame" x="63" y="468" width="23" height="22"/>
@@ -53,11 +60,15 @@
                         </textFieldCell>
                         <connections>
                             <outlet property="enigmaController" destination="-2" id="bBq-DM-zgh"/>
+                            <outlet property="stepper" destination="CEB-y4-wfg" id="d5X-gA-gFb"/>
                         </connections>
                     </textField>
                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMq-sW-P4o">
                         <rect key="frame" x="125" y="465" width="19" height="27"/>
-                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="kYr-Rb-jC4"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="25" valueWraps="YES" id="kYr-Rb-jC4"/>
+                        <connections>
+                            <action selector="stepperChanged:" target="PEu-h8-wfS" id="6M0-gr-ODO"/>
+                        </connections>
                     </stepper>
                     <textField identifier="0" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PEu-h8-wfS" customClass="RotorTextBox" customModule="EnigmaMachine" customModuleProvider="target">
                         <rect key="frame" x="106" y="468" width="23" height="22"/>
@@ -68,6 +79,7 @@
                         </textFieldCell>
                         <connections>
                             <outlet property="enigmaController" destination="-2" id="BEt-d2-XiT"/>
+                            <outlet property="stepper" destination="rMq-sW-P4o" id="vgP-OK-7GR"/>
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOw-Ku-sTL">
