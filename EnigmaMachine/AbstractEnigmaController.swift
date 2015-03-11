@@ -77,6 +77,16 @@ class  RotorBoxDataSource: NSObject, NSTableViewDataSource
         self.enigmaController.rotorBoxView.reloadData()
     }
 
+    func removeRotor(rotor: Rotor) ->Rotor?
+    {
+        let ret = rotorBox.removeRotor(rotor)
+        if ret != nil
+        {
+            enigmaController.rotorBoxView.reloadData()
+        }
+        return ret
+    }
+
     func tableView(                 tableView: NSTableView,
 		objectValueForTableColumn tableColumn: NSTableColumn?,
         								  row: Int) -> AnyObject?
@@ -102,11 +112,10 @@ class  RotorBoxDataSource: NSObject, NSTableViewDataSource
         			toPasteboard pboard: NSPasteboard) -> Bool
     {
         assert(rowIndexes.count == 1, "Cannot handle drag of multiple rotors")
-        let draggingRotors = rotorBox.rotorsAtIndexes(rowIndexes)
-        enigmaController.rotorBeingDragged = draggingRotors[0]
-        let wrapper = RotorPasteBoardWrapper(rotor: draggingRotors[0])
+        let draggingRotor = rotorBox.rotor[rowIndexes.firstIndex]
+        enigmaController.rotorBeingDragged = draggingRotor
+        let wrapper = RotorPasteBoardWrapper(rotor: draggingRotor)
         pboard.writeObjects([wrapper])
-
         return true
     }
 }

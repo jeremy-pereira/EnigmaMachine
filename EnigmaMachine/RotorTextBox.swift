@@ -33,6 +33,7 @@ class RotorTextBox: NSTextField
         var ret: Bool = false
         if let rotorBeingDragged = enigmaController.rotorBeingDragged
         {
+            enigmaController.rotorBoxDataSource.removeRotor(rotorBeingDragged)
             println("perform drag");
             if let identifier = self.identifier
             {

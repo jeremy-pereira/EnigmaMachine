@@ -47,7 +47,7 @@ there are two rotors with the same name, we take the first one only.
 :returns: The rotor with the given name or nil if there is none in the box.
 
 */
-    public func remove(name: String) -> Rotor?
+    public func removeRotor(#name: String) -> Rotor?
     {
         var ret: Rotor?
 
@@ -63,6 +63,36 @@ there are two rotors with the same name, we take the first one only.
         {
             ret = rotor[foundIndex]
             rotor.removeAtIndex(foundIndex)
+        }
+        return ret
+    }
+    public func removeRotor(rotorToGo: Rotor) -> Rotor?
+    {
+        var ret: Rotor?
+
+        var foundIndex: Int?
+        for var i = 0 ; i < rotor.count && foundIndex == nil ; ++i
+        {
+            if rotor[i] === rotorToGo
+            {
+                foundIndex = i
+            }
+        }
+        if let foundIndex = foundIndex
+        {
+            ret = rotor[foundIndex]
+            rotor.removeAtIndex(foundIndex)
+        }
+        return ret
+    }
+    public func removeRotor(#index: Int) -> Rotor?
+    {
+        var ret: Rotor?
+
+        if index >= 0 && index < rotor.count
+        {
+            ret = rotor[index]
+            rotor.removeAtIndex(index)
         }
         return ret
     }

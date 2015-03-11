@@ -1,90 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
   <version>2.1</version>
-  <task-change-set user="Jeremy Pereira" date="2015-03-09T07:40:28.745Z" timestamp="2015-03-09T07:40:28.745Z">
-    <change idref="t6" to="t-1" to-position="0" resolved="yes">
-      <change idref="t6" attribute="isGroup" type="real" from="0" to="1"/>
-      <change idref="t6" attribute="taskType" type="real" from="0" to="2"/>
-      <change idref="t6" attribute="title" type="string" to="Enigma Machine"/>
-    </change>
-    <change idref="t8" to="t-1" to-position="1" resolved="yes">
-      <change idref="t8" attribute="effort" type="real" from="28800" to="86400"/>
-      <change idref="t8" attribute="internalAssignments" type="string" from="" to="1"/>
-      <change idref="t8" attribute="resourceLeveledDate" type="date" to="2015-04-13T07:00:00.000Z"/>
-      <change idref="t8" attribute="title" type="string" to="Bombe"/>
-    </change>
-    <change idref="t1" attribute="title" type="string" from="Task 1" to="Respond to real keyboard events" resolved="yes"/>
-    <change idref="t1" attribute="effort" type="real" from="28800" to="7200" resolved="yes"/>
-    <change idref="t1" attribute="internalAssignments" type="string" from="" to="1" resolved="yes"/>
-    <change idref="t1" attribute="resourceLeveledDate" type="date" to="2015-03-19T08:00:00.000Z" resolved="yes"/>
-    <change idref="t2" to="t6" to-position="0" resolved="yes">
-      <change idref="t2" attribute="isGroup" type="real" from="0" to="1"/>
-      <change idref="t2" attribute="taskType" type="real" from="0" to="2"/>
-      <change idref="t2" attribute="title" type="string" to="Rotors in a box"/>
-    </change>
-    <change idref="t1" from="t-1" from-position="0" to="t6" to-position="1" resolved="yes"/>
-    <change idref="t3" to="t6" to-position="2" resolved="yes">
-      <change idref="t3" attribute="internalAssignments" type="string" from="" to="1"/>
-      <change idref="t3" attribute="resourceLeveledDate" type="date" to="2015-03-20T08:00:00.000Z"/>
-      <change idref="t3" attribute="title" type="string" to="Light box"/>
-    </change>
-    <change idref="t4" to="t6" to-position="3" resolved="yes">
-      <change idref="t4" attribute="internalAssignments" type="string" from="" to="1"/>
-      <change idref="t4" attribute="resourceLeveledDate" type="date" to="2015-03-26T08:00:00.000Z"/>
-      <change idref="t4" attribute="title" type="string" to="Remove default window"/>
-    </change>
-    <change idref="t5" to="t6" to-position="4" resolved="yes">
-      <change idref="t5" attribute="internalAssignments" type="string" from="" to="1"/>
-      <change idref="t5" attribute="resourceLeveledDate" type="date" to="2015-04-01T07:00:00.000Z"/>
-      <change idref="t5" attribute="title" type="string" to="Plugboard"/>
-    </change>
-    <change idref="t7" to="t6" to-position="5" resolved="yes">
-      <change idref="t7" attribute="internalAssignments" type="string" from="" to="1"/>
-      <change idref="t7" attribute="resourceLeveledDate" type="date" to="2015-04-07T07:00:00.000Z"/>
-      <change idref="t7" attribute="title" type="string" to="Better rotor display"/>
-    </change>
-    <change idref="t9" to="t2" to-position="0" resolved="yes">
-      <change idref="t9" attribute="internalAssignments" type="string" from="" to="1"/>
-      <change idref="t9" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-09T07:40:00.000Z"/>
-      <change idref="t9" attribute="title" type="string" to="Table view"/>
-    </change>
-    <change idref="t10" to="t2" to-position="1" resolved="yes">
-      <change idref="t10" attribute="internalAssignments" type="string" from="" to="1"/>
-      <change idref="t10" attribute="resourceLeveledDate" type="date" to="2015-03-13T08:00:00.000Z"/>
-      <change idref="t10" attribute="title" type="string" to="Drag and drop to rotor cradle"/>
-    </change>
-  </task-change-set>
-  <task-change-set user="Jeremy Pereira" date="2015-03-09T08:24:37.980Z" timestamp="2015-03-09T08:24:37.980Z">
-    <change idref="t1" attribute="resourceLeveledDate" type="date" from="2015-03-19T08:00:00.000Z" to="2015-03-25T07:40:00.000Z" resolved="yes"/>
-    <change idref="t11" to="t2" to-position="1" resolved="yes">
-      <change idref="t11" attribute="internalAssignments" type="string" from="" to="1"/>
-      <change idref="t11" attribute="resourceLeveledDate" type="date" to="2015-03-13T07:40:00.000Z"/>
-      <change idref="t11" attribute="title" type="string" to="Table view"/>
-    </change>
-    <change idref="t3" attribute="resourceLeveledDate" type="date" from="2015-03-20T08:00:00.000Z" to="2015-03-26T07:40:00.000Z" resolved="yes"/>
-    <change idref="t4" attribute="resourceLeveledDate" type="date" from="2015-03-26T08:00:00.000Z" to="2015-04-01T06:40:00.000Z" resolved="yes"/>
-    <change idref="t5" attribute="resourceLeveledDate" type="date" from="2015-04-01T07:00:00.000Z" to="2015-04-07T06:40:00.000Z" resolved="yes"/>
-    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-07T07:00:00.000Z" to="2015-04-13T06:40:00.000Z" resolved="yes"/>
-    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-13T07:00:00.000Z" to="2015-04-17T06:40:00.000Z" resolved="yes"/>
-    <change idref="t9" attribute="title" type="string" from="Table view" to="Rotor box" resolved="yes"/>
-    <change idref="t9" attribute="resourceAssignmentType" type="real" from="0" to="1" resolved="yes"/>
-    <change idref="t9" attribute="effort" type="real" from="28800" to="2700" resolved="yes"/>
-    <change idref="t9" attribute="endLockedDate" type="date" to="2015-03-09T08:25:00.000Z" resolved="yes"/>
-    <change idref="t9" attribute="startLockedDate" type="date" to="2015-03-09T07:40:00.000Z" resolved="yes"/>
-    <change idref="t9" attribute="resourceLeveledDate" type="date" to="2015-03-09T07:40:00.000Z" resolved="yes"/>
-    <change idref="t9" attribute="internalEffortDone" type="real" from="0" to="2700" resolved="yes"/>
-    <change idref="t10" attribute="resourceLeveledDate" type="date" from="2015-03-13T08:00:00.000Z" to="2015-03-19T07:40:00.000Z" resolved="yes"/>
-  </task-change-set>
-  <task-change-set user="Jeremy Pereira" date="2015-03-09T08:24:45.020Z" timestamp="2015-03-09T08:24:45.020Z">
-    <change idref="t1" attribute="resourceLeveledDate" type="date" from="2015-03-25T07:40:00.000Z" to="2015-03-19T08:24:42.000Z" resolved="yes"/>
-    <change idref="t3" attribute="resourceLeveledDate" type="date" from="2015-03-26T07:40:00.000Z" to="2015-03-20T08:24:42.000Z" resolved="yes"/>
-    <change idref="t4" attribute="resourceLeveledDate" type="date" from="2015-04-01T06:40:00.000Z" to="2015-03-26T08:24:42.000Z" resolved="yes"/>
-    <change idref="t5" attribute="resourceLeveledDate" type="date" from="2015-04-07T06:40:00.000Z" to="2015-04-01T07:24:42.000Z" resolved="yes"/>
-    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-13T06:40:00.000Z" to="2015-04-07T07:24:42.000Z" resolved="yes"/>
-    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-17T06:40:00.000Z" to="2015-04-13T07:24:42.000Z" resolved="yes"/>
-    <change idref="t10" attribute="resourceLeveledDate" type="date" from="2015-03-19T07:40:00.000Z" to="2015-03-13T08:24:42.000Z" resolved="yes"/>
-    <change idref="t11" attribute="resourceLeveledDate" type="date" from="2015-03-13T07:40:00.000Z" to="2015-03-09T08:24:42.905Z" resolved="yes"/>
-  </task-change-set>
   <task-change-set user="Jeremy Pereira" date="2015-03-09T09:28:36.836Z" timestamp="2015-03-09T09:28:36.836Z">
     <change idref="t11" attribute="startLockedDate" type="date" to="2015-03-09T08:24:42.905Z" resolved="yes"/>
   </task-change-set>
@@ -129,17 +45,31 @@
     <change idref="t10" attribute="internalEffortDone" type="real" from="0" to="5759.999656677246"/>
     <change idref="t12" attribute="resourceLeveledDate" type="date" from="2015-03-13T08:30:00.000Z" to="2015-03-13T19:00:00.000Z"/>
   </task-change-set>
-  <task-change-set user="Jeremy Pereira" date="2015-03-11T07:28:32.355Z" timestamp="2015-03-11T07:28:32.355Z">
+  <task-change-set user="Jeremy Pereira" date="2015-03-11T09:13:01.264Z" timestamp="2015-03-11T09:13:01.264Z">
+    <change idref="t1" attribute="resourceLeveledDate" type="date" from="2015-03-19T19:00:00.000Z" to="2015-03-27T08:12:56.000Z"/>
+    <change idref="t14" to="t2" to-position="3">
+      <change idref="t14" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t14" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-11T07:30:00.000Z"/>
+      <change idref="t14" attribute="resourceLeveledDate" type="date" to="2015-03-11T09:12:56.235Z"/>
+      <change idref="t14" attribute="title" type="string" to="Drag and drop from rotor cradle"/>
+    </change>
+    <change idref="t3" attribute="resourceLeveledDate" type="date" from="2015-03-20T19:00:00.000Z" to="2015-03-30T07:12:56.000Z"/>
+    <change idref="t4" attribute="resourceLeveledDate" type="date" from="2015-03-26T19:00:00.000Z" to="2015-04-03T07:12:56.000Z"/>
+    <change idref="t5" attribute="resourceLeveledDate" type="date" from="2015-04-01T18:00:00.000Z" to="2015-04-09T07:12:56.000Z"/>
     <change idref="t13" to="t6" to-position="1">
       <change idref="t13" attribute="internalAssignments" type="string" from="" to="1"/>
       <change idref="t13" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-11T07:30:00.000Z"/>
+      <change idref="t13" attribute="resourceLeveledDate" type="date" to="2015-03-23T08:12:56.000Z"/>
       <change idref="t13" attribute="title" type="string" to="Output can group characters"/>
     </change>
+    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-07T18:00:00.000Z" to="2015-04-15T07:12:56.000Z"/>
+    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-13T18:00:00.000Z" to="2015-04-21T07:12:56.000Z"/>
+    <change idref="t10" attribute="resourceAssignmentType" type="real" from="0" to="1"/>
+    <change idref="t10" attribute="effort" type="real" from="28800" to="15960"/>
+    <change idref="t10" attribute="endLockedDate" type="date" to="2015-03-11T09:11:00.000Z"/>
+    <change idref="t10" attribute="internalEffortDone" type="real" from="5759.99951171875" to="15960"/>
+    <change idref="t12" attribute="resourceLeveledDate" type="date" from="2015-03-13T19:00:00.000Z" to="2015-03-17T08:12:56.000Z"/>
   </task-change-set>
-  <resource-change-set user="Jeremy Pereira" date="2015-03-09T07:40:28.745Z" timestamp="2015-03-09T07:40:28.745Z">
-    <change idref="r-1" attribute="standardHoursString" type="string" from="-;-;-;-;-;-;-" to=";27000,30600,66600,70200;27000,30600,66600,70200;27000,30600,66600,70200;27000,30600,66600,70200;27000,30600,66600,70200;" resolved="yes"/>
-    <change idref="r1" attribute="name" type="string" from="Resource 1" to="Jeremy" resolved="yes"/>
-  </resource-change-set>
   <resource-change-set user="Jeremy Pereira" date="2015-03-09T09:28:36.835Z" timestamp="2015-03-09T09:28:36.835Z">
     <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCgCAAAAAAAAAEBAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAJ" to="YnBsaXN0MDChAdQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmAAIChMWGRwfIicAAAAAAAABAQAAAAAAAAAJAAAAAAAAAAAAAAAAAAAALA==" resolved="yes"/>
   </resource-change-set>
@@ -151,13 +81,7 @@
     <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCjAQkM1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkbvEAAiRwWYANQCAwQFBgoLBiJHeZwAIkd9IADUAgMEBQ0ODw0RFD0iRsvoACJG0vAACAwVGBseISQpLjc8QUpNUgAAAAAAAAEBAAAAAAAAABAAAAAAAAAAAAAAAAAAAABX" to="YnBsaXN0MDCkAQkMENQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmADUAgMEBQYKCwYiR3mcACJHfSAA1AIDBAUNDg8NERQ9IkbL6AAiRtLwANQCAwQFDRESDSJHeZwAIkeAUgAIDRYZHB8iJSovOD1CS05TWGFmAAAAAAAAAQEAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAGs="/>
     <change idref="r1" attribute="timeOffString" type="string" from="YnBsaXN0MDCiAQnUAgMEBQYHCAZSZWRSc3RSZXRSc2QRFDwiR4IUACJHg9YA1AIDBAUGCgsGIkeHWgAiR4kcAAgLFBcaHSAjKC02OwAAAAAAAAEBAAAAAAAAAAwAAAAAAAAAAAAAAAAAAABA" to="YnBsaXN0MDCjAQkM1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkeCFAAiR4PWANQCAwQFBgoLBiJHh1oAIkeJHADUAgMEBQ0ODw0RFD0iR4IUACJHiRwACAwVGBseISQpLjc8QUpNUgAAAAAAAAEBAAAAAAAAABAAAAAAAAAAAAAAAAAAAABX"/>
   </resource-change-set>
-  <resource-change-set user="Jeremy Pereira" date="2015-03-11T07:28:32.355Z" timestamp="2015-03-11T07:28:32.355Z">
-    <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCkAQkMENQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmADUAgMEBQYKCwYiR3mcACJHfSAA1AIDBAUNDg8NERQ9IkbL6AAiRtLwANQCAwQFDRESDSJHeZwAIkeAUgAIDRYZHB8iJSovOD1CS05TWGFmAAAAAAAAAQEAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAGs=" to="YnBsaXN0MDCkAQkMEdQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmADUAgMEBQYKCwYiR3mcACJHfSAA1AIDBAUNDg8QERQ+IkbL6AAiRtLwABEUPdQCAwQFEBITECJHeZwAIkeAUgAIDRYZHB8iJSovOD1CS05TWFtkaQAAAAAAAAEBAAAAAAAAABQAAAAAAAAAAAAAAAAAAABu"/>
+  <resource-change-set user="Jeremy Pereira" date="2015-03-11T09:13:01.264Z" timestamp="2015-03-11T09:13:01.264Z">
+    <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCkAQkMENQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmADUAgMEBQYKCwYiR3mcACJHfSAA1AIDBAUNDg8NERQ9IkbL6AAiRtLwANQCAwQFDRESDSJHeZwAIkeAUgAIDRYZHB8iJSovOD1CS05TWGFmAAAAAAAAAQEAAAAAAAAAEwAAAAAAAAAAAAAAAAAAAGs=" to="YnBsaXN0MDClAQkMERTUAgMEBQYHCAZSZWRSc3RSZXRSc2QRFDwiRu8QACJHBZgA1AIDBAUGCgsGIkd5nAAiR30gANQCAwQFDQ4PEBEUPiJGy+gAIkbS8AARFD3UAgMEBRASExAiR3mcACJHgFIA1AIDBAUNFRYNIkbvEAAiRwWYAAgOFxodICMmKzA5PkNMT1RZXGVqb3h9AAAAAAAAAQEAAAAAAAAAFwAAAAAAAAAAAAAAAAAAAII="/>
   </resource-change-set>
-  <metadata-change-set user="Jeremy Pereira" date="2015-03-09T07:29:30.520Z" timestamp="2015-03-09T07:29:30.520Z">
-    <change idref="m1" attribute="fixedDate" type="date" from="2007-01-01T20:00:00.000Z" to="2015-03-09T08:00:00.000Z" resolved="yes"/>
-  </metadata-change-set>
-  <metadata-change-set user="Jeremy Pereira" date="2015-03-09T07:40:28.744Z" timestamp="2015-03-09T07:40:28.744Z">
-    <change idref="m1" attribute="fixedDate" type="date" from="2015-03-09T08:00:00.000Z" to="2015-03-09T07:30:00.000Z" resolved="yes"/>
-  </metadata-change-set>
 </changelog>

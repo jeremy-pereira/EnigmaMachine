@@ -26,7 +26,7 @@ class TestRotorBox: XCTestCase
     func testRemoveRotor()
     {
         var rotorBox = SpareRotorBox()
-        let aRotor = rotorBox.remove("IV")
+        let aRotor = rotorBox.removeRotor(name: "IV")
     	XCTAssert(aRotor != nil && aRotor!.name == "IV", "Wrong name for rotor")
 		XCTAssert(rotorBox.count == 4, "Wrong rotor box count")
     }
