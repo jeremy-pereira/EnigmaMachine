@@ -12,6 +12,8 @@ class PrinterController: NSWindowController
 {
     @IBOutlet var outputLetters: NSTextField!
 
+    var letterCount = 0
+
     override func windowDidLoad()
     {
         super.windowDidLoad()
@@ -22,6 +24,11 @@ class PrinterController: NSWindowController
 
     func displayLetter(letter: Letter)
     {
+        if letterCount % 5 == 0 && letterCount != 0
+        {
+			outputLetters.stringValue += " "
+        }
         outputLetters.stringValue.append(letter.rawValue)
+        letterCount++
     }
 }
