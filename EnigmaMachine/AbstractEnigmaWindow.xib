@@ -515,7 +515,7 @@
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOw-Ku-sTL">
                         <rect key="frame" x="0.0" y="0.0" width="276" height="378"/>
                         <textFieldCell key="cell" selectable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="T2M-1J-7sF">
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="12" name="CourierNewPSMT"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
