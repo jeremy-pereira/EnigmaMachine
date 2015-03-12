@@ -83,12 +83,12 @@
       <calendar name="Time Off" editable="yes" overtime="no">
         <event start="2015-03-09T18:30:00.000Z" end="2015-03-09T18:45:00.000Z" sd="5180" st="66600" ed="5180" et="67500"/>
         <event start="2015-03-09T19:15:00.000Z" end="2015-03-09T19:30:00.000Z" sd="5180" st="69300" ed="5180" et="70200"/>
-        <event start="2015-03-10T18:30:00.000Z" end="2015-03-10T19:30:00.000Z" sd="5181" st="66600" ed="5181" et="70200"/>
+        <event start="2015-03-10T18:30:00.000Z" end="2015-03-11T19:30:00.000Z" sd="5181" st="66600" ed="5182" et="70200"/>
       </calendar>
       <calendar name="Overtime" editable="yes" overtime="yes">
         <event start="2015-03-09T08:30:00.000Z" end="2015-03-09T09:30:00.000Z" sd="5180" st="30600" ed="5180" et="34200"/>
         <event start="2015-03-09T17:45:00.000Z" end="2015-03-09T18:00:00.000Z" sd="5180" st="63900" ed="5180" et="64800"/>
-        <event start="2015-03-10T07:15:00.000Z" end="2015-03-11T07:30:00.000Z" sd="5181" st="26100" ed="5182" et="27000"/>
+        <event start="2015-03-10T07:15:00.000Z" end="2015-03-12T07:30:00.000Z" sd="5181" st="26100" ed="5183" et="27000"/>
         <event start="2015-03-10T17:45:00.000Z" end="2015-03-10T18:15:00.000Z" sd="5181" st="63900" ed="5181" et="65700"/>
         <event start="2015-03-11T08:30:00.000Z" end="2015-03-11T09:30:00.000Z" sd="5182" st="30600" ed="5182" et="34200"/>
         <event start="2015-03-11T18:00:00.000Z" end="2015-03-11T18:30:00.000Z" sd="5182" st="64800" ed="5182" et="66600"/>
@@ -103,8 +103,12 @@
   </task>
   <task id="t1">
     <title>Respond to real keyboard events</title>
-    <leveled-start>2015-03-30T07:00:02.000Z</leveled-start>
-    <effort>7200</effort>
+    <leveled-start>2015-03-11T18:07:26.812Z</leveled-start>
+    <effort>3034</effort>
+    <effort-done>3034</effort-done>
+    <locked-start-date>2015-03-11T18:07:26.812Z</locked-start-date>
+    <locked-end-date>2015-03-12T07:43:00.000Z</locked-end-date>
+    <recalculate>effort</recalculate>
     <assignment idref="r1"/>
   </task>
   <task id="t2">
@@ -118,19 +122,19 @@
   </task>
   <task id="t3">
     <title>Light box</title>
-    <leveled-start>2015-03-31T07:00:02.000Z</leveled-start>
+    <leveled-start>2015-04-10T06:45:55.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t4">
     <title>Remove default window</title>
-    <leveled-start>2015-04-06T07:00:02.000Z</leveled-start>
+    <leveled-start>2015-04-16T06:45:55.000Z</leveled-start>
     <effort>7200</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t5">
     <title>Plugboard</title>
-    <leveled-start>2015-04-07T07:00:02.000Z</leveled-start>
+    <leveled-start>2015-04-17T06:45:55.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
@@ -138,10 +142,10 @@
     <title>Enigma Machine</title>
     <type>group</type>
     <child-task idref="t15"/>
+    <child-task idref="t1"/>
+    <child-task idref="t19"/>
     <child-task idref="t16"/>
     <child-task idref="t2"/>
-    <child-task idref="t13"/>
-    <child-task idref="t1"/>
     <child-task idref="t3"/>
     <child-task idref="t4"/>
     <child-task idref="t5"/>
@@ -149,13 +153,13 @@
   </task>
   <task id="t7">
     <title>Better rotor display</title>
-    <leveled-start>2015-04-13T07:00:02.000Z</leveled-start>
+    <leveled-start>2015-04-23T06:45:55.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t8">
     <title>Bombe</title>
-    <leveled-start>2015-04-17T07:00:02.000Z</leveled-start>
+    <leveled-start>2015-04-29T06:45:55.000Z</leveled-start>
     <effort>86400</effort>
     <assignment idref="r1"/>
   </task>
@@ -193,21 +197,22 @@
   </task>
   <task id="t12">
     <title>Ringstellung changer in table view</title>
-    <leveled-start>2015-03-23T08:00:02.000Z</leveled-start>
+    <leveled-start>2015-04-06T06:45:55.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t13">
     <title>Output can group characters</title>
-    <leveled-start>2015-03-27T08:00:02.000Z</leveled-start>
+    <leveled-start>2015-03-18T07:45:55.000Z</leveled-start>
     <effort>7200</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t18"/>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-11T07:30:00.000Z</start-no-earlier-than>
   </task>
   <task id="t14">
     <title>Drag and drop from rotor cradle</title>
-    <leveled-start>2015-03-17T08:00:02.000Z</leveled-start>
+    <leveled-start>2015-03-31T06:45:55.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -227,11 +232,36 @@
   </task>
   <task id="t16">
     <title>Alt text to show rotor name and ringstellung</title>
-    <leveled-start>2015-03-11T18:00:02.350Z</leveled-start>
+    <leveled-start>2015-03-25T07:45:55.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-11T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t17">
+    <title>Output can scroll</title>
+    <leveled-start>2015-03-19T07:45:55.000Z</leveled-start>
+    <effort>28800</effort>
+    <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t18"/>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-12T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t18">
+    <title>Output has a separate tape window</title>
+    <leveled-start>2015-03-12T07:45:55.356Z</leveled-start>
+    <effort>28800</effort>
+    <locked-start-date>2015-03-12T07:45:55.356Z</locked-start-date>
+    <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-12T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t19">
+    <title>Output tape</title>
+    <type>group</type>
+    <child-task idref="t18"/>
+    <child-task idref="t13"/>
+    <child-task idref="t17"/>
   </task>
   <critical-path root="-1" enabled="false" resources="false">
     <color r="1" g="0.5" b="0.5"/>

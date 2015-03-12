@@ -3,22 +3,23 @@
   <window x="337" y="245" w="1407" h="909">
     <editing-scenario>j3I0nGHZem1</editing-scenario>
     <view>task</view>
+    <overview/>
     <change-tracking/>
     <draw-folded/>
     <status-display>basic</status-display>
     <task-view>
       <split-view-divider-position>636</split-view-divider-position>
-      <outline x="0" y="0" w="636" h="790">
+      <outline x="0" y="0" w="636" h="756">
         <column name="Violations" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Title" width="330"/>
         <column name="Effort" width="70"/>
         <column name="%Done" width="87"/>
         <column name="Prerequisites" width="102"/>
-        <expanded-items idrefs="t6 t2"/>
-        <selected-items-at-filter-time idrefs="t8 t13 t4 t16 t11 t9 t5 t14 t6 t12 t2 t7 t15 t10 t3"/>
+        <expanded-items idrefs="t19 t2 t6"/>
+        <selected-items-at-filter-time idrefs="t8 t18 t13 t4 t9 t11 t16 t5 t19 t14 t6 t17 t12 t2 t7 t15 t10 t3"/>
       </outline>
-      <gantt-view x="-46" y="0" w="770" h="790">
+      <gantt-view x="-46" y="0" w="770" h="756">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
@@ -71,7 +72,7 @@
         <column name="Resource" width="150"/>
         <column name="#" width="75"/>
       </outline>
-      <timeline x="-232" y="0" w="1072" h="810">
+      <timeline x="-234" y="0" w="1072" h="810">
         <show-project-end/>
         <task-bar-label task-type="group" position="left">
           <key>Title</key>
@@ -114,7 +115,7 @@
     </resource-view>
     <calendar>
       <split-view-divider-position>290</split-view-divider-position>
-      <outline x="0" y="0" w="290" h="630">
+      <outline x="0" y="0" w="290" h="596">
         <column name="IM" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
@@ -125,7 +126,7 @@
     </calendar>
   </window>
   <project>
-    <next-task-id>17</next-task-id>
+    <next-task-id>20</next-task-id>
     <next-resource-id>2</next-resource-id>
     <scenario id="j3I0nGHZem1" name="Actual" filename="Actual.xml"/>
     <date-display dates="true" times="true" seconds="false"/>

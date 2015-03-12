@@ -26,7 +26,6 @@ import Cocoa
 
     func writableTypesForPasteboard(pasteboard: NSPasteboard!) -> [AnyObject]!
     {
-        println("Called writable types")
         return RotorPasteBoardWrapper.readableTypesForPasteboard(pasteboard)
     }
 
@@ -41,7 +40,6 @@ import Cocoa
 
         if type == NSPasteboardTypeString
         {
-            println("Dragging string")
 			ret = "\(rotor.name), \(rotor.ringStellung)"
         }
         return ret
@@ -51,7 +49,6 @@ import Cocoa
 
     class func readableTypesForPasteboard(pasteboard: NSPasteboard!) -> [AnyObject]!
     {
-        println("Called readable types")
         return [NSPasteboardTypeString]
     }
 }
@@ -182,5 +179,30 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
                 enigmaMachine.keyUp()
             }
         }
+    }
+
+    private var lastLetter: Letter?
+
+    override func keyDown(theEvent: NSEvent)
+    {
+        if let characters = theEvent.characters
+        {
+            enigmaMachine.keyUp()
+            let uppercaseChars = characters.uppercaseString
+            let theChar = uppercaseChars[uppercaseChars.startIndex]
+			if let letter = Letter(rawValue: theChar)
+            {
+                enigmaMachine.keyDown(letter)
+                if let outputLetter = enigmaMachine.litLamp
+                {
+                    outputLetters.stringValue.append(outputLetter.rawValue)
+                }
+            }
+        }
+    }
+
+    override func keyUp(theEvent: NSEvent)
+    {
+        enigmaMachine.keyUp()
     }
 }
