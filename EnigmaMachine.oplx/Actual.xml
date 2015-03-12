@@ -122,19 +122,19 @@
   </task>
   <task id="t3">
     <title>Light box</title>
-    <leveled-start>2015-04-08T18:10:50.000Z</leveled-start>
+    <leveled-start>2015-04-07T18:17:11.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t4">
     <title>Remove default window</title>
-    <leveled-start>2015-04-14T18:10:50.000Z</leveled-start>
+    <leveled-start>2015-04-13T18:17:11.000Z</leveled-start>
     <effort>7200</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t5">
     <title>Plugboard</title>
-    <leveled-start>2015-04-15T18:10:50.000Z</leveled-start>
+    <leveled-start>2015-04-14T18:17:11.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
@@ -153,13 +153,13 @@
   </task>
   <task id="t7">
     <title>Better rotor display</title>
-    <leveled-start>2015-04-21T18:10:50.000Z</leveled-start>
+    <leveled-start>2015-04-20T18:17:11.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t8">
     <title>Bombe</title>
-    <leveled-start>2015-04-27T18:10:50.000Z</leveled-start>
+    <leveled-start>2015-04-24T18:17:11.000Z</leveled-start>
     <effort>86400</effort>
     <assignment idref="r1"/>
   </task>
@@ -197,23 +197,26 @@
   </task>
   <task id="t12">
     <title>Ringstellung changer in table view</title>
-    <leveled-start>2015-04-02T18:10:50.000Z</leveled-start>
+    <leveled-start>2015-04-01T18:17:11.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t13">
     <title>Output can group characters</title>
     <leveled-start>2015-03-12T08:10:50.931Z</leveled-start>
-    <effort>7200</effort>
+    <effort>310</effort>
+    <effort-done>310</effort-done>
     <locked-start-date>2015-03-12T08:10:50.931Z</locked-start-date>
+    <locked-end-date>2015-03-12T08:16:00.000Z</locked-end-date>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
+    <recalculate>effort</recalculate>
     <prerequisite-task idref="t18"/>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-11T07:30:00.000Z</start-no-earlier-than>
   </task>
   <task id="t14">
     <title>Drag and drop from rotor cradle</title>
-    <leveled-start>2015-03-27T19:10:50.000Z</leveled-start>
+    <leveled-start>2015-03-26T19:17:11.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -233,7 +236,7 @@
   </task>
   <task id="t16">
     <title>Alt text to show rotor name and ringstellung</title>
-    <leveled-start>2015-03-23T19:10:50.000Z</leveled-start>
+    <leveled-start>2015-03-20T19:17:11.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -241,7 +244,7 @@
   </task>
   <task id="t17">
     <title>Output can scroll</title>
-    <leveled-start>2015-03-13T08:10:50.000Z</leveled-start>
+    <leveled-start>2015-03-12T08:17:11.013Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <prerequisite-task idref="t18"/>
@@ -270,10 +273,11 @@
     <child-task idref="t21"/>
     <child-task idref="t22"/>
     <child-task idref="t23"/>
+    <child-task idref="t24"/>
   </task>
   <task id="t20">
     <title>Position print window better</title>
-    <leveled-start>2015-03-19T08:10:50.000Z</leveled-start>
+    <leveled-start>2015-03-18T08:17:11.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -281,7 +285,7 @@
   </task>
   <task id="t21">
     <title>Print window sizes text correctly</title>
-    <leveled-start>2015-03-19T19:10:50.000Z</leveled-start>
+    <leveled-start>2015-03-18T19:17:11.000Z</leveled-start>
     <effort>7200</effort>
     <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -289,7 +293,7 @@
   </task>
   <task id="t22">
     <title>Show/hide print window</title>
-    <leveled-start>2015-03-20T19:10:50.000Z</leveled-start>
+    <leveled-start>2015-03-19T19:17:11.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -297,10 +301,16 @@
   </task>
   <task id="t23">
     <title>Fixed font size</title>
-    <leveled-start>2015-03-23T08:10:50.000Z</leveled-start>
+    <leveled-start>2015-03-20T08:17:11.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-12T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t24">
+    <title>Character grouping is configurable</title>
+    <effort>3600</effort>
+    <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <start-no-earlier-than>2015-03-12T07:30:00.000Z</start-no-earlier-than>
   </task>
   <critical-path root="-1" enabled="false" resources="false">
