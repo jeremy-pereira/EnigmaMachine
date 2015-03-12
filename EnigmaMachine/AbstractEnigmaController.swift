@@ -126,8 +126,8 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
     @IBOutlet var ringDisplay1: NSTextField!
     @IBOutlet var ringDisplay2: NSTextField!
     @IBOutlet var ringDisplay3: NSTextField!
-    @IBOutlet var outputLetters: NSTextField!
     @IBOutlet var rotorBoxView: NSTableView!
+    @IBOutlet var printerController: PrinterController!
 
 	override convenience init()
     {
@@ -174,7 +174,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
                 enigmaMachine.keyDown(letter!)
                 if let outputLetter = enigmaMachine.litLamp
                 {
-					outputLetters.stringValue.append(outputLetter.rawValue)
+                    printerController.displayLetter(outputLetter)
                 }
                 enigmaMachine.keyUp()
             }
@@ -195,7 +195,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
                 enigmaMachine.keyDown(letter)
                 if let outputLetter = enigmaMachine.litLamp
                 {
-                    outputLetters.stringValue.append(outputLetter.rawValue)
+                    printerController.displayLetter(outputLetter)
                 }
             }
         }

@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="AbstractEnigmaController" customModule="EnigmaMachine" customModuleProvider="target">
             <connections>
                 <outlet property="outputLetters" destination="gOw-Ku-sTL" id="aUN-Im-Ra1"/>
+                <outlet property="printerController" destination="IIq-Mh-32a" id="R8q-Di-znw"/>
                 <outlet property="ringDisplay1" destination="APg-4O-RDx" id="IGu-bL-58l"/>
                 <outlet property="ringDisplay2" destination="K6t-Fu-VOF" id="DT7-fz-6o5"/>
                 <outlet property="ringDisplay3" destination="PEu-h8-wfS" id="pR1-4Z-xc1"/>
@@ -81,38 +82,6 @@
                             <outlet property="enigmaController" destination="-2" id="BEt-d2-XiT"/>
                             <outlet property="stepper" destination="rMq-sW-P4o" id="vgP-OK-7GR"/>
                         </connections>
-                    </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOw-Ku-sTL">
-                        <rect key="frame" x="20" y="355" width="437" height="39"/>
-                        <textFieldCell key="cell" selectable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="T2M-1J-7sF">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FaO-6r-oeT">
-                        <rect key="frame" x="20" y="283" width="439" height="39"/>
-                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="NAO-mu-xwA">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GYx-Aj-6g0">
-                        <rect key="frame" x="19" y="402" width="47" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output" id="asE-xQ-OCr">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHA-Gq-Umo">
-                        <rect key="frame" x="19" y="330" width="36" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Input" id="Du8-XE-Ukt">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iX-G8-U2x">
                         <rect key="frame" x="20" y="163" width="68" height="17"/>
@@ -534,5 +503,31 @@
             </view>
             <point key="canvasLocation" x="298.5" y="223"/>
         </window>
+        <window title="Printer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="fXK-8d-TTz" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="132" width="276" height="378"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <view key="contentView" id="h05-5V-i2g">
+                <rect key="frame" x="7" y="11" width="276" height="378"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOw-Ku-sTL">
+                        <rect key="frame" x="0.0" y="0.0" width="276" height="378"/>
+                        <textFieldCell key="cell" selectable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="T2M-1J-7sF">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="698" y="154"/>
+        </window>
+        <customObject id="IIq-Mh-32a" customClass="PrinterController" customModule="EnigmaMachine" customModuleProvider="target">
+            <connections>
+                <outlet property="outputLetters" destination="gOw-Ku-sTL" id="BWx-yW-Fww"/>
+            </connections>
+        </customObject>
     </objects>
 </document>
