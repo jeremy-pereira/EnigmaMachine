@@ -6,7 +6,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AbstractEnigmaController" customModule="EnigmaMachine" customModuleProvider="target">
             <connections>
-                <outlet property="outputLetters" destination="gOw-Ku-sTL" id="aUN-Im-Ra1"/>
                 <outlet property="printerController" destination="IIq-Mh-32a" id="R8q-Di-znw"/>
                 <outlet property="ringDisplay1" destination="APg-4O-RDx" id="IGu-bL-58l"/>
                 <outlet property="ringDisplay2" destination="K6t-Fu-VOF" id="DT7-fz-6o5"/>
@@ -506,13 +505,13 @@
         <window title="Printer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="fXK-8d-TTz" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="132" width="276" height="378"/>
+            <rect key="contentRect" x="777" y="416" width="276" height="378"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <view key="contentView" id="h05-5V-i2g">
                 <rect key="frame" x="7" y="11" width="276" height="378"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOw-Ku-sTL">
+                    <textField horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="276" placeholderIntrinsicHeight="378" translatesAutoresizingMaskIntoConstraints="NO" id="gOw-Ku-sTL">
                         <rect key="frame" x="0.0" y="0.0" width="276" height="378"/>
                         <textFieldCell key="cell" selectable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="T2M-1J-7sF">
                             <font key="font" size="12" name="CourierNewPSMT"/>
@@ -521,6 +520,12 @@
                         </textFieldCell>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gOw-Ku-sTL" secondAttribute="bottom" id="Ali-p5-PbH"/>
+                    <constraint firstItem="gOw-Ku-sTL" firstAttribute="top" secondItem="h05-5V-i2g" secondAttribute="top" id="VpN-Ll-fU6"/>
+                    <constraint firstAttribute="trailing" secondItem="gOw-Ku-sTL" secondAttribute="trailing" id="ao4-bo-3dB"/>
+                    <constraint firstItem="gOw-Ku-sTL" firstAttribute="leading" secondItem="h05-5V-i2g" secondAttribute="leading" id="eLK-9v-awD"/>
+                </constraints>
             </view>
             <point key="canvasLocation" x="698" y="154"/>
         </window>
