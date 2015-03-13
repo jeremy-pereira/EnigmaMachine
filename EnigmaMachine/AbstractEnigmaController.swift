@@ -129,7 +129,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
     @IBOutlet var rotorBoxView: NSTableView!
     @IBOutlet var printerController: PrinterController!
 
-	override convenience init()
+	convenience init()
     {
         self.init(windowNibName: "AbstractEnigmaWindow")
         rotorBoxDataSource.enigmaController = self

@@ -11,24 +11,70 @@ import Cocoa
 class PrinterController: NSWindowController
 {
     @IBOutlet var outputLetters: NSTextField!
-
-    var letterCount = 0
+    @IBOutlet var groupSize: NSTextField!
+    @IBOutlet var groupStepper: NSStepper!
 
     override func windowDidLoad()
     {
         super.windowDidLoad()
 
-        // Implement this method to handle any initialization after your window 
-        // controller's window has been loaded from its nib file.
+		println("PrinterController nib loaded")
+
     }
 
+	override func awakeFromNib()
+	{
+		groupSize.integerValue = 5
+		groupStepper.integerValue = 5
+	}
+
+	private var letterCount: Int = 0
     func displayLetter(letter: Letter)
     {
-        if letterCount % 5 == 0 && letterCount != 0
+        if letterCount % groupSize.integerValue == 0 && letterCount != 0
         {
 			outputLetters.stringValue += " "
         }
         outputLetters.stringValue.append(letter.rawValue)
         letterCount++
     }
+
+	@IBAction func clearOutput(sender: AnyObject)
+	{
+		outputLetters.stringValue = ""
+		letterCount = 0
+	}
+
+	@IBAction func changeGroupSize(sender: AnyObject)
+	{
+        var newGroupSize: Int?
+        if sender === groupSize
+        {
+            newGroupSize = groupSize.integerValue
+            groupStepper.integerValue = newGroupSize!
+        }
+        else if sender === groupStepper
+        {
+            newGroupSize = groupStepper.integerValue
+            groupSize.integerValue = newGroupSize!
+        }
+        if let newGroupSize = newGroupSize
+        {
+            var strippedOutput = outputLetters.stringValue.stringByReplacingOccurrencesOfString(" ", withString: "")
+            var index = strippedOutput.startIndex
+            var newOutput = ""
+            var count = 0
+            while index < strippedOutput.endIndex
+            {
+				if count % newGroupSize == 0 && count != 0
+                {
+                    newOutput.append(Character(" "))
+                }
+                newOutput.append(strippedOutput[index])
+                count++
+                index++
+            }
+            outputLetters.stringValue = newOutput
+        }
+	}
 }
