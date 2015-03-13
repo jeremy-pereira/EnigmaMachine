@@ -17,7 +17,7 @@
         <column name="%Done" width="87"/>
         <column name="Prerequisites" width="102"/>
         <expanded-items idrefs="t19 t2 t6"/>
-        <selected-items-at-filter-time idrefs="t21 t9 t13 t18 t2 t22 t14 t3 t19 t10 t4 t23 t15 t5 t11 t6 t24 t16 t7 t20 t12 t8 t17"/>
+        <selected-items-at-filter-time idrefs="t17 t21 t13 t9 t26 t18 t2 t22 t14 t3 t27 t19 t10 t4 t23 t15 t5 t11 t6 t24 t16 t7 t20 t12 t25 t8"/>
       </outline>
       <gantt-view x="-46" y="0" w="770" h="756">
         <view-mode>actual</view-mode>
@@ -65,14 +65,14 @@
     </task-view>
     <resource-view>
       <split-view-divider-position>306</split-view-divider-position>
-      <outline x="0" y="0" w="306" h="810">
+      <outline x="0" y="0" w="306" h="776">
         <column name="IM" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Type" width="49"/>
         <column name="Resource" width="150"/>
         <column name="#" width="75"/>
       </outline>
-      <timeline x="-234" y="0" w="1072" h="810">
+      <timeline x="-234" y="0" w="1072" h="776">
         <show-project-end/>
         <task-bar-label task-type="group" position="left">
           <key>Title</key>
@@ -126,7 +126,7 @@
     </calendar>
   </window>
   <project>
-    <next-task-id>25</next-task-id>
+    <next-task-id>28</next-task-id>
     <next-resource-id>2</next-resource-id>
     <scenario id="j3I0nGHZem1" name="Actual" filename="Actual.xml"/>
     <date-display dates="true" times="true" seconds="false"/>
