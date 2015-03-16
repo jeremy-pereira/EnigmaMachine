@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7525" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7519.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7525"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AbstractEnigmaController" customModule="EnigmaMachine" customModuleProvider="target">
@@ -527,64 +527,21 @@
         <window title="Printer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="fXK-8d-TTz" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="777" y="416" width="276" height="378"/>
+            <rect key="contentRect" x="777" y="416" width="276" height="428"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <view key="contentView" id="h05-5V-i2g">
-                <rect key="frame" x="0.0" y="5" width="276" height="378"/>
+                <rect key="frame" x="0.0" y="5" width="276" height="428"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EpF-q6-MTz">
-                        <rect key="frame" x="180" y="13" width="73" height="32"/>
-                        <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QI6-xV-Sze">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="clearOutput:" target="IIq-Mh-32a" id="tpt-Gn-x2b"/>
-                        </connections>
-                    </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-Im-gvu">
-                        <rect key="frame" x="20" y="23" width="71" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Group size" id="5tk-Ge-D1s">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-Ll-Svj">
-                        <rect key="frame" x="142" y="17" width="19" height="27"/>
-                        <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="10" doubleValue="1" id="dVh-e4-FAT"/>
-                        <connections>
-                            <action selector="changeGroupSize:" target="IIq-Mh-32a" id="u3c-XT-S5O"/>
-                        </connections>
-                    </stepper>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="iLT-Zv-cR1">
-                        <rect key="frame" x="97" y="20" width="40" height="22"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="1pc-ji-lVh"/>
-                        </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="5" drawsBackground="YES" id="TKv-tn-KQ2">
-                            <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="V5E-v6-ez3">
-                                <real key="minimum" value="1"/>
-                                <real key="maximum" value="10"/>
-                            </numberFormatter>
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <action selector="changeGroupSize:" target="IIq-Mh-32a" id="wXE-Rp-XTD"/>
-                        </connections>
-                    </textField>
                     <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6x-kV-Nmw">
-                        <rect key="frame" x="-1" y="61" width="278" height="318"/>
+                        <rect key="frame" x="-1" y="111" width="278" height="318"/>
                         <clipView key="contentView" id="jt8-EC-SHz">
                             <rect key="frame" x="1" y="1" width="166" height="79"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField horizontalHuggingPriority="1" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" ambiguous="YES" misplaced="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-NP-MMR">
+                                <textField horizontalHuggingPriority="1" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-NP-MMR">
                                     <rect key="frame" x="0.0" y="263" width="279" height="39"/>
-                                    <textFieldCell key="cell" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="Output will be printer here" drawsBackground="YES" id="1Bo-3I-GYH">
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="Output will be printer here" drawsBackground="YES" id="1Bo-3I-GYH">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -605,29 +562,128 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2DJ-Iw-Y3O" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
+                        <rect key="frame" x="2" y="70" width="156" height="22"/>
+                        <subviews>
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-Ll-Svj">
+                                <rect key="frame" x="140" y="-3" width="19" height="27"/>
+                                <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="10" doubleValue="1" id="dVh-e4-FAT"/>
+                                <connections>
+                                    <action selector="changeValue:" target="2DJ-Iw-Y3O" id="TjN-mR-RSh"/>
+                                </connections>
+                            </stepper>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iLT-Zv-cR1">
+                                <rect key="frame" x="95" y="0.0" width="40" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1pc-ji-lVh"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="5" drawsBackground="YES" id="TKv-tn-KQ2">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="V5E-v6-ez3">
+                                        <real key="minimum" value="1"/>
+                                        <real key="maximum" value="10"/>
+                                    </numberFormatter>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="changeValue:" target="2DJ-Iw-Y3O" id="phB-hf-fAQ"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-Im-gvu">
+                                <rect key="frame" x="18" y="3" width="71" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Group size" id="5tk-Ge-D1s">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <connections>
+                            <outlet property="stepper" destination="9RG-Ll-Svj" id="3Dq-uQ-u4q"/>
+                            <outlet property="textField" destination="iLT-Zv-cR1" id="ayf-GF-H5a"/>
+                        </connections>
+                    </customView>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpu-U5-6gV" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
+                        <rect key="frame" x="2" y="20" width="156" height="42"/>
+                        <subviews>
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4y-6c-29x">
+                                <rect key="frame" x="140" y="17" width="19" height="27"/>
+                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="1000" doubleValue="80" id="kzR-6k-679"/>
+                                <connections>
+                                    <action selector="changeValue:" target="dpu-U5-6gV" id="cpt-dy-d9i"/>
+                                </connections>
+                            </stepper>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-Cb-mhq">
+                                <rect key="frame" x="95" y="20" width="40" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="SDS-TR-cC8"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="80" drawsBackground="YES" id="cgk-0F-7kL">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Zrv-dZ-AQY">
+                                        <real key="minimum" value="10"/>
+                                        <real key="maximum" value="1000"/>
+                                        <metadata>
+                                            <real key="inspectorSampleValue" value="1"/>
+                                        </metadata>
+                                    </numberFormatter>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="changeValue:" target="dpu-U5-6gV" id="b1n-fd-5qM"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-gy-Mfr">
+                                <rect key="frame" x="18" y="23" width="71" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Line wrap" id="n8N-XM-jrj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kgh-ny-E60">
+                                <rect key="frame" x="66" y="1" width="92" height="14"/>
+                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="(Groups per line)" id="pwk-KD-J9l">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <connections>
+                            <outlet property="stepper" destination="d4y-6c-29x" id="pbq-l0-0gg"/>
+                            <outlet property="textField" destination="y3Z-Cb-mhq" id="pQr-Rb-a8j"/>
+                        </connections>
+                    </customView>
+                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EpF-q6-MTz">
+                        <rect key="frame" x="189" y="13" width="73" height="32"/>
+                        <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QI6-xV-Sze">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clearOutput:" target="IIq-Mh-32a" id="tpt-Gn-x2b"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="w6x-kV-Nmw" firstAttribute="leading" secondItem="h05-5V-i2g" secondAttribute="leading" constant="-1" id="0fc-Wl-Czx"/>
-                    <constraint firstAttribute="bottom" secondItem="O4Q-Im-gvu" secondAttribute="bottom" constant="23" id="61e-5z-hRY"/>
-                    <constraint firstItem="iLT-Zv-cR1" firstAttribute="leading" secondItem="O4Q-Im-gvu" secondAttribute="trailing" constant="8" id="6cA-OG-B1e"/>
                     <constraint firstAttribute="bottom" secondItem="EpF-q6-MTz" secondAttribute="bottom" constant="20" id="Blb-Tn-iC8"/>
                     <constraint firstAttribute="trailing" secondItem="w6x-kV-Nmw" secondAttribute="trailing" constant="-1" id="HrZ-yG-4Ao"/>
-                    <constraint firstAttribute="bottom" secondItem="iLT-Zv-cR1" secondAttribute="bottom" constant="20" id="J7Q-au-4w6"/>
-                    <constraint firstAttribute="bottom" secondItem="w6x-kV-Nmw" secondAttribute="bottom" constant="61" id="Sn4-iv-aG4"/>
-                    <constraint firstItem="EpF-q6-MTz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9RG-Ll-Svj" secondAttribute="trailing" constant="20" id="UDQ-b6-H5a"/>
-                    <constraint firstItem="O4Q-Im-gvu" firstAttribute="leading" secondItem="h05-5V-i2g" secondAttribute="leading" constant="22" id="bqg-Qr-lgg"/>
+                    <constraint firstAttribute="bottom" secondItem="w6x-kV-Nmw" secondAttribute="bottom" constant="111" id="Sn4-iv-aG4"/>
                     <constraint firstAttribute="trailing" secondItem="EpF-q6-MTz" secondAttribute="trailing" constant="29" id="eAr-jy-NeQ"/>
                     <constraint firstItem="w6x-kV-Nmw" firstAttribute="top" secondItem="h05-5V-i2g" secondAttribute="top" constant="-1" id="jyb-N6-y2z"/>
-                    <constraint firstItem="9RG-Ll-Svj" firstAttribute="leading" secondItem="iLT-Zv-cR1" secondAttribute="trailing" constant="8" id="kTx-PK-2NI"/>
-                    <constraint firstAttribute="bottom" secondItem="9RG-Ll-Svj" secondAttribute="bottom" constant="20" id="qA4-2N-4do"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="698" y="154"/>
+            <point key="canvasLocation" x="698" y="179"/>
         </window>
         <customObject id="IIq-Mh-32a" customClass="PrinterController" customModule="EnigmaMachine" customModuleProvider="target">
             <connections>
-                <outlet property="groupSize" destination="iLT-Zv-cR1" id="5eH-Ne-JBl"/>
-                <outlet property="groupStepper" destination="9RG-Ll-Svj" id="Vh9-fU-sVN"/>
+                <outlet property="groupSize" destination="2DJ-Iw-Y3O" id="Xn8-dp-76Q"/>
+                <outlet property="groupsPerLine" destination="dpu-U5-6gV" id="966-lz-efN"/>
+                <outlet property="lettersScroller" destination="w6x-kV-Nmw" id="HgB-K5-HNT"/>
                 <outlet property="outputLetters" destination="ZOv-NP-MMR" id="948-kS-paP"/>
                 <outlet property="window" destination="fXK-8d-TTz" id="xsg-MJ-GWK"/>
             </connections>

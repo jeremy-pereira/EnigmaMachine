@@ -16,10 +16,10 @@
         <column name="Effort" width="70"/>
         <column name="%Done" width="87"/>
         <column name="Prerequisites" width="102"/>
-        <expanded-items idrefs="t6 t2 t19"/>
-        <selected-items-at-filter-time idrefs="t8 t9 t21 t13 t26 t18 t2 t22 t14 t3 t27 t19 t10 t4 t23 t15 t5 t11 t6 t24 t16 t7 t20 t12 t25 t17"/>
+        <expanded-items idrefs="t19 t29 t6 t2"/>
+        <selected-items-at-filter-time idrefs="t17 t9 t21 t13 t26 t18 t2 t22 t14 t3 t27 t19 t10 t4 t23 t15 t5 t28 t11 t6 t24 t16 t7 t20 t12 t29 t8 t25"/>
       </outline>
-      <gantt-view x="-46" y="0" w="770" h="756">
+      <gantt-view x="6" y="0" w="770" h="756">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
@@ -126,7 +126,7 @@
     </calendar>
   </window>
   <project>
-    <next-task-id>28</next-task-id>
+    <next-task-id>30</next-task-id>
     <next-resource-id>2</next-resource-id>
     <scenario id="j3I0nGHZem1" name="Actual" filename="Actual.xml"/>
     <date-display dates="true" times="true" seconds="false"/>

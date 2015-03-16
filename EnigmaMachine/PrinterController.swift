@@ -11,8 +11,9 @@ import Cocoa
 class PrinterController: NSWindowController
 {
     @IBOutlet var outputLetters: NSTextField!
-    @IBOutlet var groupSize: NSTextField!
-    @IBOutlet var groupStepper: NSStepper!
+    @IBOutlet var lettersScroller: NSScrollView!
+    @IBOutlet var groupSize: StepperView!
+    @IBOutlet var groupsPerLine: StepperView!
 
     override func windowDidLoad()
     {
@@ -25,7 +26,11 @@ class PrinterController: NSWindowController
 	override func awakeFromNib()
 	{
 		groupSize.integerValue = 5
-		groupStepper.integerValue = 5
+        groupSize.minimum = 1
+        groupSize.maximum = 80
+		groupsPerLine.integerValue = 8
+        groupsPerLine.minimum = 1
+        groupsPerLine.maximum = 20
 	}
 
 	private var letterCount: Int = 0
@@ -37,6 +42,7 @@ class PrinterController: NSWindowController
         }
         outputLetters.stringValue.append(letter.rawValue)
         letterCount++
+        //lettersScroller.contentView.scrollToPoint(NSMakePoint(0.0, 0.0))
     }
 
 	@IBAction func clearOutput(sender: AnyObject)
@@ -47,34 +53,34 @@ class PrinterController: NSWindowController
 
 	@IBAction func changeGroupSize(sender: AnyObject)
 	{
-        var newGroupSize: Int?
-        if sender === groupSize
-        {
-            newGroupSize = groupSize.integerValue
-            groupStepper.integerValue = newGroupSize!
-        }
-        else if sender === groupStepper
-        {
-            newGroupSize = groupStepper.integerValue
-            groupSize.integerValue = newGroupSize!
-        }
-        if let newGroupSize = newGroupSize
-        {
-            var strippedOutput = outputLetters.stringValue.stringByReplacingOccurrencesOfString(" ", withString: "")
-            var index = strippedOutput.startIndex
-            var newOutput = ""
-            var count = 0
-            while index < strippedOutput.endIndex
-            {
-				if count % newGroupSize == 0 && count != 0
-                {
-                    newOutput.append(Character(" "))
-                }
-                newOutput.append(strippedOutput[index])
-                count++
-                index++
-            }
-            outputLetters.stringValue = newOutput
-        }
+//        var newGroupSize: Int?
+//        if sender === groupSize
+//        {
+//            newGroupSize = groupSize.integerValue
+//            groupStepper.integerValue = newGroupSize!
+//        }
+//        else if sender === groupStepper
+//        {
+//            newGroupSize = groupStepper.integerValue
+//            groupSize.integerValue = newGroupSize!
+//        }
+//        if let newGroupSize = newGroupSize
+//        {
+//            var strippedOutput = outputLetters.stringValue.stringByReplacingOccurrencesOfString(" ", withString: "")
+//            var index = strippedOutput.startIndex
+//            var newOutput = ""
+//            var count = 0
+//            while index < strippedOutput.endIndex
+//            {
+//				if count % newGroupSize == 0 && count != 0
+//                {
+//                    newOutput.append(Character(" "))
+//                }
+//                newOutput.append(strippedOutput[index])
+//                count++
+//                index++
+//            }
+//            outputLetters.stringValue = newOutput
+//        }
 	}
 }
