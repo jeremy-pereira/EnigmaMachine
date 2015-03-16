@@ -15,6 +15,7 @@ class PrinterController: NSWindowController
     @IBOutlet var groupSize: StepperView!
     @IBOutlet var groupsPerLine: StepperView!
 
+
     override func windowDidLoad()
     {
         super.windowDidLoad()
@@ -33,54 +34,52 @@ class PrinterController: NSWindowController
         groupsPerLine.maximum = 20
 	}
 
-	private var letterCount: Int = 0
+    private var letters: [Letter] = []
+
     func displayLetter(letter: Letter)
     {
+        let letterCount = letters.count
+
         if letterCount % groupSize.integerValue == 0 && letterCount != 0
         {
-			outputLetters.stringValue += " "
+            let groupCount = letterCount / groupSize.integerValue
+            if groupCount % groupsPerLine.integerValue == 0
+            {
+                outputLetters.stringValue += "\n"
+            }
+            else
+            {
+                outputLetters.stringValue += " "
+            }
         }
         outputLetters.stringValue.append(letter.rawValue)
-        letterCount++
+        letters.append(letter)
         //lettersScroller.contentView.scrollToPoint(NSMakePoint(0.0, 0.0))
+    }
+
+    func redisplayLetters()
+    {
+        let savedLetters = letters
+        letters = []
+        outputLetters.stringValue = ""
+        for letter in savedLetters
+        {
+            displayLetter(letter)
+        }
     }
 
 	@IBAction func clearOutput(sender: AnyObject)
 	{
-		outputLetters.stringValue = ""
-		letterCount = 0
+        letters = []
+        redisplayLetters()
 	}
 
 	@IBAction func changeGroupSize(sender: AnyObject)
 	{
-//        var newGroupSize: Int?
-//        if sender === groupSize
-//        {
-//            newGroupSize = groupSize.integerValue
-//            groupStepper.integerValue = newGroupSize!
-//        }
-//        else if sender === groupStepper
-//        {
-//            newGroupSize = groupStepper.integerValue
-//            groupSize.integerValue = newGroupSize!
-//        }
-//        if let newGroupSize = newGroupSize
-//        {
-//            var strippedOutput = outputLetters.stringValue.stringByReplacingOccurrencesOfString(" ", withString: "")
-//            var index = strippedOutput.startIndex
-//            var newOutput = ""
-//            var count = 0
-//            while index < strippedOutput.endIndex
-//            {
-//				if count % newGroupSize == 0 && count != 0
-//                {
-//                    newOutput.append(Character(" "))
-//                }
-//                newOutput.append(strippedOutput[index])
-//                count++
-//                index++
-//            }
-//            outputLetters.stringValue = newOutput
-//        }
+        redisplayLetters()
 	}
+    @IBAction func changeLineWrap(sender: AnyObject)
+    {
+        redisplayLetters()
+    }
 }

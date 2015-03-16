@@ -8,12 +8,12 @@
 
 import Cocoa
 
-class StepperView: NSView
+class StepperView: NSControl
 {
     @IBOutlet var textField: NSTextField!
     @IBOutlet var stepper: NSStepper!
 
-    var integerValue: Int
+    override var integerValue: Int
     {
 		get
         {
@@ -71,7 +71,7 @@ class StepperView: NSView
         }
         if let newValue = newValue
         {
-            // Send an action message
+            self.sendAction(self.action, to: self.target)
         }
     }
 

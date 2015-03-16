@@ -20,7 +20,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="477" height="510"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="5" width="477" height="510"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -528,7 +528,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="777" y="416" width="276" height="428"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="h05-5V-i2g">
                 <rect key="frame" x="0.0" y="5" width="276" height="428"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -600,6 +600,7 @@
                             </textField>
                         </subviews>
                         <connections>
+                            <action selector="changeGroupSize:" target="IIq-Mh-32a" id="L4p-7R-XNh"/>
                             <outlet property="stepper" destination="9RG-Ll-Svj" id="3Dq-uQ-u4q"/>
                             <outlet property="textField" destination="iLT-Zv-cR1" id="ayf-GF-H5a"/>
                         </connections>
@@ -653,6 +654,7 @@
                             </textField>
                         </subviews>
                         <connections>
+                            <action selector="changeLineWrap:" target="IIq-Mh-32a" id="otT-ig-3k2"/>
                             <outlet property="stepper" destination="d4y-6c-29x" id="pbq-l0-0gg"/>
                             <outlet property="textField" destination="y3Z-Cb-mhq" id="pQr-Rb-a8j"/>
                         </connections>
