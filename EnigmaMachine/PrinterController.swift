@@ -54,7 +54,12 @@ class PrinterController: NSWindowController
         }
         outputLetters.stringValue.append(letter.rawValue)
         letters.append(letter)
-        //lettersScroller.contentView.scrollToPoint(NSMakePoint(0.0, 0.0))
+        let height = outputLetters.frame.size.height - lettersScroller.contentView.bounds.size.height
+        if height > 0
+        {
+            lettersScroller.contentView.scrollToPoint(NSMakePoint(0.0, height))
+            lettersScroller.reflectScrolledClipView(lettersScroller.contentView)
+        }
     }
 
     func redisplayLetters()
