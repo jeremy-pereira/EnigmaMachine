@@ -120,6 +120,44 @@ class PlugboardView: NSView
         NSGraphicsContext.restoreGraphicsState()
 
         letter.drawInRect(rectForPlugPosition(position, third: 2), attributes: [:])
+        var socketRect: NSRect = NSRect()
+        var drawArea = rectForPlugPosition(position, third: 1)
+		if drawArea.size.width > drawArea.size.height
+        {
+            socketRect.size.width = drawArea.size.height
+            socketRect.size.height = drawArea.size.height
+            socketRect.origin.x = drawArea.origin.x + (drawArea.size.width - drawArea.size.height) / 2
+            socketRect.origin.y = drawArea.origin.y
+        }
+        else
+        {
+            socketRect.size.width = drawArea.size.width
+            socketRect.size.height = drawArea.size.width
+            socketRect.origin.y = drawArea.origin.x + (drawArea.size.height - drawArea.size.width) / 2
+            socketRect.origin.x = drawArea.origin.x
+        }
+
+        var bezierPath = NSBezierPath(ovalInRect: socketRect)
+        bezierPath.stroke()
+        drawArea = rectForPlugPosition(position, third: 0)
+        if drawArea.size.width > drawArea.size.height
+        {
+            socketRect.size.width = drawArea.size.height
+            socketRect.size.height = drawArea.size.height
+            socketRect.origin.x = drawArea.origin.x + (drawArea.size.width - drawArea.size.height) / 2
+            socketRect.origin.y = drawArea.origin.y
+        }
+        else
+        {
+            socketRect.size.width = drawArea.size.width
+            socketRect.size.height = drawArea.size.width
+            socketRect.origin.y = drawArea.origin.x + (drawArea.size.height - drawArea.size.width) / 2
+            socketRect.origin.x = drawArea.origin.x
+        }
+
+        bezierPath = NSBezierPath(ovalInRect: socketRect)
+        bezierPath.stroke()
+
     }
 
     private func rectForPlugPosition(plugPosition: PlugPosition, third: Int) -> NSRect

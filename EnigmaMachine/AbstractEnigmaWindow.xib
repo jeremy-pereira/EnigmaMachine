@@ -378,7 +378,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="twA-hp-JNb" id="MSp-da-BOH">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="152" height="19"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -439,8 +439,9 @@
                             <rect key="frame" x="1" y="1" width="475" height="166"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8O-jd-orV" customClass="PlugboardView" customModule="EnigmaMachine" customModuleProvider="target">
+                                <customView fixedFrame="YES" placeholderIntrinsicWidth="439" placeholderIntrinsicHeight="142" translatesAutoresizingMaskIntoConstraints="NO" id="L8O-jd-orV" customClass="PlugboardView" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="18" y="14" width="439" height="142"/>
+                                    <accessibility description="An enigma plugboard" help="Drag from one plug to another to make a connection"/>
                                 </customView>
                             </subviews>
                         </view>

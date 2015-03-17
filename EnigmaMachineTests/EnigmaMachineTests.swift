@@ -21,10 +21,13 @@ class EnigmaMachineTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
+    func testExample()
+    {
+        var data: NSData = "Error".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        var outputString:NSString = NSString(data:data, encoding:NSUTF8StringEncoding)!
+        NSLog("outputString: %@", outputString)
+        XCTAssert(outputString == "Error", "outputString is wrong \(outputString)")
+     }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
