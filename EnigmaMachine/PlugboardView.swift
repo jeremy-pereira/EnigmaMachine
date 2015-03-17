@@ -1,0 +1,110 @@
+//
+//  PlugboardView.swift
+//  EnigmaMachine
+//
+//  Created by Jeremy Pereira on 16/03/2015.
+//  Copyright (c) 2015 Jeremy Pereira. All rights reserved.
+//
+
+import Cocoa
+
+private struct PlugPosition: Hashable
+{
+    let x: CGFloat
+    let y: CGFloat
+
+    var hashValue: Int { return self.x.hashValue ^ self.y.hashValue }
+}
+
+private func == (first: PlugPosition, second: PlugPosition) -> Bool
+{
+	return first.x == second.x && first.y == second.y
+}
+
+class PlugboardView: NSView
+{
+    var backgroundColour: NSColor?
+    var foregroundColour: NSColor = NSColor.blackColor()
+
+    var socketWidth: CGFloat
+    {
+		get
+        {
+            return self.bounds.width / 17.0
+        }
+    }
+
+    var socketHeightUnit: CGFloat
+    {
+		return self.bounds.height / 7.0
+    }
+
+    var socketHeight: CGFloat
+    {
+        get
+        {
+            return 3 * self.socketHeightUnit
+        }
+    }
+
+    private static let plugToLetter: [PlugPosition : Letter] =
+    [
+        PlugPosition(x:  0.0, y: 4.0) : Letter.Q,
+        PlugPosition(x:  2.0, y: 4.0) : Letter.W,
+        PlugPosition(x:  4.0, y: 4.0) : Letter.E,
+        PlugPosition(x:  6.0, y: 4.0) : Letter.R,
+        PlugPosition(x:  8.0, y: 4.0) : Letter.T,
+        PlugPosition(x: 10.0, y: 4.0) : Letter.Z,
+        PlugPosition(x: 12.0, y: 4.0) : Letter.U,
+        PlugPosition(x: 14.0, y: 4.0) : Letter.I,
+        PlugPosition(x: 16.0, y: 4.0) : Letter.O,
+        PlugPosition(x:  1.0, y: 2.0) : Letter.A,
+        PlugPosition(x:  3.0, y: 2.0) : Letter.S,
+        PlugPosition(x:  5.0, y: 2.0) : Letter.D,
+        PlugPosition(x:  7.0, y: 2.0) : Letter.F,
+        PlugPosition(x:  9.0, y: 2.0) : Letter.G,
+        PlugPosition(x: 11.0, y: 2.0) : Letter.H,
+        PlugPosition(x: 13.0, y: 2.0) : Letter.J,
+        PlugPosition(x: 15.0, y: 2.0) : Letter.K,
+        PlugPosition(x:  0.0, y: 0.0) : Letter.P,
+        PlugPosition(x:  2.0, y: 0.0) : Letter.Y,
+        PlugPosition(x:  4.0, y: 0.0) : Letter.X,
+        PlugPosition(x:  6.0, y: 0.0) : Letter.C,
+        PlugPosition(x:  8.0, y: 0.0) : Letter.V,
+        PlugPosition(x: 10.0, y: 0.0) : Letter.B,
+        PlugPosition(x: 12.0, y: 0.0) : Letter.N,
+        PlugPosition(x: 14.0, y: 0.0) : Letter.M,
+        PlugPosition(x: 16.0, y: 0.0) : Letter.L
+    ]
+
+    override func drawRect(dirtyRect: NSRect)
+    {
+        super.drawRect(dirtyRect)
+        if let backgroundColour = backgroundColour
+        {
+			backgroundColour.set()
+            NSBezierPath.fillRect(dirtyRect)
+        }
+        foregroundColour.set()
+        for (position, letter) in PlugboardView.plugToLetter
+        {
+            drawPlug(position: position, letter: letter)
+        }
+    }
+
+    private func drawPlug(#position: PlugPosition, letter: Letter)
+    {
+		NSBezierPath.strokeRect(rectForPlugPosition(position))
+    }
+
+    private func rectForPlugPosition(plugPosition: PlugPosition) -> NSRect
+    {
+        var ret = NSRect()
+        ret.origin.x = plugPosition.x * socketWidth
+        ret.origin.y = plugPosition.y * socketHeightUnit
+        ret.size.width = socketWidth
+        ret.size.height = socketHeight
+        return ret
+    }
+    
+}

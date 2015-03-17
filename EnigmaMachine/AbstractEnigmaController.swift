@@ -128,6 +128,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
     @IBOutlet var ringDisplay3: NSTextField!
     @IBOutlet var rotorBoxView: NSTableView!
     @IBOutlet var printerController: PrinterController!
+    @IBOutlet var plugboardView: PlugboardView!
 
 	convenience init()
     {
@@ -143,6 +144,8 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
         ringDisplay1.registerForDraggedTypes([NSPasteboardTypeString])
         ringDisplay2.registerForDraggedTypes([NSPasteboardTypeString])
         ringDisplay3.registerForDraggedTypes([NSPasteboardTypeString])
+        plugboardView.backgroundColour = NSColor.whiteColor()
+        plugboardView.needsDisplay = true
     }
 
     func stateChanged(machine: EnigmaMachine)

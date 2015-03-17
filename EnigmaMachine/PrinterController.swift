@@ -15,7 +15,6 @@ class PrinterController: NSWindowController
     @IBOutlet var groupSize: StepperView!
     @IBOutlet var groupsPerLine: StepperView!
 
-
     override func windowDidLoad()
     {
         super.windowDidLoad()

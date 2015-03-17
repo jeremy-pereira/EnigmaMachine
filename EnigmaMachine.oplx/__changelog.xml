@@ -243,24 +243,91 @@
       <change idref="t28" attribute="title" type="string" to="Line wrapping configurable"/>
     </change>
   </task-change-set>
-  <task-change-set user="Jeremy Pereira" date="2015-03-16T18:49:22.408Z" timestamp="2015-03-16T18:49:22.408Z">
-    <change idref="t3" attribute="resourceLeveledDate" type="date" from="2015-04-06T18:21:38.000Z" to="2015-04-06T17:47:34.000Z"/>
-    <change idref="t4" attribute="resourceLeveledDate" type="date" from="2015-04-10T18:21:38.000Z" to="2015-04-10T17:47:34.000Z"/>
-    <change idref="t5" attribute="resourceLeveledDate" type="date" from="2015-04-13T18:21:38.000Z" to="2015-04-13T17:47:34.000Z"/>
-    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-17T18:21:38.000Z" to="2015-04-17T17:47:34.000Z"/>
-    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-23T18:21:38.000Z" to="2015-04-23T17:47:34.000Z"/>
-    <change idref="t12" attribute="resourceLeveledDate" type="date" from="2015-03-31T18:21:38.000Z" to="2015-03-31T17:47:34.000Z"/>
-    <change idref="t14" attribute="resourceLeveledDate" type="date" from="2015-03-25T19:21:38.000Z" to="2015-03-25T18:47:34.000Z"/>
-    <change idref="t16" attribute="resourceLeveledDate" type="date" from="2015-03-19T19:21:38.000Z" to="2015-03-19T18:47:34.000Z"/>
-    <change idref="t20" attribute="resourceLeveledDate" type="date" from="2015-03-19T08:21:38.000Z" to="2015-03-19T07:47:34.000Z"/>
-    <change idref="t22" attribute="resourceLeveledDate" type="date" from="2015-03-18T19:21:38.000Z" to="2015-03-18T18:47:34.000Z"/>
-    <change idref="t25" attribute="resourceLeveledDate" type="date" from="2015-03-16T19:21:38.000Z" to="2015-03-16T18:47:34.539Z"/>
+  <task-change-set user="Jeremy Pereira" date="2015-03-16T18:54:35.744Z" timestamp="2015-03-16T18:54:35.744Z">
+    <change idref="t3" attribute="resourceLeveledDate" type="date" from="2015-04-06T18:21:38.000Z" to="2015-04-10T17:53:40.000Z"/>
+    <change idref="t4" attribute="resourceLeveledDate" type="date" from="2015-04-10T18:21:38.000Z" to="2015-04-16T17:53:40.000Z"/>
+    <change idref="t5" attribute="isGroup" type="real" from="0" to="1"/>
+    <change idref="t5" attribute="isSplittableTask" type="real" from="1"/>
+    <change idref="t5" attribute="taskType" type="real" from="0" to="2"/>
+    <change idref="t5" attribute="resourceAssignmentType" type="real" from="0"/>
+    <change idref="t5" attribute="staticCost" type="real" from="0"/>
+    <change idref="t5" attribute="effort" type="real" from="28800"/>
+    <change idref="t5" attribute="isSplitChunk" type="real" from="0"/>
+    <change idref="t5" attribute="scheduleType" type="real" from="0"/>
+    <change idref="t5" attribute="resourceLeveledDate" type="date" from="2015-04-13T18:21:38.000Z"/>
+    <change idref="t5" attribute="internalAssignments" type="string" from="1"/>
+    <change idref="t5" attribute="isSplitTask" type="real" from="0"/>
+    <change idref="t5" attribute="internalEffortDone" type="real" from="0"/>
+    <change idref="t30" to="t5" to-position="0">
+      <change idref="t30" attribute="effort" type="real" from="28800" to="14400"/>
+      <change idref="t30" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t30" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-16T07:30:00.000Z"/>
+      <change idref="t30" attribute="resourceLeveledDate" type="date" to="2015-03-16T18:53:40.984Z"/>
+      <change idref="t30" attribute="startLockedDate" type="date" to="2015-03-16T18:53:40.984Z"/>
+      <change idref="t30" attribute="title" type="string" to="Draw plugboard custom view"/>
+    </change>
+    <change idref="t31" to="t5" to-position="1">
+      <change idref="t31" attribute="effort" type="real" from="28800" to="14400"/>
+      <change idref="t31" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t31" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-16T07:30:00.000Z"/>
+      <change idref="t31" attribute="resourceLeveledDate" type="date" to="2015-03-18T18:53:40.000Z"/>
+      <change idref="t31" attribute="title" type="string" to="Connect letters with plugs"/>
+    </change>
+    <change idref="t5" from="t6" from-position="7" to="t6" to-position="2"/>
+    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-17T18:21:38.000Z" to="2015-04-17T17:53:40.000Z"/>
+    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-23T18:21:38.000Z" to="2015-04-23T17:53:40.000Z"/>
+    <change idref="t12" attribute="resourceLeveledDate" type="date" from="2015-03-31T18:21:38.000Z" to="2015-04-06T17:53:40.000Z"/>
+    <change idref="t14" attribute="resourceLeveledDate" type="date" from="2015-03-25T19:21:38.000Z" to="2015-03-31T17:53:40.000Z"/>
+    <change idref="t16" attribute="resourceLeveledDate" type="date" from="2015-03-19T19:21:38.000Z" to="2015-03-25T18:53:40.000Z"/>
+    <change idref="t20" attribute="resourceLeveledDate" type="date" from="2015-03-19T08:21:38.000Z" to="2015-03-25T07:53:40.000Z"/>
+    <change idref="t22" attribute="resourceLeveledDate" type="date" from="2015-03-18T19:21:38.000Z" to="2015-03-24T18:53:40.000Z"/>
+    <change idref="t25" attribute="resourceLeveledDate" type="date" from="2015-03-16T19:21:38.000Z" to="2015-03-20T18:53:40.000Z"/>
     <change idref="t26" attribute="resourceAssignmentType" type="real" from="0" to="1"/>
     <change idref="t26" attribute="effort" type="real" from="3600" to="1713"/>
     <change idref="t26" attribute="resourceLeveledDate" type="date" from="2015-03-16T13:36:38.904Z" to="2015-03-16T18:18:27.373Z"/>
     <change idref="t26" attribute="endLockedDate" type="date" to="2015-03-16T18:47:00.000Z"/>
     <change idref="t26" attribute="startLockedDate" type="date" to="2015-03-16T18:18:27.373Z"/>
     <change idref="t26" attribute="internalEffortDone" type="real" from="0" to="1713"/>
+  </task-change-set>
+  <task-change-set user="Jeremy Pereira" date="2015-03-17T08:37:42.281Z" timestamp="2015-03-17T08:37:42.281Z">
+    <change idref="t3" attribute="resourceLeveledDate" type="date" from="2015-04-10T17:53:40.000Z" to="2015-04-13T06:37:01.000Z"/>
+    <change idref="t4" attribute="resourceLeveledDate" type="date" from="2015-04-16T17:53:40.000Z" to="2015-04-17T06:37:01.000Z"/>
+    <change idref="t34" to="t5" to-position="0">
+      <change idref="t34" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t34" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t34" attribute="title" type="string" to="Drawing"/>
+    </change>
+    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-17T17:53:40.000Z" to="2015-04-20T06:37:01.000Z"/>
+    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-23T17:53:40.000Z" to="2015-04-24T06:37:01.000Z"/>
+    <change idref="t12" attribute="resourceLeveledDate" type="date" from="2015-04-06T17:53:40.000Z" to="2015-04-07T06:37:01.000Z"/>
+    <change idref="t14" attribute="resourceLeveledDate" type="date" from="2015-03-31T17:53:40.000Z" to="2015-04-01T06:37:01.000Z"/>
+    <change idref="t16" attribute="resourceLeveledDate" type="date" from="2015-03-25T18:53:40.000Z" to="2015-03-26T07:37:01.000Z"/>
+    <change idref="t20" attribute="resourceLeveledDate" type="date" from="2015-03-25T07:53:40.000Z" to="2015-03-25T18:37:01.000Z"/>
+    <change idref="t22" attribute="resourceLeveledDate" type="date" from="2015-03-24T18:53:40.000Z" to="2015-03-25T07:37:01.000Z"/>
+    <change idref="t25" attribute="resourceLeveledDate" type="date" from="2015-03-20T18:53:40.000Z" to="2015-03-23T07:37:01.000Z"/>
+    <change idref="t30" attribute="resourceAssignmentType" type="real" from="0" to="1"/>
+    <change idref="t30" attribute="effort" type="real" from="14400" to="6080"/>
+    <change idref="t30" attribute="endLockedDate" type="date" to="2015-03-17T08:35:00.000Z"/>
+    <change idref="t30" attribute="internalEffortDone" type="real" from="0" to="6080"/>
+    <change idref="t31" attribute="resourceLeveledDate" type="date" from="2015-03-18T18:53:40.000Z" to="2015-03-19T07:37:01.000Z"/>
+    <change idref="t30" from="t5" from-position="0" to="t34" to-position="0"/>
+    <change idref="t32" to="t34" to-position="1">
+      <change idref="t32" attribute="effort" type="real" from="28800" to="7200"/>
+      <change idref="t32" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t32" attribute="internalPrerequisitesString" type="string" to="30FS"/>
+      <change idref="t32" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-17T07:30:00.000Z"/>
+      <change idref="t32" attribute="resourceLeveledDate" type="date" to="2015-03-17T08:37:01.239Z"/>
+      <change idref="t32" attribute="startLockedDate" type="date" to="2015-03-17T08:37:01.239Z"/>
+      <change idref="t32" attribute="title" type="string" to="Draw letters for log sockets"/>
+    </change>
+    <change idref="t33" to="t34" to-position="2">
+      <change idref="t33" attribute="effort" type="real" from="28800" to="7200"/>
+      <change idref="t33" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t33" attribute="internalPrerequisitesString" type="string" to="32FS"/>
+      <change idref="t33" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-17T07:30:00.000Z"/>
+      <change idref="t33" attribute="resourceLeveledDate" type="date" to="2015-03-18T07:37:01.000Z"/>
+      <change idref="t33" attribute="title" type="string" to="Draw sockets for plug sockets"/>
+    </change>
   </task-change-set>
   <resource-change-set user="Jeremy Pereira" date="2015-03-10T07:17:57.488Z" timestamp="2015-03-10T07:17:57.488Z">
     <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDChAdQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmAAIChMWGRwfIicAAAAAAAABAQAAAAAAAAAJAAAAAAAAAAAAAAAAAAAALA==" to="YnBsaXN0MDCjAQkM1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkbvEAAiRwWYANQCAwQFBgoLBiJHeZwAIkd9IADUAgMEBQ0ODw0RFD0iRsvoACJG0vAACAwVGBseISQpLjc8QUpNUgAAAAAAAAEBAAAAAAAAABAAAAAAAAAAAAAAAAAAAABX"/>
@@ -290,7 +357,10 @@
     <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCpAQkMERQYGx4i1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkbvEAAiRwWYANQCAwQFBgoLBiJHeZwAIkd9IADUAgMEBQ0ODxARFD8iRsvoACJG0vAAERQ91AIDBAUQEhMQIkd5nAAiR4BSANQCAwQFFRYXFREUPiJG7xAAIkcFmADUAgMEBRUZGhUiR30gACJHghQA1AIDBAUNHB0NIkbvEAAiRvYYANQCAwQFHyAhHxEUQCJG7xAAIkcFmADUAgMEBR8jJB8iR3mcACJHgFIACBIbHiEkJyovND1CR1BTWF1gaW5zfH+EiZKXnKWqr7i7wMXO0wAAAAAAAAEBAAAAAAAAACUAAAAAAAAAAAAAAAAAAADY" to="YnBsaXN0MDCrAQkMERQYGx4iJSnUAgMEBQYHCAZSZWRSc3RSZXRSc2QRFDwiRu8QACJHBZgA1AIDBAUGCgsGIkd5nAAiR30gANQCAwQFDQ4PEBEUPyJGy+gAIkbS8AARFD3UAgMEBRASExAiR3mcACJHgFIA1AIDBAUVFhcVERQ+IkbvEAAiRwWYANQCAwQFFRkaFSJHfSAAIkeCFADUAgMEBQ0cHQ0iRu8QACJG9hgA1AIDBAUfICEfERRAIkbvEAAiRwWYANQCAwQFHyMkHyJHeZwAIkeAUgDUAgMEBSYnKCYRFEMiRwIUACJHFywA1AIDBAUmKismIkczTAAiR0FcAAAIABQAHQAgACMAJgApACwAMQA2AD8ARABJAFIAVQBaAF8AYgBrAHAAdQB+AIEAhgCLAJQAmQCeAKcArACxALoAvQDCAMcA0ADVANoA4wDmAOsA8AD5AP4AAAAAAAACAQAAAAAAAAAsAAAAAAAAAAAAAAAAAAABAw=="/>
     <change idref="r1" attribute="timeOffString" type="string" from="YnBsaXN0MDCjAQkM1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkeCFAAiR4PWANQCAwQFBgoLBiJHh1oAIkeJHADUAgMEBQ0ODxARFD4iR4IUACJHiRwAERQ9CAwVGBseISQpLjc8QUpNUlcAAAAAAAABAQAAAAAAAAARAAAAAAAAAAAAAAAAAAAAWg==" to="YnBsaXN0MDClAQkMERXUAgMEBQYHCAZSZWRSc3RSZXRSc2QRFDwiR4IUACJHg9YA1AIDBAUGCgsGIkeHWgAiR4kcANQCAwQFDQ4PEBEUPiJHghQAIkeJHAARFD3UAgMEBRITFBIRFEAiR4IUACJHiRwA1AIDBAUWFxgWERRDIkbS8AAiRu8QAAgOFxodICMmKzA5PkNMT1RZXGVobXJ7foMAAAAAAAABAQAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAiA=="/>
   </resource-change-set>
-  <resource-change-set user="Jeremy Pereira" date="2015-03-16T18:49:22.408Z" timestamp="2015-03-16T18:49:22.408Z">
+  <resource-change-set user="Jeremy Pereira" date="2015-03-16T18:54:35.744Z" timestamp="2015-03-16T18:54:35.744Z">
     <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCrAQkMERQYGx4iJSnUAgMEBQYHCAZSZWRSc3RSZXRSc2QRFDwiRu8QACJHBZgA1AIDBAUGCgsGIkd5nAAiR30gANQCAwQFDQ4PEBEUPyJGy+gAIkbS8AARFD3UAgMEBRASExAiR3mcACJHgFIA1AIDBAUVFhcVERQ+IkbvEAAiRwWYANQCAwQFFRkaFSJHfSAAIkeCFADUAgMEBQ0cHQ0iRu8QACJG9hgA1AIDBAUfICEfERRAIkbvEAAiRwWYANQCAwQFHyMkHyJHeZwAIkeAUgDUAgMEBSYnKCYRFEMiRwIUACJHFywA1AIDBAUmKismIkczTAAiR0FcAAAIABQAHQAgACMAJgApACwAMQA2AD8ARABJAFIAVQBaAF8AYgBrAHAAdQB+AIEAhgCLAJQAmQCeAKcArACxALoAvQDCAMcA0ADVANoA4wDmAOsA8AD5AP4AAAAAAAACAQAAAAAAAAAsAAAAAAAAAAAAAAAAAAABAw==" to="YnBsaXN0MDCsAQkMERQYGx4iJSks1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkbvEAAiRwWYANQCAwQFBgoLBiJHeZwAIkd9IADUAgMEBQ0ODxARFD8iRsvoACJG0vAAERQ91AIDBAUQEhMQIkd5nAAiR4BSANQCAwQFFRYXFREUPiJG7xAAIkcFmADUAgMEBRUZGhUiR30gACJHghQA1AIDBAUNHB0NIkbvEAAiRvYYANQCAwQFHyAhHxEUQCJG7xAAIkcFmADUAgMEBR8jJB8iR3mcACJHgFIA1AIDBAUmJygmERRDIkcCFAAiRxcsANQCAwQFJiorJiJHM0wAIkdBXADUAgMEBSYtLiYiR4BSACJHghQAAAgAFQAeACEAJAAnACoALQAyADcAQABFAEoAUwBWAFsAYABjAGwAcQB2AH8AggCHAIwAlQCaAJ8AqACtALIAuwC+AMMAyADRANYA2wDkAOcA7ADxAPoA/wEEAQ0BEgAAAAAAAAIBAAAAAAAAAC8AAAAAAAAAAAAAAAAAAAEX"/>
+  </resource-change-set>
+  <resource-change-set user="Jeremy Pereira" date="2015-03-17T08:37:42.281Z" timestamp="2015-03-17T08:37:42.281Z">
+    <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCsAQkMERQYGx4iJSks1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkbvEAAiRwWYANQCAwQFBgoLBiJHeZwAIkd9IADUAgMEBQ0ODxARFD8iRsvoACJG0vAAERQ91AIDBAUQEhMQIkd5nAAiR4BSANQCAwQFFRYXFREUPiJG7xAAIkcFmADUAgMEBRUZGhUiR30gACJHghQA1AIDBAUNHB0NIkbvEAAiRvYYANQCAwQFHyAhHxEUQCJG7xAAIkcFmADUAgMEBR8jJB8iR3mcACJHgFIA1AIDBAUmJygmERRDIkcCFAAiRxcsANQCAwQFJiorJiJHM0wAIkdBXADUAgMEBSYtLiYiR4BSACJHghQAAAgAFQAeACEAJAAnACoALQAyADcAQABFAEoAUwBWAFsAYABjAGwAcQB2AH8AggCHAIwAlQCaAJ8AqACtALIAuwC+AMMAyADRANYA2wDkAOcA7ADxAPoA/wEEAQ0BEgAAAAAAAAIBAAAAAAAAAC8AAAAAAAAAAAAAAAAAAAEX" to="YnBsaXN0MDCtAQkMERQYGx4iJSksL9QCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmADUAgMEBQYKCwYiR3mcACJHfSAA1AIDBAUNDg8QERQ/IkbL6AAiRtLwABEUPdQCAwQFEBITECJHeZwAIkeAUgDUAgMEBRUWFxURFD4iRu8QACJHBZgA1AIDBAUVGRoVIkd9IAAiR4IUANQCAwQFDRwdDSJG7xAAIkb2GADUAgMEBR8gIR8RFEAiRu8QACJHBZgA1AIDBAUfIyQfIkd5nAAiR4BSANQCAwQFJicoJhEUQyJHAhQAIkcXLADUAgMEBSYqKyYiRzNMACJHQVwA1AIDBAUmLS4mIkeAUgAiR4IUANQCAwQFMDEyMBEURCJG7xAAIkcFmAAACAAWAB8AIgAlACgAKwAuADMAOABBAEYASwBUAFcAXABhAGQAbQByAHcAgACDAIgAjQCWAJsAoACpAK4AswC8AL8AxADJANIA1wDcAOUA6ADtAPIA+wEAAQUBDgETARgBIQEkASkAAAAAAAACAQAAAAAAAAAzAAAAAAAAAAAAAAAAAAABLg=="/>
   </resource-change-set>
 </changelog>
