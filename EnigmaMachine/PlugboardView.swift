@@ -8,6 +8,19 @@
 
 import Cocoa
 
+extension Letter
+{
+    func drawInRect(rect: NSRect, attributes: [NSObject : AnyObject])
+    {
+        let letterAsString =  String(self.rawValue)
+        let letterSize = letterAsString.sizeWithAttributes(attributes)
+        let widthAdjustment = (rect.size.width - letterSize.width) / 2.0
+        let heightAdjustment = (rect.size.height - letterSize.height) / 2.0
+        let letterOrigin = NSMakePoint(rect.origin.x + widthAdjustment, rect.origin.y + heightAdjustment)
+        letterAsString.drawAtPoint(letterOrigin, withAttributes: attributes)
+    }
+}
+
 private struct PlugPosition: Hashable
 {
     let x: CGFloat
@@ -94,16 +107,28 @@ class PlugboardView: NSView
 
     private func drawPlug(#position: PlugPosition, letter: Letter)
     {
-		NSBezierPath.strokeRect(rectForPlugPosition(position))
+        /*
+		 *  Scaffolding to be removed later
+         */
+        NSGraphicsContext.saveGraphicsState()
+        NSColor.redColor().set()
+        NSBezierPath.strokeRect(rectForPlugPosition(position, third: 2)) // The extent of the letter
+        NSColor.greenColor().set()
+        NSBezierPath.strokeRect(rectForPlugPosition(position, third: 1)) // The extent of the top socket
+        NSColor.blueColor().set()
+        NSBezierPath.strokeRect(rectForPlugPosition(position, third: 0)) // The extent of the bottom socket
+        NSGraphicsContext.restoreGraphicsState()
+
+        letter.drawInRect(rectForPlugPosition(position, third: 2), attributes: [:])
     }
 
-    private func rectForPlugPosition(plugPosition: PlugPosition) -> NSRect
+    private func rectForPlugPosition(plugPosition: PlugPosition, third: Int) -> NSRect
     {
         var ret = NSRect()
         ret.origin.x = plugPosition.x * socketWidth
-        ret.origin.y = plugPosition.y * socketHeightUnit
+        ret.origin.y = (plugPosition.y + CGFloat(third)) * socketHeightUnit
         ret.size.width = socketWidth
-        ret.size.height = socketHeight
+        ret.size.height = socketHeightUnit
         return ret
     }
     
