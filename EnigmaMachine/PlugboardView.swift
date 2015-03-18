@@ -131,34 +131,58 @@ class PlugboardView: NSView
         letter.drawInRect(rectForPlugPosition(position, third: 2), attributes: [:])
         drawSocketAt(position, third: 1)
         drawSocketAt(position, third: 0)
+        if position == sourcePosition || position == destPosition || position == draggingPosition
+        {
+            drawSelectedSocket(position)
+        }
+    }
+
+    let socketLineWidth: CGFloat = 2
+    var socketDiameter: CGFloat
+    {
+		get
+        {
+            return min(socketWidth, socketHeightUnit) - 4.0 * socketLineWidth
+        }
+    }
+
+    private func drawSelectedSocket(position: PlugPosition)
+    {
+        NSGraphicsContext.saveGraphicsState()
+
+        var selectColour = NSColor.blueColor()
+        selectColour.set()
+        let drawArea = rectForSockets(position)
+        var selectedRect = NSRect()
+        selectedRect.size.width = socketDiameter + 4.0
+        selectedRect.size.height = socketHeightUnit + socketDiameter + 4.0
+        selectedRect.origin.x = drawArea.origin.x + drawArea.size.width / 2 - selectedRect.size.width / 2
+        selectedRect.origin.y = drawArea.origin.y + drawArea.size.height / 2 - selectedRect.size.height / 2
+
+        let path = NSBezierPath()
+        path.lineWidth = socketLineWidth
+        path.appendBezierPathWithRoundedRect(selectedRect, xRadius: selectedRect.size.width / 2, yRadius: selectedRect.size.width / 2)
+        path.stroke()
+        selectColour = NSColor(hue: selectColour.hueComponent,
+            			saturation: selectColour.saturationComponent,
+            			brightness: selectColour.brightnessComponent,
+            				 alpha: 0.3)
+        selectColour.set()
+        path.fill()
+
+        NSGraphicsContext.restoreGraphicsState()
     }
 
     private func drawSocketAt(position: PlugPosition, third: Int)
     {
         var socketRect: NSRect = NSRect()
         var drawArea = rectForPlugPosition(position, third: third)
-        if drawArea.size.width > drawArea.size.height
-        {
-            socketRect.size.width = drawArea.size.height
-            socketRect.size.height = drawArea.size.height
-            socketRect.origin.x = drawArea.origin.x + (drawArea.size.width - drawArea.size.height) / 2
-            socketRect.origin.y = drawArea.origin.y
-        }
-        else
-        {
-            socketRect.size.width = drawArea.size.width
-            socketRect.size.height = drawArea.size.width
-            socketRect.origin.y = drawArea.origin.x + (drawArea.size.height - drawArea.size.width) / 2
-            socketRect.origin.x = drawArea.origin.x
-        }
-        let lineWidth: CGFloat = 2
-        let border: CGFloat = 2 * lineWidth
-        socketRect.size.width -= border * 2
-        socketRect.size.height -= border * 2
-		socketRect.origin.x += border
-        socketRect.origin.y += border
+        socketRect.size.width = socketDiameter
+        socketRect.size.height = socketDiameter
+        socketRect.origin.x = drawArea.origin.x + (drawArea.size.width - socketDiameter) / 2
+        socketRect.origin.y = drawArea.origin.y + (drawArea.size.height - socketDiameter) / 2
         var bezierPath = NSBezierPath(ovalInRect: socketRect)
-        bezierPath.lineWidth = lineWidth
+        bezierPath.lineWidth = socketLineWidth
         bezierPath.stroke()
     }
 
@@ -185,8 +209,41 @@ class PlugboardView: NSView
     // MARK: Handle clicking and dragging to create connections
 
     private var sourcePosition: PlugPosition?
+    {
+		didSet(oldSource)
+        {
+            calculatePositionNeedsDisplay(old: oldSource, new: sourcePosition)
+        }
+    }
     private var draggingPosition: PlugPosition?
+    {
+        didSet(oldDragging)
+        {
+            calculatePositionNeedsDisplay(old: oldDragging, new: draggingPosition)
+        }
+    }
     private var destPosition: PlugPosition?
+    {
+        didSet(oldDest)
+        {
+            calculatePositionNeedsDisplay(old: oldDest, new: destPosition)
+        }
+    }
+
+    private func calculatePositionNeedsDisplay(#old: PlugPosition?, new: PlugPosition?)
+    {
+        if old != new
+        {
+            if let old = old
+            {
+                self.setNeedsDisplayInRect(rectForSockets(old))
+            }
+            if let new = new
+            {
+                self.setNeedsDisplayInRect(rectForSockets(new))
+            }
+        }
+    }
 
     override func mouseDown(theEvent: NSEvent)
     {
@@ -197,7 +254,7 @@ class PlugboardView: NSView
         {
             destPosition = nil
             draggingPosition = nil
-            println("source \(sourcePosition)")
+            self.setNeedsDisplayInRect(rectForSockets(sourcePosition!))
         }
     }
 
@@ -212,7 +269,6 @@ class PlugboardView: NSView
 				if    draggingPosition != self.draggingPosition
                    && draggingPosition != sourcePosition
                 {
-                    println("dragging \(draggingPosition)")
                     self.draggingPosition = draggingPosition
                 }
             }
@@ -232,7 +288,6 @@ class PlugboardView: NSView
             let destPosition = self.clickedPosition(clickLocation)
             if destPosition != nil
             {
-                println("dest \(destPosition)")
                 self.destPosition = destPosition
             }
             else
