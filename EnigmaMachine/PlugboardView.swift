@@ -185,24 +185,62 @@ class PlugboardView: NSView
     // MARK: Handle clicking and dragging to create connections
 
     private var sourcePosition: PlugPosition?
+    private var draggingPosition: PlugPosition?
+    private var destPosition: PlugPosition?
 
     override func mouseDown(theEvent: NSEvent)
     {
         // Check if it is over a socket and handle if it is.
         let clickLocation = self.convertPoint(theEvent.locationInWindow, fromView: nil)
         sourcePosition = self.clickedPosition(clickLocation)
-        println("\(sourcePosition)")
+        if sourcePosition != nil
+        {
+            destPosition = nil
+            draggingPosition = nil
+            println("source \(sourcePosition)")
+        }
     }
 
     override func mouseDragged(theEvent: NSEvent)
     {
-        // Check if over another socket
-        // Also line between original socket and mouse
+        if sourcePosition != nil
+        {
+            let clickLocation = self.convertPoint(theEvent.locationInWindow, fromView: nil)
+            let draggingPosition = self.clickedPosition(clickLocation)
+			if draggingPosition != nil
+            {
+				if    draggingPosition != self.draggingPosition
+                   && draggingPosition != sourcePosition
+                {
+                    println("dragging \(draggingPosition)")
+                    self.draggingPosition = draggingPosition
+                }
+            }
+            else
+            {
+                self.draggingPosition = nil
+            }
+        }
     }
 
     override func mouseUp(theEvent: NSEvent)
     {
-        // If over a socket, nmake a connection
+        // Check if it is over a socket and handle if it is.
+        if sourcePosition != nil
+        {
+            let clickLocation = self.convertPoint(theEvent.locationInWindow, fromView: nil)
+            let destPosition = self.clickedPosition(clickLocation)
+            if destPosition != nil
+            {
+                println("dest \(destPosition)")
+                self.destPosition = destPosition
+            }
+            else
+            {
+                sourcePosition = nil
+                draggingPosition = nil
+            }
+        }
     }
 
     private func clickedPosition(location: NSPoint) -> PlugPosition?
