@@ -146,12 +146,14 @@ class PlugboardView: NSView
             socketRect.origin.y = drawArea.origin.x + (drawArea.size.height - drawArea.size.width) / 2
             socketRect.origin.x = drawArea.origin.x
         }
-        let border: CGFloat = 4
+        let lineWidth: CGFloat = 2
+        let border: CGFloat = 2 * lineWidth
         socketRect.size.width -= border * 2
         socketRect.size.height -= border * 2
 		socketRect.origin.x += border
         socketRect.origin.y += border
         var bezierPath = NSBezierPath(ovalInRect: socketRect)
+        bezierPath.lineWidth = lineWidth
         bezierPath.stroke()
     }
 
