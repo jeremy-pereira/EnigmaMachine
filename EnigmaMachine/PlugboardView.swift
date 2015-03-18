@@ -21,12 +21,17 @@ extension Letter
     }
 }
 
-private struct PlugPosition: Hashable
+private struct PlugPosition: Hashable, Printable
 {
     let x: CGFloat
     let y: CGFloat
 
     var hashValue: Int { return self.x.hashValue ^ self.y.hashValue }
+
+    var description: String
+    {
+        get { return "PlugPosition(x: \(x), y: \(y))" }
+    }
 }
 
 private func == (first: PlugPosition, second: PlugPosition) -> Bool
@@ -166,5 +171,53 @@ class PlugboardView: NSView
         ret.size.height = socketHeightUnit
         return ret
     }
-    
+
+    private func rectForSockets(plugPosition: PlugPosition) -> NSRect
+    {
+        var ret = NSRect()
+        ret.origin.x = plugPosition.x * socketWidth
+        ret.origin.y = plugPosition.y * socketHeightUnit
+        ret.size.width = socketWidth
+        ret.size.height = socketHeightUnit * 2
+        return ret
+    }
+
+    // MARK: Handle clicking and dragging to create connections
+
+    private var sourcePosition: PlugPosition?
+
+    override func mouseDown(theEvent: NSEvent)
+    {
+        // Check if it is over a socket and handle if it is.
+        let clickLocation = self.convertPoint(theEvent.locationInWindow, fromView: nil)
+        sourcePosition = self.clickedPosition(clickLocation)
+        println("\(sourcePosition)")
+    }
+
+    override func mouseDragged(theEvent: NSEvent)
+    {
+        // Check if over another socket
+        // Also line between original socket and mouse
+    }
+
+    override func mouseUp(theEvent: NSEvent)
+    {
+        // If over a socket, nmake a connection
+    }
+
+    private func clickedPosition(location: NSPoint) -> PlugPosition?
+    {
+        var ret: PlugPosition?
+        let positions = PlugboardView.plugToLetter.keys
+        for var i = positions.startIndex ; i != positions.endIndex && ret == nil ; i++
+        {
+            let currentPosition = positions[i]
+			let targetRect = rectForSockets(currentPosition)
+			if NSPointInRect(location, targetRect)
+            {
+                ret = currentPosition
+            }
+        }
+        return ret
+    }
 }
