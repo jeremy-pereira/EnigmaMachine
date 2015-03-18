@@ -2,7 +2,7 @@
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
   <window x="405" y="268" w="1407" h="909">
     <editing-scenario>j3I0nGHZem1</editing-scenario>
-    <view>calendar</view>
+    <view>task</view>
     <overview/>
     <change-tracking/>
     <draw-folded/>
@@ -16,7 +16,7 @@
         <column name="Effort" width="70"/>
         <column name="%Done" width="87"/>
         <column name="Prerequisites" width="102"/>
-        <expanded-items idrefs="t6 t29 t34 t2 t5"/>
+        <expanded-items idrefs="t34 t29 t6 t2 t5"/>
         <selected-items-at-filter-time idrefs="t26 t13 t8 t32 t9 t27 t14 t33 t20 t28 t15 t34 t21 t29 t16 t22 t17 t2 t23 t10 t18 t3 t24 t4 t11 t19 t30 t5 t25 t6 t12 t31 t7"/>
       </outline>
       <gantt-view x="273" y="0" w="770" h="756">

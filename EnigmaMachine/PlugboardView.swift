@@ -38,6 +38,7 @@ class PlugboardView: NSView
 {
     var backgroundColour: NSColor?
     var foregroundColour: NSColor = NSColor.blackColor()
+    var drawScaffolding = false
 
     var socketWidth: CGFloat
     {
@@ -110,36 +111,27 @@ class PlugboardView: NSView
         /*
 		 *  Scaffolding to be removed later
          */
-        NSGraphicsContext.saveGraphicsState()
-        NSColor.redColor().set()
-        NSBezierPath.strokeRect(rectForPlugPosition(position, third: 2)) // The extent of the letter
-        NSColor.greenColor().set()
-        NSBezierPath.strokeRect(rectForPlugPosition(position, third: 1)) // The extent of the top socket
-        NSColor.blueColor().set()
-        NSBezierPath.strokeRect(rectForPlugPosition(position, third: 0)) // The extent of the bottom socket
-        NSGraphicsContext.restoreGraphicsState()
+        if drawScaffolding
+        {
+            NSGraphicsContext.saveGraphicsState()
+            NSColor.redColor().set()
+            NSBezierPath.strokeRect(rectForPlugPosition(position, third: 2)) // The extent of the letter
+            NSColor.greenColor().set()
+            NSBezierPath.strokeRect(rectForPlugPosition(position, third: 1)) // The extent of the top socket
+            NSColor.blueColor().set()
+            NSBezierPath.strokeRect(rectForPlugPosition(position, third: 0)) // The extent of the bottom socket
+            NSGraphicsContext.restoreGraphicsState()
+        }
 
         letter.drawInRect(rectForPlugPosition(position, third: 2), attributes: [:])
-        var socketRect: NSRect = NSRect()
-        var drawArea = rectForPlugPosition(position, third: 1)
-		if drawArea.size.width > drawArea.size.height
-        {
-            socketRect.size.width = drawArea.size.height
-            socketRect.size.height = drawArea.size.height
-            socketRect.origin.x = drawArea.origin.x + (drawArea.size.width - drawArea.size.height) / 2
-            socketRect.origin.y = drawArea.origin.y
-        }
-        else
-        {
-            socketRect.size.width = drawArea.size.width
-            socketRect.size.height = drawArea.size.width
-            socketRect.origin.y = drawArea.origin.x + (drawArea.size.height - drawArea.size.width) / 2
-            socketRect.origin.x = drawArea.origin.x
-        }
+        drawSocketAt(position, third: 1)
+        drawSocketAt(position, third: 0)
+    }
 
-        var bezierPath = NSBezierPath(ovalInRect: socketRect)
-        bezierPath.stroke()
-        drawArea = rectForPlugPosition(position, third: 0)
+    private func drawSocketAt(position: PlugPosition, third: Int)
+    {
+        var socketRect: NSRect = NSRect()
+        var drawArea = rectForPlugPosition(position, third: third)
         if drawArea.size.width > drawArea.size.height
         {
             socketRect.size.width = drawArea.size.height
@@ -154,10 +146,13 @@ class PlugboardView: NSView
             socketRect.origin.y = drawArea.origin.x + (drawArea.size.height - drawArea.size.width) / 2
             socketRect.origin.x = drawArea.origin.x
         }
-
-        bezierPath = NSBezierPath(ovalInRect: socketRect)
+        let border: CGFloat = 4
+        socketRect.size.width -= border * 2
+        socketRect.size.height -= border * 2
+		socketRect.origin.x += border
+        socketRect.origin.y += border
+        var bezierPath = NSBezierPath(ovalInRect: socketRect)
         bezierPath.stroke()
-
     }
 
     private func rectForPlugPosition(plugPosition: PlugPosition, third: Int) -> NSRect
