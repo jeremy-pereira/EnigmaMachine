@@ -8,6 +8,11 @@
 
 import Cocoa
 
+protocol PlugboardViewDataSource
+{
+    func connectLetters(#plugboardView: PlugboardView, from: Letter, to: Letter)
+}
+
 extension Letter
 {
     func drawInRect(rect: NSRect, attributes: [NSObject : AnyObject])
@@ -41,6 +46,8 @@ private func == (first: PlugPosition, second: PlugPosition) -> Bool
 
 class PlugboardView: NSView
 {
+    var dataSource: PlugboardViewDataSource?
+
     var backgroundColour: NSColor?
     var foregroundColour: NSColor = NSColor.blackColor()
     var drawScaffolding = false
@@ -343,15 +350,20 @@ class PlugboardView: NSView
     override func mouseUp(theEvent: NSEvent)
     {
         // Check if it is over a socket and handle if it is.
-        if sourcePosition != nil
+        if let sourcePosition = sourcePosition
         {
             let clickLocation = self.convertPoint(theEvent.locationInWindow, fromView: nil)
             if let destPosition = self.clickedPosition(clickLocation)
             {
-                // Need to connect here
+                if let dataSource = dataSource
+                {
+                    dataSource.connectLetters(plugboardView: self,
+                                                       from: PlugboardView.plugToLetter[sourcePosition]!,
+                        							     to: PlugboardView.plugToLetter[destPosition]!)
+                }
             }
-			sourcePosition = nil
-            draggingPosition = nil
+			self.sourcePosition = nil
+            self.draggingPosition = nil
         }
     }
 

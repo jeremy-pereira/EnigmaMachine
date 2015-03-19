@@ -117,7 +117,7 @@ class  RotorBoxDataSource: NSObject, NSTableViewDataSource
     }
 }
 
-class AbstractEnigmaController: NSWindowController, EnigmaObserver
+class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardViewDataSource
 {
     var enigmaMachine: EnigmaMachine = EnigmaMachine()
     var rotorBeingDragged: Rotor?
@@ -146,6 +146,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
         ringDisplay3.registerForDraggedTypes([NSPasteboardTypeString])
         plugboardView.backgroundColour = NSColor.whiteColor()
         plugboardView.needsDisplay = true
+        plugboardView.dataSource = self
     }
 
     func stateChanged(machine: EnigmaMachine)
@@ -208,4 +209,12 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver
     {
         enigmaMachine.keyUp()
     }
+
+    // MARK: PlugboardView data source methods
+
+    func connectLetters(#plugboardView: PlugboardView, from: Letter, to: Letter)
+    {
+        enigmaMachine.plugInPair((from, to))
+    }
+
 }
