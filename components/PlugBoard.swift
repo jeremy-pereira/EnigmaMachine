@@ -55,8 +55,11 @@ unplugged.
         {
             unplug(pair.1)
         }
-        map[pair.0] = pair.1
-        map[pair.1] = pair.0
+        if pair.0 != pair.1
+        {
+            map[pair.0] = pair.1
+            map[pair.1] = pair.0
+        }
     }
 
     func unplug(aLetter: Letter)

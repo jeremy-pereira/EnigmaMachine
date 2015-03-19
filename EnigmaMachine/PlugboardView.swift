@@ -219,6 +219,8 @@ class PlugboardView: NSView
         NSGraphicsContext.restoreGraphicsState()
     }
 
+    private var pluggedInSockets: [PlugPosition] = []
+
     private func drawPluggedInSocketAt(position: PlugPosition, letter: Letter)
     {
         NSGraphicsContext.saveGraphicsState()
@@ -246,6 +248,8 @@ class PlugboardView: NSView
         letter.drawInRect(drawArea, attributes: [NSForegroundColorAttributeName : letterColour])
 
         NSGraphicsContext.restoreGraphicsState()
+
+        pluggedInSockets.append(position)
     }
 
     private func drawSocketAt(position: PlugPosition, third: Int)
@@ -401,6 +405,17 @@ class PlugboardView: NSView
                 {
                     dataSource.connectLetterPair((PlugboardView.plugToLetter[sourcePosition]!, PlugboardView.plugToLetter[destPosition]!),
                         						 plugboardView: self)
+                    /*
+					 *  We need to invalidate the rectangles for all apparently 
+					 *  plugged in sockets to make them redraw, in case our 
+					 *  connection unconnects something else.
+                     */
+                    for position in pluggedInSockets
+                    {
+						let pluggedInLocation = self.rectForSockets(position)
+                        self.setNeedsDisplayInRect(pluggedInLocation)
+                    }
+                    pluggedInSockets = []
                 }
             }
 			self.sourcePosition = nil
