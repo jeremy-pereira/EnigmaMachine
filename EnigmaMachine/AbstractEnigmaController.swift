@@ -212,9 +212,13 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
 
     // MARK: PlugboardView data source methods
 
-    func connectLetters(#plugboardView: PlugboardView, from: Letter, to: Letter)
+    func connectLetterPair(letterPair: (Letter, Letter), plugboardView: PlugboardView)
     {
-        enigmaMachine.plugInPair((from, to))
+        enigmaMachine.plugInPair(letterPair)
     }
 
+    func connectionForLetter(letter: Letter, plugboardView: PlugboardView) -> Letter?
+    {
+        return enigmaMachine.plugboard.letterConnectedTo(letter: letter)
+    }
 }

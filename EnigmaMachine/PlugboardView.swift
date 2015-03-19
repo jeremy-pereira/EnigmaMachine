@@ -10,7 +10,8 @@ import Cocoa
 
 protocol PlugboardViewDataSource
 {
-    func connectLetters(#plugboardView: PlugboardView, from: Letter, to: Letter)
+    func connectLetterPair(letterPair: (Letter, Letter), plugboardView: PlugboardView)
+    func connectionForLetter(letter: Letter, plugboardView: PlugboardView) -> Letter?
 }
 
 extension Letter
@@ -137,8 +138,20 @@ class PlugboardView: NSView
         }
 
         letter.drawInRect(rectForPlugPosition(position, third: 2), attributes: [:])
-        drawSocketAt(position, third: 1)
-        drawSocketAt(position, third: 0)
+        var connectedLetter: Letter?
+        if let dataSource = dataSource
+        {
+            connectedLetter = dataSource.connectionForLetter(letter, plugboardView: self)
+        }
+        if let connectedLetter = connectedLetter
+        {
+            drawPluggedInSocketAt(position, letter: connectedLetter)
+        }
+        else
+        {
+            drawSocketAt(position, third: 1)
+            drawSocketAt(position, third: 0)
+        }
         if position == sourcePosition || position == draggingPosition
         {
             drawSelectedSocket(position)
@@ -202,6 +215,35 @@ class PlugboardView: NSView
             				 alpha: 0.3)
         selectColour.set()
         path.fill()
+
+        NSGraphicsContext.restoreGraphicsState()
+    }
+
+    private func drawPluggedInSocketAt(position: PlugPosition, letter: Letter)
+    {
+        NSGraphicsContext.saveGraphicsState()
+
+        var selectColour = self.foregroundColour
+        selectColour.set()
+        let drawArea = rectForSockets(position)
+        var selectedRect = NSRect()
+        selectedRect.size.width = socketDiameter + 4.0
+        selectedRect.size.height = socketHeightUnit + socketDiameter + 4.0
+        selectedRect.origin.x = drawArea.origin.x + drawArea.size.width / 2 - selectedRect.size.width / 2
+        selectedRect.origin.y = drawArea.origin.y + drawArea.size.height / 2 - selectedRect.size.height / 2
+
+        let path = NSBezierPath()
+        path.lineWidth = socketLineWidth
+        path.appendBezierPathWithRoundedRect(selectedRect, xRadius: selectedRect.size.width / 2, yRadius: selectedRect.size.width / 2)
+        path.stroke()
+        path.fill()
+        var letterColour = NSColor.grayColor()
+        if let backgroundColour = backgroundColour
+        {
+			letterColour = backgroundColour
+        }
+        letterColour.set()
+        letter.drawInRect(drawArea, attributes: [NSForegroundColorAttributeName : letterColour])
 
         NSGraphicsContext.restoreGraphicsState()
     }
@@ -357,9 +399,8 @@ class PlugboardView: NSView
             {
                 if let dataSource = dataSource
                 {
-                    dataSource.connectLetters(plugboardView: self,
-                                                       from: PlugboardView.plugToLetter[sourcePosition]!,
-                        							     to: PlugboardView.plugToLetter[destPosition]!)
+                    dataSource.connectLetterPair((PlugboardView.plugToLetter[sourcePosition]!, PlugboardView.plugToLetter[destPosition]!),
+                        						 plugboardView: self)
                 }
             }
 			self.sourcePosition = nil

@@ -67,4 +67,9 @@ unplugged.
             map.removeValueForKey(otherEnd)
         }
     }
+
+    public func letterConnectedTo(#letter: Letter) -> Letter?
+    {
+        return map[letter]
+    }
 }
