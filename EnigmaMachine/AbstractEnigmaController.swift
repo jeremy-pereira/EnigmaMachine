@@ -129,6 +129,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
     @IBOutlet var rotorBoxView: NSTableView!
     @IBOutlet var printerController: PrinterController!
     @IBOutlet var plugboardView: PlugboardView!
+    @IBOutlet var lightPanelView: LightPanelView!
 
 	convenience init()
     {
@@ -147,6 +148,8 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
         plugboardView.backgroundColour = NSColor.whiteColor()
         plugboardView.needsDisplay = true
         plugboardView.dataSource = self
+        lightPanelView.backgroundColour = NSColor.whiteColor()
+        //lightPanelView.needsDisplay = true
     }
 
     func stateChanged(machine: EnigmaMachine)

@@ -88,6 +88,7 @@
         <event start="2015-03-16T07:30:00.000Z" end="2015-03-16T08:30:00.000Z" sd="5187" st="27000" ed="5187" et="30600"/>
         <event start="2015-03-17T18:30:00.000Z" end="2015-03-17T19:30:00.000Z" sd="5188" st="66600" ed="5188" et="70200"/>
         <event start="2015-03-18T18:30:00.000Z" end="2015-03-18T19:30:00.000Z" sd="5189" st="66600" ed="5189" et="70200"/>
+        <event start="2015-03-19T19:15:00.000Z" end="2015-03-19T19:30:00.000Z" sd="5190" st="69300" ed="5190" et="70200"/>
       </calendar>
       <calendar name="Overtime" editable="yes" overtime="yes">
         <event start="2015-03-09T08:30:00.000Z" end="2015-03-09T09:30:00.000Z" sd="5180" st="30600" ed="5180" et="34200"/>
@@ -108,6 +109,7 @@
         <event start="2015-03-18T09:45:00.000Z" end="2015-03-18T10:15:00.000Z" sd="5189" st="35100" ed="5189" et="36900"/>
         <event start="2015-03-19T07:00:00.000Z" end="2015-03-19T09:30:00.000Z" sd="5190" st="25200" ed="5190" et="34200"/>
         <event start="2015-03-19T18:15:00.000Z" end="2015-03-19T18:30:00.000Z" sd="5190" st="65700" ed="5190" et="66600"/>
+        <event start="2015-03-20T08:30:00.000Z" end="2015-03-20T09:30:00.000Z" sd="5191" st="30600" ed="5191" et="34200"/>
       </calendar>
     </schedule>
   </resource>
@@ -115,6 +117,7 @@
   <task id="t-1">
     <type>group</type>
     <child-task idref="t6"/>
+    <child-task idref="t47"/>
     <child-task idref="t8"/>
   </task>
   <task id="t1">
@@ -137,14 +140,18 @@
     <child-task idref="t12"/>
   </task>
   <task id="t3">
-    <title>Light box</title>
-    <leveled-start>2015-04-10T17:46:14.000Z</leveled-start>
-    <effort>28800</effort>
+    <title>Light box unlit lamps</title>
+    <leveled-start>2015-03-19T18:49:26.595Z</leveled-start>
+    <effort>8734</effort>
+    <effort-done>8734</effort-done>
+    <locked-start-date>2015-03-19T18:49:26.595Z</locked-start-date>
+    <locked-end-date>2015-03-20T09:30:00.000Z</locked-end-date>
+    <recalculate>effort</recalculate>
     <assignment idref="r1"/>
   </task>
   <task id="t4">
     <title>Remove default window</title>
-    <leveled-start>2015-04-16T17:46:14.000Z</leveled-start>
+    <leveled-start>2015-04-08T07:30:00.000Z</leveled-start>
     <effort>7200</effort>
     <assignment idref="r1"/>
   </task>
@@ -153,7 +160,6 @@
     <type>group</type>
     <child-task idref="t34"/>
     <child-task idref="t31"/>
-    <child-task idref="t42"/>
   </task>
   <task id="t6">
     <title>Enigma Machine</title>
@@ -161,22 +167,24 @@
     <child-task idref="t15"/>
     <child-task idref="t1"/>
     <child-task idref="t5"/>
-    <child-task idref="t19"/>
-    <child-task idref="t16"/>
+    <child-task idref="t46"/>
+    <child-task idref="t43"/>
+    <child-task idref="t44"/>
     <child-task idref="t2"/>
-    <child-task idref="t3"/>
     <child-task idref="t4"/>
     <child-task idref="t7"/>
+    <child-task idref="t16"/>
+    <child-task idref="t19"/>
   </task>
   <task id="t7">
     <title>Better rotor display</title>
-    <leveled-start>2015-04-17T17:46:14.000Z</leveled-start>
+    <leveled-start>2015-04-09T07:30:00.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t8">
     <title>Bombe</title>
-    <leveled-start>2015-04-23T17:46:14.000Z</leveled-start>
+    <leveled-start>2015-04-24T07:30:00.000Z</leveled-start>
     <effort>86400</effort>
     <assignment idref="r1"/>
   </task>
@@ -214,8 +222,8 @@
   </task>
   <task id="t12">
     <title>Ringstellung changer in table view</title>
-    <leveled-start>2015-04-06T17:46:14.000Z</leveled-start>
-    <effort>28800</effort>
+    <leveled-start>2015-04-06T07:30:00.000Z</leveled-start>
+    <effort>14400</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t13">
@@ -233,8 +241,8 @@
   </task>
   <task id="t14">
     <title>Drag and drop from rotor cradle</title>
-    <leveled-start>2015-03-31T17:46:14.000Z</leveled-start>
-    <effort>28800</effort>
+    <leveled-start>2015-04-02T07:30:00.000Z</leveled-start>
+    <effort>14400</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-11T07:30:00.000Z</start-no-earlier-than>
@@ -253,7 +261,7 @@
   </task>
   <task id="t16">
     <title>Alt text to show rotor name and ringstellung</title>
-    <leveled-start>2015-03-25T18:46:14.000Z</leveled-start>
+    <leveled-start>2015-04-15T07:30:00.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -301,7 +309,7 @@
   </task>
   <task id="t20">
     <title>Position print window better</title>
-    <leveled-start>2015-03-25T07:46:14.000Z</leveled-start>
+    <leveled-start>2015-04-23T18:30:00.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -321,7 +329,7 @@
   </task>
   <task id="t22">
     <title>Show/hide print window</title>
-    <leveled-start>2015-03-24T18:46:14.000Z</leveled-start>
+    <leveled-start>2015-04-23T07:30:00.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -353,7 +361,7 @@
   </task>
   <task id="t25">
     <title>User can choose font</title>
-    <leveled-start>2015-03-20T18:46:14.000Z</leveled-start>
+    <leveled-start>2015-04-21T07:30:00.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2015-03-13T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -530,13 +538,60 @@
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-18T07:30:00.000Z</start-no-earlier-than>
   </task>
-  <task id="t42">
-    <title>Remove connections</title>
-    <leveled-start>2015-03-19T18:46:14.000Z</leveled-start>
-    <effort>7200</effort>
+  <task id="t43">
+    <title>Optimise drawing of light panel</title>
+    <leveled-start>2015-03-23T08:30:00.000Z</leveled-start>
+    <effort>28800</effort>
     <start-constraint-date>2015-03-19T07:30:00.000Z</start-constraint-date>
+    <note>
+      <text>
+        <p>
+          <run>
+            <lit>i.e. are lights in the dirty rectangle</lit>
+          </run>
+        </p>
+      </text>
+    </note>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-19T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t44">
+    <title>Optimise drawing of plugboard</title>
+    <leveled-start>2015-03-27T08:30:00.000Z</leveled-start>
+    <effort>28800</effort>
+    <start-constraint-date>2015-03-19T07:30:00.000Z</start-constraint-date>
+    <note>
+      <text>
+        <p>
+          <run>
+            <lit>i.e. are sockets in the dirty rectangle</lit>
+          </run>
+        </p>
+      </text>
+    </note>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-19T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t45">
+    <title>Light lamp when key is pressed</title>
+    <leveled-start>2015-03-20T09:54:57.373Z</leveled-start>
+    <effort>7200</effort>
+    <start-constraint-date>2015-03-20T07:30:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-20T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t46">
+    <title>Light box</title>
+    <type>group</type>
+    <child-task idref="t3"/>
+    <child-task idref="t45"/>
+  </task>
+  <task id="t47">
+    <title>Enigma Complete</title>
+    <type>milestone</type>
+    <start-constraint-date>2015-03-20T07:30:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t6"/>
+    <start-no-earlier-than>2015-03-20T07:30:00.000Z</start-no-earlier-than>
   </task>
   <critical-path root="-1" enabled="false" resources="false">
     <color r="1" g="0.5" b="0.5"/>

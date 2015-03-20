@@ -25,6 +25,7 @@
 		FC6C9F121AA607770013352B /* AbstractEnigmaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C9F111AA607770013352B /* AbstractEnigmaController.swift */; };
 		FC6C9F141AA6090A0013352B /* AbstractEnigmaWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */; };
 		FC728AF01AB7606B0003C81C /* PlugboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC728AEF1AB7606B0003C81C /* PlugboardView.swift */; };
+		FC8AFBE51ABB52C500FA5D8C /* LightPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AFBE41ABB52C500FA5D8C /* LightPanelView.swift */; };
 		FC9AF86C1A9F9F8600335A29 /* TestRotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */; };
 		FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */; };
 		FCA6C1F41AB6E526000D18F6 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6C1F31AB6E526000D18F6 /* StepperView.swift */; };
@@ -66,6 +67,7 @@
 		FC6C9F111AA607770013352B /* AbstractEnigmaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractEnigmaController.swift; sourceTree = "<group>"; };
 		FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AbstractEnigmaWindow.xib; sourceTree = "<group>"; };
 		FC728AEF1AB7606B0003C81C /* PlugboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugboardView.swift; sourceTree = "<group>"; };
+		FC8AFBE41ABB52C500FA5D8C /* LightPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightPanelView.swift; sourceTree = "<group>"; };
 		FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorCradle.swift; sourceTree = "<group>"; };
 		FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorCradle.swift; sourceTree = "<group>"; };
 		FCA6C1F31AB6E526000D18F6 /* StepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				FC2302971AB17D3F00802F7A /* PrinterController.swift */,
 				FCA6C1F31AB6E526000D18F6 /* StepperView.swift */,
 				FC728AEF1AB7606B0003C81C /* PlugboardView.swift */,
+				FC8AFBE41ABB52C500FA5D8C /* LightPanelView.swift */,
 			);
 			path = EnigmaMachine;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				FC6C9F0A1AA4E7FA0013352B /* PlugBoard.swift in Sources */,
 				FC3D16101A9CAE5B00FE44B9 /* AppDelegate.swift in Sources */,
 				FC6C9F121AA607770013352B /* AbstractEnigmaController.swift in Sources */,
+				FC8AFBE51ABB52C500FA5D8C /* LightPanelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

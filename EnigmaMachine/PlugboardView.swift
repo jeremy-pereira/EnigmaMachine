@@ -16,10 +16,15 @@ protocol PlugboardViewDataSource
 
 extension Letter
 {
+    func sizeWithAttributes(attributes: [ NSObject : AnyObject ]) -> NSSize
+    {
+			return String(self.rawValue).sizeWithAttributes(attributes)
+    }
+
     func drawInRect(rect: NSRect, attributes: [NSObject : AnyObject])
     {
         let letterAsString =  String(self.rawValue)
-        let letterSize = letterAsString.sizeWithAttributes(attributes)
+        let letterSize = self.sizeWithAttributes(attributes)
         let widthAdjustment = (rect.size.width - letterSize.width) / 2.0
         let heightAdjustment = (rect.size.height - letterSize.height) / 2.0
         let letterOrigin = NSMakePoint(rect.origin.x + widthAdjustment, rect.origin.y + heightAdjustment)
@@ -52,6 +57,7 @@ class PlugboardView: NSView
     var backgroundColour: NSColor?
     var foregroundColour: NSColor = NSColor.blackColor()
     var drawScaffolding = false
+    override var opaque: Bool { return backgroundColour != nil }
 
     var socketWidth: CGFloat
     {
