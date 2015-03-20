@@ -24,6 +24,25 @@ class LightPanelView: NSView
 
     override var opaque: Bool { return backgroundColour != nil }
 
+    var litLetter: Letter?
+    {
+		didSet(oldValue)
+        {
+            if let oldValue = oldValue
+            {
+                let oldPosition = LightPanelView.letterToLight[oldValue]!
+                let dirtyRect = rectForLamp(oldPosition)
+                self.setNeedsDisplayInRect(dirtyRect)
+            }
+            if let newValue = litLetter
+            {
+                let newPosition = LightPanelView.letterToLight[newValue]!
+                let dirtyRect = rectForLamp(newPosition)
+                self.setNeedsDisplayInRect(dirtyRect)
+            }
+        }
+    }
+
     private static let letterToLight: [ Letter : (CGFloat, CGFloat) ] =
     [
         Letter.Q : ( 0.0, 2.0),
@@ -73,20 +92,24 @@ class LightPanelView: NSView
 
     override func drawRect(dirtyRect: NSRect)
     {
-        println("Drawing")
-
         if let backgroundColour = backgroundColour
         {
-            println("Filling background")
             backgroundColour.set()
             NSBezierPath.fillRect(dirtyRect)
         }
         let mSize = Letter.M.sizeWithAttributes([:])
         for (letter, position) in LightPanelView.letterToLight
         {
+            var fillColour = NSColor.blackColor()
+            var letterColour = NSColor.whiteColor()
+            if letter == litLetter
+            {
+				fillColour = NSColor.yellowColor()
+                letterColour = NSColor.blackColor()
+            }
 			var circleRect = rectForLamp(position)
             var path = NSBezierPath(ovalInRect: circleRect)
-            foregroundColour.setFill()
+            fillColour.setFill()
             NSColor.grayColor().setStroke()
             path.lineWidth = 2
             path.fill()
@@ -96,9 +119,8 @@ class LightPanelView: NSView
             {
                 fontColour = backgroundColour
             }
-            letter.drawInRect(circleRect, attributes: [ NSForegroundColorAttributeName : fontColour])
+            letter.drawInRect(circleRect, attributes: [ NSForegroundColorAttributeName : letterColour])
         }
-        println("Drawing end")
     }
 
     func rectForLamp(centrePosition: (CGFloat, CGFloat)) -> NSRect

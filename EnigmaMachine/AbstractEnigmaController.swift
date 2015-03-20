@@ -167,6 +167,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
         {
             ringDisplay3.stringValue = String(letter.rawValue)
         }
+        lightPanelView.litLetter = enigmaMachine.litLamp
     }
 
     @IBAction func keyPressed(sender: AnyObject)
