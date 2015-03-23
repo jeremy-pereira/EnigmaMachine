@@ -136,7 +136,10 @@ class PlugboardView: NSView
         foregroundColour.set()
         for (position, letter) in PlugboardView.plugToLetter
         {
-            drawPlug(position: position, letter: letter)
+            if rectForPlugPosition(position).overlaps(dirtyRect)
+            {
+                drawPlug(position: position, letter: letter)
+            }
         }
         drawDraggingLine()
     }
@@ -284,6 +287,16 @@ class PlugboardView: NSView
         var bezierPath = NSBezierPath(ovalInRect: socketRect)
         bezierPath.lineWidth = socketLineWidth
         bezierPath.stroke()
+    }
+
+    private func rectForPlugPosition(plugPosition: PlugPosition) -> NSRect
+    {
+        var ret = NSRect()
+        ret.origin.x = plugPosition.x * socketWidth
+        ret.origin.y = plugPosition.y * socketHeightUnit
+        ret.size.width = socketWidth
+        ret.size.height = socketHeight
+        return ret
     }
 
     private func rectForPlugPosition(plugPosition: PlugPosition, third: Int) -> NSRect
