@@ -100,26 +100,29 @@ class LightPanelView: NSView
         let mSize = Letter.M.sizeWithAttributes([:])
         for (letter, position) in LightPanelView.letterToLight
         {
-            var fillColour = NSColor.blackColor()
-            var letterColour = NSColor.whiteColor()
-            if letter == litLetter
+            var circleRect = rectForLamp(position)
+            if circleRect.overlaps(dirtyRect)
             {
-				fillColour = NSColor.yellowColor()
-                letterColour = NSColor.blackColor()
+                var fillColour = NSColor.blackColor()
+                var letterColour = NSColor.whiteColor()
+                if letter == litLetter
+                {
+                    fillColour = NSColor.yellowColor()
+                    letterColour = NSColor.blackColor()
+                }
+                var path = NSBezierPath(ovalInRect: circleRect)
+                fillColour.setFill()
+                NSColor.grayColor().setStroke()
+                path.lineWidth = 2
+                path.fill()
+                path.stroke()
+                var fontColour : NSColor = NSColor.grayColor()
+                if let backgroundColour = backgroundColour
+                {
+                    fontColour = backgroundColour
+                }
+                letter.drawInRect(circleRect, attributes: [ NSForegroundColorAttributeName : letterColour])
             }
-			var circleRect = rectForLamp(position)
-            var path = NSBezierPath(ovalInRect: circleRect)
-            fillColour.setFill()
-            NSColor.grayColor().setStroke()
-            path.lineWidth = 2
-            path.fill()
-            path.stroke()
-            var fontColour : NSColor = NSColor.grayColor()
-            if let backgroundColour = backgroundColour
-            {
-                fontColour = backgroundColour
-            }
-            letter.drawInRect(circleRect, attributes: [ NSForegroundColorAttributeName : letterColour])
         }
     }
 

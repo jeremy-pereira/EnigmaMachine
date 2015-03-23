@@ -32,6 +32,21 @@ extension Letter
     }
 }
 
+extension NSRect
+{
+    func overlaps(otherRect : NSRect) -> Bool
+    {
+        var ret: Bool = false
+
+        ret =  self.origin.x <= otherRect.origin.x + otherRect.size.width
+    		&& otherRect.origin.x <= self.origin.x + self.size.width
+            && self.origin.y <= otherRect.origin.y + otherRect.size.height
+            && otherRect.origin.y <= self.origin.y + self.size.height
+
+        return ret
+    }
+}
+
 private struct PlugPosition: Hashable, Printable
 {
     let x: CGFloat
