@@ -560,7 +560,14 @@
     <change idref="t45" attribute="startLockedDate" type="date" to="2015-03-20T18:00:00.000Z"/>
     <change idref="t45" attribute="internalEffortDone" type="real" from="0" to="840"/>
   </task-change-set>
-  <task-change-set user="Jeremy Pereira" date="2015-03-24T07:38:57.235Z" timestamp="2015-03-24T07:38:57.235Z">
+  <task-change-set user="Jeremy Pereira" date="2015-03-24T08:58:07.689Z" timestamp="2015-03-24T08:58:07.689Z">
+    <change idref="t55" to="t-1" to-position="3">
+      <change idref="t55" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t55" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-24T07:30:00.000Z"/>
+      <change idref="t55" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t55" attribute="title" type="string" to="Bugs"/>
+    </change>
+    <change idref="t12" from="t2" from-position="4" to="t2" to-position="3"/>
     <change idref="t4" attribute="resourceAssignmentType" type="real" from="0" to="1"/>
     <change idref="t4" attribute="effort" type="real" from="7200" to="911"/>
     <change idref="t4" attribute="resourceLeveledDate" type="date" from="2015-03-31T18:30:00.000Z" to="2015-03-24T07:22:49.741Z"/>
@@ -568,14 +575,27 @@
     <change idref="t4" attribute="startLockedDate" type="date" to="2015-03-24T07:22:49.741Z"/>
     <change idref="t4" attribute="internalEffortDone" type="real" from="0" to="911"/>
     <change idref="t4" from="t6" from-position="8" to="t6" to-position="7"/>
-    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-01T18:30:00.000Z" to="2015-03-30T18:30:00.000Z"/>
-    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-16T18:30:00.000Z" to="2015-04-14T18:30:00.000Z"/>
-    <change idref="t12" attribute="resourceLeveledDate" type="date" from="2015-03-27T19:30:00.000Z" to="2015-03-26T19:30:00.000Z"/>
-    <change idref="t14" attribute="resourceLeveledDate" type="date" from="2015-03-25T19:30:00.000Z" to="2015-03-24T19:30:00.000Z"/>
-    <change idref="t16" attribute="resourceLeveledDate" type="date" from="2015-04-07T18:30:00.000Z" to="2015-04-03T18:30:00.000Z"/>
-    <change idref="t20" attribute="resourceLeveledDate" type="date" from="2015-04-16T07:30:00.000Z" to="2015-04-14T07:30:00.000Z"/>
-    <change idref="t22" attribute="resourceLeveledDate" type="date" from="2015-04-15T18:30:00.000Z" to="2015-04-13T18:30:00.000Z"/>
-    <change idref="t25" attribute="resourceLeveledDate" type="date" from="2015-04-13T18:30:00.000Z" to="2015-04-09T18:30:00.000Z"/>
+    <change idref="t49" to="t6" to-position="8">
+      <change idref="t49" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t49" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-24T07:30:00.000Z"/>
+      <change idref="t49" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t49" attribute="title" type="string" to="Auto input"/>
+    </change>
+    <change idref="t54" to="t6" to-position="9">
+      <change idref="t54" attribute="effort" type="real" from="28800" to="3600"/>
+      <change idref="t54" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t54" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-24T07:30:00.000Z"/>
+      <change idref="t54" attribute="resourceLeveledDate" type="date" to="2015-03-25T18:56:57.000Z"/>
+      <change idref="t54" attribute="title" type="string" to="Fix abuse of identifiers in keyboard buttons"/>
+    </change>
+    <change idref="t7" attribute="resourceLeveledDate" type="date" from="2015-04-01T18:30:00.000Z" to="2015-04-01T06:56:57.000Z"/>
+    <change idref="t8" attribute="resourceLeveledDate" type="date" from="2015-04-16T18:30:00.000Z" to="2015-04-16T06:56:57.000Z"/>
+    <change idref="t12" attribute="resourceLeveledDate" type="date" from="2015-03-27T19:30:00.000Z" to="2015-03-26T07:56:57.000Z"/>
+    <change idref="t14" attribute="resourceLeveledDate" type="date" from="2015-03-25T19:30:00.000Z" to="2015-03-30T06:56:57.000Z"/>
+    <change idref="t16" attribute="resourceLeveledDate" type="date" from="2015-04-07T18:30:00.000Z" to="2015-04-07T06:56:57.000Z"/>
+    <change idref="t20" attribute="resourceLeveledDate" type="date" from="2015-04-16T07:30:00.000Z" to="2015-04-15T17:56:57.000Z"/>
+    <change idref="t22" attribute="resourceLeveledDate" type="date" from="2015-04-15T18:30:00.000Z" to="2015-04-15T06:56:57.000Z"/>
+    <change idref="t25" attribute="resourceLeveledDate" type="date" from="2015-04-13T18:30:00.000Z" to="2015-04-13T06:56:57.000Z"/>
     <change idref="t43" attribute="resourceAssignmentType" type="real" from="0" to="1"/>
     <change idref="t43" attribute="effort" type="real" from="7200" to="900"/>
     <change idref="t43" attribute="resourceLeveledDate" type="date" from="2015-03-20T18:19:00.332Z" to="2015-03-23T07:45:00.000Z"/>
@@ -594,6 +614,47 @@
     <change idref="t48" attribute="endLockedDate" type="date" to="2015-03-23T18:52:00.000Z"/>
     <change idref="t48" attribute="startLockedDate" type="date" to="2015-03-23T08:10:27.529Z"/>
     <change idref="t48" attribute="internalEffortDone" type="real" from="0" to="6093"/>
+    <change idref="t56" to="t55" to-position="0">
+      <change idref="t56" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-24T07:30:00.000Z"/>
+      <change idref="t56" attribute="title" type="string" to="Keyboard accepts mouse clicks"/>
+    </change>
+    <change idref="t50" to="t49" to-position="0">
+      <change idref="t50" attribute="effort" type="real" from="28800" to="788"/>
+      <change idref="t50" attribute="endLockedDate" type="date" to="2015-03-24T08:00:00.000Z"/>
+      <change idref="t50" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t50" attribute="internalEffortDone" type="real" from="0" to="788"/>
+      <change idref="t50" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-24T07:30:00.000Z"/>
+      <change idref="t50" attribute="resourceAssignmentType" type="real" from="0" to="1"/>
+      <change idref="t50" attribute="resourceLeveledDate" type="date" to="2015-03-24T07:46:52.610Z"/>
+      <change idref="t50" attribute="startLockedDate" type="date" to="2015-03-24T07:46:52.610Z"/>
+      <change idref="t50" attribute="title" type="string" to="paste field"/>
+    </change>
+    <change idref="t51" to="t49" to-position="1">
+      <change idref="t51" attribute="effort" type="real" from="28800" to="3300"/>
+      <change idref="t51" attribute="endLockedDate" type="date" to="2015-03-24T08:55:00.000Z"/>
+      <change idref="t51" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t51" attribute="internalEffortDone" type="real" from="0" to="3300"/>
+      <change idref="t51" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-24T08:00:00.000Z"/>
+      <change idref="t51" attribute="resourceAssignmentType" type="real" from="0" to="1"/>
+      <change idref="t51" attribute="resourceLeveledDate" type="date" to="2015-03-24T08:00:00.000Z"/>
+      <change idref="t51" attribute="startLockedDate" type="date" to="2015-03-24T08:00:00.000Z"/>
+      <change idref="t51" attribute="title" type="string" to="single step"/>
+    </change>
+    <change idref="t52" to="t49" to-position="2">
+      <change idref="t52" attribute="effort" type="real" from="28800" to="7200"/>
+      <change idref="t52" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t52" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-24T07:30:00.000Z"/>
+      <change idref="t52" attribute="resourceLeveledDate" type="date" to="2015-03-24T08:56:57.078Z"/>
+      <change idref="t52" attribute="startLockedDate" type="date" to="2015-03-24T08:56:57.078Z"/>
+      <change idref="t52" attribute="title" type="string" to="automatic"/>
+    </change>
+    <change idref="t53" to="t49" to-position="3">
+      <change idref="t53" attribute="effort" type="real" from="28800" to="3600"/>
+      <change idref="t53" attribute="internalAssignments" type="string" from="" to="1"/>
+      <change idref="t53" attribute="noEarlierThanConstraintDate" type="date" to="2015-03-24T07:30:00.000Z"/>
+      <change idref="t53" attribute="resourceLeveledDate" type="date" to="2015-03-25T07:56:57.000Z"/>
+      <change idref="t53" attribute="title" type="string" to="change timer interval for automatic"/>
+    </change>
   </task-change-set>
   <resource-change-set user="Jeremy Pereira" date="2015-03-10T07:17:57.488Z" timestamp="2015-03-10T07:17:57.488Z">
     <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDChAdQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmAAIChMWGRwfIicAAAAAAAABAQAAAAAAAAAJAAAAAAAAAAAAAAAAAAAALA==" to="YnBsaXN0MDCjAQkM1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkbvEAAiRwWYANQCAwQFBgoLBiJHeZwAIkd9IADUAgMEBQ0ODw0RFD0iRsvoACJG0vAACAwVGBseISQpLjc8QUpNUgAAAAAAAAEBAAAAAAAAABAAAAAAAAAAAAAAAAAAAABX"/>
@@ -651,8 +712,8 @@
     <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCvEBMBCQwRFBgbHiIlKSwvMzY6PUFE1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkbvEAAiRwWYANQCAwQFBgoLBiJHeZwAIkd9IADUAgMEBQ0ODxARFD8iRsvoACJG0vAAERQ91AIDBAUQEhMQIkd5nAAiR4BSANQCAwQFFRYXFREUPiJG7xAAIkcFmADUAgMEBRUZGhUiR30gACJHghQA1AIDBAUNHB0NIkbvEAAiRvYYANQCAwQFHyAhHxEUQCJG7xAAIkcFmADUAgMEBR8jJB8iR3mcACJHgFIA1AIDBAUmJygmERRDIkcCFAAiRxcsANQCAwQFJiorJiJHM0wAIkdBXADUAgMEBSYtLiYiR4BSACJHghQA1AIDBAUwMTIwERREIkbvEAAiRwWYANQCAwQFMDQ1MCJHfSAAIkeCFADUAgMEBTc4OTcRFEUiRsvoACJHBZgA1AIDBAU3Ozw3IkcJHAAiRxAkANQCAwQFPj9APhEURiJGxOAAIkcFmADUAgMEBT5CQz4iR4BSACJHghQA1AIDBAVFRkdFERRHIkbvEAAiRwWYAAAIAB4AJwAqAC0AMAAzADYAOwBAAEkATgBTAFwAXwBkAGkAbAB1AHoAfwCIAIsAkACVAJ4AowCoALEAtgC7AMQAxwDMANEA2gDfAOQA7QDwAPUA+gEDAQgBDQEWARsBIAEpASwBMQE2AT8BRAFJAVIBVQFaAV8BaAFtAXIBewF+AYMBiAGRAZYBmwGkAacBrAAAAAAAAAIBAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAGx" to="YnBsaXN0MDCvEBQBCQwRFBgbHiIlKSwvMzY6PUFESNQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmADUAgMEBQYKCwYiR3mcACJHfSAA1AIDBAUNDg8QERQ/IkbL6AAiRtLwABEUPdQCAwQFEBITECJHeZwAIkeAUgDUAgMEBRUWFxURFD4iRu8QACJHBZgA1AIDBAUVGRoVIkd9IAAiR4IUANQCAwQFDRwdDSJG7xAAIkb2GADUAgMEBR8gIR8RFEAiRu8QACJHBZgA1AIDBAUfIyQfIkd5nAAiR4BSANQCAwQFJicoJhEUQyJHAhQAIkcXLADUAgMEBSYqKyYiRzNMACJHQVwA1AIDBAUmLS4mIkeAUgAiR4IUANQCAwQFMDEyMBEURCJG7xAAIkcFmADUAgMEBTA0NTAiR30gACJHghQA1AIDBAU3ODk3ERRFIkbL6AAiRwWYANQCAwQFNzs8NyJHCRwAIkcQJADUAgMEBT4/QD4RFEYiRsTgACJHBZgA1AIDBAU+QkM+IkeAUgAiR4IUANQCAwQFRUZHRREURyJG7xAAIkcFmADUAgMEBUVJSkUiR30gACJHgFIAAAgAHwAoACsALgAxADQANwA8AEEASgBPAFQAXQBgAGUAagBtAHYAewCAAIkAjACRAJYAnwCkAKkAsgC3ALwAxQDIAM0A0gDbAOAA5QDuAPEA9gD7AQQBCQEOARcBHAEhASoBLQEyATcBQAFFAUoBUwFWAVsBYAFpAW4BcwF8AX8BhAGJAZIBlwGcAaUBqAGtAbIBuwHAAAAAAAAAAgEAAAAAAAAASwAAAAAAAAAAAAAAAAAAAcU="/>
     <change idref="r1" attribute="timeOffString" type="string" from="YnBsaXN0MDCoAQkMERUZHSHUAgMEBQYHCAZSZWRSc3RSZXRSc2QRFDwiR4IUACJHg9YA1AIDBAUGCgsGIkeHWgAiR4kcANQCAwQFDQ4PEBEUPiJHghQAIkeJHAARFD3UAgMEBRITFBIRFEAiR4IUACJHiRwA1AIDBAUWFxgWERRDIkbS8AAiRu8QANQCAwQFGhscGhEURCJHghQAIkeJHADUAgMEBR4fIB4RFEUiR4IUACJHiRwA1AIDBAUiIyQiERRGIkeHWgAiR4kcAAgRGh0gIyYpLjM8QUZPUldcX2hrcHV+gYaLlJecoaqtsrfAw8gAAAAAAAABAQAAAAAAAAAlAAAAAAAAAAAAAAAAAAAAzQ==" to="YnBsaXN0MDCpAQkMERUZHSEl1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkeCFAAiR4PWANQCAwQFBgoLBiJHh1oAIkeJHADUAgMEBQ0ODxARFD4iR4IUACJHiRwAERQ91AIDBAUSExQSERRAIkeCFAAiR4kcANQCAwQFFhcYFhEUQyJG0vAAIkbvEADUAgMEBRobHBoRFEQiR4IUACJHiRwA1AIDBAUeHyAeERRFIkeCFAAiR4kcANQCAwQFIiMkIhEURiJHh1oAIkeJHADUAgMEBSYnKCYRFEciR4IUACJHiRwACBIbHiEkJyovND1CR1BTWF1gaWxxdn+Ch4yVmJ2iq66zuMHEyc7X2t8AAAAAAAABAQAAAAAAAAApAAAAAAAAAAAAAAAAAAAA5A=="/>
   </resource-change-set>
-  <resource-change-set user="Jeremy Pereira" date="2015-03-24T07:38:57.235Z" timestamp="2015-03-24T07:38:57.235Z">
-    <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCvEBQBCQwRFBgbHiIlKSwvMzY6PUFESNQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmADUAgMEBQYKCwYiR3mcACJHfSAA1AIDBAUNDg8QERQ/IkbL6AAiRtLwABEUPdQCAwQFEBITECJHeZwAIkeAUgDUAgMEBRUWFxURFD4iRu8QACJHBZgA1AIDBAUVGRoVIkd9IAAiR4IUANQCAwQFDRwdDSJG7xAAIkb2GADUAgMEBR8gIR8RFEAiRu8QACJHBZgA1AIDBAUfIyQfIkd5nAAiR4BSANQCAwQFJicoJhEUQyJHAhQAIkcXLADUAgMEBSYqKyYiRzNMACJHQVwA1AIDBAUmLS4mIkeAUgAiR4IUANQCAwQFMDEyMBEURCJG7xAAIkcFmADUAgMEBTA0NTAiR30gACJHghQA1AIDBAU3ODk3ERRFIkbL6AAiRwWYANQCAwQFNzs8NyJHCRwAIkcQJADUAgMEBT4/QD4RFEYiRsTgACJHBZgA1AIDBAU+QkM+IkeAUgAiR4IUANQCAwQFRUZHRREURyJG7xAAIkcFmADUAgMEBUVJSkUiR30gACJHgFIAAAgAHwAoACsALgAxADQANwA8AEEASgBPAFQAXQBgAGUAagBtAHYAewCAAIkAjACRAJYAnwCkAKkAsgC3ALwAxQDIAM0A0gDbAOAA5QDuAPEA9gD7AQQBCQEOARcBHAEhASoBLQEyATcBQAFFAUoBUwFWAVsBYAFpAW4BcwF8AX8BhAGJAZIBlwGcAaUBqAGtAbIBuwHAAAAAAAAAAgEAAAAAAAAASwAAAAAAAAAAAAAAAAAAAcU=" to="YnBsaXN0MDCvEBYBCQwRFBgbHiIlKSwvMzY6PUFESEtP1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkbvEAAiRwWYANQCAwQFBgoLBiJHeZwAIkd9IADUAgMEBQ0ODxARFD8iRsvoACJG0vAAERQ91AIDBAUQEhMQIkd5nAAiR4BSANQCAwQFFRYXFREUPiJG7xAAIkcFmADUAgMEBRUZGhUiR30gACJHghQA1AIDBAUNHB0NIkbvEAAiRvYYANQCAwQFHyAhHxEUQCJG7xAAIkcFmADUAgMEBR8jJB8iR3mcACJHgFIA1AIDBAUmJygmERRDIkcCFAAiRxcsANQCAwQFJiorJiJHM0wAIkdBXADUAgMEBSYtLiYiR4BSACJHghQA1AIDBAUwMTIwERREIkbvEAAiRwWYANQCAwQFMDQ1MCJHfSAAIkeCFADUAgMEBTc4OTcRFEUiRsvoACJHBZgA1AIDBAU3Ozw3IkcJHAAiRxAkANQCAwQFPj9APhEURiJGxOAAIkcFmADUAgMEBT5CQz4iR4BSACJHghQA1AIDBAVFRkdFERRHIkbvEAAiRwWYANQCAwQFRUlKRSJHfSAAIkeAUgDUAgMEBUxNTkwRFEoiRtn4ACJHBZgA1AIDBAVQUVJQERRLIkbL6AAiRtLwAAAIACEAKgAtADAAMwA2ADkAPgBDAEwAUQBWAF8AYgBnAGwAbwB4AH0AggCLAI4AkwCYAKEApgCrALQAuQC+AMcAygDPANQA3QDiAOcA8ADzAPgA/QEGAQsBEAEZAR4BIwEsAS8BNAE5AUIBRwFMAVUBWAFdAWIBawFwAXUBfgGBAYYBiwGUAZkBngGnAaoBrwG0Ab0BwgHHAdAB0wHYAd0B5gHpAe4AAAAAAAACAQAAAAAAAABTAAAAAAAAAAAAAAAAAAAB8w=="/>
+  <resource-change-set user="Jeremy Pereira" date="2015-03-24T08:58:07.689Z" timestamp="2015-03-24T08:58:07.689Z">
+    <change idref="r1" attribute="overtimeString" type="string" from="YnBsaXN0MDCvEBQBCQwRFBgbHiIlKSwvMzY6PUFESNQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJG7xAAIkcFmADUAgMEBQYKCwYiR3mcACJHfSAA1AIDBAUNDg8QERQ/IkbL6AAiRtLwABEUPdQCAwQFEBITECJHeZwAIkeAUgDUAgMEBRUWFxURFD4iRu8QACJHBZgA1AIDBAUVGRoVIkd9IAAiR4IUANQCAwQFDRwdDSJG7xAAIkb2GADUAgMEBR8gIR8RFEAiRu8QACJHBZgA1AIDBAUfIyQfIkd5nAAiR4BSANQCAwQFJicoJhEUQyJHAhQAIkcXLADUAgMEBSYqKyYiRzNMACJHQVwA1AIDBAUmLS4mIkeAUgAiR4IUANQCAwQFMDEyMBEURCJG7xAAIkcFmADUAgMEBTA0NTAiR30gACJHghQA1AIDBAU3ODk3ERRFIkbL6AAiRwWYANQCAwQFNzs8NyJHCRwAIkcQJADUAgMEBT4/QD4RFEYiRsTgACJHBZgA1AIDBAU+QkM+IkeAUgAiR4IUANQCAwQFRUZHRREURyJG7xAAIkcFmADUAgMEBUVJSkUiR30gACJHgFIAAAgAHwAoACsALgAxADQANwA8AEEASgBPAFQAXQBgAGUAagBtAHYAewCAAIkAjACRAJYAnwCkAKkAsgC3ALwAxQDIAM0A0gDbAOAA5QDuAPEA9gD7AQQBCQEOARcBHAEhASoBLQEyATcBQAFFAUoBUwFWAVsBYAFpAW4BcwF8AX8BhAGJAZIBlwGcAaUBqAGtAbIBuwHAAAAAAAAAAgEAAAAAAAAASwAAAAAAAAAAAAAAAAAAAcU=" to="YnBsaXN0MDCvEBYBCQwRFBgbHiIlKSwvMzY6PUFESEtQ1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkbvEAAiRwWYANQCAwQFBgoLBiJHeZwAIkd9IADUAgMEBQ0ODxARFD8iRsvoACJG0vAAERQ91AIDBAUQEhMQIkd5nAAiR4BSANQCAwQFFRYXFREUPiJG7xAAIkcFmADUAgMEBRUZGhUiR30gACJHghQA1AIDBAUNHB0NIkbvEAAiRvYYANQCAwQFHyAhHxEUQCJG7xAAIkcFmADUAgMEBR8jJB8iR3mcACJHgFIA1AIDBAUmJygmERRDIkcCFAAiRxcsANQCAwQFJiorJiJHM0wAIkdBXADUAgMEBSYtLiYiR4BSACJHghQA1AIDBAUwMTIwERREIkbvEAAiRwWYANQCAwQFMDQ1MCJHfSAAIkeCFADUAgMEBTc4OTcRFEUiRsvoACJHBZgA1AIDBAU3Ozw3IkcJHAAiRxAkANQCAwQFPj9APhEURiJGxOAAIkcFmADUAgMEBT5CQz4iR4BSACJHghQA1AIDBAVFRkdFERRHIkbvEAAiRwWYANQCAwQFRUlKRSJHfSAAIkeAUgDUAgMEBUxNTk8RFEsiRtn4ACJHBZgAERRK1AIDBAVMUVJMIkbL6AAiRtLwAAAIACEAKgAtADAAMwA2ADkAPgBDAEwAUQBWAF8AYgBnAGwAbwB4AH0AggCLAI4AkwCYAKEApgCrALQAuQC+AMcAygDPANQA3QDiAOcA8ADzAPgA/QEGAQsBEAEZAR4BIwEsAS8BNAE5AUIBRwFMAVUBWAFdAWIBawFwAXUBfgGBAYYBiwGUAZkBngGnAaoBrwG0Ab0BwgHHAdAB0wHYAd0B4AHpAe4AAAAAAAACAQAAAAAAAABTAAAAAAAAAAAAAAAAAAAB8w=="/>
     <change idref="r1" attribute="timeOffString" type="string" from="YnBsaXN0MDCpAQkMERUZHSEl1AIDBAUGBwgGUmVkUnN0UmV0UnNkERQ8IkeCFAAiR4PWANQCAwQFBgoLBiJHh1oAIkeJHADUAgMEBQ0ODxARFD4iR4IUACJHiRwAERQ91AIDBAUSExQSERRAIkeCFAAiR4kcANQCAwQFFhcYFhEUQyJG0vAAIkbvEADUAgMEBRobHBoRFEQiR4IUACJHiRwA1AIDBAUeHyAeERRFIkeCFAAiR4kcANQCAwQFIiMkIhEURiJHh1oAIkeJHADUAgMEBSYnKCYRFEciR4IUACJHiRwACBIbHiEkJyovND1CR1BTWF1gaWxxdn+Ch4yVmJ2iq66zuMHEyc7X2t8AAAAAAAABAQAAAAAAAAApAAAAAAAAAAAAAAAAAAAA5A==" to="YnBsaXN0MDCqAQkMERUZHSElKdQCAwQFBgcIBlJlZFJzdFJldFJzZBEUPCJHghQAIkeD1gDUAgMEBQYKCwYiR4daACJHiRwA1AIDBAUNDg8QERQ+IkeCFAAiR4kcABEUPdQCAwQFEhMUEhEUQCJHghQAIkeJHADUAgMEBRYXGBYRFEMiRtLwACJG7xAA1AIDBAUaGxwaERREIkeCFAAiR4kcANQCAwQFHh8gHhEURSJHghQAIkeJHADUAgMEBSIjJCIRFEYiR4daACJHiRwA1AIDBAUmJygmERRHIkeCFAAiR4kcANQCAwQFKissKhEUSiJG0vAAIkbZ+AAIExwfIiUoKzA1PkNIUVRZXmFqbXJ3gIOIjZaZnqOsr7S5wsXKz9jb4OXu8fYAAAAAAAABAQAAAAAAAAAtAAAAAAAAAAAAAAAAAAAA+w=="/>
   </resource-change-set>
 </changelog>

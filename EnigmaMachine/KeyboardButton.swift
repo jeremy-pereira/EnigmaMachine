@@ -29,9 +29,9 @@ class KeyboardView: NSBox
 
     func buttonPressed(keyboardButton : KeyboardButton)
     {
-        if let keyboardDelegate = keyboardDelegate
+        if let keyboardDelegate = keyboardDelegate, letter = keyboardButton.letter
         {
-            keyboardDelegate.letterPressed(keyboardButton.letter, keyboard: self)
+            keyboardDelegate.letterPressed(letter, keyboard: self)
         }
     }
 }
@@ -56,10 +56,21 @@ class KeyboardButton: NSButton
         }
     }
 
-    var letter: Letter
+    var letter: Letter?
     {
-        var idChar = self.identifier![self.identifier!.startIndex]
-		return Letter(rawValue: idChar)!
+        var ret: Letter?
+        if let identifier = self.identifier
+        {
+            if identifier != ""
+            {
+                var idChar = identifier[identifier.startIndex]
+                if idChar != "$"
+                {
+                    ret = Letter(rawValue: idChar)
+                }
+            }
+        }
+        return ret
     }
 
     override func mouseDown(theEvent: NSEvent)
@@ -71,4 +82,48 @@ class KeyboardButton: NSButton
         super.mouseDown(theEvent)
     }
 
+}
+
+class AutoKeyButton: KeyboardButton
+{
+    @IBOutlet var textField: NSTextField!
+
+    override func mouseDown(theEvent: NSEvent)
+    {
+        let rawCharacters = textField.stringValue
+        let charactersLeft = rawCharacters.uppercaseString
+        var nextLetter: Letter?
+        var chosenIndex: String.Index = rawCharacters.startIndex
+        for var index = charactersLeft.startIndex ;
+            	nextLetter == nil && index != charactersLeft.endIndex ;
+            	++index, ++chosenIndex
+        {
+            if let candidateLetter = Letter(rawValue: charactersLeft[index])
+            {
+                if candidateLetter != Letter.UpperBound // Could be, if they typed a $
+                {
+                    nextLetter = candidateLetter
+                    chosenIndex = index
+                }
+            }
+        }
+        var  replacementString = ""
+        if let nextLetter = nextLetter
+        {
+			self.identifier = String(nextLetter.rawValue)
+            if chosenIndex != rawCharacters.endIndex
+            {
+                for aChar in rawCharacters[chosenIndex ..< rawCharacters.endIndex]
+                {
+                    replacementString.append(aChar)
+                }
+            }
+        }
+        else
+        {
+			self.identifier = ""
+        }
+        textField.stringValue = replacementString
+        super.mouseDown(theEvent)
+    }
 }

@@ -113,7 +113,7 @@
         <event start="2015-03-19T18:15:00.000Z" end="2015-03-19T18:30:00.000Z" sd="5190" st="65700" ed="5190" et="66600"/>
         <event start="2015-03-20T08:30:00.000Z" end="2015-03-20T09:30:00.000Z" sd="5191" st="30600" ed="5191" et="34200"/>
         <event start="2015-03-20T18:00:00.000Z" end="2015-03-20T18:15:00.000Z" sd="5191" st="64800" ed="5191" et="65700"/>
-        <event start="2015-03-23T07:45:00.000Z" end="2015-03-23T09:30:00.000Z" sd="5194" st="27900" ed="5194" et="34200"/>
+        <event start="2015-03-23T07:45:00.000Z" end="2015-03-24T09:30:00.000Z" sd="5194" st="27900" ed="5195" et="34200"/>
         <event start="2015-03-24T07:15:00.000Z" end="2015-03-24T07:30:00.000Z" sd="5195" st="26100" ed="5195" et="27000"/>
       </calendar>
     </schedule>
@@ -124,6 +124,7 @@
     <child-task idref="t6"/>
     <child-task idref="t47"/>
     <child-task idref="t8"/>
+    <child-task idref="t55"/>
   </task>
   <task id="t1">
     <title>Respond to real keyboard events</title>
@@ -141,8 +142,8 @@
     <child-task idref="t9"/>
     <child-task idref="t11"/>
     <child-task idref="t10"/>
-    <child-task idref="t14"/>
     <child-task idref="t12"/>
+    <child-task idref="t14"/>
   </task>
   <task id="t3">
     <title>Light box unlit lamps</title>
@@ -181,6 +182,8 @@
     <child-task idref="t44"/>
     <child-task idref="t48"/>
     <child-task idref="t4"/>
+    <child-task idref="t49"/>
+    <child-task idref="t54"/>
     <child-task idref="t2"/>
     <child-task idref="t7"/>
     <child-task idref="t16"/>
@@ -188,13 +191,13 @@
   </task>
   <task id="t7">
     <title>Better rotor display</title>
-    <leveled-start>2015-03-30T18:30:00.000Z</leveled-start>
+    <leveled-start>2015-04-01T06:56:57.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t8">
     <title>Bombe</title>
-    <leveled-start>2015-04-14T18:30:00.000Z</leveled-start>
+    <leveled-start>2015-04-16T06:56:57.000Z</leveled-start>
     <effort>86400</effort>
     <assignment idref="r1"/>
   </task>
@@ -232,7 +235,7 @@
   </task>
   <task id="t12">
     <title>Ringstellung changer in table view</title>
-    <leveled-start>2015-03-26T19:30:00.000Z</leveled-start>
+    <leveled-start>2015-03-26T07:56:57.000Z</leveled-start>
     <effort>14400</effort>
     <assignment idref="r1"/>
   </task>
@@ -251,7 +254,7 @@
   </task>
   <task id="t14">
     <title>Drag and drop from rotor cradle</title>
-    <leveled-start>2015-03-24T19:30:00.000Z</leveled-start>
+    <leveled-start>2015-03-30T06:56:57.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -271,7 +274,7 @@
   </task>
   <task id="t16">
     <title>Alt text to show rotor name and ringstellung</title>
-    <leveled-start>2015-04-03T18:30:00.000Z</leveled-start>
+    <leveled-start>2015-04-07T06:56:57.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -319,7 +322,7 @@
   </task>
   <task id="t20">
     <title>Position print window better</title>
-    <leveled-start>2015-04-14T07:30:00.000Z</leveled-start>
+    <leveled-start>2015-04-15T17:56:57.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -339,7 +342,7 @@
   </task>
   <task id="t22">
     <title>Show/hide print window</title>
-    <leveled-start>2015-04-13T18:30:00.000Z</leveled-start>
+    <leveled-start>2015-04-15T06:56:57.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-12T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -371,7 +374,7 @@
   </task>
   <task id="t25">
     <title>User can choose font</title>
-    <leveled-start>2015-04-09T18:30:00.000Z</leveled-start>
+    <leveled-start>2015-04-13T06:56:57.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2015-03-13T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -626,6 +629,78 @@
     <recalculate>effort</recalculate>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-20T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t49">
+    <title>Auto input</title>
+    <type>group</type>
+    <start-constraint-date>2015-03-24T07:30:00.000Z</start-constraint-date>
+    <child-task idref="t50"/>
+    <child-task idref="t51"/>
+    <child-task idref="t52"/>
+    <child-task idref="t53"/>
+    <start-no-earlier-than>2015-03-24T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t50">
+    <title>paste field</title>
+    <leveled-start>2015-03-24T07:46:52.610Z</leveled-start>
+    <effort>788</effort>
+    <effort-done>788</effort-done>
+    <locked-start-date>2015-03-24T07:46:52.610Z</locked-start-date>
+    <locked-end-date>2015-03-24T08:00:00.000Z</locked-end-date>
+    <start-constraint-date>2015-03-24T07:30:00.000Z</start-constraint-date>
+    <recalculate>effort</recalculate>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-24T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t51">
+    <title>single step</title>
+    <leveled-start>2015-03-24T08:00:00.000Z</leveled-start>
+    <effort>3300</effort>
+    <effort-done>3300</effort-done>
+    <locked-start-date>2015-03-24T08:00:00.000Z</locked-start-date>
+    <locked-end-date>2015-03-24T08:55:00.000Z</locked-end-date>
+    <start-constraint-date>2015-03-24T08:00:00.000Z</start-constraint-date>
+    <recalculate>effort</recalculate>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-24T08:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t52">
+    <title>automatic</title>
+    <leveled-start>2015-03-24T08:56:57.078Z</leveled-start>
+    <effort>7200</effort>
+    <locked-start-date>2015-03-24T08:56:57.078Z</locked-start-date>
+    <start-constraint-date>2015-03-24T07:30:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-24T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t53">
+    <title>change timer interval for automatic</title>
+    <leveled-start>2015-03-25T07:56:57.000Z</leveled-start>
+    <effort>3600</effort>
+    <start-constraint-date>2015-03-24T07:30:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-24T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t54">
+    <title>Fix abuse of identifiers in keyboard buttons</title>
+    <leveled-start>2015-03-25T18:56:57.000Z</leveled-start>
+    <effort>3600</effort>
+    <start-constraint-date>2015-03-24T07:30:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-03-24T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t55">
+    <title>Bugs</title>
+    <type>group</type>
+    <start-constraint-date>2015-03-24T07:30:00.000Z</start-constraint-date>
+    <child-task idref="t56"/>
+    <start-no-earlier-than>2015-03-24T07:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t56">
+    <title>Keyboard accepts mouse clicks</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-03-24T07:30:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2015-03-24T07:30:00.000Z</start-no-earlier-than>
   </task>
   <critical-path root="-1" enabled="false" resources="false">
     <color r="1" g="0.5" b="0.5"/>
