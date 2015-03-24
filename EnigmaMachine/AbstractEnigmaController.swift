@@ -117,7 +117,7 @@ class  RotorBoxDataSource: NSObject, NSTableViewDataSource
     }
 }
 
-class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardViewDataSource
+class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardViewDataSource, KeyboardDelegate
 {
     var enigmaMachine: EnigmaMachine = EnigmaMachine()
     var rotorBeingDragged: Rotor?
@@ -130,6 +130,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
     @IBOutlet var printerController: PrinterController!
     @IBOutlet var plugboardView: PlugboardView!
     @IBOutlet var lightPanelView: LightPanelView!
+    @IBOutlet var keyboard: KeyboardView!
 
 	convenience init()
     {
@@ -149,7 +150,7 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
         plugboardView.needsDisplay = true
         plugboardView.dataSource = self
         lightPanelView.backgroundColour = NSColor.whiteColor()
-        //lightPanelView.needsDisplay = true
+        keyboard.keyboardDelegate = self
     }
 
     func stateChanged(machine: EnigmaMachine)
@@ -170,25 +171,6 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
         lightPanelView.litLetter = enigmaMachine.litLamp
     }
 
-    @IBAction func keyPressed(sender: AnyObject)
-    {
-		if let key = sender as? NSButton
-        {
-			if let identifier = key.identifier
-            {
-                let idUpperCase = identifier.uppercaseString
-                let idChar = idUpperCase[idUpperCase.startIndex]
-                let letter = Letter(rawValue: idChar)
-                enigmaMachine.keyDown(letter!)
-                if let outputLetter = enigmaMachine.litLamp
-                {
-                    printerController.displayLetter(outputLetter)
-                }
-                enigmaMachine.keyUp()
-            }
-        }
-    }
-
     private var lastLetter: Letter?
 
     override func keyDown(theEvent: NSEvent)
@@ -200,18 +182,14 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
             let theChar = uppercaseChars[uppercaseChars.startIndex]
 			if let letter = Letter(rawValue: theChar)
             {
-                enigmaMachine.keyDown(letter)
-                if let outputLetter = enigmaMachine.litLamp
-                {
-                    printerController.displayLetter(outputLetter)
-                }
+                letterPressed(letter, keyboard: keyboard)
             }
         }
     }
 
     override func keyUp(theEvent: NSEvent)
     {
-        enigmaMachine.keyUp()
+        letterReleased(keyboard: keyboard)
     }
 
     // MARK: PlugboardView data source methods
@@ -224,5 +202,22 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
     func connectionForLetter(letter: Letter, plugboardView: PlugboardView) -> Letter?
     {
         return enigmaMachine.plugboard.letterConnectedTo(letter: letter)
+    }
+
+    // MARK: KeyboardDelegate
+
+    func letterPressed(aLetter: Letter, keyboard: KeyboardView)
+    {
+        enigmaMachine.keyUp()
+        enigmaMachine.keyDown(aLetter)
+        if let outputLetter = enigmaMachine.litLamp
+        {
+            printerController.displayLetter(outputLetter)
+        }
+    }
+
+    func letterReleased(#keyboard: KeyboardView)
+    {
+        enigmaMachine.keyUp()
     }
 }
