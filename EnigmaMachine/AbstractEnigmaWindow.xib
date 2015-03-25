@@ -22,16 +22,16 @@
         <window title="Abstract Enigma" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="511" height="794"/>
+            <rect key="contentRect" x="196" y="240" width="511" height="749"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <value key="minSize" type="size" width="511" height="663"/>
             <value key="maxSize" type="size" width="511" height="663"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="-1" width="511" height="794"/>
+                <rect key="frame" x="0.0" y="7" width="511" height="749"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Rotors" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-87-VaD">
-                        <rect key="frame" x="17" y="712" width="159" height="62"/>
+                        <rect key="frame" x="17" y="667" width="159" height="62"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="157" height="46"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,13 +99,13 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Keyboard" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="hTX-Iz-lIk" customClass="KeyboardView" customModule="EnigmaMachine" customModuleProvider="target">
-                        <rect key="frame" x="17" y="255" width="477" height="205"/>
+                        <rect key="frame" x="17" y="202" width="477" height="213"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="475" height="189"/>
+                            <rect key="frame" x="1" y="1" width="475" height="197"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button identifier="I" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQb-PM-syM" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="364" y="151" width="44" height="32"/>
+                                    <rect key="frame" x="364" y="159" width="44" height="32"/>
                                     <buttonCell key="cell" type="push" title="I" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GXP-TL-40V">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -115,7 +115,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="F" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zST-hA-feN" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="192" y="118" width="48" height="32"/>
+                                    <rect key="frame" x="192" y="126" width="48" height="32"/>
                                     <buttonCell key="cell" type="push" title="F" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Hq-oq-Yfr">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -125,7 +125,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="C" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GrY-WL-cUo" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="163" y="85" width="50" height="32"/>
+                                    <rect key="frame" x="163" y="93" width="50" height="32"/>
                                     <buttonCell key="cell" type="push" title="C" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="L3B-Er-cSn">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -135,7 +135,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="Q" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lx-9g-pXo" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="12" y="151" width="51" height="32"/>
+                                    <rect key="frame" x="12" y="159" width="51" height="32"/>
                                     <buttonCell key="cell" type="push" title="Q" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mFY-C0-le6">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -145,7 +145,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="U" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOB-QB-7m6" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="314" y="151" width="50" height="32"/>
+                                    <rect key="frame" x="314" y="159" width="50" height="32"/>
                                     <buttonCell key="cell" type="push" title="U" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zce-hK-pat">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -155,7 +155,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="B" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tuZ-SI-KUk" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="262" y="85" width="50" height="32"/>
+                                    <rect key="frame" x="262" y="93" width="50" height="32"/>
                                     <buttonCell key="cell" type="push" title="B" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cQm-Z2-LAH">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -165,7 +165,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="K" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8v-KM-y8Y" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="389" y="118" width="50" height="32"/>
+                                    <rect key="frame" x="389" y="126" width="50" height="32"/>
                                     <buttonCell key="cell" type="push" title="K" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="heF-vR-MOA">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -175,7 +175,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="Z" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dgh-4a-PsV" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="265" y="151" width="49" height="32"/>
+                                    <rect key="frame" x="265" y="159" width="49" height="32"/>
                                     <buttonCell key="cell" type="push" title="Z" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kSm-39-wBH">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -185,7 +185,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="J" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Km7-Hb-5i9" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="339" y="118" width="48" height="32"/>
+                                    <rect key="frame" x="339" y="126" width="48" height="32"/>
                                     <buttonCell key="cell" type="push" title="J" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lno-JW-qK0">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -195,7 +195,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="V" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cst-kQ-sBt" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="212" y="85" width="49" height="32"/>
+                                    <rect key="frame" x="212" y="93" width="49" height="32"/>
                                     <buttonCell key="cell" type="push" title="V" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WmL-7R-Av2">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -205,7 +205,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="T" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2R-7f-9ic" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="217" y="151" width="48" height="32"/>
+                                    <rect key="frame" x="217" y="159" width="48" height="32"/>
                                     <buttonCell key="cell" type="push" title="T" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gJu-oC-FQc">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -215,7 +215,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="Y" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uxd-9c-uq3" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="65" y="85" width="49" height="32"/>
+                                    <rect key="frame" x="65" y="93" width="49" height="32"/>
                                     <buttonCell key="cell" type="push" title="Y" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dc4-fD-AFg">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -225,7 +225,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="L" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ns-rt-w7O" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="409" y="85" width="48" height="32"/>
+                                    <rect key="frame" x="409" y="93" width="48" height="32"/>
                                     <buttonCell key="cell" type="push" title="L" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uGg-9e-CyD">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -234,18 +234,8 @@
                                         <action selector="keyPressed:" target="hTX-Iz-lIk" id="HNw-vm-u9I"/>
                                     </connections>
                                 </button>
-                                <button identifier="L" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8K-dC-5uJ" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="354" y="7" width="109" height="32"/>
-                                    <buttonCell key="cell" type="push" title="Auto input" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SHB-tS-UW4">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="keyPressed:" target="hTX-Iz-lIk" id="Kku-6D-Ufp"/>
-                                    </connections>
-                                </button>
                                 <button identifier="N" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2p-n1-0QO" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="309" y="85" width="50" height="32"/>
+                                    <rect key="frame" x="309" y="93" width="50" height="32"/>
                                     <buttonCell key="cell" type="push" title="N" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KcK-Uw-eHu">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -255,7 +245,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="P" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzx-zh-sA9" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="13" y="85" width="49" height="32"/>
+                                    <rect key="frame" x="13" y="93" width="49" height="32"/>
                                     <buttonCell key="cell" type="push" title="P" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tkj-Az-F4V">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -265,7 +255,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="W" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dUl-rA-z4A" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="65" y="151" width="53" height="32"/>
+                                    <rect key="frame" x="65" y="159" width="53" height="32"/>
                                     <buttonCell key="cell" type="push" title="W" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4kM-Ve-GVz">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -275,7 +265,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="H" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tod-e8-xcb" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="290" y="118" width="50" height="32"/>
+                                    <rect key="frame" x="290" y="126" width="50" height="32"/>
                                     <buttonCell key="cell" type="push" title="H" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oLk-if-anJ">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -285,7 +275,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="M" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uv0-47-zDd" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="359" y="85" width="52" height="32"/>
+                                    <rect key="frame" x="359" y="93" width="52" height="32"/>
                                     <buttonCell key="cell" type="push" title="M" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fhh-91-3JW">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -295,7 +285,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="E" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xO8-R4-F6V" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="118" y="151" width="49" height="32"/>
+                                    <rect key="frame" x="118" y="159" width="49" height="32"/>
                                     <buttonCell key="cell" type="push" title="E" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GfS-3e-9ir">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -305,7 +295,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="A" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jlK-zf-Qsz" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="39" y="118" width="49" height="32"/>
+                                    <rect key="frame" x="39" y="126" width="49" height="32"/>
                                     <buttonCell key="cell" type="push" title="A" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TDJ-K2-FRh">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -315,7 +305,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="R" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KXS-9W-Ecb" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="167" y="151" width="50" height="32"/>
+                                    <rect key="frame" x="167" y="159" width="50" height="32"/>
                                     <buttonCell key="cell" type="push" title="R" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uKX-IW-ERk">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -325,7 +315,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="D" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mn3-wU-Sa2" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="143" y="118" width="50" height="32"/>
+                                    <rect key="frame" x="143" y="126" width="50" height="32"/>
                                     <buttonCell key="cell" type="push" title="D" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NaA-WT-aBK">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -335,7 +325,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="X" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dya-Qp-Gqr" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="110" y="85" width="49" height="32"/>
+                                    <rect key="frame" x="110" y="93" width="49" height="32"/>
                                     <buttonCell key="cell" type="push" title="X" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xKS-el-ElC">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -345,7 +335,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="O" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hD6-ws-Q2u" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="412" y="151" width="51" height="32"/>
+                                    <rect key="frame" x="412" y="159" width="51" height="32"/>
                                     <buttonCell key="cell" type="push" title="O" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3bU-2Z-i2T">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -355,7 +345,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="S" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KIF-BL-KkN" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="90" y="118" width="49" height="32"/>
+                                    <rect key="frame" x="90" y="126" width="49" height="32"/>
                                     <buttonCell key="cell" type="push" title="S" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TF1-i8-J1L">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -365,7 +355,7 @@
                                     </connections>
                                 </button>
                                 <button identifier="G" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-hm-EH1" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="242" y="118" width="51" height="32"/>
+                                    <rect key="frame" x="242" y="126" width="51" height="32"/>
                                     <buttonCell key="cell" type="push" title="G" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kZM-SJ-QdZ">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -375,7 +365,7 @@
                                     </connections>
                                 </button>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whr-bb-Oan">
-                                    <rect key="frame" x="16" y="67" width="68" height="17"/>
+                                    <rect key="frame" x="16" y="70" width="68" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Auto input" id="Y2S-rf-Nba">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -383,7 +373,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <button identifier="X" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kjg-uZ-t21" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="110" y="84" width="49" height="32"/>
+                                    <rect key="frame" x="110" y="92" width="49" height="32"/>
                                     <buttonCell key="cell" type="push" title="X" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IT8-md-H8u">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -392,8 +382,21 @@
                                         <action selector="keyPressed:" target="hTX-Iz-lIk" id="RfC-r9-DVX"/>
                                     </connections>
                                 </button>
+                                <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-i0-IkL">
+                                    <rect key="frame" x="92" y="66" width="71" height="24"/>
+                                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Bsw-ZR-4bb">
+                                        <font key="font" metaFont="system"/>
+                                        <segments>
+                                            <segment label="Off" width="32" selected="YES"/>
+                                            <segment label="On" width="32" tag="1"/>
+                                        </segments>
+                                    </segmentedCell>
+                                    <connections>
+                                        <action selector="toggleTimer:" target="hTX-Iz-lIk" id="L8U-zb-90H"/>
+                                    </connections>
+                                </segmentedControl>
                                 <button identifier="L" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnc-ji-d30" customClass="AutoKeyButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="354" y="37" width="109" height="32"/>
+                                    <rect key="frame" x="166" y="61" width="109" height="32"/>
                                     <buttonCell key="cell" type="push" title="Single step" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6XI-2o-zcn">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -403,8 +406,8 @@
                                         <outlet property="textField" destination="28B-C3-Xz9" id="soQ-aC-l9J"/>
                                     </connections>
                                 </button>
-                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28B-C3-Xz9">
-                                    <rect key="frame" x="18" y="14" width="290" height="51"/>
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28B-C3-Xz9">
+                                    <rect key="frame" x="18" y="14" width="439" height="45"/>
                                     <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" baseWritingDirection="leftToRight" placeholderString="Type or paste text here" drawsBackground="YES" id="RS7-KI-Abp">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -418,9 +421,12 @@
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="singleStep" destination="Qnc-ji-d30" id="DPg-Hz-GHM"/>
+                        </connections>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Light panel" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="lkJ-kS-Gdp">
-                        <rect key="frame" x="17" y="464" width="477" height="178"/>
+                        <rect key="frame" x="17" y="419" width="477" height="178"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="475" height="162"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -435,7 +441,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Spare rotors" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="dJu-Pi-vpN">
-                        <rect key="frame" x="302" y="646" width="192" height="128"/>
+                        <rect key="frame" x="302" y="601" width="192" height="128"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="190" height="112"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -519,7 +525,7 @@
                     </box>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="299.5" y="365"/>
+            <point key="canvasLocation" x="299.5" y="342.5"/>
         </window>
         <window title="Printer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="fXK-8d-TTz" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>

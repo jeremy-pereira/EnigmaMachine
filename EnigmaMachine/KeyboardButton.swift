@@ -18,6 +18,10 @@ protocol KeyboardDelegate: AnyObject
 class KeyboardView: NSBox
 {
     weak var keyboardDelegate: KeyboardDelegate?
+    var timer: NSTimer?
+
+    @IBOutlet var singleStep: AutoKeyButton!
+    @IBOutlet var autoInput: NSSegmentedControl!
 
     @IBAction func keyPressed(sender: AnyObject)
     {
@@ -32,6 +36,52 @@ class KeyboardView: NSBox
         if let keyboardDelegate = keyboardDelegate, letter = keyboardButton.letter
         {
             keyboardDelegate.letterPressed(letter, keyboard: self)
+        }
+    }
+
+    var timerShouldStop = false;
+    var timerMouseUp = false;
+
+    @IBAction func toggleTimer(sender: AnyObject)
+    {
+        if timer != nil
+        {
+            timerShouldStop = true;
+        }
+        else
+        {
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self,
+                                                              selector: "timer:",
+                                                              userInfo: nil,
+                                                               repeats: true)
+        }
+    }
+
+
+    @objc func timer(userInfo: AnyObject?)
+    {
+		if timerMouseUp
+        {
+            timerMouseUp = false
+
+            self.keyPressed(singleStep)
+            let now = NSDate()
+            println("Toggle off \(now)")
+
+			if timerShouldStop
+            {
+                timer?.invalidate()
+                timer = nil;
+                timerShouldStop = false
+            }
+        }
+        else
+        {
+            timerMouseUp = true
+
+            singleStep.fixUpIdentifier()
+            self.buttonPressed(singleStep)
+
         }
     }
 }
@@ -90,13 +140,19 @@ class AutoKeyButton: KeyboardButton
 
     override func mouseDown(theEvent: NSEvent)
     {
+		fixUpIdentifier()
+        super.mouseDown(theEvent)
+    }
+
+    func fixUpIdentifier()
+    {
         let rawCharacters = textField.stringValue
         let charactersLeft = rawCharacters.uppercaseString
         var nextLetter: Letter?
         var chosenIndex: String.Index = rawCharacters.startIndex
         for var index = charactersLeft.startIndex ;
-            	nextLetter == nil && index != charactersLeft.endIndex ;
-            	++index, ++chosenIndex
+            nextLetter == nil && index != charactersLeft.endIndex ;
+            ++index, ++chosenIndex
         {
             if let candidateLetter = Letter(rawValue: charactersLeft[index])
             {
@@ -110,7 +166,7 @@ class AutoKeyButton: KeyboardButton
         var  replacementString = ""
         if let nextLetter = nextLetter
         {
-			self.identifier = String(nextLetter.rawValue)
+            self.identifier = String(nextLetter.rawValue)
             if chosenIndex != rawCharacters.endIndex
             {
                 for aChar in rawCharacters[chosenIndex ..< rawCharacters.endIndex]
@@ -121,9 +177,8 @@ class AutoKeyButton: KeyboardButton
         }
         else
         {
-			self.identifier = ""
+            self.identifier = ""
         }
         textField.stringValue = replacementString
-        super.mouseDown(theEvent)
     }
 }
