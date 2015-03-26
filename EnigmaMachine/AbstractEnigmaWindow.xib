@@ -525,7 +525,7 @@
                     </box>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="299.5" y="342.5"/>
+            <point key="canvasLocation" x="186.5" y="242.5"/>
         </window>
         <window title="Printer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="fXK-8d-TTz" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
@@ -699,7 +699,10 @@
                     <constraint firstItem="w6x-kV-Nmw" firstAttribute="top" secondItem="h05-5V-i2g" secondAttribute="top" constant="-1" id="jyb-N6-y2z"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="742" y="176"/>
+            <connections>
+                <outlet property="delegate" destination="IIq-Mh-32a" id="dsM-tZ-fXG"/>
+            </connections>
+            <point key="canvasLocation" x="637" y="75"/>
         </window>
         <customObject id="IIq-Mh-32a" customClass="PrinterController" customModule="EnigmaMachine" customModuleProvider="target">
             <connections>

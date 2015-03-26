@@ -117,7 +117,8 @@ class  RotorBoxDataSource: NSObject, NSTableViewDataSource
     }
 }
 
-class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardViewDataSource, KeyboardDelegate
+class AbstractEnigmaController:
+    NSWindowController, EnigmaObserver, PlugboardViewDataSource, KeyboardDelegate
 {
     var enigmaMachine: EnigmaMachine = EnigmaMachine()
     var rotorBeingDragged: Rotor?
@@ -151,6 +152,23 @@ class AbstractEnigmaController: NSWindowController, EnigmaObserver, PlugboardVie
         plugboardView.dataSource = self
         lightPanelView.backgroundColour = NSColor.whiteColor()
         keyboard.keyboardDelegate = self
+    }
+
+    @IBAction func showOrHidePrinter(sender: AnyObject?)
+    {
+        if printerIsVisible
+        {
+            printerController.window?.performClose(sender)
+        }
+        else
+        {
+            printerController.showWindow(sender)
+        }
+    }
+
+    var printerIsVisible: Bool
+    {
+		return printerController.windowIsVisible
     }
 
     func stateChanged(machine: EnigmaMachine)

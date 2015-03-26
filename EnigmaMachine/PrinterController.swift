@@ -8,12 +8,14 @@
 
 import Cocoa
 
-class PrinterController: NSWindowController
+class PrinterController: NSWindowController, NSWindowDelegate
 {
     @IBOutlet var outputLetters: NSTextField!
     @IBOutlet var lettersScroller: NSScrollView!
     @IBOutlet var groupSize: StepperView!
     @IBOutlet var groupsPerLine: StepperView!
+
+    var windowIsVisible: Bool = true
 
     override func windowDidLoad()
     {
@@ -85,5 +87,18 @@ class PrinterController: NSWindowController
     @IBAction func changeLineWrap(sender: AnyObject)
     {
         redisplayLetters()
+    }
+
+    override func showWindow(sender: AnyObject?)
+    {
+        super.showWindow(sender)
+        windowIsVisible = true
+    }
+
+    // MARK: Window delegate
+
+    func windowWillClose(notification: NSNotification)
+    {
+        windowIsVisible = false
     }
 }

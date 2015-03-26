@@ -13,12 +13,15 @@ class AppDelegate: NSObject, NSApplicationDelegate
 {
 
     @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var showPrinterItem: NSMenuItem!
 
     var abstractEnigmas: [AbstractEnigmaController] = []
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
-        // Insert code here to initialize your application
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "aWindowBecameMain:",
+                                                                   name: NSWindowDidBecomeMainNotification,
+            													 object: nil)
     }
 
     func applicationWillTerminate(aNotification: NSNotification)
@@ -34,5 +37,31 @@ class AppDelegate: NSObject, NSApplicationDelegate
         // TODO: A mechanism to get rid of the controller when we are done
     }
 
+    func setShowPrinterText(hidden: Boolean)
+    {
+    }
+
+    @objc func aWindowBecameMain(theNotification: NSNotification)
+    {
+		if let window: NSWindow = theNotification.object as? NSWindow
+        {
+			if let enigmaController = findEnigmaControllerForWindow(window)
+            {
+                
+            }
+        }
+    }
+
+    func findEnigmaControllerForWindow(aWindow: NSWindow) -> AbstractEnigmaController?
+    {
+        for controller in abstractEnigmas
+        {
+            if controller.window === aWindow
+            {
+                return controller
+            }
+        }
+        return nil;
+    }
 }
 
