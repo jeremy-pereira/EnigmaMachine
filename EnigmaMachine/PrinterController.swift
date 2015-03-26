@@ -10,12 +10,26 @@ import Cocoa
 
 class PrinterController: NSWindowController, NSWindowDelegate
 {
-    @IBOutlet var outputLetters: NSTextField!
-    @IBOutlet var lettersScroller: NSScrollView!
-    @IBOutlet var groupSize: StepperView!
-    @IBOutlet var groupsPerLine: StepperView!
+    @IBOutlet weak var outputLetters: NSTextField!
+    @IBOutlet weak var lettersScroller: NSScrollView!
+    @IBOutlet weak var groupSize: StepperView!
+    @IBOutlet weak var groupsPerLine: StepperView!
+
+    var applicationDelegate: AppDelegate
+    {
+		return NSApplication.sharedApplication().delegate as! AppDelegate
+    }
 
     var windowIsVisible: Bool = true
+    {
+		didSet(oldValue)
+        {
+            if let currentEnigma = applicationDelegate.currentEnigma
+            {
+                applicationDelegate.setShowPrinterTitle(printerIsVisible: currentEnigma.printerIsVisible)
+            }
+        }
+    }
 
     override func windowDidLoad()
     {

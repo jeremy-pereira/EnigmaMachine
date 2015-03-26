@@ -37,8 +37,15 @@ class AppDelegate: NSObject, NSApplicationDelegate
         // TODO: A mechanism to get rid of the controller when we are done
     }
 
-    func setShowPrinterText(hidden: Boolean)
+    var currentEnigma: AbstractEnigmaController?
     {
+		didSet(oldValue)
+        {
+            if let newValue = currentEnigma
+            {
+                setShowPrinterTitle(printerIsVisible: newValue.printerIsVisible)
+            }
+        }
     }
 
     @objc func aWindowBecameMain(theNotification: NSNotification)
@@ -47,8 +54,21 @@ class AppDelegate: NSObject, NSApplicationDelegate
         {
 			if let enigmaController = findEnigmaControllerForWindow(window)
             {
-
+				currentEnigma = enigmaController
             }
+        }
+    }
+
+    func setShowPrinterTitle(#printerIsVisible: Bool)
+    {
+        // TODO: Localisation needed
+        if printerIsVisible
+        {
+            showPrinterItem.title = "Hide Printer"
+        }
+        else
+        {
+            showPrinterItem.title = "Show Printer"
         }
     }
 
