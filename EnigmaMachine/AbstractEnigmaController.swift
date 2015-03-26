@@ -152,6 +152,20 @@ class AbstractEnigmaController:
         plugboardView.dataSource = self
         lightPanelView.backgroundColour = NSColor.whiteColor()
         keyboard.keyboardDelegate = self
+        self.window?.delegate = self
+        positionPrinterToTheRight();
+    }
+
+    func positionPrinterToTheRight()
+    {
+        if let myFrame = self.window?.frame,
+               printerWindow = printerController.window
+        {
+			var newTopLeft = NSPoint()
+            newTopLeft.y = myFrame.origin.y + myFrame.size.height
+            newTopLeft.x = myFrame.origin.x + myFrame.size.width + 8
+			printerWindow.setFrameTopLeftPoint(newTopLeft)
+        }
     }
 
     @IBAction func showOrHidePrinter(sender: AnyObject?)
@@ -237,5 +251,14 @@ class AbstractEnigmaController:
     func letterReleased(#keyboard: KeyboardView)
     {
         enigmaMachine.keyUp()
+    }
+
+}
+
+extension AbstractEnigmaController: NSWindowDelegate
+{
+    func windowDidMove(notification: NSNotification)
+    {
+		positionPrinterToTheRight()
     }
 }

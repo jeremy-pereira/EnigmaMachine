@@ -9,18 +9,18 @@
     <status-display>basic</status-display>
     <task-view>
       <split-view-divider-position>636</split-view-divider-position>
-      <outline x="0" y="0" w="636" h="756">
+      <outline x="0" y="220" w="636" h="756">
         <column name="Violations" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Title" width="330"/>
         <column name="Effort" width="70"/>
         <column name="%Done" width="87"/>
         <column name="Prerequisites" width="102"/>
-        <expanded-items idrefs="t55 t19 t2 t54 t57 t34 t6 t31"/>
+        <expanded-items idrefs="t62 t55 t19 t2 t54 t57 t34 t6 t31"/>
         <expanded-item-notes idrefs="t43 t44"/>
-        <selected-items-at-filter-time idrefs="t59 t31 t17 t24 t25 t32 t18 t33 t40 t19 t26 t41 t27 t34 t35 t28 t2 t29 t36 t50 t43 t3 t4 t44 t51 t5 t52 t10 t6 t38 t45 t7 t60 t11 t8 t46 t39 t9 t47 t12 t54 t48 t55 t13 t20 t49 t14 t21 t56 t57 t22 t15 t58 t23 t16 t30"/>
+        <selected-items-at-filter-time idrefs="t59 t31 t17 t24 t25 t32 t18 t33 t40 t19 t26 t41 t27 t34 t35 t28 t2 t29 t36 t50 t43 t3 t4 t44 t51 t5 t52 t10 t6 t38 t45 t7 t60 t11 t8 t46 t39 t9 t47 t12 t61 t54 t48 t55 t62 t13 t20 t49 t14 t63 t21 t56 t64 t22 t57 t15 t58 t23 t16 t30"/>
       </outline>
-      <gantt-view x="757" y="0" w="770" h="756">
+      <gantt-view x="757" y="220" w="770" h="756">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
@@ -127,7 +127,7 @@
     </calendar>
   </window>
   <project>
-    <next-task-id>61</next-task-id>
+    <next-task-id>65</next-task-id>
     <next-resource-id>2</next-resource-id>
     <scenario id="j3I0nGHZem1" name="Actual" filename="Actual.xml"/>
     <date-display dates="true" times="true" seconds="false"/>
