@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
         {
 			if let enigmaController = findEnigmaControllerForWindow(window)
             {
-                
+
             }
         }
     }

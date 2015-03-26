@@ -612,7 +612,8 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="View" id="HyV-fh-RgO">
                         <items>
-                            <menuItem title="Show Printer" keyEquivalent="P" id="snW-S8-Cw5">
+                            <menuItem title="Hide Printer" keyEquivalent="p" id="snW-S8-Cw5">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                 <connections>
                                     <action selector="showOrHidePrinter:" target="-1" id="rYJ-3J-Gyw"/>
                                 </connections>
