@@ -702,7 +702,7 @@
             <connections>
                 <outlet property="delegate" destination="IIq-Mh-32a" id="dsM-tZ-fXG"/>
             </connections>
-            <point key="canvasLocation" x="637" y="75"/>
+            <point key="canvasLocation" x="636" y="77"/>
         </window>
         <customObject id="IIq-Mh-32a" customClass="PrinterController" customModule="EnigmaMachine" customModuleProvider="target">
             <connections>

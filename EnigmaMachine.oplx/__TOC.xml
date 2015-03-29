@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
-  <window x="405" y="268" w="1407" h="909">
+  <window x="83" y="268" w="1407" h="909">
     <editing-scenario>j3I0nGHZem1</editing-scenario>
     <view>task</view>
     <overview/>
@@ -9,18 +9,18 @@
     <status-display>basic</status-display>
     <task-view>
       <split-view-divider-position>636</split-view-divider-position>
-      <outline x="0" y="220" w="636" h="756">
+      <outline x="0" y="68.5" w="636" h="756">
         <column name="Violations" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Title" width="330"/>
         <column name="Effort" width="70"/>
         <column name="%Done" width="87"/>
         <column name="Prerequisites" width="102"/>
-        <expanded-items idrefs="t62 t55 t19 t2 t54 t57 t34 t6 t31"/>
+        <expanded-items idrefs="t62 t2 t55 t19 t54 t31 t34 t6 t57"/>
         <expanded-item-notes idrefs="t43 t44"/>
-        <selected-items-at-filter-time idrefs="t59 t31 t17 t24 t25 t32 t18 t33 t40 t19 t26 t41 t27 t34 t35 t28 t2 t29 t36 t50 t43 t3 t4 t44 t51 t5 t52 t10 t6 t38 t45 t7 t60 t11 t8 t46 t39 t9 t47 t12 t61 t54 t48 t55 t62 t13 t20 t49 t14 t63 t21 t56 t64 t22 t57 t15 t58 t23 t16 t30"/>
+        <selected-items-at-filter-time idrefs="t59 t17 t31 t24 t32 t18 t25 t33 t26 t19 t40 t34 t27 t41 t28 t35 t2 t50 t43 t36 t29 t3 t4 t51 t44 t5 t38 t45 t10 t52 t6 t7 t39 t11 t60 t8 t46 t9 t47 t12 t61 t54 t48 t55 t20 t62 t13 t49 t14 t63 t21 t56 t64 t57 t15 t22 t58 t16 t23 t30"/>
       </outline>
-      <gantt-view x="757" y="220" w="770" h="756">
+      <gantt-view x="1102.5" y="68.5" w="770" h="756">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>

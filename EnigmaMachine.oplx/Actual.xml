@@ -92,7 +92,8 @@
         <event start="2015-03-20T18:30:00.000Z" end="2015-03-20T19:30:00.000Z" sd="5191" st="66600" ed="5191" et="70200"/>
         <event start="2015-03-23T07:30:00.000Z" end="2015-03-23T07:45:00.000Z" sd="5194" st="27000" ed="5194" et="27900"/>
         <event start="2015-03-24T19:15:00.000Z" end="2015-03-24T19:30:00.000Z" sd="5195" st="69300" ed="5195" et="70200"/>
-        <event start="2015-03-25T18:30:00.000Z" end="2015-03-25T19:30:00.000Z" sd="5196" st="66600" ed="5196" et="70200"/>
+        <event start="2015-03-25T18:30:00.000Z" end="2015-03-27T19:30:00.000Z" sd="5196" st="66600" ed="5198" et="70200"/>
+        <event start="2015-03-27T07:30:00.000Z" end="2015-03-27T08:30:00.000Z" sd="5198" st="27000" ed="5198" et="30600"/>
       </calendar>
       <calendar name="Overtime" editable="yes" overtime="yes">
         <event start="2015-03-09T08:30:00.000Z" end="2015-03-09T09:30:00.000Z" sd="5180" st="30600" ed="5180" et="34200"/>
@@ -117,6 +118,7 @@
         <event start="2015-03-20T18:00:00.000Z" end="2015-03-20T18:15:00.000Z" sd="5191" st="64800" ed="5191" et="65700"/>
         <event start="2015-03-23T08:30:00.000Z" end="2015-03-26T09:30:00.000Z" sd="5194" st="30600" ed="5197" et="34200"/>
         <event start="2015-03-24T07:15:00.000Z" end="2015-03-25T07:30:00.000Z" sd="5195" st="26100" ed="5196" et="27000"/>
+        <event start="2015-03-29T10:15:00.000Z" end="2015-03-29T11:15:00.000Z" sd="5200" st="40500" ed="5200" et="44100"/>
       </calendar>
     </schedule>
   </resource>
@@ -196,13 +198,13 @@
   </task>
   <task id="t7">
     <title>Better rotor display</title>
-    <leveled-start>2015-04-03T07:24:46.000Z</leveled-start>
+    <leveled-start>2015-04-06T07:05:29.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t8">
     <title>Bombe</title>
-    <leveled-start>2015-04-21T07:24:46.000Z</leveled-start>
+    <leveled-start>2015-04-22T07:05:29.000Z</leveled-start>
     <effort>86400</effort>
     <assignment idref="r1"/>
   </task>
@@ -240,7 +242,7 @@
   </task>
   <task id="t12">
     <title>Ringstellung changer in table view</title>
-    <leveled-start>2015-03-30T07:24:46.000Z</leveled-start>
+    <leveled-start>2015-03-31T07:05:29.000Z</leveled-start>
     <effort>14400</effort>
     <assignment idref="r1"/>
   </task>
@@ -259,7 +261,7 @@
   </task>
   <task id="t14">
     <title>Drag and drop from rotor cradle</title>
-    <leveled-start>2015-04-01T07:24:46.000Z</leveled-start>
+    <leveled-start>2015-04-02T07:05:29.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -279,7 +281,7 @@
   </task>
   <task id="t16">
     <title>Alt text to show rotor name and ringstellung</title>
-    <leveled-start>2015-04-09T07:24:46.000Z</leveled-start>
+    <leveled-start>2015-04-10T07:05:29.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -387,7 +389,7 @@
   </task>
   <task id="t25">
     <title>User can choose font for printer</title>
-    <leveled-start>2015-05-07T07:24:46.000Z</leveled-start>
+    <leveled-start>2015-05-08T07:05:29.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2015-03-13T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -690,7 +692,7 @@
   </task>
   <task id="t54">
     <title>Fix abuse of identifiers in keyboard buttons</title>
-    <leveled-start>2015-03-27T08:24:46.000Z</leveled-start>
+    <leveled-start>2015-03-30T07:05:29.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-24T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -730,7 +732,7 @@
   </task>
   <task id="t59">
     <title>Enigma machine help</title>
-    <leveled-start>2015-04-15T07:24:46.000Z</leveled-start>
+    <leveled-start>2015-04-16T07:05:29.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-25T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -738,7 +740,7 @@
   </task>
   <task id="t60">
     <title>Proper close functionality on the enigma</title>
-    <leveled-start>2015-03-27T19:24:46.000Z</leveled-start>
+    <leveled-start>2015-03-30T18:05:29.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-26T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -746,8 +748,9 @@
   </task>
   <task id="t61">
     <title>Detect if print window is off screen and reposition</title>
-    <leveled-start>2015-03-26T19:24:46.000Z</leveled-start>
+    <leveled-start>2015-03-29T10:50:29.988Z</leveled-start>
     <effort>3600</effort>
+    <locked-start-date>2015-03-29T10:50:29.988Z</locked-start-date>
     <start-constraint-date>2015-03-26T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-26T07:30:00.000Z</start-no-earlier-than>
@@ -757,23 +760,17 @@
     <type>group</type>
     <child-task idref="t20"/>
     <child-task idref="t63"/>
-    <child-task idref="t64"/>
     <child-task idref="t61"/>
   </task>
   <task id="t63">
-    <title>Move printer while dragging</title>
+    <title>Menu item to arrange printer next to enigma</title>
     <leveled-start>2015-03-26T09:24:46.460Z</leveled-start>
-    <effort>1800</effort>
+    <effort>2414</effort>
+    <effort-done>2414</effort-done>
     <locked-start-date>2015-03-26T09:24:46.460Z</locked-start-date>
+    <locked-end-date>2015-03-29T10:50:00.000Z</locked-end-date>
     <start-constraint-date>2015-03-26T07:30:00.000Z</start-constraint-date>
-    <assignment idref="r1"/>
-    <start-no-earlier-than>2015-03-26T07:30:00.000Z</start-no-earlier-than>
-  </task>
-  <task id="t64">
-    <title>Break dragging link if user moves printer</title>
-    <leveled-start>2015-03-26T18:54:46.000Z</leveled-start>
-    <effort>1800</effort>
-    <start-constraint-date>2015-03-26T07:30:00.000Z</start-constraint-date>
+    <recalculate>effort</recalculate>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-26T07:30:00.000Z</start-no-earlier-than>
   </task>

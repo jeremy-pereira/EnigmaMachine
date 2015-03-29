@@ -180,6 +180,11 @@ class AbstractEnigmaController:
         }
     }
 
+    @IBAction func arrangePrinter(sender: AnyObject?)
+    {
+        positionPrinterToTheRight();
+    }
+
     var printerIsVisible: Bool
     {
 		return printerController.windowIsVisible
@@ -257,8 +262,4 @@ class AbstractEnigmaController:
 
 extension AbstractEnigmaController: NSWindowDelegate
 {
-    func windowDidMove(notification: NSNotification)
-    {
-		positionPrinterToTheRight()
-    }
 }
