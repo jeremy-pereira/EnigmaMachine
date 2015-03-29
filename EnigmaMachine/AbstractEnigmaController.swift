@@ -153,18 +153,40 @@ class AbstractEnigmaController:
         lightPanelView.backgroundColour = NSColor.whiteColor()
         keyboard.keyboardDelegate = self
         self.window?.delegate = self
-        positionPrinterToTheRight();
+        positionPrinterToTheRightOrLeft();
     }
 
-    func positionPrinterToTheRight()
+    func positionPrinterToTheRightOrLeft()
     {
-        if let myFrame = self.window?.frame,
+        if let myWindow = self.window,
                printerWindow = printerController.window
         {
+            let myFrame = myWindow.frame
+            var screen = myWindow.screen
+
+            var printerFrame = printerWindow.frame
 			var newTopLeft = NSPoint()
+            let margin: CGFloat = 4
+
             newTopLeft.y = myFrame.origin.y + myFrame.size.height
-            newTopLeft.x = myFrame.origin.x + myFrame.size.width + 8
-			printerWindow.setFrameTopLeftPoint(newTopLeft)
+            newTopLeft.x = myFrame.origin.x + myFrame.size.width + margin
+            /*
+			 *  If we have a screen (i.e. the main window is not completely off
+			 *  screen and we are near the right edge, we will actually position
+             *  the window to the left.
+             *
+             *  We make the assumption that there definitely is room to the left 
+             *  if there isn't room to the right.
+			 */
+            if let screen = screen
+            {
+				let screenLimit = screen.visibleFrame
+                if newTopLeft.x + printerFrame.size.width > screenLimit.origin.x + screenLimit.size.width
+                {
+                    newTopLeft.x = myFrame.origin.x - margin - printerFrame.size.width
+                }
+            }
+ 			printerWindow.setFrameTopLeftPoint(newTopLeft)
         }
     }
 
@@ -182,7 +204,7 @@ class AbstractEnigmaController:
 
     @IBAction func arrangePrinter(sender: AnyObject?)
     {
-        positionPrinterToTheRight();
+        positionPrinterToTheRightOrLeft();
     }
 
     var printerIsVisible: Bool
