@@ -372,16 +372,6 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <button identifier="X" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kjg-uZ-t21" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
-                                    <rect key="frame" x="110" y="92" width="49" height="32"/>
-                                    <buttonCell key="cell" type="push" title="X" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IT8-md-H8u">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="keyPressed:" target="hTX-Iz-lIk" id="RfC-r9-DVX"/>
-                                    </connections>
-                                </button>
                                 <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-i0-IkL">
                                     <rect key="frame" x="92" y="66" width="71" height="24"/>
                                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Bsw-ZR-4bb">
@@ -395,7 +385,7 @@
                                         <action selector="toggleTimer:" target="hTX-Iz-lIk" id="L8U-zb-90H"/>
                                     </connections>
                                 </segmentedControl>
-                                <button identifier="L" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnc-ji-d30" customClass="AutoKeyButton" customModule="EnigmaMachine" customModuleProvider="target">
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnc-ji-d30" customClass="AutoKeyButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="166" y="61" width="109" height="32"/>
                                     <buttonCell key="cell" type="push" title="Single step" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6XI-2o-zcn">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

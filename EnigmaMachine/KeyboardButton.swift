@@ -109,15 +109,12 @@ class KeyboardButton: NSButton
     var letter: Letter?
     {
         var ret: Letter?
-        if let identifier = self.identifier
+        if self.title != ""
         {
-            if identifier != ""
+            var idChar = self.title[self.title.startIndex]
+            if idChar != "$"
             {
-                var idChar = identifier[identifier.startIndex]
-                if idChar != "$"
-                {
-                    ret = Letter(rawValue: idChar)
-                }
+                ret = Letter(rawValue: idChar)
             }
         }
         return ret
@@ -144,6 +141,16 @@ class AutoKeyButton: KeyboardButton
         super.mouseDown(theEvent)
     }
 
+    var _letter: Letter?
+
+    override var letter: Letter?
+    {
+		get
+        {
+            return _letter
+        }
+    }
+
     func fixUpIdentifier()
     {
         let rawCharacters = textField.stringValue
@@ -166,7 +173,7 @@ class AutoKeyButton: KeyboardButton
         var  replacementString = ""
         if let nextLetter = nextLetter
         {
-            self.identifier = String(nextLetter.rawValue)
+            self._letter = nextLetter
             if chosenIndex != rawCharacters.endIndex
             {
                 for aChar in rawCharacters[chosenIndex ..< rawCharacters.endIndex]
@@ -177,7 +184,7 @@ class AutoKeyButton: KeyboardButton
         }
         else
         {
-            self.identifier = ""
+            self._letter = nil
         }
         textField.stringValue = replacementString
     }
