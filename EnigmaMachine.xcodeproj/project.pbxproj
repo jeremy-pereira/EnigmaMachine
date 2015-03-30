@@ -30,6 +30,7 @@
 		FC9AF86C1A9F9F8600335A29 /* TestRotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */; };
 		FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */; };
 		FCA6C1F41AB6E526000D18F6 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6C1F31AB6E526000D18F6 /* StepperView.swift */; };
+		FCAEF6731AC92FB40010EB5D /* RotorBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAEF6721AC92FB40010EB5D /* RotorBoxController.swift */; };
 		FCF0E1411AAD86E000DBC483 /* SpareRotorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF0E1401AAD86E000DBC483 /* SpareRotorBox.swift */; };
 		FCF0E1431AAD88DC00DBC483 /* TestRotorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF0E1421AAD88DC00DBC483 /* TestRotorBox.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorCradle.swift; sourceTree = "<group>"; };
 		FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorCradle.swift; sourceTree = "<group>"; };
 		FCA6C1F31AB6E526000D18F6 /* StepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
+		FCAEF6721AC92FB40010EB5D /* RotorBoxController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorBoxController.swift; sourceTree = "<group>"; };
 		FCF0E1401AAD86E000DBC483 /* SpareRotorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpareRotorBox.swift; sourceTree = "<group>"; };
 		FCF0E1421AAD88DC00DBC483 /* TestRotorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 				FC728AEF1AB7606B0003C81C /* PlugboardView.swift */,
 				FC8AFBE41ABB52C500FA5D8C /* LightPanelView.swift */,
 				FC74CDD71AC0030200370D08 /* KeyboardButton.swift */,
+				FCAEF6721AC92FB40010EB5D /* RotorBoxController.swift */,
 			);
 			path = EnigmaMachine;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				FCF0E1411AAD86E000DBC483 /* SpareRotorBox.swift in Sources */,
 				FC728AF01AB7606B0003C81C /* PlugboardView.swift in Sources */,
 				FCA6C1F41AB6E526000D18F6 /* StepperView.swift in Sources */,
+				FCAEF6731AC92FB40010EB5D /* RotorBoxController.swift in Sources */,
 				FC5774F81AB0247100947999 /* RotorTextBox.swift in Sources */,
 				FC6C9F0E1AA5D1FC0013352B /* EnigmaMachine.swift in Sources */,
 				FC3D162D1A9CAF1800FE44B9 /* Rotor.swift in Sources */,

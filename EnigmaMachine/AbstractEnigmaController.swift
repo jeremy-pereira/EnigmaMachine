@@ -53,97 +53,31 @@ import Cocoa
     }
 }
 
-class  RotorBoxDataSource: NSObject, NSTableViewDataSource
-{
-    private var rotorBox: SpareRotorBox
-    weak var enigmaController: AbstractEnigmaController!
-
-    init(rotorBox: SpareRotorBox)
-    {
-        self.rotorBox = rotorBox
-    }
-
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int
-    {
-        return self.rotorBox.count
-    }
-
-    func insertRotor(newRotor: Rotor)
-    {
-        self.rotorBox.add(newRotor)
-        self.enigmaController.rotorBoxView.reloadData()
-    }
-
-    func removeRotor(rotor: Rotor) ->Rotor?
-    {
-        let ret = rotorBox.removeRotor(rotor)
-        if ret != nil
-        {
-            enigmaController.rotorBoxView.reloadData()
-        }
-        return ret
-    }
-
-    func tableView(                 tableView: NSTableView,
-		objectValueForTableColumn tableColumn: NSTableColumn?,
-        								  row: Int) -> AnyObject?
-    {
-        var ret: NSString?
-		let rotor = rotorBox.rotor(row)
-        if let rotor = rotor
-        {
-            if tableColumn?.identifier == "ring"
-            {
-                ret = rotor.name
-            }
-            else if tableColumn?.identifier == "ringStellung"
-            {
-                ret = "\(rotor.ringStellung.rawValue)"
-            }
-        }
-        return ret
-    }
-
-    func tableView(           tableView: NSTableView,
-        writeRowsWithIndexes rowIndexes: NSIndexSet,
-        			toPasteboard pboard: NSPasteboard) -> Bool
-    {
-        assert(rowIndexes.count == 1, "Cannot handle drag of multiple rotors")
-        let draggingRotor = rotorBox.rotor[rowIndexes.firstIndex]
-        enigmaController.rotorBeingDragged = draggingRotor
-        let wrapper = RotorPasteBoardWrapper(rotor: draggingRotor)
-        pboard.writeObjects([wrapper])
-        return true
-    }
-}
-
 class AbstractEnigmaController:
     NSWindowController, EnigmaObserver, PlugboardViewDataSource, KeyboardDelegate
 {
     var enigmaMachine: EnigmaMachine = EnigmaMachine()
     var rotorBeingDragged: Rotor?
-    var rotorBoxDataSource: RotorBoxDataSource = RotorBoxDataSource(rotorBox: SpareRotorBox())
 
-    @IBOutlet var ringDisplay1: NSTextField!
-    @IBOutlet var ringDisplay2: NSTextField!
-    @IBOutlet var ringDisplay3: NSTextField!
-    @IBOutlet var rotorBoxView: NSTableView!
-    @IBOutlet var printerController: PrinterController!
-    @IBOutlet var plugboardView: PlugboardView!
-    @IBOutlet var lightPanelView: LightPanelView!
-    @IBOutlet var keyboard: KeyboardView!
+    @IBOutlet var rotorBoxDataSource: RotorBoxController!
+
+    @IBOutlet weak var ringDisplay1: NSTextField!
+    @IBOutlet weak var ringDisplay2: NSTextField!
+    @IBOutlet weak var ringDisplay3: NSTextField!
+    @IBOutlet weak var printerController: PrinterController!
+    @IBOutlet weak var plugboardView: PlugboardView!
+    @IBOutlet weak var lightPanelView: LightPanelView!
+    @IBOutlet weak var keyboard: KeyboardView!
 
 	convenience init()
     {
         self.init(windowNibName: "AbstractEnigmaWindow")
-        rotorBoxDataSource.enigmaController = self
     }
 
     override func windowDidLoad()
     {
         enigmaMachine.registerObserver(self)
         enigmaMachine.insertReflector(reflectorB, position: Letter.A)
-        rotorBoxView.setDataSource(rotorBoxDataSource)
         ringDisplay1.registerForDraggedTypes([NSPasteboardTypeString])
         ringDisplay2.registerForDraggedTypes([NSPasteboardTypeString])
         ringDisplay3.registerForDraggedTypes([NSPasteboardTypeString])

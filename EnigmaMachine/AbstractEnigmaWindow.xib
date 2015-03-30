@@ -13,7 +13,7 @@
                 <outlet property="ringDisplay1" destination="APg-4O-RDx" id="IGu-bL-58l"/>
                 <outlet property="ringDisplay2" destination="K6t-Fu-VOF" id="DT7-fz-6o5"/>
                 <outlet property="ringDisplay3" destination="PEu-h8-wfS" id="pR1-4Z-xc1"/>
-                <outlet property="rotorBoxView" destination="MSp-da-BOH" id="w5I-EM-WBq"/>
+                <outlet property="rotorBoxDataSource" destination="Aj9-8c-0LC" id="FuL-to-Wq5"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="wrq-gc-v8E"/>
             </connections>
         </customObject>
@@ -442,7 +442,7 @@
                                         <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="twA-hp-JNb" id="MSp-da-BOH">
+                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" headerView="twA-hp-JNb" viewBased="YES" id="MSp-da-BOH">
                                                 <rect key="frame" x="0.0" y="0.0" width="152" height="19"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -461,6 +461,25 @@
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        <prototypeCellViews>
+                                                            <tableCellView identifier="ring" id="ybd-85-wtQ">
+                                                                <rect key="frame" x="1" y="1" width="47.5" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <subviews>
+                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-5T-AqO">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
+                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Cgz-Q5-ceY">
+                                                                            <font key="font" metaFont="system"/>
+                                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                        </textFieldCell>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <connections>
+                                                                    <outlet property="textField" destination="a5V-5T-AqO" id="mjA-Qk-RrV"/>
+                                                                </connections>
+                                                            </tableCellView>
+                                                        </prototypeCellViews>
                                                     </tableColumn>
                                                     <tableColumn identifier="ringStellung" width="98.5" minWidth="40" maxWidth="1000" id="Zab-j0-MGR">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ringstellung">
@@ -474,8 +493,31 @@
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        <prototypeCellViews>
+                                                            <tableCellView identifier="ringStellung" id="JbI-hi-Dqv">
+                                                                <rect key="frame" x="51.5" y="1" width="98.5" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <subviews>
+                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prT-Q9-BP1">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
+                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="iLX-G8-QlH">
+                                                                            <font key="font" metaFont="system"/>
+                                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                        </textFieldCell>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <connections>
+                                                                    <outlet property="textField" destination="prT-Q9-BP1" id="G4G-Eo-sSg"/>
+                                                                </connections>
+                                                            </tableCellView>
+                                                        </prototypeCellViews>
                                                     </tableColumn>
                                                 </tableColumns>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="Aj9-8c-0LC" id="kU0-Vy-BYh"/>
+                                                    <outlet property="delegate" destination="Aj9-8c-0LC" id="KLp-Nb-Wym"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -701,6 +743,12 @@
                 <outlet property="lettersScroller" destination="w6x-kV-Nmw" id="HgB-K5-HNT"/>
                 <outlet property="outputLetters" destination="ZOv-NP-MMR" id="948-kS-paP"/>
                 <outlet property="window" destination="fXK-8d-TTz" id="xsg-MJ-GWK"/>
+            </connections>
+        </customObject>
+        <customObject id="Aj9-8c-0LC" customClass="RotorBoxController" customModule="EnigmaMachine" customModuleProvider="target">
+            <connections>
+                <outlet property="enigmaController" destination="-2" id="xts-wJ-EfF"/>
+                <outlet property="rotorBoxView" destination="MSp-da-BOH" id="2hf-4Q-Ywf"/>
             </connections>
         </customObject>
     </objects>
