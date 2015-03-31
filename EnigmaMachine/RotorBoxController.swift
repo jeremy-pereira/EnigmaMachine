@@ -8,6 +8,41 @@
 
 import Cocoa
 
+class RotorInBoxView: NSTableCellView
+{
+    override var objectValue: AnyObject?
+    {
+        didSet(oldValue)
+        {
+            if let ring = objectValue as? Rotor
+            {
+                textField?.stringValue = String(ring.name)
+            }
+        }
+    }
+}
+
+class RingStellungView: NSTableCellView
+{
+    @IBOutlet weak var stepper: NSStepper!
+
+    override var objectValue: AnyObject?
+    {
+		didSet(oldValue)
+        {
+			if let ring = objectValue as? Rotor
+            {
+                textField?.stringValue = String(ring.ringStellung.rawValue)
+                stepper.integerValue = ring.ringStellung.ordinal
+            }
+        }
+    }
+
+    @IBAction func stepperChanged(sender: AnyObject?)
+    {
+    }
+}
+
 
 class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
 {
@@ -41,18 +76,11 @@ class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
         objectValueForTableColumn tableColumn: NSTableColumn?,
         row: Int) -> AnyObject?
     {
-        var ret: NSString?
+        var ret: AnyObject?
         let rotor = rotorBox.rotor(row)
         if let rotor = rotor
         {
-            if tableColumn?.identifier == "ring"
-            {
-                ret = rotor.name
-            }
-            else if tableColumn?.identifier == "ringStellung"
-            {
-                ret = "\(rotor.ringStellung.rawValue)"
-            }
+            ret = rotor
         }
         return ret
     }
@@ -77,8 +105,8 @@ class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
             result = tableView.makeViewWithIdentifier(tableColumn.identifier!, owner: self) as? NSTableCellView
             if let result = result
             {
-                result.textField!.stringValue
-                    = self.tableView(tableView, objectValueForTableColumn: tableColumn, row: row) as! String
+                result.objectValue
+                    = self.tableView(tableView, objectValueForTableColumn: tableColumn, row: row)
             }
         }
         return result
