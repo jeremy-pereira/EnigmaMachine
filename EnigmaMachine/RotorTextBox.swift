@@ -61,8 +61,6 @@ class RotorTextBox: NSTextField
 
         let slotNumber = self.identifier!.toInt()!
 
-		println("Step \(difference)")
-
         if let rotorPosition = enigmaController.enigmaMachine.rotorPositionForSlot(slotNumber)
         {
             let newRotorPosition = rotorPosition &+ difference

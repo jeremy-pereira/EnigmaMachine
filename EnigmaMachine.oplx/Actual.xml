@@ -94,6 +94,7 @@
         <event start="2015-03-24T19:15:00.000Z" end="2015-03-24T19:30:00.000Z" sd="5195" st="69300" ed="5195" et="70200"/>
         <event start="2015-03-25T18:30:00.000Z" end="2015-03-27T19:30:00.000Z" sd="5196" st="66600" ed="5198" et="70200"/>
         <event start="2015-03-27T07:30:00.000Z" end="2015-03-27T08:30:00.000Z" sd="5198" st="27000" ed="5198" et="30600"/>
+        <event start="2015-03-30T17:30:00.000Z" end="2015-03-30T18:30:00.000Z" sd="5201" st="66600" ed="5201" et="70200"/>
       </calendar>
       <calendar name="Overtime" editable="yes" overtime="yes">
         <event start="2015-03-09T08:30:00.000Z" end="2015-03-09T09:30:00.000Z" sd="5180" st="30600" ed="5180" et="34200"/>
@@ -120,6 +121,9 @@
         <event start="2015-03-24T07:15:00.000Z" end="2015-03-25T07:30:00.000Z" sd="5195" st="26100" ed="5196" et="27000"/>
         <event start="2015-03-29T10:15:00.000Z" end="2015-03-29T11:15:00.000Z" sd="5200" st="40500" ed="5200" et="44100"/>
         <event start="2015-03-30T06:00:00.000Z" end="2015-03-30T06:30:00.000Z" sd="5201" st="25200" ed="5201" et="27000"/>
+        <event start="2015-03-30T07:30:00.000Z" end="2015-03-30T08:30:00.000Z" sd="5201" st="30600" ed="5201" et="34200"/>
+        <event start="2015-03-30T17:00:00.000Z" end="2015-03-30T17:30:00.000Z" sd="5201" st="64800" ed="5201" et="66600"/>
+        <event start="2015-03-31T06:15:00.000Z" end="2015-03-31T06:30:00.000Z" sd="5202" st="26100" ed="5202" et="27000"/>
       </calendar>
     </schedule>
   </resource>
@@ -191,21 +195,21 @@
     <child-task idref="t49"/>
     <child-task idref="t19"/>
     <child-task idref="t54"/>
-    <child-task idref="t60"/>
     <child-task idref="t2"/>
+    <child-task idref="t60"/>
     <child-task idref="t7"/>
     <child-task idref="t16"/>
     <child-task idref="t59"/>
   </task>
   <task id="t7">
     <title>Better rotor display</title>
-    <leveled-start>2015-04-03T17:41:02.000Z</leveled-start>
+    <leveled-start>2015-04-03T17:43:56.000Z</leveled-start>
     <effort>28800</effort>
     <assignment idref="r1"/>
   </task>
   <task id="t8">
     <title>Bombe</title>
-    <leveled-start>2015-04-21T17:41:02.000Z</leveled-start>
+    <leveled-start>2015-04-21T17:43:56.000Z</leveled-start>
     <effort>86400</effort>
     <assignment idref="r1"/>
   </task>
@@ -243,8 +247,12 @@
   </task>
   <task id="t12">
     <title>Ringstellung changer in table view</title>
-    <leveled-start>2015-03-30T17:41:02.000Z</leveled-start>
-    <effort>14400</effort>
+    <leveled-start>2015-03-30T06:43:56.849Z</leveled-start>
+    <effort>11644</effort>
+    <effort-done>11644</effort-done>
+    <locked-start-date>2015-03-30T06:43:56.849Z</locked-start-date>
+    <locked-end-date>2015-03-31T07:13:00.000Z</locked-end-date>
+    <recalculate>effort</recalculate>
     <assignment idref="r1"/>
   </task>
   <task id="t13">
@@ -262,7 +270,7 @@
   </task>
   <task id="t14">
     <title>Drag and drop from rotor cradle</title>
-    <leveled-start>2015-04-01T17:41:02.000Z</leveled-start>
+    <leveled-start>2015-04-01T06:43:56.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -282,7 +290,7 @@
   </task>
   <task id="t16">
     <title>Alt text to show rotor name and ringstellung</title>
-    <leveled-start>2015-04-09T17:41:02.000Z</leveled-start>
+    <leveled-start>2015-04-09T17:43:56.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-11T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -390,7 +398,7 @@
   </task>
   <task id="t25">
     <title>User can choose font for printer</title>
-    <leveled-start>2015-05-07T17:41:02.000Z</leveled-start>
+    <leveled-start>2015-05-07T17:43:56.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2015-03-13T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -737,7 +745,7 @@
   </task>
   <task id="t59">
     <title>Enigma machine help</title>
-    <leveled-start>2015-04-15T17:41:02.000Z</leveled-start>
+    <leveled-start>2015-04-15T17:43:56.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-25T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -745,7 +753,7 @@
   </task>
   <task id="t60">
     <title>Proper close functionality on the enigma</title>
-    <leveled-start>2015-03-30T06:41:02.810Z</leveled-start>
+    <leveled-start>2015-04-03T06:43:56.000Z</leveled-start>
     <effort>3600</effort>
     <start-constraint-date>2015-03-26T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>

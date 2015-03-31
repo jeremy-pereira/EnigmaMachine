@@ -49,6 +49,14 @@ class RingStellungView: NSTableCellView
     }
 }
 
+class RotorBoxTableView: NSTableView
+{
+    override func validateProposedFirstResponder(responder: NSResponder, forEvent event: NSEvent?) -> Bool
+    {
+        return responder is NSStepper || super.validateProposedFirstResponder(responder, forEvent: event)
+    }
+}
+
 
 class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
 {

@@ -442,7 +442,7 @@
                                         <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="22" rowSizeStyle="automatic" headerView="twA-hp-JNb" viewBased="YES" id="MSp-da-BOH">
+                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="22" rowSizeStyle="automatic" headerView="twA-hp-JNb" viewBased="YES" id="MSp-da-BOH" customClass="RotorBoxTableView" customModule="EnigmaMachine" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="151.5" height="0.0"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
