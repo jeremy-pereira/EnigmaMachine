@@ -509,6 +509,9 @@
                                                                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBi-t7-bYd">
                                                                         <rect key="frame" x="79" y="-2" width="19" height="27"/>
                                                                         <stepperCell key="cell" continuous="YES" alignment="left" maxValue="25" valueWraps="YES" id="kSa-78-zZt"/>
+                                                                        <connections>
+                                                                            <action selector="stepperChanged:" target="JbI-hi-Dqv" id="1mm-Ux-f9Q"/>
+                                                                        </connections>
                                                                     </stepper>
                                                                 </subviews>
                                                                 <constraints>

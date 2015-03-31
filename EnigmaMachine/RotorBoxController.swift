@@ -40,6 +40,12 @@ class RingStellungView: NSTableCellView
 
     @IBAction func stepperChanged(sender: AnyObject?)
     {
+        if let ring = objectValue as? Rotor
+        {
+            let newLetter = Letter.letter(ordinal: stepper.integerValue)
+            ring.ringStellung = newLetter
+            objectValue = ring
+        }
     }
 }
 
@@ -74,7 +80,7 @@ class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
 
     func tableView(                 tableView: NSTableView,
         objectValueForTableColumn tableColumn: NSTableColumn?,
-        row: Int) -> AnyObject?
+                                          row: Int) -> AnyObject?
     {
         var ret: AnyObject?
         let rotor = rotorBox.rotor(row)
@@ -87,7 +93,7 @@ class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
 
     func tableView(           tableView: NSTableView,
         writeRowsWithIndexes rowIndexes: NSIndexSet,
-        toPasteboard pboard: NSPasteboard) -> Bool
+        			toPasteboard pboard: NSPasteboard) -> Bool
     {
         assert(rowIndexes.count == 1, "Cannot handle drag of multiple rotors")
         let draggingRotor = rotorBox.rotor[rowIndexes.firstIndex]
