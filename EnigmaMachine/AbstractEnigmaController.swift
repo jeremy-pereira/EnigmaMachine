@@ -54,7 +54,7 @@ import Cocoa
 }
 
 class AbstractEnigmaController:
-    NSWindowController, EnigmaObserver, PlugboardViewDataSource, KeyboardDelegate
+    NSWindowController, EnigmaObserver
 {
     var enigmaMachine: EnigmaMachine = EnigmaMachine()
     var rotorBeingDragged: Rotor?
@@ -185,19 +185,46 @@ class AbstractEnigmaController:
         letterReleased(keyboard: keyboard)
     }
 
-    // MARK: PlugboardView data source methods
-
-    func connectLetterPair(letterPair: (Letter, Letter), plugboardView: PlugboardView)
+    func finishDrag(targetRotorTexBox: RotorTextBox) -> Bool
     {
-        enigmaMachine.plugInPair(letterPair)
+        var ret: Bool = false
+
+        if let rotorBeingDragged = rotorBeingDragged
+        {
+            rotorBoxDataSource.removeRotor(rotorBeingDragged)
+            if let identifier = targetRotorTexBox.identifier
+            {
+                let ringIndex = identifier.toInt()!
+                if let removedRotor = enigmaMachine.removeRotorFromSlot(ringIndex)
+                {
+                    rotorBoxDataSource.insertRotor(removedRotor)
+                }
+                enigmaMachine.insertRotor(rotorBeingDragged, inSlot: ringIndex, position: Letter.A)
+                self.rotorBeingDragged = nil
+            }
+            ret = true
+        }
+		return ret
     }
 
-    func connectionForLetter(letter: Letter, plugboardView: PlugboardView) -> Letter?
+    func stepRotor(#rotorTextBox: RotorTextBox, increment: Int)
     {
-        return enigmaMachine.plugboard.letterConnectedTo(letter: letter)
+        let slotNumber = rotorTextBox.identifier!.toInt()!
+
+        if let rotorPosition = enigmaMachine.rotorPositionForSlot(slotNumber)
+        {
+            let newRotorPosition = rotorPosition &+ increment
+            enigmaMachine.setRotorPosition(newRotorPosition, slotNumber: slotNumber)
+        }
     }
 
-    // MARK: KeyboardDelegate
+}
+
+// MARK: -
+// MARK: KeyboardDelegate
+extension AbstractEnigmaController: KeyboardDelegate
+{
+
 
     func letterPressed(aLetter: Letter, keyboard: KeyboardView)
     {
@@ -216,6 +243,25 @@ class AbstractEnigmaController:
 
 }
 
+
+// MARK: -
+// MARK: PlugboardView data source methods
+extension AbstractEnigmaController: PlugboardViewDataSource
+{
+
+    func connectLetterPair(letterPair: (Letter, Letter), plugboardView: PlugboardView)
+    {
+        enigmaMachine.plugInPair(letterPair)
+    }
+
+    func connectionForLetter(letter: Letter, plugboardView: PlugboardView) -> Letter?
+    {
+        return enigmaMachine.plugboard.letterConnectedTo(letter: letter)
+    }
+}
+
+
+// MARK: -
 extension AbstractEnigmaController: NSWindowDelegate
 {
 }

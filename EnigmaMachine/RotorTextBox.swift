@@ -40,25 +40,7 @@ class RotorTextBox: NSTextField
 
     override func performDragOperation(sender: NSDraggingInfo) -> Bool
     {
-        var ret: Bool = false
-        if let rotorBeingDragged = enigmaController.rotorBeingDragged
-        {
-            enigmaController.rotorBoxDataSource.removeRotor(rotorBeingDragged)
-            if let identifier = self.identifier
-            {
-                let ringIndex = identifier.toInt()!
-                if let removedRotor = enigmaController.enigmaMachine.removeRotorFromSlot(ringIndex)
-                {
-                    enigmaController.rotorBoxDataSource.insertRotor(removedRotor)
-                }
-                enigmaController.enigmaMachine.insertRotor(rotorBeingDragged, inSlot: ringIndex,
-                    														position: Letter.A)
-                enigmaController.rotorBeingDragged = nil
-            }
-
-			ret = true
-        }
-        return ret
+        return enigmaController.finishDrag(self)
     }
 
     @IBAction func stepperChanged(sender: AnyObject)
@@ -67,13 +49,7 @@ class RotorTextBox: NSTextField
         let difference = thisStepperValue - lastStepperValue
         lastStepperValue = stepper.integerValue
 
-        let slotNumber = self.identifier!.toInt()!
-
-        if let rotorPosition = enigmaController.enigmaMachine.rotorPositionForSlot(slotNumber)
-        {
-            let newRotorPosition = rotorPosition &+ difference
-            enigmaController.enigmaMachine.setRotorPosition(newRotorPosition, slotNumber: self.identifier!.toInt()!)
-        }
+        enigmaController.stepRotor(rotorTextBox: self, increment: difference)
     }
 
     override func mouseDown(theEvent: NSEvent)
