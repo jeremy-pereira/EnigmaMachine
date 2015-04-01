@@ -9,6 +9,7 @@
                 <outlet property="keyboard" destination="hTX-Iz-lIk" id="QNk-BA-Wuz"/>
                 <outlet property="lightPanelView" destination="pB7-yT-cT3" id="Kbj-dL-JBM"/>
                 <outlet property="plugboardView" destination="L8O-jd-orV" id="Qc2-sQ-4oQ"/>
+                <outlet property="popover" destination="YfN-fH-NVN" id="bZV-GJ-sjW"/>
                 <outlet property="printerController" destination="IIq-Mh-32a" id="R8q-Di-znw"/>
                 <outlet property="ringDisplay1" destination="APg-4O-RDx" id="IGu-bL-58l"/>
                 <outlet property="ringDisplay2" destination="K6t-Fu-VOF" id="DT7-fz-6o5"/>
@@ -769,6 +770,8 @@
         </customObject>
         <viewController id="M58-Ve-Kg5" userLabel="Popover View Controller" customClass="RotorPopoverController" customModule="EnigmaMachine" customModuleProvider="target">
             <connections>
+                <outlet property="name" destination="ctz-f8-l1h" id="Nxe-GM-aBy"/>
+                <outlet property="ringStellung" destination="tjU-lF-A07" id="fZw-u0-1dx"/>
                 <outlet property="view" destination="Yf0-pX-iWp" id="LWa-wX-gXh"/>
             </connections>
         </viewController>

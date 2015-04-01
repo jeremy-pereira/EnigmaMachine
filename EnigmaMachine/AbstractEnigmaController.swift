@@ -8,6 +8,13 @@
 
 import Cocoa
 
+class RotorPopoverController: NSViewController
+{
+    @IBOutlet weak var name: NSTextField!
+    @IBOutlet weak var ringStellung: NSTextField!
+
+}
+
 @objc class RotorPasteBoardWrapper: NSObject, NSPasteboardWriting, NSPasteboardReading
 {
     var rotor: Rotor
@@ -68,6 +75,7 @@ class AbstractEnigmaController:
     @IBOutlet weak var plugboardView: PlugboardView!
     @IBOutlet weak var lightPanelView: LightPanelView!
     @IBOutlet weak var keyboard: KeyboardView!
+    @IBOutlet weak var popover: NSPopover!
 
 	convenience init()
     {
@@ -218,6 +226,20 @@ class AbstractEnigmaController:
         }
     }
 
+    func showPopover(#rotorTextBox: RotorTextBox)
+    {
+        if let popover = popover
+        {
+            let controller = popover.contentViewController as! RotorPopoverController
+            let slotNumber = rotorTextBox.identifier!.toInt()!
+            if let rotor = enigmaMachine.rotorCradle.slot[slotNumber].rotor
+            {
+				controller.name.stringValue = rotor.name
+                controller.ringStellung.stringValue = String(rotor.ringStellung.rawValue)
+                popover.showRelativeToRect(rotorTextBox.bounds, ofView: rotorTextBox, preferredEdge: 3)
+            }
+        }
+    }
 }
 
 // MARK: -

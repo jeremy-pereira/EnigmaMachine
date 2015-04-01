@@ -8,13 +8,6 @@
 
 import Cocoa
 
-class RotorPopoverController: NSViewController
-{
-    @IBOutlet weak var name: NSTextField!
-    @IBOutlet weak var ringStellung: NSTextField!
-
-}
-
 /**
 
 Overriding the text box seems to be the only way to accept a drag operation.
@@ -24,7 +17,6 @@ class RotorTextBox: NSTextField
 {
     @IBOutlet weak var enigmaController: AbstractEnigmaController!
     @IBOutlet weak var stepper: NSStepper!
-    @IBOutlet weak var popover: NSPopover!
 
     var lastStepperValue = 0
 
@@ -54,12 +46,7 @@ class RotorTextBox: NSTextField
 
     override func mouseDown(theEvent: NSEvent)
     {
-        println("mouse down");
-        if let popover = popover
-        {
-            let controller = popover.contentViewController as! RotorPopoverController
-
-            popover.showRelativeToRect(self.bounds, ofView: self, preferredEdge: 3)
-        }
+        println("mouse down")
+        enigmaController.showPopover(rotorTextBox: self)
     }
 }
