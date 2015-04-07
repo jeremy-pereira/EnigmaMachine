@@ -131,6 +131,7 @@
         <event start="2015-04-01T05:30:00.000Z" end="2015-04-01T06:30:00.000Z" sd="5203" st="23400" ed="5203" et="27000"/>
         <event start="2015-04-01T07:30:00.000Z" end="2015-04-01T07:45:00.000Z" sd="5203" st="30600" ed="5203" et="31500"/>
         <event start="2015-04-07T06:00:00.000Z" end="2015-04-07T06:30:00.000Z" sd="5209" st="25200" ed="5209" et="27000"/>
+        <event start="2015-04-07T07:30:00.000Z" end="2015-04-07T08:00:00.000Z" sd="5209" st="30600" ed="5209" et="32400"/>
       </calendar>
     </schedule>
   </resource>
@@ -209,14 +210,15 @@
     <child-task idref="t59"/>
   </task>
   <task id="t7">
-    <title>Better rotor display</title>
-    <leveled-start>2015-04-07T17:44:37.000Z</leveled-start>
-    <effort>28800</effort>
-    <assignment idref="r1"/>
+    <title>Tidy up UI</title>
+    <type>group</type>
+    <child-task idref="t67"/>
+    <child-task idref="t68"/>
+    <child-task idref="t70"/>
   </task>
   <task id="t8">
     <title>Bombe</title>
-    <leveled-start>2015-04-17T17:44:37.000Z</leveled-start>
+    <leveled-start>2015-04-13T18:18:42.000Z</leveled-start>
     <effort>86400</effort>
     <assignment idref="r1"/>
   </task>
@@ -401,7 +403,7 @@
   </task>
   <task id="t25">
     <title>User can choose font for printer</title>
-    <leveled-start>2015-05-05T17:44:37.000Z</leveled-start>
+    <leveled-start>2015-04-29T18:18:42.000Z</leveled-start>
     <effort>14400</effort>
     <start-constraint-date>2015-03-13T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -723,7 +725,7 @@
   </task>
   <task id="t56">
     <title>Keyboard accepts mouse clicks</title>
-    <leveled-start>2015-05-13T17:44:37.000Z</leveled-start>
+    <leveled-start>2015-05-07T18:18:42.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-24T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -751,7 +753,7 @@
   </task>
   <task id="t59">
     <title>Enigma machine help</title>
-    <leveled-start>2015-04-13T17:44:37.000Z</leveled-start>
+    <leveled-start>2015-04-07T18:18:42.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-03-25T07:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
@@ -760,9 +762,12 @@
   <task id="t60">
     <title>Proper close functionality on the enigma</title>
     <leveled-start>2015-04-07T06:44:37.592Z</leveled-start>
-    <effort>3600</effort>
+    <effort>923</effort>
+    <effort-done>923</effort-done>
     <locked-start-date>2015-04-07T06:44:37.592Z</locked-start-date>
+    <locked-end-date>2015-04-07T07:00:00.000Z</locked-end-date>
     <start-constraint-date>2015-03-26T07:30:00.000Z</start-constraint-date>
+    <recalculate>effort</recalculate>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-03-26T07:30:00.000Z</start-no-earlier-than>
   </task>
@@ -811,11 +816,43 @@
   </task>
   <task id="t66">
     <title>A nice icon</title>
-    <leveled-start>2015-05-07T17:44:37.000Z</leveled-start>
+    <leveled-start>2015-05-01T18:18:42.000Z</leveled-start>
     <effort>28800</effort>
     <start-constraint-date>2015-04-01T06:30:00.000Z</start-constraint-date>
     <assignment idref="r1"/>
     <start-no-earlier-than>2015-04-01T06:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t67">
+    <title>About Box</title>
+    <leveled-start>2015-04-07T07:02:46.236Z</leveled-start>
+    <effort>2234</effort>
+    <effort-done>2234</effort-done>
+    <locked-start-date>2015-04-07T07:02:46.236Z</locked-start-date>
+    <locked-end-date>2015-04-07T07:40:00.000Z</locked-end-date>
+    <start-constraint-date>2015-04-07T06:30:00.000Z</start-constraint-date>
+    <recalculate>effort</recalculate>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-04-07T06:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t68">
+    <title>Menus</title>
+    <leveled-start>2015-04-07T07:40:33.438Z</leveled-start>
+    <effort>447</effort>
+    <effort-done>447</effort-done>
+    <locked-start-date>2015-04-07T07:40:33.438Z</locked-start-date>
+    <locked-end-date>2015-04-07T07:48:00.000Z</locked-end-date>
+    <start-constraint-date>2015-04-07T06:30:00.000Z</start-constraint-date>
+    <recalculate>effort</recalculate>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-04-07T06:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t70">
+    <title>Licence</title>
+    <leveled-start>2015-04-07T07:48:42.728Z</leveled-start>
+    <effort>3600</effort>
+    <start-constraint-date>2015-04-07T06:30:00.000Z</start-constraint-date>
+    <assignment idref="r1"/>
+    <start-no-earlier-than>2015-04-07T06:30:00.000Z</start-no-earlier-than>
   </task>
   <critical-path root="-1" enabled="false" resources="false">
     <color r="1" g="0.5" b="0.5"/>

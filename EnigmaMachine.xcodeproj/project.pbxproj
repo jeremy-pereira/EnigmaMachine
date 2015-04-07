@@ -26,6 +26,7 @@
 		FC6C9F141AA6090A0013352B /* AbstractEnigmaWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */; };
 		FC728AF01AB7606B0003C81C /* PlugboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC728AEF1AB7606B0003C81C /* PlugboardView.swift */; };
 		FC74CDD81AC0030200370D08 /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC74CDD71AC0030200370D08 /* KeyboardButton.swift */; };
+		FC84BE011AD3C00300E1BB23 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FC84BE001AD3C00300E1BB23 /* Credits.rtf */; };
 		FC8AFBE51ABB52C500FA5D8C /* LightPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AFBE41ABB52C500FA5D8C /* LightPanelView.swift */; };
 		FC9AF86C1A9F9F8600335A29 /* TestRotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */; };
 		FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */; };
@@ -70,6 +71,7 @@
 		FC6C9F131AA6090A0013352B /* AbstractEnigmaWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AbstractEnigmaWindow.xib; sourceTree = "<group>"; };
 		FC728AEF1AB7606B0003C81C /* PlugboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugboardView.swift; sourceTree = "<group>"; };
 		FC74CDD71AC0030200370D08 /* KeyboardButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
+		FC84BE001AD3C00300E1BB23 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FC8AFBE41ABB52C500FA5D8C /* LightPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightPanelView.swift; sourceTree = "<group>"; };
 		FC9AF86B1A9F9F8600335A29 /* TestRotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorCradle.swift; sourceTree = "<group>"; };
 		FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorCradle.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				FC3D160E1A9CAE5B00FE44B9 /* Info.plist */,
+				FC84BE001AD3C00300E1BB23 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				FC6C9F141AA6090A0013352B /* AbstractEnigmaWindow.xib in Resources */,
 				FC3D16121A9CAE5B00FE44B9 /* Images.xcassets in Resources */,
 				FC3D16151A9CAE5C00FE44B9 /* MainMenu.xib in Resources */,
+				FC84BE011AD3C00300E1BB23 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
