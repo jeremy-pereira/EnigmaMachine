@@ -68,9 +68,9 @@ class AbstractEnigmaController:
 
     @IBOutlet var rotorBoxDataSource: RotorBoxController!
 
-    @IBOutlet weak var ringDisplay1: NSTextField!
-    @IBOutlet weak var ringDisplay2: NSTextField!
-    @IBOutlet weak var ringDisplay3: NSTextField!
+    @IBOutlet weak var ringDisplay1: RotorTextBox!
+    @IBOutlet weak var ringDisplay2: RotorTextBox!
+    @IBOutlet weak var ringDisplay3: RotorTextBox!
     @IBOutlet weak var printerController: PrinterController!
     @IBOutlet weak var plugboardView: PlugboardView!
     @IBOutlet weak var lightPanelView: LightPanelView!
@@ -157,18 +157,9 @@ class AbstractEnigmaController:
     func stateChanged(machine: EnigmaMachine)
     {
         var displayLetters = enigmaMachine.rotorReadOut
-        if let letter = displayLetters[2]
-        {
-            ringDisplay1.stringValue = String(letter.rawValue)
-        }
-        if let letter = displayLetters[1]
-        {
-            ringDisplay2.stringValue = String(letter.rawValue)
-        }
-        if let letter = displayLetters[0]
-        {
-            ringDisplay3.stringValue = String(letter.rawValue)
-        }
+        ringDisplay1.letter = displayLetters[2]
+        ringDisplay2.letter = displayLetters[1]
+        ringDisplay3.letter = displayLetters[0]
         lightPanelView.litLetter = enigmaMachine.litLamp
     }
 
@@ -226,6 +217,8 @@ class AbstractEnigmaController:
         }
     }
 
+    private var popoverSlotNumber: Int?
+
     func showPopover(#rotorTextBox: RotorTextBox)
     {
         if let popover = popover
@@ -234,10 +227,23 @@ class AbstractEnigmaController:
             let slotNumber = rotorTextBox.identifier!.toInt()!
             if let rotor = enigmaMachine.rotorCradle.slot[slotNumber].rotor
             {
+                popoverSlotNumber = slotNumber
 				controller.name.stringValue = rotor.name
                 controller.ringStellung.stringValue = String(rotor.ringStellung.rawValue)
                 popover.showRelativeToRect(rotorTextBox.bounds, ofView: rotorTextBox, preferredEdge: 3)
             }
+        }
+    }
+
+    @IBAction func putInBox(sender: AnyObject?)
+    {
+        if let popoverSlotNumber = popoverSlotNumber
+        {
+            if let rotor = enigmaMachine.removeRotorFromSlot(popoverSlotNumber)
+            {
+				rotorBoxDataSource.insertRotor(rotor)
+            }
+            self.popoverSlotNumber = nil
         }
     }
 }

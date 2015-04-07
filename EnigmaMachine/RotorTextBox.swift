@@ -20,6 +20,21 @@ class RotorTextBox: NSTextField
 
     var lastStepperValue = 0
 
+    var letter: Letter?
+    {
+		didSet(oldValue)
+        {
+            if let letter = letter
+            {
+                self.stringValue = String(letter.rawValue)
+            }
+            else
+            {
+                self.stringValue = ""
+            }
+        }
+    }
+
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
     {
         var ret = NSDragOperation.None

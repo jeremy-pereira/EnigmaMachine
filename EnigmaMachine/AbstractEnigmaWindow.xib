@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7525" systemVersion="14C1514" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14C1514" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7525"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7528.3"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AbstractEnigmaController" customModule="EnigmaMachine" customModuleProvider="target">
@@ -9,7 +9,7 @@
                 <outlet property="keyboard" destination="hTX-Iz-lIk" id="QNk-BA-Wuz"/>
                 <outlet property="lightPanelView" destination="pB7-yT-cT3" id="Kbj-dL-JBM"/>
                 <outlet property="plugboardView" destination="L8O-jd-orV" id="Qc2-sQ-4oQ"/>
-                <outlet property="popover" destination="YfN-fH-NVN" id="bZV-GJ-sjW"/>
+                <outlet property="popover" destination="YfN-fH-NVN" id="vfX-OE-2Yl"/>
                 <outlet property="printerController" destination="IIq-Mh-32a" id="R8q-Di-znw"/>
                 <outlet property="ringDisplay1" destination="APg-4O-RDx" id="IGu-bL-58l"/>
                 <outlet property="ringDisplay2" destination="K6t-Fu-VOF" id="DT7-fz-6o5"/>
@@ -60,7 +60,6 @@
                                     </textFieldCell>
                                     <connections>
                                         <outlet property="enigmaController" destination="-2" id="BEt-d2-XiT"/>
-                                        <outlet property="popover" destination="YfN-fH-NVN" id="AIn-k8-4u5"/>
                                         <outlet property="stepper" destination="rMq-sW-P4o" id="vgP-OK-7GR"/>
                                     </connections>
                                 </textField>
@@ -822,6 +821,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="putInBox:" target="-2" id="1tm-qc-5sl"/>
+                    </connections>
                 </button>
             </subviews>
             <point key="canvasLocation" x="601" y="519"/>
