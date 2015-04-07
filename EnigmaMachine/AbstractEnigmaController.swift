@@ -292,4 +292,8 @@ extension AbstractEnigmaController: PlugboardViewDataSource
 // MARK: -
 extension AbstractEnigmaController: NSWindowDelegate
 {
+    func windowWillClose(notification: NSNotification)
+    {
+        printerController.window?.performClose(self)
+    }
 }

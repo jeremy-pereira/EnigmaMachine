@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
-  <window x="187" y="508" w="1407" h="909">
+  <window x="83" y="268" w="1407" h="909">
     <editing-scenario>j3I0nGHZem1</editing-scenario>
     <view>task</view>
     <overview/>
@@ -16,11 +16,11 @@
         <column name="Effort" width="70"/>
         <column name="%Done" width="87"/>
         <column name="Prerequisites" width="102"/>
-        <expanded-items idrefs="t62 t55 t54 t31 t34 t57 t6"/>
+        <expanded-items idrefs="t62 t55 t54 t31 t57 t6 t34"/>
         <expanded-item-notes idrefs="t44 t43"/>
-        <selected-items-at-filter-time idrefs="t66 t31 t59 t24 t17 t18 t25 t32 t26 t19 t40 t33 t34 t27 t41 t35 t28 t2 t43 t36 t29 t3 t50 t4 t44 t51 t5 t52 t45 t38 t10 t6 t7 t46 t8 t11 t60 t39 t9 t61 t54 t12 t47 t55 t62 t13 t48 t20 t56 t21 t14 t49 t63 t57 t15 t22 t58 t16 t23 t30 t65"/>
+        <selected-items-at-filter-time idrefs="t66 t24 t17 t59 t31 t18 t32 t25 t33 t40 t19 t26 t27 t41 t34 t28 t35 t2 t43 t29 t36 t3 t50 t4 t51 t44 t5 t6 t10 t52 t45 t38 t7 t46 t8 t11 t39 t60 t9 t54 t12 t61 t47 t55 t13 t20 t48 t62 t56 t14 t63 t49 t21 t57 t15 t22 t58 t16 t23 t30 t65"/>
       </outline>
-      <gantt-view x="1298" y="0" w="770" h="756">
+      <gantt-view x="1737.5" y="0" w="770" h="756">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
