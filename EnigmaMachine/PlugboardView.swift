@@ -216,7 +216,7 @@ class PlugboardView: NSView
     private func cablePointFor(position: PlugPosition) -> NSPoint
     {
 		var ret = NSPoint()
-        let positionRect = rectForSockets(position)
+        let positionRect = rectForSockets(plugPosition: position)
         ret = positionRect.origin
         ret.x += positionRect.size.width / 2.0
         return ret
@@ -235,9 +235,9 @@ class PlugboardView: NSView
     {
         NSGraphicsContext.saveGraphicsState()
 
-        var selectColour = NSColor.blueColor()
+        var selectColour = NSColor.blue
         selectColour.set()
-        let drawArea = rectForSockets(position)
+        let drawArea = rectForSockets(plugPosition: position)
         var selectedRect = NSRect()
         selectedRect.size.width = socketDiameter + 4.0
         selectedRect.size.height = socketHeightUnit + socketDiameter + 4.0
@@ -246,7 +246,7 @@ class PlugboardView: NSView
 
         let path = NSBezierPath()
         path.lineWidth = socketLineWidth
-        path.appendBezierPathWithRoundedRect(selectedRect, xRadius: selectedRect.size.width / 2, yRadius: selectedRect.size.width / 2)
+        path.appendRoundedRect(selectedRect, xRadius: selectedRect.size.width / 2, yRadius: selectedRect.size.width / 2)
         path.stroke()
         selectColour = NSColor(hue: selectColour.hueComponent,
             			saturation: selectColour.saturationComponent,
@@ -264,9 +264,9 @@ class PlugboardView: NSView
     {
         NSGraphicsContext.saveGraphicsState()
 
-        var selectColour = self.foregroundColour
+        let selectColour = self.foregroundColour
         selectColour.set()
-        let drawArea = rectForSockets(position)
+        let drawArea = rectForSockets(plugPosition: position)
         var selectedRect = NSRect()
         selectedRect.size.width = socketDiameter + 4.0
         selectedRect.size.height = socketHeightUnit + socketDiameter + 4.0
@@ -275,16 +275,16 @@ class PlugboardView: NSView
 
         let path = NSBezierPath()
         path.lineWidth = socketLineWidth
-        path.appendBezierPathWithRoundedRect(selectedRect, xRadius: selectedRect.size.width / 2, yRadius: selectedRect.size.width / 2)
+        path.appendRoundedRect(selectedRect, xRadius: selectedRect.size.width / 2, yRadius: selectedRect.size.width / 2)
         path.stroke()
         path.fill()
-        var letterColour = NSColor.grayColor()
+        var letterColour = NSColor.gray
         if let backgroundColour = backgroundColour
         {
 			letterColour = backgroundColour
         }
         letterColour.set()
-        letter.drawInRect(drawArea, attributes: [NSForegroundColorAttributeName : letterColour])
+        letter.drawInRect(rect: drawArea, attributes: [NSAttributedStringKey.foregroundColor as NSObject : letterColour])
 
         NSGraphicsContext.restoreGraphicsState()
 
@@ -294,12 +294,12 @@ class PlugboardView: NSView
     private func drawSocketAt(position: PlugPosition, third: Int)
     {
         var socketRect: NSRect = NSRect()
-        var drawArea = rectForPlugPosition(position, third: third)
+        let drawArea = rect(forPlugPosition: position, third: third)
         socketRect.size.width = socketDiameter
         socketRect.size.height = socketDiameter
         socketRect.origin.x = drawArea.origin.x + (drawArea.size.width - socketDiameter) / 2
         socketRect.origin.y = drawArea.origin.y + (drawArea.size.height - socketDiameter) / 2
-        var bezierPath = NSBezierPath(ovalInRect: socketRect)
+        let bezierPath = NSBezierPath(ovalIn: socketRect)
         bezierPath.lineWidth = socketLineWidth
         bezierPath.stroke()
     }
@@ -364,7 +364,7 @@ class PlugboardView: NSView
         {
 			if let sourcePosition = sourcePosition
             {
-                let startPoint = cablePointFor(sourcePosition)
+                let startPoint = cablePointFor(position: sourcePosition)
                 var invalidRectangle = NSRect()
                 if let oldPoint = oldPoint
                 {
@@ -372,7 +372,7 @@ class PlugboardView: NSView
                     invalidRectangle.origin.y = min(startPoint.y, oldPoint.y) - 1.0
                     invalidRectangle.size.width = abs(oldPoint.x - startPoint.x) + 2.0
                     invalidRectangle.size.height = abs(oldPoint.y - startPoint.y) + 2.0
-                    self.setNeedsDisplayInRect(invalidRectangle)
+                    self.setNeedsDisplay(invalidRectangle)
                 }
                 if let dragEndPoint = dragEndPoint
                 {
@@ -380,48 +380,48 @@ class PlugboardView: NSView
                     invalidRectangle.origin.y = min(startPoint.y, dragEndPoint.y) - 1.0
                     invalidRectangle.size.width = abs(dragEndPoint.x - startPoint.x) + 2.0
                     invalidRectangle.size.height = abs(dragEndPoint.y - startPoint.y) + 2.0
-                    self.setNeedsDisplayInRect(invalidRectangle)
+                    self.setNeedsDisplay(invalidRectangle)
                 }
             }
         }
     }
 
-    private func calculatePositionNeedsDisplay(#old: PlugPosition?, new: PlugPosition?)
+    private func calculatePositionNeedsDisplay(old: PlugPosition?, new: PlugPosition?)
     {
         if old != new
         {
             if let old = old
             {
-                self.setNeedsDisplayInRect(rectForSockets(old))
+                self.setNeedsDisplay(rectForSockets(plugPosition: old))
             }
             if let new = new
             {
-                self.setNeedsDisplayInRect(rectForSockets(new))
+                self.setNeedsDisplay(rectForSockets(plugPosition: new))
             }
         }
     }
 
-    override func mouseDown(theEvent: NSEvent)
+    override func mouseDown(with theEvent: NSEvent)
     {
         // Check if it is over a socket and handle if it is.
-        let clickLocation = self.convertPoint(theEvent.locationInWindow, fromView: nil)
-        sourcePosition = self.clickedPosition(clickLocation)
+        let clickLocation = self.convert(theEvent.locationInWindow, from: nil)
+        sourcePosition = self.clickedPosition(location: clickLocation)
         if sourcePosition != nil
         {
             draggingPosition = nil
-            self.setNeedsDisplayInRect(rectForSockets(sourcePosition!))
+            self.setNeedsDisplay(rectForSockets(plugPosition: sourcePosition!))
         }
     }
 
-    override func mouseDragged(theEvent: NSEvent)
+    override func mouseDragged(with theEvent: NSEvent)
     {
         if let sourcePosition = self.sourcePosition
         {
-            let clickLocation = self.convertPoint(theEvent.locationInWindow, fromView: nil)
+            let clickLocation = self.convert(theEvent.locationInWindow, from: nil)
             /*
 			 *  If over a socket, need to draw the selection around the socket.
 			 */
-            let draggingPosition = self.clickedPosition(clickLocation)
+            let draggingPosition = self.clickedPosition(location: clickLocation)
 			if draggingPosition != nil
             {
 				if    draggingPosition != self.draggingPosition
@@ -442,17 +442,17 @@ class PlugboardView: NSView
         }
     }
 
-    override func mouseUp(theEvent: NSEvent)
+    override func mouseUp(with theEvent: NSEvent)
     {
         // Check if it is over a socket and handle if it is.
         if let sourcePosition = sourcePosition
         {
-            let clickLocation = self.convertPoint(theEvent.locationInWindow, fromView: nil)
-            if let destPosition = self.clickedPosition(clickLocation)
+            let clickLocation = self.convert(theEvent.locationInWindow, from: nil)
+            if let destPosition = self.clickedPosition(location: clickLocation)
             {
                 if let dataSource = dataSource
                 {
-                    dataSource.connectLetterPair((PlugboardView.plugToLetter[sourcePosition]!, PlugboardView.plugToLetter[destPosition]!),
+                    dataSource.connectLetterPair(letterPair: (PlugboardView.plugToLetter[sourcePosition]!, PlugboardView.plugToLetter[destPosition]!),
                         						 plugboardView: self)
                     /*
 					 *  We need to invalidate the rectangles for all apparently 
@@ -461,8 +461,8 @@ class PlugboardView: NSView
                      */
                     for position in pluggedInSockets
                     {
-						let pluggedInLocation = self.rectForSockets(position)
-                        self.setNeedsDisplayInRect(pluggedInLocation)
+                        let pluggedInLocation = self.rectForSockets(plugPosition: position)
+                        self.setNeedsDisplay(pluggedInLocation)
                     }
                     pluggedInSockets = []
                 }
@@ -474,17 +474,13 @@ class PlugboardView: NSView
 
     private func clickedPosition(location: NSPoint) -> PlugPosition?
     {
-        var ret: PlugPosition?
         let positions = PlugboardView.plugToLetter.keys
-        for var i = positions.startIndex ; i != positions.endIndex && ret == nil ; i++
+
+        return positions.first
         {
-            let currentPosition = positions[i]
-			let targetRect = rectForSockets(currentPosition)
-			if NSPointInRect(location, targetRect)
-            {
-                ret = currentPosition
-            }
+            let currentPosition = $0
+            let targetRect = rectForSockets(plugPosition: currentPosition)
+            return NSPointInRect(location, targetRect)
         }
-        return ret
     }
 }
