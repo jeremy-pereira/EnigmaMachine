@@ -33,17 +33,17 @@ extension Letter
 {
     func sizeWithAttributes(attributes: [ NSObject : AnyObject ]) -> NSSize
     {
-			return String(self.rawValue).sizeWithAttributes(attributes)
+        return String(self.rawValue).size(withAttributes: (attributes as! [NSAttributedStringKey : Any]))
     }
 
     func drawInRect(rect: NSRect, attributes: [NSObject : AnyObject])
     {
         let letterAsString =  String(self.rawValue)
-        let letterSize = self.sizeWithAttributes(attributes)
+        let letterSize = self.sizeWithAttributes(attributes: attributes)
         let widthAdjustment = (rect.size.width - letterSize.width) / 2.0
         let heightAdjustment = (rect.size.height - letterSize.height) / 2.0
         let letterOrigin = NSMakePoint(rect.origin.x + widthAdjustment, rect.origin.y + heightAdjustment)
-        letterAsString.drawAtPoint(letterOrigin, withAttributes: attributes)
+        letterAsString.draw(at: letterOrigin, withAttributes: (attributes as! [NSAttributedStringKey : Any]))
     }
 }
 
@@ -62,7 +62,7 @@ extension NSRect
     }
 }
 
-private struct PlugPosition: Hashable, Printable
+private struct PlugPosition: Hashable, CustomStringConvertible
 {
     let x: CGFloat
     let y: CGFloat
@@ -85,9 +85,9 @@ class PlugboardView: NSView
     var dataSource: PlugboardViewDataSource?
 
     var backgroundColour: NSColor?
-    var foregroundColour: NSColor = NSColor.blackColor()
+    var foregroundColour: NSColor = NSColor.black
     var drawScaffolding = false
-    override var opaque: Bool { return backgroundColour != nil }
+    override var isOpaque: Bool { return backgroundColour != nil }
 
     var socketWidth: CGFloat
     {
@@ -140,18 +140,18 @@ class PlugboardView: NSView
         PlugPosition(x: 16.0, y: 0.0) : Letter.L
     ]
 
-    override func drawRect(dirtyRect: NSRect)
+    override func draw(_ dirtyRect: NSRect)
     {
-        super.drawRect(dirtyRect)
+        super.draw(dirtyRect)
         if let backgroundColour = backgroundColour
         {
 			backgroundColour.set()
-            NSBezierPath.fillRect(dirtyRect)
+            NSBezierPath.fill(dirtyRect)
         }
         foregroundColour.set()
         for (position, letter) in PlugboardView.plugToLetter
         {
-            if rectForPlugPosition(position).overlaps(dirtyRect)
+            if rectForPlugPosition(plugPosition: position).overlaps(otherRect: dirtyRect)
             {
                 drawPlug(position: position, letter: letter)
             }
@@ -159,7 +159,7 @@ class PlugboardView: NSView
         drawDraggingLine()
     }
 
-    private func drawPlug(#position: PlugPosition, letter: Letter)
+    private func drawPlug(position: PlugPosition, letter: Letter)
     {
         /*
 		 *  Scaffolding to be removed later
@@ -167,47 +167,47 @@ class PlugboardView: NSView
         if drawScaffolding
         {
             NSGraphicsContext.saveGraphicsState()
-            NSColor.redColor().set()
-            NSBezierPath.strokeRect(rectForPlugPosition(position, third: 2)) // The extent of the letter
-            NSColor.greenColor().set()
-            NSBezierPath.strokeRect(rectForPlugPosition(position, third: 1)) // The extent of the top socket
-            NSColor.blueColor().set()
-            NSBezierPath.strokeRect(rectForPlugPosition(position, third: 0)) // The extent of the bottom socket
+            NSColor.red.set()
+            NSBezierPath.stroke(rect(forPlugPosition: position, third: 2)) // The extent of the letter
+            NSColor.green.set()
+            NSBezierPath.stroke(rect(forPlugPosition: position, third: 1)) // The extent of the top socket
+            NSColor.blue.set()
+            NSBezierPath.stroke(rect(forPlugPosition: position, third: 0)) // The extent of the bottom socket
             NSGraphicsContext.restoreGraphicsState()
         }
 
-        letter.drawInRect(rectForPlugPosition(position, third: 2), attributes: [:])
+        letter.drawInRect(rect: rect(forPlugPosition: position, third: 2), attributes: [:])
         var connectedLetter: Letter?
         if let dataSource = dataSource
         {
-            connectedLetter = dataSource.connectionForLetter(letter, plugboardView: self)
+            connectedLetter = dataSource.connectionForLetter(letter: letter, plugboardView: self)
         }
         if let connectedLetter = connectedLetter
         {
-            drawPluggedInSocketAt(position, letter: connectedLetter)
+            drawPluggedInSocketAt(position: position, letter: connectedLetter)
         }
         else
         {
-            drawSocketAt(position, third: 1)
-            drawSocketAt(position, third: 0)
+            drawSocketAt(position: position, third: 1)
+            drawSocketAt(position: position, third: 0)
         }
         if position == sourcePosition || position == draggingPosition
         {
-            drawSelectedSocket(position)
+            drawSelectedSocket(position: position)
         }
     }
 
     private func drawDraggingLine()
     {
-		if let sourcePosition = sourcePosition, endPoint = dragEndPoint
+        if let sourcePosition = sourcePosition, let endPoint = dragEndPoint
         {
             NSGraphicsContext.saveGraphicsState()
-            NSColor.blueColor().set()
-			let startPoint = cablePointFor(sourcePosition)
+            NSColor.blue.set()
+            let startPoint = cablePointFor(position: sourcePosition)
             let path = NSBezierPath()
             path.lineWidth = 2.0
-            path.moveToPoint(startPoint)
-            path.lineToPoint(endPoint)
+            path.move(to: startPoint)
+            path.line(to: endPoint)
             path.stroke()
             NSGraphicsContext.restoreGraphicsState()
         }
@@ -314,7 +314,7 @@ class PlugboardView: NSView
         return ret
     }
 
-    private func rectForPlugPosition(plugPosition: PlugPosition, third: Int) -> NSRect
+    private func rect(forPlugPosition plugPosition: PlugPosition, third: Int) -> NSRect
     {
         var ret = NSRect()
         ret.origin.x = plugPosition.x * socketWidth

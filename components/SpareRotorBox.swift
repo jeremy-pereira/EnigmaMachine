@@ -53,61 +53,49 @@ Put a rotor in the box.
 		rotor.append(newRotor)
     }
 
-/**
-
-Remove a rotor with the given name from the box and return it to the caller.  If
-there are two rotors with the same name, we take the first one only.
-
-:param: name Name of rotor to get.
-:returns: The rotor with the given name or nil if there is none in the box.
-
-*/
-    public func removeRotor(#name: String) -> Rotor?
+    /// Remove a rotor with the given name from the box and return it to the caller.  If
+    /// there are two rotors with the same name, we take the first one only.
+    ///
+    /// - Parameter name: Name of the rotor to remove
+    /// - Returns: The rotor to remove or nil if it is not installed.
+    public func removeRotor(name: String) -> Rotor?
     {
         var ret: Rotor?
-
-        var foundIndex: Int?
-        for var i = 0 ; i < rotor.count && foundIndex == nil ; ++i
+        if let foundIndex = rotor.index(where: { $0.name == name })
         {
-			if rotor[i].name == name
-            {
-                foundIndex = i
-            }
-        }
-        if let foundIndex = foundIndex
-        {
-            ret = rotor[foundIndex]
-            rotor.removeAtIndex(foundIndex)
+            ret = rotor.remove(at: foundIndex)
         }
         return ret
     }
+
+
+    /// Remove a specific rotor and return it.
+    ///
+    /// - Parameter rotorToGo: The rotor to remove.
+    /// - Returns: The removed rotor.
     public func removeRotor(rotorToGo: Rotor) -> Rotor?
     {
         var ret: Rotor?
-
-        var foundIndex: Int?
-        for var i = 0 ; i < rotor.count && foundIndex == nil ; ++i
+        if let foundIndex = rotor.index(where: { $0 === rotorToGo })
         {
-            if rotor[i] === rotorToGo
-            {
-                foundIndex = i
-            }
-        }
-        if let foundIndex = foundIndex
-        {
-            ret = rotor[foundIndex]
-            rotor.removeAtIndex(foundIndex)
+            ret = rotor.remove(at: foundIndex)
         }
         return ret
     }
-    public func removeRotor(#index: Int) -> Rotor?
+
+
+    /// Remove the rotr at a given index. If the index is out of bounds, nil is
+    /// returned.
+    ///
+    /// - Parameter index: The index of the rotor to go
+    /// - Returns: The removed rotor.
+    public func removeRotor(index: Int) -> Rotor?
     {
         var ret: Rotor?
 
         if index >= 0 && index < rotor.count
         {
-            ret = rotor[index]
-            rotor.removeAtIndex(index)
+            ret = rotor.remove(at: index)
         }
         return ret
     }
@@ -127,9 +115,9 @@ there are two rotors with the same name, we take the first one only.
     public func rotorsAtIndexes(indexes: NSIndexSet) -> [Rotor]
     {
         var ret: [Rotor] = []
-        for (index, rotor) in enumerate(self.rotor)
+        for (index, rotor) in rotor.enumerated()
         {
-			if indexes.containsIndex(index)
+			if indexes.contains(index)
             {
                 ret.append(rotor)
             }
