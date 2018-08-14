@@ -29,7 +29,7 @@ import Foundation
 Enumeration of all the letters that Enigma can deal with
 
 */
-public enum Letter: Character, ForwardIndexType, Comparable, Printable
+public enum Letter: Character, Comparable, CustomStringConvertible
 {
 	case A = "A", B = "B", C = "C", D = "D", E = "E", F = "F", G = "G", H = "H",
          I = "I", J = "J", K = "K", L = "L", M = "M", N = "N", O = "O", P = "P",
@@ -48,57 +48,57 @@ The ordinal of the letter.  A is assumed to have ordinal 0 and Z ordinal 25.
             var ret: Int
             switch self
             {
-            case A:
+            case .A:
                 ret = 0
-            case B:
+            case .B:
                 ret = 1
-            case C:
+            case .C:
                 ret = 2
-            case D:
+            case .D:
                 ret = 3
-            case E:
+            case .E:
                 ret = 4
-            case F:
+            case .F:
                 ret = 5
-            case G:
+            case .G:
                 ret = 6
-            case H:
+            case .H:
                 ret = 7
-            case I:
+            case .I:
                 ret = 8
-            case J:
+            case .J:
                 ret = 9
-            case K:
+            case .K:
                 ret = 10
-            case L:
+            case .L:
                 ret = 11
-            case M:
+            case .M:
                 ret = 12
-            case N:
+            case .N:
                 ret = 13
-            case O:
+            case .O:
                 ret = 14
-            case P:
+            case .P:
                 ret = 15
-            case Q:
+            case .Q:
                 ret = 16
-            case R:
+            case .R:
                 ret = 17
-            case S:
+            case .S:
                 ret = 18
-            case T:
+            case .T:
                 ret = 19
-            case U:
+            case .U:
                 ret = 20
-            case V:
+            case .V:
                 ret = 21
-            case W:
+            case .W:
                 ret = 22
-            case X:
+            case .X:
                 ret = 23
-            case Y:
+            case .Y:
                 ret = 24
-            case Z:
+            case .Z:
                 ret = 25
             case .UpperBound:
                 ret = Int.max
@@ -115,7 +115,7 @@ if they are modulo 26.
 :returns: The letter for the given ordinal.
 
 */
-    public static func letter(#ordinal: Int) -> Letter
+    public static func letter(ordinal: Int) -> Letter
     {
         var ret: Letter
         var normalisedOrdinal = ordinal % 26
@@ -193,6 +193,23 @@ if they are modulo 26.
     {
         get { return "\(self.rawValue)" }
     }
+}
+
+extension Letter: Strideable
+{
+    public func distance(to other: Letter) -> Int
+    {
+        return other.ordinal - self.ordinal
+    }
+
+    public func advanced(by n: Int) -> Letter
+    {
+        return Letter.letter(ordinal: self.ordinal + n)
+    }
+
+    public typealias Stride = Int
+
+
 }
 
 public func &+(left: Letter, right: Letter) -> Letter
@@ -338,7 +355,7 @@ class ClosureConnection: Connection
 {
     var mappingFunc: (Letter) -> Letter?
 
-    init(_ mappingFunc: (Letter) -> Letter?)
+    init(_ mappingFunc: @escaping (Letter) -> Letter?)
     {
         self.mappingFunc = mappingFunc
     }
@@ -384,19 +401,16 @@ class NullConnection: ClosureConnection
 
 public let nullConnection: Connection = NullConnection()
 
-/**
-
-A class representing a fixed set of wirings from one letter to another.
-
-*/
+/// A class representing a fixed set of wirings from one letter to another.
 public class Wiring: Connector
 {
     public var forward: Connection
     public var reverse: Connection
-/**
-    Initialise a wiring.  The map contains letters that don't map to
-    themselves.  By default the wiring is the identity map.
-*/
+
+    /// Initialise a wiring from a map of one set of letters to another.
+    ///
+    /// - Parameter map: The map describing the wiring. Only specifiy letters
+    ///                  that do not map to themselves.
     public init(map: [Letter : Letter])
     {
         let forwardMap = DictionaryConnection(map: map)
@@ -414,13 +428,9 @@ public class Wiring: Connector
     public convenience init(string: String)
     {
         var stringMap: [Letter : Letter] = [:]
-        var stringIndex = string.startIndex
-        for input in Letter.A ... Letter.Z
+        for (input, toChar) in zip(Letter.A ... Letter.Z, string)
         {
-			let index = input.ordinal
-            let toChar = string[stringIndex]
-			let toLetter = Letter(rawValue: toChar)
-            if let toLetter = toLetter
+            if let toLetter = Letter(rawValue: toChar)
             {
 				stringMap[input] = toLetter
             }
@@ -428,7 +438,6 @@ public class Wiring: Connector
             {
                 fatalError("Initialising wiring from string: string has invalid character")
             }
-            stringIndex++
         }
         self.init(map: stringMap)
     }
@@ -445,34 +454,29 @@ public class Wiring: Connector
 	*/
     public static let identity: Wiring = identityConnection
 
+
+    /// true if the wiring is reciprocal, that is a mapping in the forward
+    /// direction followed by a maping backwards yiends the original letter for
+    /// all letters.
     public lazy var isReciprocal: Bool = {
-        var ret = true
-        for var letter = Letter.A ; letter < Letter.UpperBound && ret ; ++letter
+        for letter in Letter.A ..< Letter.UpperBound
         {
-            let intermediate = self.forward[letter]
-            if let intermediate = intermediate
-            {
-				ret = self.forward[intermediate] == letter
-            }
-            else
-            {
-                ret = false
-            }
-        }
-        return ret
+            guard let intermediate = self.forward[letter] else { return false }
+            guard self.forward[intermediate] == letter else { return false }
+         }
+        return true
     }()
 
+    /// true if any of the letters maps to themselves.
     public lazy var hasStraightThrough: Bool = {
-        var ret = false
-        for var letter = Letter.A ; letter < Letter.UpperBound && !ret ; ++letter
+        for letter in Letter.A ..< Letter.UpperBound
         {
-            let intermediate = self.forward[letter]
-            if let intermediate = intermediate
+            if let intermediate = self.forward[letter]
             {
-                ret = intermediate == letter
+                guard intermediate != letter else { return true }
             }
         }
-        return ret
+        return false
     }()
 }
 
