@@ -3,7 +3,7 @@
 //  EnigmaMachine
 //
 //  Created by Jeremy Pereira on 24/02/2015.
-//  Copyright (c) 2015 Jeremy Pereira. All rights reserved.
+//  Copyright (c) 2015, 2018 Jeremy Pereira. All rights reserved.
 //
 /*
 
@@ -271,13 +271,16 @@ If a connection from a letter returns nil, use - in the string.
     var connectionString: String { get }
 }
 
-/**
-Protocol for an object that has connections.  A connector always has forward
-and reverse connections.
-*/
+
+/// Any object that has connections. There's always a forward connection and
+/// a reverse connection, A connector is basically a set of wires and you can
+/// treverse the wires in either direction.
 public protocol Connector
 {
+
+    /// The connection in the forward direction
     var forward: Connection { get }
+    /// The connection in the reverse direction.
     var reverse: Connection { get }
 }
 
@@ -351,8 +354,12 @@ class DictionaryConnection: Connection
     }()
 }
 
+
+/// A connection that maps letters based on a pssed in function
 class ClosureConnection: Connection
 {
+
+    /// The mapping function
     var mappingFunc: (Letter) -> Letter?
 
     init(_ mappingFunc: @escaping (Letter) -> Letter?)
