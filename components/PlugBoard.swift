@@ -64,11 +64,11 @@ unplugged.
     {
 		if map[pair.0] != nil
         {
-            unplug(pair.0)
+            unplug(aLetter: pair.0)
         }
         if map[pair.1] != nil
         {
-            unplug(pair.1)
+            unplug(aLetter: pair.1)
         }
         if pair.0 != pair.1
         {
@@ -81,12 +81,12 @@ unplugged.
     {
         if let otherEnd = map[aLetter]
         {
-			map.removeValueForKey(aLetter)
-            map.removeValueForKey(otherEnd)
+            map.removeValue(forKey: aLetter)
+            map.removeValue(forKey: otherEnd)
         }
     }
 
-    public func letterConnectedTo(#letter: Letter) -> Letter?
+    public func letterConnectedTo(letter: Letter) -> Letter?
     {
         return map[letter]
     }
