@@ -3,7 +3,7 @@
 //  EnigmaMachine
 //
 //  Created by Jeremy Pereira on 23/03/2015.
-//  Copyright (c) 2015 Jeremy Pereira. All rights reserved.
+//  Copyright (c) 2015, 2018 Jeremy Pereira. All rights reserved.
 //
 /*
 
@@ -27,20 +27,20 @@ import Cocoa
 protocol KeyboardDelegate: AnyObject
 {
     func letterPressed(aLetter: Letter, keyboard: KeyboardView);
-    func letterReleased(#keyboard: KeyboardView);
+    func letterReleased(keyboard: KeyboardView);
 }
 
 class KeyboardView: NSBox
 {
     weak var keyboardDelegate: KeyboardDelegate?
-    var timer: NSTimer?
+    var timer: Timer?
 
     @IBOutlet var singleStep: AutoKeyButton!
     @IBOutlet var autoInput: NSSegmentedControl!
 
     @IBAction func keyPressed(sender: AnyObject)
     {
-        if let keyboardButton = sender as? KeyboardButton, keyboardDelegate = keyboardDelegate
+        if let _ = sender as? KeyboardButton, let keyboardDelegate = keyboardDelegate
         {
             keyboardDelegate.letterReleased(keyboard: self)
         }
@@ -48,9 +48,9 @@ class KeyboardView: NSBox
 
     func buttonPressed(keyboardButton : KeyboardButton)
     {
-        if let keyboardDelegate = keyboardDelegate, letter = keyboardButton.letter
+        if let keyboardDelegate = keyboardDelegate, let letter = keyboardButton.letter
         {
-            keyboardDelegate.letterPressed(letter, keyboard: self)
+            keyboardDelegate.letterPressed(aLetter: letter, keyboard: self)
         }
     }
 
@@ -65,23 +65,22 @@ class KeyboardView: NSBox
         }
         else
         {
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self,
-                                                              selector: "timer:",
-                                                              userInfo: nil,
-                                                               repeats: true)
+            timer = Timer(timeInterval: 0.1, repeats: true)
+            {
+                _ in
+                self.timerFired()
+            }
         }
     }
 
 
-    @objc func timer(userInfo: AnyObject?)
+    func timerFired()
     {
 		if timerMouseUp
         {
             timerMouseUp = false
 
-            self.keyPressed(singleStep)
-            let now = NSDate()
-            println("Toggle off \(now)")
+            self.keyPressed(sender: singleStep)
 
 			if timerShouldStop
             {
@@ -95,7 +94,7 @@ class KeyboardView: NSBox
             timerMouseUp = true
 
             singleStep.fixUpIdentifier()
-            self.buttonPressed(singleStep)
+            self.buttonPressed(keyboardButton: singleStep)
 
         }
     }
@@ -126,7 +125,7 @@ class KeyboardButton: NSButton
         var ret: Letter?
         if self.title != ""
         {
-            var idChar = self.title[self.title.startIndex]
+            let idChar = self.title[self.title.startIndex]
             if idChar != "$"
             {
                 ret = Letter(rawValue: idChar)
@@ -135,13 +134,13 @@ class KeyboardButton: NSButton
         return ret
     }
 
-    override func mouseDown(theEvent: NSEvent)
+    override func mouseDown(with theEvent: NSEvent)
     {
         if let keyboard = keyboard
         {
-            keyboard.buttonPressed(self)
+            keyboard.buttonPressed(keyboardButton: self)
         }
-        super.mouseDown(theEvent)
+        super.mouseDown(with: theEvent)
     }
 
 }
@@ -150,10 +149,10 @@ class AutoKeyButton: KeyboardButton
 {
     @IBOutlet var textField: NSTextField!
 
-    override func mouseDown(theEvent: NSEvent)
+    override func mouseDown(with theEvent: NSEvent)
     {
 		fixUpIdentifier()
-        super.mouseDown(theEvent)
+        super.mouseDown(with: theEvent)
     }
 
     var _letter: Letter?
@@ -166,36 +165,31 @@ class AutoKeyButton: KeyboardButton
         }
     }
 
+
+    /// Fix the identifier for the button
     func fixUpIdentifier()
     {
         let rawCharacters = textField.stringValue
-        let charactersLeft = rawCharacters.uppercaseString
+        let charactersLeft = rawCharacters.uppercased()
         var nextLetter: Letter?
-        var chosenIndex: String.Index = rawCharacters.startIndex
-        for var index = charactersLeft.startIndex ;
-            nextLetter == nil && index != charactersLeft.endIndex ;
-            ++index, ++chosenIndex
+        var chosenIndex: String.Index?
+
+		for (index, character) in charactersLeft.enumerated()
         {
-            if let candidateLetter = Letter(rawValue: charactersLeft[index])
+            if let candidateLetter = Letter(rawValue: character),
+                candidateLetter != .UpperBound // Could be if they typed a $
             {
-                if candidateLetter != Letter.UpperBound // Could be, if they typed a $
-                {
-                    nextLetter = candidateLetter
-                    chosenIndex = index
-                }
+                nextLetter = candidateLetter
+                chosenIndex = charactersLeft.index(charactersLeft.startIndex, offsetBy: index)
+				break
             }
         }
+
         var  replacementString = ""
-        if let nextLetter = nextLetter
+        if let nextLetter = nextLetter, let chosenIndex = chosenIndex
         {
             self._letter = nextLetter
-            if chosenIndex != rawCharacters.endIndex
-            {
-                for aChar in rawCharacters[chosenIndex ..< rawCharacters.endIndex]
-                {
-                    replacementString.append(aChar)
-                }
-            }
+            replacementString = String(rawCharacters.suffix(from: chosenIndex))
         }
         else
         {
