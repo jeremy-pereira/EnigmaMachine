@@ -64,7 +64,7 @@ Insert a rotor in a given slot with the given start position
 */
     public func insertRotor(rotor: Rotor, inSlot slotNumber: Int, position: Letter)
     {
-		rotorCradle.slot[slotNumber].insertRotor(rotor, position: position)
+        rotorCradle.slot[slotNumber].insertRotor(rotor: rotor, position: position)
         notifyStateChange()
     }
 
@@ -158,17 +158,16 @@ function to register themselves.  Only a `weak` reference is held.
 :param: anObserver The new observer
 
 */
-    public func registerObserver(anObserver: EnigmaObserver)
+    public func register(observer: EnigmaObserver)
     {
-		observers.append(Observer(observer: anObserver))
+		observers.append(Observer(observer: observer))
     }
 
     private func notifyStateChange()
     {
-        var actualObservers = observers.filter{ observer in observer.observer != nil}.map{ $0.observer! }
-        for observer in actualObservers
+        for observer in observers.filter({ observer in observer.observer != nil}.map{ $0.observer! })
         {
-            observer.stateChanged(self)
+            observer.stateChanged(machine: self)
         }
     }
 }

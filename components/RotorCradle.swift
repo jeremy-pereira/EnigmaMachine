@@ -98,7 +98,7 @@ Insert a rotor into this slot at the given position.
 :param: position Starting position of the rotor.
 
 */
-    public func insertRotor(rotor: Rotor, position: Letter)
+    public func insert(rotor: Rotor, position: Letter)
     {
         _rotor = rotor
         _rotorPosition = position

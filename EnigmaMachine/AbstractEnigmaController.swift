@@ -3,7 +3,7 @@
 //  EnigmaMachine
 //
 //  Created by Jeremy Pereira on 03/03/2015.
-//  Copyright (c) 2015 Jeremy Pereira. All rights reserved.
+//  Copyright (c) 2015, 2018 Jeremy Pereira. All rights reserved.
 //
 /*
 
@@ -39,28 +39,28 @@ class RotorPopoverController: NSViewController
         self.rotor = rotor
     }
 
-    required init!(pasteboardPropertyList propertyList: AnyObject!, ofType type: String!)
+    required init!(pasteboardPropertyList propertyList: Any, ofType type: NSPasteboard.PasteboardType)
     {
         self.rotor = Rotor.makeMilitaryI()
     }
 
     // MARK: Writing
 
-    func writableTypesForPasteboard(pasteboard: NSPasteboard!) -> [AnyObject]!
+    func writableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType]
     {
-        return RotorPasteBoardWrapper.readableTypesForPasteboard(pasteboard)
+        return RotorPasteBoardWrapper.readableTypes(for: pasteboard)
     }
 
-    func writingOptionsForType(type: String!, pasteboard: NSPasteboard!) -> NSPasteboardWritingOptions
+    func writingOptions(forType type: NSPasteboard.PasteboardType, pasteboard: NSPasteboard) -> NSPasteboard.WritingOptions
     {
-        return NSPasteboardWritingOptions(0)
+        return NSPasteboard.WritingOptions(rawValue: 0)
     }
 
-    func pasteboardPropertyListForType(type: String!) -> AnyObject!
+    func pasteboardPropertyList(forType type: NSPasteboard.PasteboardType) -> Any?
     {
         var ret: String?
 
-        if type == NSPasteboardTypeString
+        if type == NSPasteboard.PasteboardType.string
         {
 			ret = "\(rotor.name), \(rotor.ringStellung)"
         }
@@ -69,9 +69,9 @@ class RotorPopoverController: NSViewController
 
     // MARK: Reading
 
-    class func readableTypesForPasteboard(pasteboard: NSPasteboard!) -> [AnyObject]!
+    class func readableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType]
     {
-        return [NSPasteboardTypeString]
+        return [NSPasteboard.PasteboardType.string]
     }
 }
 
@@ -94,20 +94,20 @@ class AbstractEnigmaController:
 
 	convenience init()
     {
-        self.init(windowNibName: "AbstractEnigmaWindow")
+        self.init(windowNibName: NSNib.Name(rawValue: "AbstractEnigmaWindow"))
     }
 
     override func windowDidLoad()
     {
-        enigmaMachine.registerObserver(self)
-        enigmaMachine.insertReflector(reflectorB, position: Letter.A)
-        ringDisplay1.registerForDraggedTypes([NSPasteboardTypeString])
-        ringDisplay2.registerForDraggedTypes([NSPasteboardTypeString])
-        ringDisplay3.registerForDraggedTypes([NSPasteboardTypeString])
-        plugboardView.backgroundColour = NSColor.whiteColor()
+        enigmaMachine.register(observer: self)
+        enigmaMachine.insertReflector(reflector: reflectorB, position: Letter.A)
+        ringDisplay1.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
+        ringDisplay2.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
+        ringDisplay3.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
+        plugboardView.backgroundColour = NSColor.white
         plugboardView.needsDisplay = true
         plugboardView.dataSource = self
-        lightPanelView.backgroundColour = NSColor.whiteColor()
+        lightPanelView.backgroundColour = NSColor.white
         keyboard.keyboardDelegate = self
         self.window?.delegate = self
         positionPrinterToTheRightOrLeft();
@@ -116,12 +116,12 @@ class AbstractEnigmaController:
     func positionPrinterToTheRightOrLeft()
     {
         if let myWindow = self.window,
-               printerWindow = printerController.window
+            let printerWindow = printerController.window
         {
             let myFrame = myWindow.frame
-            var screen = myWindow.screen
+            let screen = myWindow.screen
 
-            var printerFrame = printerWindow.frame
+            let printerFrame = printerWindow.frame
 			var newTopLeft = NSPoint()
             let margin: CGFloat = 4
 
@@ -180,21 +180,21 @@ class AbstractEnigmaController:
 
     private var lastLetter: Letter?
 
-    override func keyDown(theEvent: NSEvent)
+    override func keyDown(with theEvent: NSEvent)
     {
         if let characters = theEvent.characters
         {
             enigmaMachine.keyUp()
-            let uppercaseChars = characters.uppercaseString
+            let uppercaseChars = characters.uppercased()
             let theChar = uppercaseChars[uppercaseChars.startIndex]
 			if let letter = Letter(rawValue: theChar)
             {
-                letterPressed(letter, keyboard: keyboard)
+                letterPressed(aLetter: letter, keyboard: keyboard)
             }
         }
     }
 
-    override func keyUp(theEvent: NSEvent)
+    override func keyUp(with theEvent: NSEvent)
     {
         letterReleased(keyboard: keyboard)
     }
@@ -205,15 +205,15 @@ class AbstractEnigmaController:
 
         if let rotorBeingDragged = rotorBeingDragged
         {
-            rotorBoxDataSource.removeRotor(rotorBeingDragged)
+            _ = rotorBoxDataSource.removeRotor(rotor: rotorBeingDragged)
             if let identifier = targetRotorTexBox.identifier
             {
-                let ringIndex = identifier.toInt()!
-                if let removedRotor = enigmaMachine.removeRotorFromSlot(ringIndex)
+                let ringIndex = Int(identifier.rawValue)!
+                if let removedRotor = enigmaMachine.removeRotorFromSlot(slotNumber: ringIndex)
                 {
-                    rotorBoxDataSource.insertRotor(removedRotor)
+                    rotorBoxDataSource.insertRotor(newRotor: removedRotor)
                 }
-                enigmaMachine.insertRotor(rotorBeingDragged, inSlot: ringIndex, position: Letter.A)
+                enigmaMachine.insertRotor(rotor: rotorBeingDragged, inSlot: ringIndex, position: Letter.A)
                 self.rotorBeingDragged = nil
             }
             ret = true
@@ -221,31 +221,31 @@ class AbstractEnigmaController:
 		return ret
     }
 
-    func stepRotor(#rotorTextBox: RotorTextBox, increment: Int)
+    func stepRotor(rotorTextBox: RotorTextBox, increment: Int)
     {
-        let slotNumber = rotorTextBox.identifier!.toInt()!
+        let slotNumber = Int(rotorTextBox.identifier!.rawValue)!
 
-        if let rotorPosition = enigmaMachine.rotorPositionForSlot(slotNumber)
+        if let rotorPosition = enigmaMachine.rotorPositionForSlot(slotNumber: slotNumber)
         {
             let newRotorPosition = rotorPosition &+ increment
-            enigmaMachine.setRotorPosition(newRotorPosition, slotNumber: slotNumber)
+            enigmaMachine.setRotorPosition(newPosition: newRotorPosition, slotNumber: slotNumber)
         }
     }
 
     private var popoverSlotNumber: Int?
 
-    func showPopover(#rotorTextBox: RotorTextBox)
+    func showPopover(rotorTextBox: RotorTextBox)
     {
         if let popover = popover
         {
             let controller = popover.contentViewController as! RotorPopoverController
-            let slotNumber = rotorTextBox.identifier!.toInt()!
+            let slotNumber = Int(rotorTextBox.identifier!.rawValue)!
             if let rotor = enigmaMachine.rotorCradle.slot[slotNumber].rotor
             {
                 popoverSlotNumber = slotNumber
 				controller.name.stringValue = rotor.name
                 controller.ringStellung.stringValue = String(rotor.ringStellung.rawValue)
-                popover.showRelativeToRect(rotorTextBox.bounds, ofView: rotorTextBox, preferredEdge: 3)
+                popover.show(relativeTo: rotorTextBox.bounds, of: rotorTextBox, preferredEdge: .maxY)
             }
         }
     }
@@ -254,9 +254,9 @@ class AbstractEnigmaController:
     {
         if let popoverSlotNumber = popoverSlotNumber
         {
-            if let rotor = enigmaMachine.removeRotorFromSlot(popoverSlotNumber)
+            if let rotor = enigmaMachine.removeRotorFromSlot(slotNumber: popoverSlotNumber)
             {
-				rotorBoxDataSource.insertRotor(rotor)
+                rotorBoxDataSource.insertRotor(newRotor: rotor)
             }
             self.popoverSlotNumber = nil
         }
@@ -272,14 +272,14 @@ extension AbstractEnigmaController: KeyboardDelegate
     func letterPressed(aLetter: Letter, keyboard: KeyboardView)
     {
         enigmaMachine.keyUp()
-        enigmaMachine.keyDown(aLetter)
+        enigmaMachine.keyDown(aLetter: aLetter)
         if let outputLetter = enigmaMachine.litLamp
         {
-            printerController.displayLetter(outputLetter)
+            printerController.displayLetter(letter: outputLetter)
         }
     }
 
-    func letterReleased(#keyboard: KeyboardView)
+    func letterReleased(keyboard: KeyboardView)
     {
         enigmaMachine.keyUp()
     }
@@ -294,7 +294,7 @@ extension AbstractEnigmaController: PlugboardViewDataSource
 
     func connectLetterPair(letterPair: (Letter, Letter), plugboardView: PlugboardView)
     {
-        enigmaMachine.plugInPair(letterPair)
+        enigmaMachine.plugInPair(pair: letterPair)
     }
 
     func connectionForLetter(letter: Letter, plugboardView: PlugboardView) -> Letter?
@@ -307,7 +307,7 @@ extension AbstractEnigmaController: PlugboardViewDataSource
 // MARK: -
 extension AbstractEnigmaController: NSWindowDelegate
 {
-    func windowWillClose(notification: NSNotification)
+    func windowWillClose(_ notification: Notification)
     {
         printerController.window?.performClose(self)
     }
