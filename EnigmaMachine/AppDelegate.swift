@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
         }
     }
 
-    func setShowPrinterTitle(#printerIsVisible: Bool)
+    func setShowPrinterTitle(printerIsVisible: Bool)
     {
         // TODO: Localisation needed
         if printerIsVisible
