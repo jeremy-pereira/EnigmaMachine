@@ -163,8 +163,8 @@ public class RotorCradle: Connector
     private var _reflector: Reflector?
     private var _reflectorPosition: Letter?
 
-    public var forward: Connection
-    public var reverse: Connection
+    public var forward: Connection = IdentityConnection.identity
+    public var reverse: Connection = IdentityConnection.identity
 
     public init()
     {

@@ -272,6 +272,39 @@ If a connection from a letter returns nil, use - in the string.
 }
 
 
+/// A connection that is the identity connection. It maps any letter onto
+/// itself. There is only one identiy connection.
+public struct IdentityConnection: Connection
+{
+    private init()
+    {
+    }
+
+    public subscript(index: Letter) -> Letter?
+    {
+        return index
+    }
+
+    public func makeInverse() -> Connection?
+    {
+        return self
+    }
+
+    public var connectionString: String
+    {
+        let letterRange = Letter.A ... Letter.Z
+
+        return letterRange.reduce("")
+        {
+            (result: String, letter: Letter) -> String in
+            return result + [letter.rawValue]
+        }
+    }
+
+    /// The one and only identity connection.
+    public static let identity = IdentityConnection()
+}
+
 /// Any object that has connections. There's always a forward connection and
 /// a reverse connection, A connector is basically a set of wires and you can
 /// treverse the wires in either direction.
@@ -355,7 +388,7 @@ class DictionaryConnection: Connection
 }
 
 
-/// A connection that maps letters based on a pssed in function
+/// A connection that maps letters based on a passed in function
 class ClosureConnection: Connection
 {
 
@@ -459,7 +492,7 @@ public class Wiring: Connector
     A standard straight through connection that maps every letter to itself
 
 	*/
-    public static let identity: Wiring = identityConnection
+    public static let identity: Wiring = identityWiring
 
 
     /// true if the wiring is reciprocal, that is a mapping in the forward
@@ -487,4 +520,4 @@ public class Wiring: Connector
     }()
 }
 
-private let identityConnection = Wiring(map: [:])
+private let identityWiring = Wiring(map: [:])
