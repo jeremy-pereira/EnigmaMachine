@@ -51,8 +51,8 @@ class StepperView: NSControl
 
         set(newValue)
         {
-            let numFormatter = textField.formatter as! NSNumberFormatter
-            numFormatter.minimum = newValue
+            let numFormatter = textField.formatter as! NumberFormatter
+            numFormatter.minimum = newValue as NSNumber
             stepper.minValue = Double(newValue)
         }
     }
@@ -65,8 +65,8 @@ class StepperView: NSControl
 
         set(newValue)
         {
-            let numFormatter = textField.formatter as! NSNumberFormatter
-            numFormatter.maximum = newValue
+            let numFormatter = textField.formatter as! NumberFormatter
+            numFormatter.maximum = newValue as NSNumber
             stepper.maxValue = Double(newValue)
         }
     }
@@ -84,7 +84,7 @@ class StepperView: NSControl
             newValue = stepper.integerValue
             textField.integerValue = newValue!
         }
-        if let newValue = newValue
+        if newValue != nil
         {
             self.sendAction(self.action, to: self.target)
         }
