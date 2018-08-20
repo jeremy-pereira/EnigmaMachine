@@ -62,9 +62,9 @@ Insert a rotor in a given slot with the given start position
 :param: position Which letter on the rotor's outer ring is initially displayed.
 
 */
-    public func insertRotor(rotor: Rotor, inSlot slotNumber: Int, position: Letter)
+    public func insert(rotor: Rotor, inSlot slotNumber: Int, position: Letter)
     {
-        rotorCradle.slot[slotNumber].insertRotor(rotor: rotor, position: position)
+        rotorCradle.slot[slotNumber].insert(rotor: rotor, position: position)
         notifyStateChange()
     }
 
@@ -77,21 +77,21 @@ Insert a rotor in a given slot with the given start position
 
     public func setRotorPosition(newPosition: Letter, slotNumber: Int)
     {
-		if let rotor = self.removeRotorFromSlot(slotNumber)
+        if let rotor = self.removeRotorFromSlot(slotNumber: slotNumber)
         {
-            self.insertRotor(rotor, inSlot: slotNumber, position: newPosition)
+            self.insert(rotor: rotor, inSlot: slotNumber, position: newPosition)
         }
     }
 
-    public func insertReflector(reflector: Reflector, position: Letter)
+    public func insert(reflector: Reflector, position: Letter)
     {
-		rotorCradle.insertReflector(reflector, position: position)
+        rotorCradle.insertReflector(reflector: reflector, position: position)
         notifyStateChange()
     }
 
-    public func plugInPair(pair: (Letter, Letter))
+    public func plugIn(pair: (Letter, Letter))
     {
-        plugboard.plugInPair(pair)
+        plugboard.plugIn(pair: pair)
         notifyStateChange()
     }
 
@@ -165,7 +165,7 @@ function to register themselves.  Only a `weak` reference is held.
 
     private func notifyStateChange()
     {
-        for observer in observers.filter({ observer in observer.observer != nil}.map{ $0.observer! })
+        for observer in observers.filter({ observer in observer.observer != nil}).map({ $0.observer! })
         {
             observer.stateChanged(machine: self)
         }

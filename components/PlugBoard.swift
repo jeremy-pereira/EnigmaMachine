@@ -60,7 +60,7 @@ unplugged.
 :param: pair The pair of letters to plug in.
 
 */
-    public func plugInPair(pair: (Letter, Letter))
+    public func plugIn(pair: (Letter, Letter))
     {
 		if map[pair.0] != nil
         {
