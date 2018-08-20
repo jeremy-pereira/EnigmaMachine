@@ -34,9 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "aWindowBecameMain:",
-                                                                   name: NSWindowDidBecomeMainNotification,
-            													 object: nil)
+        NotificationCenter.default.addObserver(self,
+                                           selector: #selector(AppDelegate.aWindowBecameMain(_:)),
+                                               name: NSWindow.didBecomeMainNotification,
+                                             object: nil)
     }
 
     func applicationWillTerminate(aNotification: NSNotification)
@@ -46,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
 
     @IBAction func showAbstractEnigma(sender: AnyObject)
     {
-        var controller = AbstractEnigmaController()
+        let controller = AbstractEnigmaController()
         abstractEnigmas.append(controller)
         controller.showWindow(sender)
         // TODO: A mechanism to get rid of the controller when we are done
@@ -63,11 +64,11 @@ class AppDelegate: NSObject, NSApplicationDelegate
         }
     }
 
-    @objc func aWindowBecameMain(theNotification: NSNotification)
+    @objc func aWindowBecameMain(_ theNotification: NSNotification)
     {
 		if let window: NSWindow = theNotification.object as? NSWindow
         {
-			if let enigmaController = findEnigmaControllerForWindow(window)
+            if let enigmaController = findEnigmaControllerForWindow(aWindow: window)
             {
 				currentEnigma = enigmaController
             }
