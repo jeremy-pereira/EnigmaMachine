@@ -65,7 +65,7 @@ class KeyboardView: NSBox
         }
         else
         {
-            timer = Timer(timeInterval: 0.1, repeats: true)
+            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true)
             {
                 _ in
                 self.timerFired()
