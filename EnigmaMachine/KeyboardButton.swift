@@ -172,24 +172,27 @@ class AutoKeyButton: KeyboardButton
         let rawCharacters = textField.stringValue
         let charactersLeft = rawCharacters.uppercased()
         var nextLetter: Letter?
-        var chosenIndex: String.Index?
+        var  replacementString = ""
 
-		for (index, character) in charactersLeft.enumerated()
+        // Go through all the characters until we find the first one that
+        // could be a letter and make that the letter that the key thinks it has.
+        // All the characters after that are put back in the text field.
+		for character in charactersLeft
         {
-            if let candidateLetter = Letter(rawValue: character),
-                candidateLetter != .UpperBound // Could be if they typed a $
+            if nextLetter != nil
+            {
+                replacementString += [ character ]
+            }
+            else if let candidateLetter = Letter(rawValue: character),
+                    candidateLetter != .UpperBound // Could be if they typed a $
             {
                 nextLetter = candidateLetter
-                chosenIndex = charactersLeft.index(charactersLeft.startIndex, offsetBy: index)
-				break
             }
         }
 
-        var  replacementString = ""
-        if let nextLetter = nextLetter, let chosenIndex = chosenIndex
+        if let nextLetter = nextLetter
         {
             self._letter = nextLetter
-            replacementString = String(rawCharacters.suffix(from: chosenIndex))
         }
         else
         {

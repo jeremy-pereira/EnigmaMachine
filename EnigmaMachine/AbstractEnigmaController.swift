@@ -147,7 +147,7 @@ class AbstractEnigmaController:
         }
     }
 
-    @IBAction func showOrHidePrinter(sender: AnyObject?)
+    @IBAction func showOrHidePrinter(_ sender: AnyObject?)
     {
         if printerIsVisible
         {
@@ -159,7 +159,7 @@ class AbstractEnigmaController:
         }
     }
 
-    @IBAction func arrangePrinter(sender: AnyObject?)
+    @IBAction func arrangePrinter(_ sender: AnyObject?)
     {
         positionPrinterToTheRightOrLeft();
     }
