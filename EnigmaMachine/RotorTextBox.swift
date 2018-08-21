@@ -50,19 +50,19 @@ class RotorTextBox: NSTextField
         }
     }
 
-    override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
+    override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation
     {
-        var ret = NSDragOperation.None
+        var ret: NSDragOperation = []
         if enigmaController.rotorBeingDragged != nil
         {
-			ret = NSDragOperation.Move
+			ret = NSDragOperation.move
         }
         return ret
     }
 
-    override func performDragOperation(sender: NSDraggingInfo) -> Bool
+    override func performDragOperation(_ sender: NSDraggingInfo) -> Bool
     {
-        return enigmaController.finishDrag(self)
+        return enigmaController.finishDrag(targetRotorTexBox: self)
     }
 
     @IBAction func stepperChanged(sender: AnyObject)
@@ -74,9 +74,8 @@ class RotorTextBox: NSTextField
         enigmaController.stepRotor(rotorTextBox: self, increment: difference)
     }
 
-    override func mouseDown(theEvent: NSEvent)
+    override func mouseDown(with theEvent: NSEvent)
     {
-        println("mouse down")
         enigmaController.showPopover(rotorTextBox: self)
     }
 }
