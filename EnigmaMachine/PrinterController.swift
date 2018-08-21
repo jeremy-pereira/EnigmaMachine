@@ -32,7 +32,7 @@ class PrinterController: NSWindowController, NSWindowDelegate
 
     var applicationDelegate: AppDelegate
     {
-		return NSApplication.sharedApplication().delegate as! AppDelegate
+        return NSApplication.shared.delegate as! AppDelegate
     }
 
     var windowIsVisible: Bool = true
@@ -50,8 +50,7 @@ class PrinterController: NSWindowController, NSWindowDelegate
     {
         super.windowDidLoad()
 
-		println("PrinterController nib loaded")
-
+		print("PrinterController nib loaded")
     }
 
 	override func awakeFromNib()
@@ -66,7 +65,7 @@ class PrinterController: NSWindowController, NSWindowDelegate
 
     private var letters: [Letter] = []
 
-    func displayLetter(letter: Letter)
+    func display(letter: Letter)
     {
         let letterCount = letters.count
 
@@ -87,7 +86,7 @@ class PrinterController: NSWindowController, NSWindowDelegate
         let height = outputLetters.frame.size.height - lettersScroller.contentView.bounds.size.height
         if height > 0
         {
-            lettersScroller.contentView.scrollToPoint(NSMakePoint(0.0, height))
+            lettersScroller.contentView.scroll(to: NSMakePoint(0.0, height))
             lettersScroller.reflectScrolledClipView(lettersScroller.contentView)
         }
     }
@@ -99,11 +98,11 @@ class PrinterController: NSWindowController, NSWindowDelegate
         outputLetters.stringValue = ""
         for letter in savedLetters
         {
-            displayLetter(letter)
+            display(letter: letter)
         }
     }
 
-	@IBAction func clearOutput(sender: AnyObject)
+	@IBAction func clearOutput(sender: Any)
 	{
         letters = []
         redisplayLetters()
@@ -118,7 +117,7 @@ class PrinterController: NSWindowController, NSWindowDelegate
         redisplayLetters()
     }
 
-    override func showWindow(sender: AnyObject?)
+    override func showWindow(_ sender: Any?)
     {
         super.showWindow(sender)
         windowIsVisible = true
@@ -126,7 +125,7 @@ class PrinterController: NSWindowController, NSWindowDelegate
 
     // MARK: Window delegate
 
-    func windowWillClose(notification: NSNotification)
+    func windowWillClose(_ notification: Notification)
     {
         windowIsVisible = false
     }
