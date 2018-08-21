@@ -71,7 +71,7 @@ class StepperView: NSControl
         }
     }
 
-    @IBAction func changeValue(sender: AnyObject)
+    @IBAction func changeValue(_ sender: AnyObject)
     {
         var newValue: Int?
         if sender === textField

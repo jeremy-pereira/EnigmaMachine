@@ -102,17 +102,17 @@ class PrinterController: NSWindowController, NSWindowDelegate
         }
     }
 
-	@IBAction func clearOutput(sender: Any)
+	@IBAction func clearOutput(_ sender: Any)
 	{
         letters = []
         redisplayLetters()
 	}
 
-	@IBAction func changeGroupSize(sender: AnyObject)
+	@IBAction func changeGroupSize(_ sender: AnyObject)
 	{
         redisplayLetters()
 	}
-    @IBAction func changeLineWrap(sender: AnyObject)
+    @IBAction func changeLineWrap(_ sender: AnyObject)
     {
         redisplayLetters()
     }

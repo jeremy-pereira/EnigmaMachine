@@ -250,7 +250,7 @@ class AbstractEnigmaController:
         }
     }
 
-    @IBAction func putInBox(sender: AnyObject?)
+    @IBAction func putInBox(_ sender: AnyObject?)
     {
         if let popoverSlotNumber = popoverSlotNumber
         {

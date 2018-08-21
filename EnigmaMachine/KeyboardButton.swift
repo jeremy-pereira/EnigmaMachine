@@ -38,7 +38,7 @@ class KeyboardView: NSBox
     @IBOutlet var singleStep: AutoKeyButton!
     @IBOutlet var autoInput: NSSegmentedControl!
 
-    @IBAction func keyPressed(sender: AnyObject)
+    @IBAction func keyPressed(_ sender: AnyObject)
     {
         if let _ = sender as? KeyboardButton, let keyboardDelegate = keyboardDelegate
         {
@@ -57,7 +57,7 @@ class KeyboardView: NSBox
     var timerShouldStop = false;
     var timerMouseUp = false;
 
-    @IBAction func toggleTimer(sender: AnyObject)
+    @IBAction func toggleTimer(_ sender: AnyObject)
     {
         if timer != nil
         {
@@ -80,7 +80,7 @@ class KeyboardView: NSBox
         {
             timerMouseUp = false
 
-            self.keyPressed(sender: singleStep)
+            self.keyPressed(singleStep)
 
 			if timerShouldStop
             {

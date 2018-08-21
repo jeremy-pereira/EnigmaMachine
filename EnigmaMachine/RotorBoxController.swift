@@ -53,7 +53,7 @@ class RingStellungView: NSTableCellView
         }
     }
 
-    @IBAction func stepperChanged(sender: AnyObject?)
+    @IBAction func stepperChanged(_ sender: AnyObject?)
     {
         if let ring = objectValue as? Rotor
         {
@@ -80,7 +80,7 @@ class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
 
     private var rotorBox: SpareRotorBox = SpareRotorBox()
 
-   func numberOfRowsInTableView(tableView: NSTableView) -> Int
+   func numberOfRows(in tableView: NSTableView) -> Int
     {
         return self.rotorBox.count
     }

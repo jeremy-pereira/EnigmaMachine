@@ -65,7 +65,7 @@ class RotorTextBox: NSTextField
         return enigmaController.finishDrag(targetRotorTexBox: self)
     }
 
-    @IBAction func stepperChanged(sender: AnyObject)
+    @IBAction func stepperChanged(_ sender: AnyObject)
     {
         let thisStepperValue = stepper.integerValue
         let difference = thisStepperValue - lastStepperValue
