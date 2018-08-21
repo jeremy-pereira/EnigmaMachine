@@ -100,7 +100,7 @@ class AbstractEnigmaController:
     override func windowDidLoad()
     {
         enigmaMachine.register(observer: self)
-        enigmaMachine.insertReflector(reflector: reflectorB, position: Letter.A)
+        enigmaMachine.insert(reflector: reflectorB, position: Letter.A)
         ringDisplay1.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
         ringDisplay2.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
         ringDisplay3.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
@@ -213,7 +213,7 @@ class AbstractEnigmaController:
                 {
                     rotorBoxDataSource.insertRotor(newRotor: removedRotor)
                 }
-                enigmaMachine.insertRotor(rotor: rotorBeingDragged, inSlot: ringIndex, position: Letter.A)
+                enigmaMachine.insert(rotor: rotorBeingDragged, inSlot: ringIndex, position: Letter.A)
                 self.rotorBeingDragged = nil
             }
             ret = true
@@ -275,7 +275,7 @@ extension AbstractEnigmaController: KeyboardDelegate
         enigmaMachine.keyDown(aLetter: aLetter)
         if let outputLetter = enigmaMachine.litLamp
         {
-            printerController.displayLetter(letter: outputLetter)
+            printerController.display(letter: outputLetter)
         }
     }
 
@@ -294,7 +294,7 @@ extension AbstractEnigmaController: PlugboardViewDataSource
 
     func connectLetterPair(letterPair: (Letter, Letter), plugboardView: PlugboardView)
     {
-        enigmaMachine.plugInPair(pair: letterPair)
+        enigmaMachine.plugIn(pair: letterPair)
     }
 
     func connectionForLetter(letter: Letter, plugboardView: PlugboardView) -> Letter?
