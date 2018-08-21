@@ -24,13 +24,13 @@ limitations under the License.
 import Foundation
 import Toolbox
 
-public let wiringI   = Wiring(string: "EKMFLGDQVZNTOWYHXUSPAIBRCJ")
-public let wiringII  = Wiring(string: "AJDKSIRUXBLHWTMCQGZNPYFVOE")
-public let wiringIII = Wiring(string: "BDFHJLCPRTXVZNYEIWGAKMUSQO")
-public let wiringIV = Wiring(string: "ESOVPZJAYQUIRHXLNFTGKDCMWB")
-public let wiringV = Wiring(string: "VZBRGITYUPSDNHLXAWMJQOFECK")
+public let wiringI   = Wiring(name: "I"  , string: "EKMFLGDQVZNTOWYHXUSPAIBRCJ")
+public let wiringII  = Wiring(name: "II" , string: "AJDKSIRUXBLHWTMCQGZNPYFVOE")
+public let wiringIII = Wiring(name: "III", string: "BDFHJLCPRTXVZNYEIWGAKMUSQO")
+public let wiringIV  = Wiring(name: "IV" , string: "ESOVPZJAYQUIRHXLNFTGKDCMWB")
+public let wiringV   = Wiring(name: "V"  , string: "VZBRGITYUPSDNHLXAWMJQOFECK")
 
-public let wiringReflectorB = Wiring(string: "YRUHQSLDPXNGOKMIEBFZCWVJAT")
+public let wiringReflectorB = Wiring(name: "B", string: "YRUHQSLDPXNGOKMIEBFZCWVJAT")
 
 /// Class representing an Enigma rotor
 public class Rotor: Connector
@@ -53,8 +53,8 @@ ring.  For new rotors defaults to A
         self.name = name
         self.wiring = wiring
         self.notch = notch
-        let rToL = RotorConnection(isRightToLeft: true)
-        let lToR = RotorConnection(isRightToLeft: false)
+        let rToL = RotorConnection(name: name + ".forward", isRightToLeft: true)
+        let lToR = RotorConnection(name: name + ".reverse", isRightToLeft: false)
         self.reverse = lToR
         self.forward = rToL
         rToL.rotor = self
@@ -94,8 +94,11 @@ class RotorConnection: Connection
     weak var rotor: Rotor?
     var isRightToLeft: Bool
 
-    init(isRightToLeft: Bool)
+    let name: String
+
+    init(name: String, isRightToLeft: Bool)
     {
+        self.name = name
         self.isRightToLeft = isRightToLeft
     }
 
@@ -115,8 +118,8 @@ class RotorConnection: Connection
 /// Object that models a reflector disc
 public class Reflector: Connector
 {
-    public var forward: Connection = nullConnection
-    public var reverse: Connection = nullConnection
+    public var forward: Connection = NullConnection.null
+    public var reverse: Connection { return forward }
     public var wiring: Wiring
 
     init(wiring: Wiring)
@@ -126,12 +129,11 @@ public class Reflector: Connector
             fatalError("Invalid wiring for a reflector")
         }
         self.wiring = wiring
-        forward = ClosureConnection
+        forward = ClosureConnection(name: "reflector")
         {
 			letter in
             return self.wiring.forward[letter]
         }
-        reverse = forward
     }
 }
 

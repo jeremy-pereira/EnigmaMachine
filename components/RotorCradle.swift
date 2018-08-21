@@ -45,13 +45,13 @@ public class RotorSlot: Connector
 		return _rotorPosition
     }
 
-    public var forward: Connection = nullConnection
-    public var reverse: Connection = nullConnection
+    public var forward: Connection = NullConnection.null
+    public var reverse: Connection = NullConnection.null
 
-    init()
+    init(name: String)
     {
         // TODO: This probably causes a reference cycle
-        forward = ClosureConnection
+        forward = ClosureConnection(name: name + ".forward")
         {
             letter in
             var ret: Letter?
@@ -69,7 +69,7 @@ public class RotorSlot: Connector
             }
             return ret
         }
-        reverse = ClosureConnection
+        reverse = ClosureConnection(name: name + ".reverse")
         {
             letter in
             var ret: Letter?
@@ -169,13 +169,13 @@ public class RotorCradle: Connector
     public init()
     {
         // This is a three rotor machine at the moment.
-        slot.append(RotorSlot())
-        slot.append(RotorSlot())
-        slot.append(RotorSlot())
+        slot.append(RotorSlot(name: "slot 1"))
+        slot.append(RotorSlot(name: "slot 2"))
+        slot.append(RotorSlot(name: "slot 3"))
         // The two closure connections effectively wire up the cradle. In the
         // forward direction, we go through each slot and then the reflector and
         // back again. The reverse direction is the same as the forward direction.
-        forward = ClosureConnection
+        forward = ClosureConnection(name: "rotor cradle")
         {
             [unowned self] letter in
             var currentLetter: Letter? = letter
@@ -186,13 +186,13 @@ public class RotorCradle: Connector
                 guard let aLetter = currentLetter else { return nil }
                 return slot.forward[aLetter]
             }
-            if currentLetter != nil
+            if let aLetter = currentLetter
             {
-                currentLetter = self.reflect(letter: currentLetter!)
+                currentLetter = self.reflect(letter: aLetter)
             }
-            if currentLetter != nil
+            if let aLetter = currentLetter
             {
-                currentLetter = self.slot.reversed().reduce(letter)
+                currentLetter = self.slot.reversed().reduce(aLetter)
                 {
                     (currentLetter, slot) -> Letter? in
                     guard let aLetter = currentLetter else { return nil }

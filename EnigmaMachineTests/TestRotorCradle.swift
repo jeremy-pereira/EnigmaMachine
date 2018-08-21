@@ -50,19 +50,19 @@ class TestRotorCradle: XCTestCase
         defer { Logger.popLevel(forName: "EnigmaMachine.Components.Connection") }
         standardCradle.rotate()
         var letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.B, "Letter 1 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.B, "Letter 1 incorrect, (\(letter?.description ?? "nil"))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.D, "Letter 2 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.D, "Letter 2 incorrect, (\(letter?.description ?? "nil"))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.Z, "Letter 3 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.Z, "Letter 3 incorrect, (\(letter?.description ?? "nil"))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.G, "Letter 4 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.G, "Letter 4 incorrect, (\(letter?.description ?? "nil"))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.O, "Letter 5 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.O, "Letter 5 incorrect, (\(letter?.description ?? "nil"))")
     }
 
     func testRightNotch()

@@ -30,14 +30,14 @@ A class that models a plugboard
 */
 public class PlugBoard: Connector
 {
-    public var forward: Connection = nullConnection
-    public var reverse: Connection = nullConnection
+    public var forward: Connection = NullConnection.null
+    public var reverse: Connection = NullConnection.null
 
     private var map: [Letter : Letter] = [:]
 
     public init()
     {
-		forward = ClosureConnection
+		forward = ClosureConnection(name: "plugboard")
         {
             // TODO: Probably a reference cycle on self
 			letter in

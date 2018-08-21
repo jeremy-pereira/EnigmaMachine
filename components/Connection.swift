@@ -253,6 +253,10 @@ public protocol Connection
     ///
     /// - Returns: The inverse connection or nil if it couldn't be done.
     func makeInverse() -> Connection?
+
+
+    /// The name of the connection for printing diagnostics
+    var name: String  { get }
 }
 
 public extension Connection
@@ -268,8 +272,8 @@ public extension Connection
         get
         {
             let ret = map(index)
-            log.debug("\(index) -> \(ret?.description ?? "nil") from \(connectionString)")
-            return map(index)
+            log.debug("\(index) -> \(ret?.description ?? "nil") from \(name):\(connectionString)")
+            return ret
         }
     }
 
@@ -322,6 +326,8 @@ public struct IdentityConnection: Connection
         return self
     }
 
+    public var name: String { return "identity" }
+
     /// The one and only identity connection.
     public static let identity = IdentityConnection()
 }
@@ -351,8 +357,9 @@ public protocol Connector
 class DictionaryConnection: Connection
 {
     var letterMap: [Letter : Letter] = [:]
+    let name: String
 
-    init(map: [Letter: Letter])
+    init(name: String, map: [Letter: Letter])
     {
         for letter in Letter.A ... Letter.Z
         {
@@ -362,6 +369,7 @@ class DictionaryConnection: Connection
         {
             self.letterMap[key] = map[key]
         }
+        self.name = name
     }
 
     func map(_ index: Letter) -> Letter?
@@ -385,7 +393,7 @@ class DictionaryConnection: Connection
             }
 			newMap[letterMap[key]!] = key
         }
-        return DictionaryConnection(map: newMap)
+        return DictionaryConnection(name: self.name + ".inverse", map: newMap)
     }
 }
 
@@ -396,10 +404,13 @@ class ClosureConnection: Connection
     /// The mapping function
     var mappingFunc: (Letter) -> Letter?
 
-    init(_ mappingFunc: @escaping (Letter) -> Letter?)
+    init(name: String, mappingFunc: @escaping (Letter) -> Letter?)
     {
+        self.name = name
         self.mappingFunc = mappingFunc
     }
+
+    private(set) var name: String
 
     func map(_ letter: Letter) -> Letter?
     {
@@ -412,15 +423,28 @@ class ClosureConnection: Connection
     }
 }
 
-class NullConnection: ClosureConnection
-{
-    init()
-    {
-        super.init({ letter in return nil })
-    }
-}
 
-public let nullConnection: Connection = NullConnection()
+/// A null connection. There are no mappings
+public struct NullConnection: Connection
+{
+    private init() {}
+
+    public func map(_ index: Letter) -> Letter?
+    {
+        return nil
+    }
+
+    public func makeInverse() -> Connection?
+    {
+        return nil
+    }
+
+    public let name = "null"
+
+
+    /// There's only one null connection
+    public static let null = NullConnection()
+}
 
 /// A class representing a fixed set of wirings from one letter to another.
 public class Wiring: Connector
@@ -432,9 +456,9 @@ public class Wiring: Connector
     ///
     /// - Parameter map: The map describing the wiring. Only specifiy letters
     ///                  that do not map to themselves.
-    public init(map: [Letter : Letter])
+    public init(name: String, map: [Letter : Letter])
     {
-        let forwardMap = DictionaryConnection(map: map)
+        let forwardMap = DictionaryConnection(name: name, map: map)
         forward = forwardMap
         if let reverseMap = forwardMap.makeInverse()
         {
@@ -446,7 +470,7 @@ public class Wiring: Connector
         }
     }
 
-    public convenience init(string: String)
+    public convenience init(name: String, string: String)
     {
         var stringMap: [Letter : Letter] = [:]
         for (input, toChar) in zip(Letter.A ... Letter.Z, string)
@@ -460,7 +484,7 @@ public class Wiring: Connector
                 fatalError("Initialising wiring from string: string has invalid character")
             }
         }
-        self.init(map: stringMap)
+        self.init(name: name, map: stringMap)
     }
 
     /**
@@ -496,4 +520,4 @@ public class Wiring: Connector
     }()
 }
 
-private let identityWiring = Wiring(map: [:])
+private let identityWiring = Wiring(name: "identity", map: [:])

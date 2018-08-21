@@ -51,7 +51,7 @@ class TestEnigmaMachine: XCTestCase
 
         enigmaMachine.plugIn(pair: (Letter.A, Letter.D))
         enigmaMachine.keyDown(aLetter: Letter.A)
-        XCTAssert(enigmaMachine.litLamp != nil && enigmaMachine.litLamp! == Letter.M, "Wrong lamp lit \(enigmaMachine.litLamp)")
+        XCTAssert(enigmaMachine.litLamp != nil && enigmaMachine.litLamp! == Letter.M, "Wrong lamp lit \(enigmaMachine.litLamp?.description ?? "")")
         enigmaMachine.keyUp()
         print("\(enigmaMachine.rotorReadOut)")
         XCTAssert(enigmaMachine.litLamp == nil, "A lamp is lit")

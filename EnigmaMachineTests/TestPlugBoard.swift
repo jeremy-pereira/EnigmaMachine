@@ -41,7 +41,7 @@ class TestPlugBoard: XCTestCase
 
     func testPlugBoard()
     {
-        var plugBoard = PlugBoard()
+        let plugBoard = PlugBoard()
 
         for aLetter in Letter.A ... Letter.Z
         {
