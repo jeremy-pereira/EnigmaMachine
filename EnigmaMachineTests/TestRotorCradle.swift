@@ -24,6 +24,7 @@ limitations under the License.
 import Cocoa
 import XCTest
 import EnigmaMachine
+import Toolbox
 
 class TestRotorCradle: XCTestCase
 {
@@ -45,6 +46,8 @@ class TestRotorCradle: XCTestCase
 
     func testBasic()
     {
+        Logger.pushLevel(.debug, forName: "EnigmaMachine.Components.Connection")
+        defer { Logger.popLevel(forName: "EnigmaMachine.Components.Connection") }
         standardCradle.rotate()
         var letter = standardCradle.forward[Letter.A]
         XCTAssert(letter! == Letter.B, "Letter 1 incorrect, (\(letter))")

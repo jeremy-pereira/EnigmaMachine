@@ -253,18 +253,16 @@ public protocol Connection
     ///
     /// - Returns: The inverse connection or nil if it couldn't be done.
     func makeInverse() -> Connection?
-/**
-A string representation of the connections.  It should consist of a 26 character
-string.  The character at each index is the mapping for the letter with the 
-ordinal of the index.
-    
-If a connection from a letter returns nil, use - in the string.
-*/
-    var connectionString: String { get }
 }
 
 public extension Connection
 {
+
+    /// Maps tthe input letter to the output letter using the `map(_:)` function.
+    /// If you use the subscript, you can turn on debug logging wit the
+    /// `EnigmaMachine.Components.Connection` logger.
+    ///
+    /// - Parameter index: The letter to map.
     subscript(index: Letter) -> Letter?
     {
         get
@@ -274,6 +272,35 @@ public extension Connection
             return map(index)
         }
     }
+
+
+    /// Gewts a string vewrsion  of the mapping. The position in the string
+    /// correspondfing to the ordinal of the letter tells you what the letter
+    /// maps to. A `-` means there is no mapping for the letter.
+    var connectionString: String
+    {
+        get
+        {
+            // Turn off logging to avoid infinite regress calling the mapping
+            // subscript.
+            log.pushLevel(.none)
+            defer { log.popLevel() }
+            var ret: String = ""
+            for letter in Letter.A ... Letter.Z
+            {
+                if let aMapping = self.map(letter)
+                {
+                    ret.append(aMapping.rawValue)
+                }
+                else
+                {
+                    ret.append(Character("-"))
+                }
+            }
+            return ret
+        }
+    }
+
 }
 
 
@@ -293,17 +320,6 @@ public struct IdentityConnection: Connection
     public func makeInverse() -> Connection?
     {
         return self
-    }
-
-    public var connectionString: String
-    {
-        let letterRange = Letter.A ... Letter.Z
-
-        return letterRange.reduce("")
-        {
-            (result: String, letter: Letter) -> String in
-            return result + [letter.rawValue]
-        }
     }
 
     /// The one and only identity connection.
@@ -371,23 +387,6 @@ class DictionaryConnection: Connection
         }
         return DictionaryConnection(map: newMap)
     }
-
-    lazy var connectionString: String =
-    {
-        var ret: String = ""
-        for letter in Letter.A ... Letter.Z
-        {
-            if let aMapping = self.letterMap[letter]
-            {
-                ret.append(aMapping.rawValue)
-            }
-            else
-            {
-                ret.append(Character("-"))
-            }
-        }
-        return ret
-    }()
 }
 
 
@@ -410,26 +409,6 @@ class ClosureConnection: Connection
     func makeInverse() -> Connection?
     {
         fatalError("Cannot invoke makeInverse in ClosureConnection")
-    }
-
-    var connectionString: String
-    {
-		get
-        {
-            var ret: String = ""
-            for letter in Letter.A ... Letter.Z
-            {
-                if let aMapping = self[letter]
-                {
-                    ret.append(aMapping.rawValue)
-                }
-                else
-                {
-                    ret.append(Character("-"))
-                }
-            }
-            return ret
-        }
     }
 }
 
@@ -483,11 +462,6 @@ public class Wiring: Connector
         }
         self.init(map: stringMap)
     }
-
-    public lazy var connectionString: String =
-    {
-		return self.forward.connectionString
-    }()
 
     /**
 

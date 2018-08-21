@@ -24,6 +24,7 @@ limitations under the License.
 import Cocoa
 import XCTest
 import EnigmaMachine
+import Toolbox
 
 class TestEnigmaMachine: XCTestCase
 {
@@ -45,6 +46,9 @@ class TestEnigmaMachine: XCTestCase
 
     func testExample()
     {
+        Logger.pushLevel(.debug, forName: "EnigmaMachine.Components.Connection")
+        defer { Logger.popLevel(forName: "EnigmaMachine.Components.Connection") }
+
         enigmaMachine.plugIn(pair: (Letter.A, Letter.D))
         enigmaMachine.keyDown(aLetter: Letter.A)
         XCTAssert(enigmaMachine.litLamp != nil && enigmaMachine.litLamp! == Letter.M, "Wrong lamp lit \(enigmaMachine.litLamp)")

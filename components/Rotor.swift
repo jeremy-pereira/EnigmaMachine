@@ -109,11 +109,6 @@ class RotorConnection: Connection
     {
         fatalError("Cannot invoke makeInverse in RotorConnection")
     }
-
-    var connectionString: String
-    {
-		return rotor!.wiring.connectionString
-    }
 }
 
 
