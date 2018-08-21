@@ -31,19 +31,19 @@ protocol PlugboardViewDataSource
 
 extension Letter
 {
-    func sizeWithAttributes(attributes: [ NSObject : AnyObject ]) -> NSSize
+    func sizeWithAttributes(attributes: [ NSAttributedStringKey : Any ]) -> NSSize
     {
-        return String(self.rawValue).size(withAttributes: (attributes as! [NSAttributedStringKey : Any]))
+        return String(self.rawValue).size(withAttributes: attributes)
     }
 
-    func drawInRect(rect: NSRect, attributes: [NSObject : AnyObject])
+    func drawInRect(rect: NSRect, attributes: [NSAttributedStringKey : Any])
     {
         let letterAsString =  String(self.rawValue)
         let letterSize = self.sizeWithAttributes(attributes: attributes)
         let widthAdjustment = (rect.size.width - letterSize.width) / 2.0
         let heightAdjustment = (rect.size.height - letterSize.height) / 2.0
         let letterOrigin = NSMakePoint(rect.origin.x + widthAdjustment, rect.origin.y + heightAdjustment)
-        letterAsString.draw(at: letterOrigin, withAttributes: (attributes as! [NSAttributedStringKey : Any]))
+        letterAsString.draw(at: letterOrigin, withAttributes: attributes)
     }
 }
 
@@ -284,7 +284,7 @@ class PlugboardView: NSView
 			letterColour = backgroundColour
         }
         letterColour.set()
-        letter.drawInRect(rect: drawArea, attributes: [NSAttributedStringKey.foregroundColor as NSObject : letterColour])
+        letter.drawInRect(rect: drawArea, attributes: [NSAttributedStringKey.foregroundColor : letterColour])
 
         NSGraphicsContext.restoreGraphicsState()
 

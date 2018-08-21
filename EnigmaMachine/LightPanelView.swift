@@ -35,9 +35,9 @@ class LightPanelView: NSView
             }
         }
     }
-    var foregroundColour: NSColor = NSColor.blackColor()
+    var foregroundColour: NSColor = NSColor.black
 
-    override var opaque: Bool { return backgroundColour != nil }
+    override var isOpaque: Bool { return backgroundColour != nil }
 
     var litLetter: Letter?
     {
@@ -46,14 +46,14 @@ class LightPanelView: NSView
             if let oldValue = oldValue
             {
                 let oldPosition = LightPanelView.letterToLight[oldValue]!
-                let dirtyRect = rectForLamp(oldPosition)
-                self.setNeedsDisplayInRect(dirtyRect)
+                let dirtyRect = rectForLamp(centrePosition: oldPosition)
+                self.setNeedsDisplay(dirtyRect)
             }
             if let newValue = litLetter
             {
                 let newPosition = LightPanelView.letterToLight[newValue]!
-                let dirtyRect = rectForLamp(newPosition)
-                self.setNeedsDisplayInRect(dirtyRect)
+                let dirtyRect = rectForLamp(centrePosition: newPosition)
+                self.setNeedsDisplay(dirtyRect)
             }
         }
     }
@@ -96,7 +96,7 @@ class LightPanelView: NSView
 
     var lampWindowDiameter: CGFloat
     {
-        let mSize = Letter.M.sizeWithAttributes([:])
+        let mSize = Letter.M.sizeWithAttributes(attributes: [:])
         /*
          *  Get the length of the diagonal by approximating a square and
 		 *  adding a bit
@@ -105,38 +105,32 @@ class LightPanelView: NSView
         return diameter
     }
 
-    override func drawRect(dirtyRect: NSRect)
+    override func draw(_ dirtyRect: NSRect)
     {
         if let backgroundColour = backgroundColour
         {
             backgroundColour.set()
-            NSBezierPath.fillRect(dirtyRect)
+            NSBezierPath.fill(dirtyRect)
         }
-        let mSize = Letter.M.sizeWithAttributes([:])
         for (letter, position) in LightPanelView.letterToLight
         {
-            var circleRect = rectForLamp(position)
-            if circleRect.overlaps(dirtyRect)
+            let circleRect = rectForLamp(centrePosition: position)
+            if circleRect.overlaps(otherRect: dirtyRect)
             {
-                var fillColour = NSColor.blackColor()
-                var letterColour = NSColor.whiteColor()
+                var fillColour = NSColor.black
+                var letterColour = NSColor.white
                 if letter == litLetter
                 {
-                    fillColour = NSColor.yellowColor()
-                    letterColour = NSColor.blackColor()
+                    fillColour = NSColor.yellow
+                    letterColour = NSColor.black
                 }
-                var path = NSBezierPath(ovalInRect: circleRect)
+                let path = NSBezierPath(ovalIn: circleRect)
                 fillColour.setFill()
-                NSColor.grayColor().setStroke()
+                NSColor.gray.setStroke()
                 path.lineWidth = 2
                 path.fill()
                 path.stroke()
-                var fontColour : NSColor = NSColor.grayColor()
-                if let backgroundColour = backgroundColour
-                {
-                    fontColour = backgroundColour
-                }
-                letter.drawInRect(circleRect, attributes: [ NSForegroundColorAttributeName : letterColour])
+                letter.drawInRect(rect: circleRect, attributes: [ NSAttributedStringKey.foregroundColor : letterColour])
             }
         }
     }
