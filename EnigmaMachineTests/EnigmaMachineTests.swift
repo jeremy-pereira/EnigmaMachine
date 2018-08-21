@@ -38,17 +38,9 @@ class EnigmaMachineTests: XCTestCase {
     
     func testExample()
     {
-        var data: NSData = "Error".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-        var outputString:NSString = NSString(data:data, encoding:NSUTF8StringEncoding)!
+        let data = "Error".data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let outputString:NSString = NSString(data:data, encoding:String.Encoding.utf8.rawValue)!
         NSLog("outputString: %@", outputString)
         XCTAssert(outputString == "Error", "outputString is wrong \(outputString)")
      }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

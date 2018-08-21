@@ -43,7 +43,7 @@ class TestRotor: XCTestCase
     func testRotorI()
     {
     	let rotorI = Rotor.makeMilitaryI()
-        println("rotor I description is \(rotorI)")
+        print("rotor I description is \(rotorI)")
         rotorI.ringStellung = Letter.A
         XCTAssert(rotorI.forward[Letter.A] == Letter.E, "Rotor I has wrong letter A")
         XCTAssert(rotorI.forward[Letter.Z] == Letter.J, "Rotor I has wrong letter A")
@@ -51,7 +51,7 @@ class TestRotor: XCTestCase
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure() {
             // Put the code you want to measure the time of here.
         }
     }

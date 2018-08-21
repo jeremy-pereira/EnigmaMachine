@@ -32,10 +32,10 @@ class TestEnigmaMachine: XCTestCase
     override func setUp()
     {
         super.setUp()
-        enigmaMachine.insertRotor(Rotor.makeMilitaryIII(), inSlot: 0, position: Letter.A)
-        enigmaMachine.insertRotor(Rotor.makeMilitaryII() , inSlot: 1, position: Letter.A)
-        enigmaMachine.insertRotor(Rotor.makeMilitaryI()  , inSlot: 2, position: Letter.A)
-        enigmaMachine.insertReflector(reflectorB, position: Letter.A)
+        enigmaMachine.insert(rotor: Rotor.makeMilitaryIII(), inSlot: 0, position: Letter.A)
+        enigmaMachine.insert(rotor: Rotor.makeMilitaryII() , inSlot: 1, position: Letter.A)
+        enigmaMachine.insert(rotor: Rotor.makeMilitaryI()  , inSlot: 2, position: Letter.A)
+        enigmaMachine.insert(reflector: reflectorB, position: Letter.A)
     }
     
     override func tearDown() {
@@ -45,19 +45,11 @@ class TestEnigmaMachine: XCTestCase
 
     func testExample()
     {
-        enigmaMachine.plugInPair((Letter.A, Letter.D))
-        enigmaMachine.keyDown(Letter.A)
+        enigmaMachine.plugIn(pair: (Letter.A, Letter.D))
+        enigmaMachine.keyDown(aLetter: Letter.A)
         XCTAssert(enigmaMachine.litLamp != nil && enigmaMachine.litLamp! == Letter.M, "Wrong lamp lit \(enigmaMachine.litLamp)")
         enigmaMachine.keyUp()
-        println("\(enigmaMachine.rotorReadOut)")
+        print("\(enigmaMachine.rotorReadOut)")
         XCTAssert(enigmaMachine.litLamp == nil, "A lamp is lit")
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

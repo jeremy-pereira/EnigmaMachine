@@ -32,10 +32,10 @@ class TestRotorCradle: XCTestCase
     override func setUp()
     {
         super.setUp()
-        standardCradle.slot[0].insertRotor(Rotor.makeMilitaryIII(), position: Letter.A)
-        standardCradle.slot[1].insertRotor(Rotor.makeMilitaryII() , position: Letter.A)
-        standardCradle.slot[2].insertRotor(Rotor.makeMilitaryI()  , position: Letter.A)
-        standardCradle.insertReflector(reflectorB    , position: Letter.A)
+        standardCradle.slot[0].insert(rotor: Rotor.makeMilitaryIII(), position: Letter.A)
+        standardCradle.slot[1].insert(rotor: Rotor.makeMilitaryII() , position: Letter.A)
+        standardCradle.slot[2].insert(rotor: Rotor.makeMilitaryI()  , position: Letter.A)
+        standardCradle.insertReflector(reflector: reflectorB, position: Letter.A)
     }
     
     override func tearDown() {
@@ -64,7 +64,7 @@ class TestRotorCradle: XCTestCase
 
     func testRightNotch()
     {
-		standardCradle.slot[0].insertRotor(standardCradle.slot[0].rotor!, position: Letter.V)
+        standardCradle.slot[0].insert(rotor: standardCradle.slot[0].rotor!, position: Letter.V)
         standardCradle.rotate()
         var letter = standardCradle.forward[Letter.A]
         XCTAssert(letter! == Letter.U, "Letter 1 incorrect, (\(letter))")
@@ -84,7 +84,7 @@ class TestRotorCradle: XCTestCase
 
     func testMiddleNotch()
     {
-        standardCradle.slot[1].insertRotor(standardCradle.slot[1].rotor!, position: Letter.E)
+        standardCradle.slot[1].insert(rotor: standardCradle.slot[1].rotor!, position: Letter.E)
         standardCradle.rotate()
         var letter = standardCradle.forward[Letter.A]
         XCTAssert(letter! == Letter.F, "Letter 1 incorrect, (\(letter))")
@@ -104,7 +104,7 @@ class TestRotorCradle: XCTestCase
 
     func testLeftNotch()
     {
-        standardCradle.slot[2].insertRotor(standardCradle.slot[2].rotor!, position: Letter.Q)
+        standardCradle.slot[2].insert(rotor: standardCradle.slot[2].rotor!, position: Letter.Q)
         standardCradle.rotate()
         var letter = standardCradle.forward[Letter.A]
         XCTAssert(letter! == Letter.F, "Letter 1 incorrect, (\(letter))")
@@ -121,13 +121,4 @@ class TestRotorCradle: XCTestCase
         letter = standardCradle.forward[Letter.A]
         XCTAssert(letter! == Letter.D, "Letter 5 incorrect, (\(letter))")
     }
-
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

@@ -48,7 +48,7 @@ class TestPlugBoard: XCTestCase
             XCTAssert(aLetter == plugBoard.forward[aLetter], "Letter \(aLetter) not straight through forwards")
             XCTAssert(aLetter == plugBoard.reverse[aLetter], "Letter \(aLetter) not straight through reverse")
         }
-        plugBoard.plugInPair((Letter.B, Letter.C))
+        plugBoard.plugIn(pair: (Letter.B, Letter.C))
         for aLetter in Letter.A ... Letter.Z
         {
             if aLetter == Letter.B
@@ -67,7 +67,7 @@ class TestPlugBoard: XCTestCase
                 XCTAssert(aLetter == plugBoard.reverse[aLetter], "Letter \(aLetter) not straight through reverse")
             }
         }
-        plugBoard.plugInPair((Letter.X, Letter.C))
+        plugBoard.plugIn(pair: (Letter.X, Letter.C))
         for aLetter in Letter.A ... Letter.Z
         {
             if aLetter == Letter.X
