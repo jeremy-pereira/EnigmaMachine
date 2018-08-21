@@ -73,7 +73,7 @@ Put a rotor in the box.
     ///
     /// - Parameter rotorToGo: The rotor to remove.
     /// - Returns: The removed rotor.
-    public func removeRotor(rotorToGo: Rotor) -> Rotor?
+    public func remove(rotor rotorToGo: Rotor) -> Rotor?
     {
         var ret: Rotor?
         if let foundIndex = rotor.index(where: { $0 === rotorToGo })
@@ -102,7 +102,7 @@ Put a rotor in the box.
 
     public var count: Int { return rotor.count }
 
-    public func rotor(index: Int) -> Rotor?
+    public func rotor(_ index: Int) -> Rotor?
     {
         var ret: Rotor?
 		if index >= 0 && index < rotor.count

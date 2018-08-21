@@ -25,7 +25,7 @@ import Cocoa
 
 class RotorInBoxView: NSTableCellView
 {
-    override var objectValue: AnyObject?
+    override var objectValue: Any?
     {
         didSet(oldValue)
         {
@@ -41,7 +41,7 @@ class RingStellungView: NSTableCellView
 {
     @IBOutlet weak var stepper: NSStepper!
 
-    override var objectValue: AnyObject?
+    override var objectValue: Any?
     {
 		didSet(oldValue)
         {
@@ -66,9 +66,9 @@ class RingStellungView: NSTableCellView
 
 class RotorBoxTableView: NSTableView
 {
-    override func validateProposedFirstResponder(responder: NSResponder, forEvent event: NSEvent?) -> Bool
+    override func validateProposedFirstResponder(_ responder: NSResponder, for event: NSEvent?) -> Bool
     {
-        return responder is NSStepper || super.validateProposedFirstResponder(responder, forEvent: event)
+        return responder is NSStepper || super.validateProposedFirstResponder(responder, for: event)
     }
 }
 
@@ -87,13 +87,13 @@ class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
 
     func insertRotor(newRotor: Rotor)
     {
-        self.rotorBox.add(newRotor)
+        self.rotorBox.add(newRotor: newRotor)
         self.rotorBoxView.reloadData()
     }
 
     func removeRotor(rotor: Rotor) ->Rotor?
     {
-        let ret = rotorBox.removeRotor(rotor)
+        let ret = rotorBox.remove(rotor: rotor)
         if ret != nil
         {
             self.rotorBoxView.reloadData()
@@ -101,9 +101,9 @@ class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
         return ret
     }
 
-    func tableView(                 tableView: NSTableView,
-        objectValueForTableColumn tableColumn: NSTableColumn?,
-                                          row: Int) -> AnyObject?
+    func tableView(_     tableView: NSTableView,
+        objectValueFor tableColumn: NSTableColumn?,
+                               row: Int) -> Any?
     {
         var ret: AnyObject?
         let rotor = rotorBox.rotor(row)
@@ -114,28 +114,28 @@ class  RotorBoxController: NSObject, NSTableViewDataSource, NSTableViewDelegate
         return ret
     }
 
-    func tableView(           tableView: NSTableView,
-        writeRowsWithIndexes rowIndexes: NSIndexSet,
-        			toPasteboard pboard: NSPasteboard) -> Bool
+    func tableView(_   tableView: NSTableView,
+        writeRowsWith rowIndexes: IndexSet,
+        			   to pboard: NSPasteboard) -> Bool
     {
         assert(rowIndexes.count == 1, "Cannot handle drag of multiple rotors")
-        let draggingRotor = rotorBox.rotor[rowIndexes.firstIndex]
+        let draggingRotor = rotorBox.rotor[rowIndexes.first!]
         enigmaController.rotorBeingDragged = draggingRotor
         let wrapper = RotorPasteBoardWrapper(rotor: draggingRotor)
         pboard.writeObjects([wrapper])
         return true
     }
 
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView?
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
     {
         var result: NSTableCellView?
         if let tableColumn = tableColumn
         {
-            result = tableView.makeViewWithIdentifier(tableColumn.identifier!, owner: self) as? NSTableCellView
+            result = tableView.makeView(withIdentifier: tableColumn.identifier, owner: self) as? NSTableCellView
             if let result = result
             {
                 result.objectValue
-                    = self.tableView(tableView, objectValueForTableColumn: tableColumn, row: row)
+                    = self.tableView(tableView, objectValueFor: tableColumn, row: row)
             }
         }
         return result
