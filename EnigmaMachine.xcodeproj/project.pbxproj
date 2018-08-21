@@ -32,6 +32,8 @@
 		FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */; };
 		FCA6C1F41AB6E526000D18F6 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6C1F31AB6E526000D18F6 /* StepperView.swift */; };
 		FCAEF6731AC92FB40010EB5D /* RotorBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAEF6721AC92FB40010EB5D /* RotorBoxController.swift */; };
+		FCE8B138212C23C500960808 /* Toolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE8B136212C23BC00960808 /* Toolbox.framework */; };
+		FCE8B139212C23C500960808 /* Toolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCE8B136212C23BC00960808 /* Toolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FCF0E1411AAD86E000DBC483 /* SpareRotorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF0E1401AAD86E000DBC483 /* SpareRotorBox.swift */; };
 		FCF0E1431AAD88DC00DBC483 /* TestRotorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF0E1421AAD88DC00DBC483 /* TestRotorBox.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,20 @@
 			remoteInfo = EnigmaMachine;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FCE8B13A212C23C500960808 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FCE8B139212C23C500960808 /* Toolbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FC1C64441A9E346E0050FA14 /* TestRotor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotor.swift; sourceTree = "<group>"; };
@@ -77,6 +93,7 @@
 		FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorCradle.swift; sourceTree = "<group>"; };
 		FCA6C1F31AB6E526000D18F6 /* StepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		FCAEF6721AC92FB40010EB5D /* RotorBoxController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorBoxController.swift; sourceTree = "<group>"; };
+		FCE8B136212C23BC00960808 /* Toolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Toolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF0E1401AAD86E000DBC483 /* SpareRotorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpareRotorBox.swift; sourceTree = "<group>"; };
 		FCF0E1421AAD88DC00DBC483 /* TestRotorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE8B138212C23C500960808 /* Toolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +124,7 @@
 				FC3D160C1A9CAE5B00FE44B9 /* EnigmaMachine */,
 				FC3D161D1A9CAE5C00FE44B9 /* EnigmaMachineTests */,
 				FC3D160B1A9CAE5B00FE44B9 /* Products */,
+				FCE8B135212C23BC00960808 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,6 +205,14 @@
 			path = components;
 			sourceTree = "<group>";
 		};
+		FCE8B135212C23BC00960808 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCE8B136212C23BC00960808 /* Toolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,6 +223,7 @@
 				FC3D16061A9CAE5B00FE44B9 /* Sources */,
 				FC3D16071A9CAE5B00FE44B9 /* Frameworks */,
 				FC3D16081A9CAE5B00FE44B9 /* Resources */,
+				FCE8B13A212C23C500960808 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

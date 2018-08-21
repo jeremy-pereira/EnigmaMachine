@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
         // Insert code here to tear down your application
     }
 
-    @IBAction func showAbstractEnigma(sender: AnyObject)
+    @IBAction func showAbstractEnigma(_ sender: AnyObject)
     {
         let controller = AbstractEnigmaController()
         abstractEnigmas.append(controller)

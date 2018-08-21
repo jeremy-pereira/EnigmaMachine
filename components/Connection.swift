@@ -22,7 +22,9 @@ limitations under the License.
 */
 
 import Foundation
+import Toolbox
 
+private let log = Logger.getLogger("EnigmaMachine.Components.Connection")
 
 /**
 
@@ -237,29 +239,19 @@ public func ==(left: Letter, right: Letter) -> Bool
     return left.ordinal == right.ordinal
 }
 
-/**
-Protocol defining a connection from a set of 26 input letters to 26 output 
-letters.
-*/
+/// Protocol defining a connection from a set of 26 input letters to 26 output
+/// letters.
 public protocol Connection
 {
-/**
-The subscript is the mapping function from the input letter to the output letter.
+    /// maps an input letter to an output letter.
+    ///
+    /// - Parameter index: index The input letter
+    func map(_ index: Letter) -> Letter?
 
-:param: index The input letter
-:returns: The output letter if a mapping exists.
-*/
-    subscript(index: Letter) -> Letter? { get }
-
-/**
-Creates an inverse connection if it is possible to do so (requires 1:1 letter 
-mapping).
-    
-`connection.inverse[connection[aLetter]] == aLetter`
-
-:returns: The inverse connection or nil if it couldn't be done, e.g. if two 
-    inputs map to the same output.
-*/
+    /// Creates an inverse connection if it is possible to do so (requires 1:1
+    /// letter mapping).
+    ///
+    /// - Returns: The inverse connection or nil if it couldn't be done.
     func makeInverse() -> Connection?
 /**
 A string representation of the connections.  It should consist of a 26 character
@@ -271,6 +263,19 @@ If a connection from a letter returns nil, use - in the string.
     var connectionString: String { get }
 }
 
+public extension Connection
+{
+    subscript(index: Letter) -> Letter?
+    {
+        get
+        {
+            let ret = map(index)
+            log.debug("\(index) -> \(ret?.description ?? "nil") from \(connectionString)")
+            return map(index)
+        }
+    }
+}
+
 
 /// A connection that is the identity connection. It maps any letter onto
 /// itself. There is only one identiy connection.
@@ -280,7 +285,7 @@ public struct IdentityConnection: Connection
     {
     }
 
-    public subscript(index: Letter) -> Letter?
+    public func map(_ index: Letter) -> Letter?
     {
         return index
     }
@@ -317,54 +322,52 @@ public protocol Connector
     var reverse: Connection { get }
 }
 
-/**
-
-A connection that uses a dictionary to map inputs to outputs.  
-
-When you create it supply a dictionary of mappings.  By default each letter is 
-mapped to itself so the map supplied to init need only contain non identity 
-mappings.
-
-*/
+/// A connection that uses a dictionary to map inputs to outputs.
+///
+/// When you create it supply a dictionary of mappings.  By default each letter is
+/// mapped to itself so the map supplied to init need only contain non identity
+/// mappings. For example
+///
+/// ```
+/// let conn = DictionaryConnection(map: [ Letter.A : Letter.B ])
+/// ```
+/// maps every letter to itself except A which it maps to B.
 class DictionaryConnection: Connection
 {
-    var map: [Letter : Letter] = [:]
+    var letterMap: [Letter : Letter] = [:]
 
     init(map: [Letter: Letter])
     {
         for letter in Letter.A ... Letter.Z
         {
-			self.map[letter] = letter
+			self.letterMap[letter] = letter
         }
         for key in map.keys
         {
-            self.map[key] = map[key]
+            self.letterMap[key] = map[key]
         }
     }
 
-    subscript(index: Letter) -> Letter?
+    func map(_ index: Letter) -> Letter?
     {
-        get
-        {
-            return map[index]
-        }
+    	return letterMap[index]
     }
 
     func makeInverse() -> Connection?
     {
         var newMap: [Letter : Letter] = [:]
-        for key in map.keys
+        for key in letterMap.keys
         {
             /*
 			 *  If there already exists an entry for the inverse key, it means
 			 *  two letters map to the same output.  Therefore the inverse 
              *  would be ambiguous.
 			 */
-            if newMap[map[key]!] != nil
+            if newMap[letterMap[key]!] != nil
             {
                 return nil
             }
-			newMap[map[key]!] = key
+			newMap[letterMap[key]!] = key
         }
         return DictionaryConnection(map: newMap)
     }
@@ -374,7 +377,7 @@ class DictionaryConnection: Connection
         var ret: String = ""
         for letter in Letter.A ... Letter.Z
         {
-            if let aMapping = self.map[letter]
+            if let aMapping = self.letterMap[letter]
             {
                 ret.append(aMapping.rawValue)
             }
@@ -391,7 +394,6 @@ class DictionaryConnection: Connection
 /// A connection that maps letters based on a passed in function
 class ClosureConnection: Connection
 {
-
     /// The mapping function
     var mappingFunc: (Letter) -> Letter?
 
@@ -400,7 +402,7 @@ class ClosureConnection: Connection
         self.mappingFunc = mappingFunc
     }
 
-    subscript(letter: Letter) -> Letter?
+    func map(_ letter: Letter) -> Letter?
     {
         return mappingFunc(letter)
     }
@@ -499,7 +501,7 @@ public class Wiring: Connector
     /// direction followed by a maping backwards yiends the original letter for
     /// all letters.
     public lazy var isReciprocal: Bool = {
-        for letter in Letter.A ..< Letter.UpperBound
+        for letter in Letter.A ... Letter.Z
         {
             guard let intermediate = self.forward[letter] else { return false }
             guard self.forward[intermediate] == letter else { return false }
@@ -509,7 +511,7 @@ public class Wiring: Connector
 
     /// true if any of the letters maps to themselves.
     public lazy var hasStraightThrough: Bool = {
-        for letter in Letter.A ..< Letter.UpperBound
+        for letter in Letter.A ... Letter.Z
         {
             if let intermediate = self.forward[letter]
             {

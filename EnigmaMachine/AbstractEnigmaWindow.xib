@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14C1514" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7528.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AbstractEnigmaController" customModule="EnigmaMachine" customModuleProvider="target">
@@ -28,17 +30,19 @@
             <value key="minSize" type="size" width="511" height="663"/>
             <value key="maxSize" type="size" width="511" height="663"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="7" width="511" height="749"/>
+                <rect key="frame" x="0.0" y="0.0" width="511" height="749"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Rotors" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-87-VaD">
+                    <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Rotors" translatesAutoresizingMaskIntoConstraints="NO" id="8hO-87-VaD">
                         <rect key="frame" x="17" y="667" width="159" height="62"/>
-                        <view key="contentView">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="2QR-61-MtX">
                             <rect key="frame" x="1" y="1" width="157" height="46"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEB-y4-wfg">
                                     <rect key="frame" x="80" y="11" width="19" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="25" valueWraps="YES" id="qSa-ea-MEj"/>
                                     <connections>
                                         <action selector="stepperChanged:" target="K6t-Fu-VOF" id="5RK-WG-m9q"/>
@@ -46,6 +50,7 @@
                                 </stepper>
                                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7j-zi-nXe">
                                     <rect key="frame" x="37" y="11" width="19" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="25" valueWraps="YES" id="Z3a-XF-WvE"/>
                                     <connections>
                                         <action selector="stepperChanged:" target="APg-4O-RDx" id="gMX-HO-PQx"/>
@@ -53,6 +58,7 @@
                                 </stepper>
                                 <textField identifier="0" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PEu-h8-wfS" customClass="RotorTextBox" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="104" y="14" width="23" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="J18-jl-hHK">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -65,6 +71,7 @@
                                 </textField>
                                 <textField identifier="1" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K6t-Fu-VOF" customClass="RotorTextBox" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="61" y="14" width="23" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="guM-3w-ZgK">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -77,6 +84,7 @@
                                 </textField>
                                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMq-sW-P4o">
                                     <rect key="frame" x="123" y="11" width="19" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="25" valueWraps="YES" id="kYr-Rb-jC4"/>
                                     <connections>
                                         <action selector="stepperChanged:" target="PEu-h8-wfS" id="6M0-gr-ODO"/>
@@ -84,6 +92,7 @@
                                 </stepper>
                                 <textField identifier="2" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APg-4O-RDx" customClass="RotorTextBox" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="18" y="14" width="23" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="UVN-fK-acS">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -96,17 +105,17 @@
                                 </textField>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Keyboard" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="hTX-Iz-lIk" customClass="KeyboardView" customModule="EnigmaMachine" customModuleProvider="target">
+                    <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Keyboard" translatesAutoresizingMaskIntoConstraints="NO" id="hTX-Iz-lIk" customClass="KeyboardView" customModule="EnigmaMachine" customModuleProvider="target">
                         <rect key="frame" x="17" y="202" width="477" height="213"/>
-                        <view key="contentView">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="hEx-dI-Cip">
                             <rect key="frame" x="1" y="1" width="475" height="197"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button identifier="I" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQb-PM-syM" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="364" y="159" width="44" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="I" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GXP-TL-40V">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -117,6 +126,7 @@
                                 </button>
                                 <button identifier="F" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zST-hA-feN" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="192" y="126" width="48" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="F" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Hq-oq-Yfr">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -127,6 +137,7 @@
                                 </button>
                                 <button identifier="C" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GrY-WL-cUo" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="163" y="93" width="50" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="C" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="L3B-Er-cSn">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -137,6 +148,7 @@
                                 </button>
                                 <button identifier="Q" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lx-9g-pXo" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="12" y="159" width="51" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Q" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mFY-C0-le6">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -147,6 +159,7 @@
                                 </button>
                                 <button identifier="U" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOB-QB-7m6" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="314" y="159" width="50" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="U" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zce-hK-pat">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -157,6 +170,7 @@
                                 </button>
                                 <button identifier="B" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tuZ-SI-KUk" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="262" y="93" width="50" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="B" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cQm-Z2-LAH">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -167,6 +181,7 @@
                                 </button>
                                 <button identifier="K" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8v-KM-y8Y" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="389" y="126" width="50" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="K" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="heF-vR-MOA">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -177,6 +192,7 @@
                                 </button>
                                 <button identifier="Z" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dgh-4a-PsV" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="265" y="159" width="49" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Z" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kSm-39-wBH">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -187,6 +203,7 @@
                                 </button>
                                 <button identifier="J" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Km7-Hb-5i9" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="339" y="126" width="48" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="J" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lno-JW-qK0">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -197,6 +214,7 @@
                                 </button>
                                 <button identifier="V" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cst-kQ-sBt" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="212" y="93" width="49" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="V" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WmL-7R-Av2">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -207,6 +225,7 @@
                                 </button>
                                 <button identifier="T" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2R-7f-9ic" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="217" y="159" width="48" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="T" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gJu-oC-FQc">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -217,6 +236,7 @@
                                 </button>
                                 <button identifier="Y" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uxd-9c-uq3" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="65" y="93" width="49" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Y" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dc4-fD-AFg">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -227,6 +247,7 @@
                                 </button>
                                 <button identifier="L" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ns-rt-w7O" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="409" y="93" width="48" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="L" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uGg-9e-CyD">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -237,6 +258,7 @@
                                 </button>
                                 <button identifier="N" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2p-n1-0QO" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="309" y="93" width="50" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="N" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KcK-Uw-eHu">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -247,6 +269,7 @@
                                 </button>
                                 <button identifier="P" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzx-zh-sA9" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="13" y="93" width="49" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="P" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tkj-Az-F4V">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -257,6 +280,7 @@
                                 </button>
                                 <button identifier="W" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dUl-rA-z4A" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="65" y="159" width="53" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="W" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4kM-Ve-GVz">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -267,6 +291,7 @@
                                 </button>
                                 <button identifier="H" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tod-e8-xcb" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="290" y="126" width="50" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="H" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oLk-if-anJ">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -277,6 +302,7 @@
                                 </button>
                                 <button identifier="M" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uv0-47-zDd" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="359" y="93" width="52" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="M" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fhh-91-3JW">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -287,6 +313,7 @@
                                 </button>
                                 <button identifier="E" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xO8-R4-F6V" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="118" y="159" width="49" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="E" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GfS-3e-9ir">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -297,6 +324,7 @@
                                 </button>
                                 <button identifier="A" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jlK-zf-Qsz" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="39" y="126" width="49" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="A" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TDJ-K2-FRh">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -307,6 +335,7 @@
                                 </button>
                                 <button identifier="R" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KXS-9W-Ecb" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="167" y="159" width="50" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="R" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uKX-IW-ERk">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -317,6 +346,7 @@
                                 </button>
                                 <button identifier="D" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mn3-wU-Sa2" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="143" y="126" width="50" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="D" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NaA-WT-aBK">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -327,6 +357,7 @@
                                 </button>
                                 <button identifier="X" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dya-Qp-Gqr" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="110" y="93" width="49" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="X" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xKS-el-ElC">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -337,6 +368,7 @@
                                 </button>
                                 <button identifier="O" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hD6-ws-Q2u" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="412" y="159" width="51" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="O" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3bU-2Z-i2T">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -347,6 +379,7 @@
                                 </button>
                                 <button identifier="S" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KIF-BL-KkN" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="90" y="126" width="49" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="S" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TF1-i8-J1L">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -357,6 +390,7 @@
                                 </button>
                                 <button identifier="G" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-hm-EH1" customClass="KeyboardButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="242" y="126" width="51" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="G" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kZM-SJ-QdZ">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -367,6 +401,7 @@
                                 </button>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whr-bb-Oan">
                                     <rect key="frame" x="16" y="70" width="68" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Auto input" id="Y2S-rf-Nba">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -375,6 +410,7 @@
                                 </textField>
                                 <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-i0-IkL">
                                     <rect key="frame" x="92" y="66" width="71" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Bsw-ZR-4bb">
                                         <font key="font" metaFont="system"/>
                                         <segments>
@@ -388,6 +424,7 @@
                                 </segmentedControl>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnc-ji-d30" customClass="AutoKeyButton" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="166" y="61" width="109" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Single step" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6XI-2o-zcn">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -399,6 +436,7 @@
                                 </button>
                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28B-C3-Xz9">
                                     <rect key="frame" x="18" y="14" width="439" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" baseWritingDirection="leftToRight" placeholderString="Type or paste text here" drawsBackground="YES" id="RS7-KI-Abp">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -410,41 +448,41 @@
                                 </textField>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="singleStep" destination="Qnc-ji-d30" id="DPg-Hz-GHM"/>
                         </connections>
                     </box>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Light panel" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="lkJ-kS-Gdp">
+                    <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Light panel" translatesAutoresizingMaskIntoConstraints="NO" id="lkJ-kS-Gdp">
                         <rect key="frame" x="17" y="419" width="477" height="178"/>
-                        <view key="contentView">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="dlj-zD-cwV">
                             <rect key="frame" x="1" y="1" width="475" height="162"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <customView fixedFrame="YES" placeholderIntrinsicWidth="439" placeholderIntrinsicHeight="142" translatesAutoresizingMaskIntoConstraints="NO" id="pB7-yT-cT3" customClass="LightPanelView" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="18" y="20" width="439" height="132"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <accessibility description="An enigma plugboard" help="Drag from one plug to another to make a connection"/>
                                 </customView>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Spare rotors" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="dJu-Pi-vpN">
+                    <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Spare rotors" translatesAutoresizingMaskIntoConstraints="NO" id="dJu-Pi-vpN">
                         <rect key="frame" x="302" y="601" width="192" height="128"/>
-                        <view key="contentView">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="MuT-eo-nw2">
                             <rect key="frame" x="1" y="1" width="190" height="112"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4la-Vb-SQP">
                                     <rect key="frame" x="18" y="14" width="154" height="88"/>
-                                    <clipView key="contentView" misplaced="YES" id="m9k-5b-zJo">
-                                        <rect key="frame" x="1" y="0.0" width="238" height="134"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <clipView key="contentView" ambiguous="YES" id="m9k-5b-zJo">
+                                        <rect key="frame" x="1" y="0.0" width="152" height="87"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="22" rowSizeStyle="automatic" headerView="twA-hp-JNb" viewBased="YES" id="MSp-da-BOH" customClass="RotorBoxTableView" customModule="EnigmaMachine" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="151.5" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="152" height="64"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -464,11 +502,12 @@
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         <prototypeCellViews>
                                                             <tableCellView identifier="ring" id="ybd-85-wtQ" customClass="RotorInBoxView" customModule="EnigmaMachine" customModuleProvider="target">
-                                                                <rect key="frame" x="1" y="1" width="47" height="22"/>
+                                                                <rect key="frame" x="1" y="1" width="48" height="22"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-5T-AqO">
                                                                         <rect key="frame" x="0.0" y="3" width="100" height="17"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Cgz-Q5-ceY">
                                                                             <font key="font" metaFont="system"/>
                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -536,10 +575,9 @@
                                                 </connections>
                                             </tableView>
                                         </subviews>
-                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </clipView>
                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="zg4-2r-7iS">
-                                        <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                        <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="UyR-3Q-he4">
@@ -547,29 +585,27 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <tableHeaderView key="headerView" id="twA-hp-JNb">
-                                        <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="23"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </tableHeaderView>
                                 </scrollView>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Plugboard" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="g6f-Xt-nda">
+                    <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Plugboard" translatesAutoresizingMaskIntoConstraints="NO" id="g6f-Xt-nda">
                         <rect key="frame" x="17" y="16" width="477" height="182"/>
-                        <view key="contentView">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="RRH-qi-17g">
                             <rect key="frame" x="1" y="1" width="475" height="166"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <customView fixedFrame="YES" placeholderIntrinsicWidth="439" placeholderIntrinsicHeight="142" translatesAutoresizingMaskIntoConstraints="NO" id="L8O-jd-orV" customClass="PlugboardView" customModule="EnigmaMachine" customModuleProvider="target">
                                     <rect key="frame" x="18" y="14" width="439" height="142"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <accessibility description="An enigma plugboard" help="Drag from one plug to another to make a connection"/>
                                 </customView>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                 </subviews>
             </view>
@@ -582,17 +618,17 @@
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <value key="minSize" type="size" width="250" height="300"/>
             <view key="contentView" horizontalCompressionResistancePriority="1000" id="h05-5V-i2g">
-                <rect key="frame" x="0.0" y="5" width="276" height="428"/>
+                <rect key="frame" x="0.0" y="0.0" width="276" height="428"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6x-kV-Nmw">
                         <rect key="frame" x="-1" y="81" width="278" height="348"/>
                         <clipView key="contentView" id="jt8-EC-SHz">
-                            <rect key="frame" x="1" y="1" width="166" height="79"/>
+                            <rect key="frame" x="1" y="1" width="276" height="346"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField horizontalHuggingPriority="1" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-NP-MMR">
-                                    <rect key="frame" x="0.0" y="263" width="279" height="39"/>
+                                <textField horizontalHuggingPriority="1" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-NP-MMR">
+                                    <rect key="frame" x="0.0" y="530" width="279" height="22"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="Output will be printer here" drawsBackground="YES" id="1Bo-3I-GYH">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -606,18 +642,18 @@
                             </constraints>
                         </clipView>
                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="sav-Dp-rva">
-                            <rect key="frame" x="1" y="80" width="166" height="15"/>
+                            <rect key="frame" x="1" y="331" width="276" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="fu8-Jz-I2z">
-                            <rect key="frame" x="167" y="1" width="15" height="79"/>
+                            <rect key="frame" x="261" y="1" width="16" height="346"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <customView ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpu-U5-6gV" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
+                    <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpu-U5-6gV" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
                         <rect key="frame" x="21" y="9" width="166" height="34"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-Cb-mhq">
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-Cb-mhq">
                                 <rect key="frame" x="106" y="11" width="40" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="SDS-TR-cC8"/>
@@ -626,9 +662,6 @@
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Zrv-dZ-AQY">
                                         <real key="minimum" value="10"/>
                                         <real key="maximum" value="1000"/>
-                                        <metadata>
-                                            <real key="inspectorSampleValue" value="1"/>
-                                        </metadata>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -638,8 +671,8 @@
                                     <action selector="changeValue:" target="dpu-U5-6gV" id="b1n-fd-5qM"/>
                                 </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-gy-Mfr">
-                                <rect key="frame" x="29" y="13" width="71" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-gy-Mfr">
+                                <rect key="frame" x="29" y="13" width="63" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Line wrap" id="n8N-XM-jrj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -648,13 +681,14 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kgh-ny-E60">
                                 <rect key="frame" x="8" y="0.0" width="92" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="(Groups per line)" id="pwk-KD-J9l">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4y-6c-29x">
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4y-6c-29x">
                                 <rect key="frame" x="150" y="7" width="19" height="27"/>
                                 <stepperCell key="cell" continuous="YES" alignment="left" maxValue="1000" doubleValue="80" id="kzR-6k-679"/>
                                 <connections>
@@ -675,7 +709,7 @@
                         </connections>
                     </customView>
                     <button horizontalHuggingPriority="1000" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EpF-q6-MTz">
-                        <rect key="frame" x="189" y="13" width="73" height="32"/>
+                        <rect key="frame" x="190" y="13" width="72" height="32"/>
                         <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QI6-xV-Sze">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -684,10 +718,10 @@
                             <action selector="clearOutput:" target="IIq-Mh-32a" id="tpt-Gn-x2b"/>
                         </connections>
                     </button>
-                    <customView ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2DJ-Iw-Y3O" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
+                    <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2DJ-Iw-Y3O" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
                         <rect key="frame" x="21" y="51" width="166" height="22"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iLT-Zv-cR1">
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iLT-Zv-cR1">
                                 <rect key="frame" x="106" y="0.0" width="40" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="1pc-ji-lVh"/>
@@ -705,15 +739,15 @@
                                     <action selector="changeValue:" target="2DJ-Iw-Y3O" id="phB-hf-fAQ"/>
                                 </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-Im-gvu">
-                                <rect key="frame" x="29" y="3" width="71" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-Im-gvu">
+                                <rect key="frame" x="29" y="3" width="69" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Group size" id="5tk-Ge-D1s">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-Ll-Svj">
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-Ll-Svj">
                                 <rect key="frame" x="150" y="-3" width="19" height="27"/>
                                 <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="10" doubleValue="1" id="dVh-e4-FAT"/>
                                 <connections>
@@ -780,11 +814,12 @@
             </connections>
         </popover>
         <customView id="Yf0-pX-iWp">
-            <rect key="frame" x="0.0" y="-5" width="148" height="106"/>
+            <rect key="frame" x="0.0" y="0.0" width="148" height="106"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grs-TU-zZH">
                     <rect key="frame" x="49" y="72" width="39" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Rotor" id="7Xv-k7-A5q">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -793,6 +828,7 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOk-vG-L0B">
                     <rect key="frame" x="18" y="51" width="70" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Ringstellung" id="SO4-Ya-TNW">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -801,6 +837,7 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctz-f8-l1h">
                     <rect key="frame" x="92" y="72" width="38" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="jR1-xk-XnZ">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -809,6 +846,7 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tjU-lF-A07">
                     <rect key="frame" x="92" y="51" width="38" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="oaS-tw-Zvi">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -817,6 +855,7 @@
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ssh-p6-lbw">
                     <rect key="frame" x="34" y="14" width="80" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Put in box" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VbI-p4-0lg">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="smallSystem"/>
