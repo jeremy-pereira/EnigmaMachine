@@ -628,8 +628,8 @@
                             <rect key="frame" x="1" y="1" width="276" height="346"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField horizontalHuggingPriority="1" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-NP-MMR">
-                                    <rect key="frame" x="0.0" y="530" width="279" height="22"/>
+                                <textField horizontalHuggingPriority="1" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-NP-MMR">
+                                    <rect key="frame" x="0.0" y="0.0" width="279" height="22"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="Output will be printer here" drawsBackground="YES" id="1Bo-3I-GYH">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -638,6 +638,7 @@
                                 </textField>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="ZOv-NP-MMR" firstAttribute="top" secondItem="jt8-EC-SHz" secondAttribute="top" id="6Ka-rr-zzF"/>
                                 <constraint firstItem="ZOv-NP-MMR" firstAttribute="leading" secondItem="jt8-EC-SHz" secondAttribute="leading" id="IbX-OL-ebw"/>
                                 <constraint firstAttribute="trailing" secondItem="ZOv-NP-MMR" secondAttribute="trailing" constant="-3" id="b7y-HW-5JO"/>
                             </constraints>
@@ -651,10 +652,10 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpu-U5-6gV" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
-                        <rect key="frame" x="21" y="9" width="166" height="34"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="dpu-U5-6gV" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
+                        <rect key="frame" x="21" y="9" width="167" height="34"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-Cb-mhq">
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-Cb-mhq">
                                 <rect key="frame" x="106" y="11" width="40" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="SDS-TR-cC8"/>
@@ -672,8 +673,8 @@
                                     <action selector="changeValue:" target="dpu-U5-6gV" id="b1n-fd-5qM"/>
                                 </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-gy-Mfr">
-                                <rect key="frame" x="29" y="13" width="63" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-gy-Mfr">
+                                <rect key="frame" x="38" y="13" width="63" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Line wrap" id="n8N-XM-jrj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -689,8 +690,8 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4y-6c-29x">
-                                <rect key="frame" x="150" y="7" width="19" height="27"/>
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d4y-6c-29x">
+                                <rect key="frame" x="151" y="8" width="19" height="27"/>
                                 <stepperCell key="cell" continuous="YES" alignment="left" maxValue="1000" doubleValue="80" id="kzR-6k-679"/>
                                 <connections>
                                     <action selector="changeValue:" target="dpu-U5-6gV" id="cpt-dy-d9i"/>
@@ -698,9 +699,13 @@
                             </stepper>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="d4y-6c-29x" firstAttribute="centerY" secondItem="LVy-gy-Mfr" secondAttribute="centerY" id="4DD-mS-MBI"/>
                             <constraint firstAttribute="trailing" secondItem="d4y-6c-29x" secondAttribute="trailing" id="HgT-Jh-VKI"/>
                             <constraint firstItem="d4y-6c-29x" firstAttribute="leading" secondItem="y3Z-Cb-mhq" secondAttribute="trailing" constant="8" id="Hz6-Wu-8no"/>
+                            <constraint firstAttribute="height" constant="34" id="dgh-Ln-MEg"/>
                             <constraint firstItem="d4y-6c-29x" firstAttribute="leading" secondItem="y3Z-Cb-mhq" secondAttribute="trailing" constant="8" id="i3N-f0-oSB"/>
+                            <constraint firstItem="y3Z-Cb-mhq" firstAttribute="top" secondItem="dpu-U5-6gV" secondAttribute="top" constant="1" id="lbl-Vw-hns"/>
+                            <constraint firstItem="y3Z-Cb-mhq" firstAttribute="centerY" secondItem="LVy-gy-Mfr" secondAttribute="centerY" id="sW1-gV-0jZ"/>
                             <constraint firstItem="y3Z-Cb-mhq" firstAttribute="leading" secondItem="LVy-gy-Mfr" secondAttribute="trailing" constant="7" id="uI9-wf-ejj"/>
                         </constraints>
                         <connections>
@@ -719,13 +724,14 @@
                             <action selector="clearOutput:" target="IIq-Mh-32a" id="tpt-Gn-x2b"/>
                         </connections>
                     </button>
-                    <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2DJ-Iw-Y3O" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
-                        <rect key="frame" x="21" y="51" width="166" height="22"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="2DJ-Iw-Y3O" customClass="StepperView" customModule="EnigmaMachine" customModuleProvider="target">
+                        <rect key="frame" x="21" y="51" width="167" height="22"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iLT-Zv-cR1">
-                                <rect key="frame" x="106" y="0.0" width="40" height="22"/>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="iLT-Zv-cR1">
+                                <rect key="frame" x="107" y="-1" width="40" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="1pc-ji-lVh"/>
+                                    <constraint firstAttribute="height" constant="22" id="OIx-dq-C3w"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="5" drawsBackground="YES" id="TKv-tn-KQ2">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="V5E-v6-ez3">
@@ -740,16 +746,16 @@
                                     <action selector="changeValue:" target="2DJ-Iw-Y3O" id="phB-hf-fAQ"/>
                                 </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-Im-gvu">
-                                <rect key="frame" x="29" y="3" width="69" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-Im-gvu">
+                                <rect key="frame" x="32" y="2" width="69" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Group size" id="5tk-Ge-D1s">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-Ll-Svj">
-                                <rect key="frame" x="150" y="-3" width="19" height="27"/>
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-Ll-Svj">
+                                <rect key="frame" x="151" y="-3" width="19" height="27"/>
                                 <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="10" doubleValue="1" id="dVh-e4-FAT"/>
                                 <connections>
                                     <action selector="changeValue:" target="2DJ-Iw-Y3O" id="TjN-mR-RSh"/>
@@ -758,8 +764,12 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="9RG-Ll-Svj" firstAttribute="leading" secondItem="iLT-Zv-cR1" secondAttribute="trailing" constant="7" id="9WP-Ao-izL"/>
+                            <constraint firstAttribute="height" constant="22" id="9ax-Yf-elx"/>
+                            <constraint firstItem="9RG-Ll-Svj" firstAttribute="centerY" secondItem="O4Q-Im-gvu" secondAttribute="centerY" id="AXh-Fb-hom"/>
                             <constraint firstAttribute="trailing" secondItem="9RG-Ll-Svj" secondAttribute="trailing" id="M6Q-eK-2qe"/>
                             <constraint firstItem="iLT-Zv-cR1" firstAttribute="leading" secondItem="O4Q-Im-gvu" secondAttribute="trailing" constant="8" id="McK-j3-5Od"/>
+                            <constraint firstItem="iLT-Zv-cR1" firstAttribute="centerY" secondItem="O4Q-Im-gvu" secondAttribute="centerY" id="adM-5F-7hn"/>
+                            <constraint firstItem="9RG-Ll-Svj" firstAttribute="top" secondItem="2DJ-Iw-Y3O" secondAttribute="top" id="wR1-vA-2Cn"/>
                         </constraints>
                         <connections>
                             <action selector="changeGroupSize:" target="IIq-Mh-32a" id="L4p-7R-XNh"/>
@@ -775,11 +785,13 @@
                     <constraint firstItem="dpu-U5-6gV" firstAttribute="trailing" secondItem="2DJ-Iw-Y3O" secondAttribute="trailing" id="7O5-2f-1Ii"/>
                     <constraint firstAttribute="bottom" secondItem="EpF-q6-MTz" secondAttribute="bottom" constant="20" id="Blb-Tn-iC8"/>
                     <constraint firstAttribute="trailing" secondItem="w6x-kV-Nmw" secondAttribute="trailing" constant="-1" id="HrZ-yG-4Ao"/>
+                    <constraint firstItem="dpu-U5-6gV" firstAttribute="leading" secondItem="h05-5V-i2g" secondAttribute="leading" constant="21" id="NCB-nd-SNt"/>
+                    <constraint firstItem="2DJ-Iw-Y3O" firstAttribute="leading" secondItem="h05-5V-i2g" secondAttribute="leading" constant="21" id="R9B-Ml-rAq"/>
                     <constraint firstAttribute="bottom" secondItem="w6x-kV-Nmw" secondAttribute="bottom" constant="81" id="Sn4-iv-aG4"/>
                     <constraint firstItem="EpF-q6-MTz" firstAttribute="leading" secondItem="dpu-U5-6gV" secondAttribute="trailing" constant="8" id="To1-az-0ly"/>
-                    <constraint firstAttribute="bottom" secondItem="2DJ-Iw-Y3O" secondAttribute="bottom" constant="51" id="ad5-WS-W6v"/>
                     <constraint firstAttribute="trailing" secondItem="EpF-q6-MTz" secondAttribute="trailing" constant="20" id="eAr-jy-NeQ"/>
                     <constraint firstItem="w6x-kV-Nmw" firstAttribute="top" secondItem="h05-5V-i2g" secondAttribute="top" constant="-1" id="jyb-N6-y2z"/>
+                    <constraint firstItem="dpu-U5-6gV" firstAttribute="top" secondItem="2DJ-Iw-Y3O" secondAttribute="bottom" constant="8" id="p1i-6h-1OA"/>
                 </constraints>
             </view>
             <connections>
