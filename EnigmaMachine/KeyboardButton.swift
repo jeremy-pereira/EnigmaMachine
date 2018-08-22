@@ -22,7 +22,9 @@ limitations under the License.
 */
 
 import Cocoa
+import Toolbox
 
+private let log = Logger.getLogger("EnigmaMachine.EnignmaMachine.KeyboardButton")
 
 protocol KeyboardDelegate: AnyObject
 {
@@ -57,19 +59,38 @@ class KeyboardView: NSBox
     var timerShouldStop = false;
     var timerMouseUp = false;
 
+
+    /// Action to perform when selecting auto input or not. The action is based
+    /// on the `autoInput` outlet. If its selected segment tag is 0 we turn the
+    /// timer off if it is running (and stop consuming characters from the
+    /// `AutoKeyButton`'s text field). If the tag is 1, we turn on the timer, if
+    /// it is not already running.
+    ///
+    /// - Parameter sender: The object sending the action.
     @IBAction func toggleTimer(_ sender: AnyObject)
     {
-        if timer != nil
+        let selectedSegment = autoInput.selectedSegment
+        guard selectedSegment != -1 else { return }
+        let tag = autoInput.tag(forSegment: selectedSegment)
+
+        switch tag
         {
-            timerShouldStop = true;
-        }
-        else
-        {
-            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true)
+        case 0:
+            if timer != nil
             {
-                _ in
-                self.timerFired()
+                timerShouldStop = true;
             }
+        case 1:
+            if timer == nil
+            {
+                timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true)
+                {
+                    _ in
+                    self.timerFired()
+                }
+            }
+        default:
+            log.warn("Invalid tag value for auto input: \(tag)")
         }
     }
 

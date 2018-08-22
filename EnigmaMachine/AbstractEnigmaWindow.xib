@@ -449,6 +449,7 @@
                             </subviews>
                         </view>
                         <connections>
+                            <outlet property="autoInput" destination="ThC-i0-IkL" id="hrz-tq-r1c"/>
                             <outlet property="singleStep" destination="Qnc-ji-d30" id="DPg-Hz-GHM"/>
                         </connections>
                     </box>
