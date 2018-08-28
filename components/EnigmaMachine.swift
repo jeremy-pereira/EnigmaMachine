@@ -22,6 +22,7 @@ limitations under the License.
 */
 
 import Foundation
+import Toolbox
 
 
 public protocol EnigmaObserver: AnyObject
@@ -100,17 +101,9 @@ Insert a rotor in a given slot with the given start position
 		if litLamp == nil
         {
             rotorCradle.rotate()
-            var currentLetter: Letter?
-            currentLetter = plugboard.forward[aLetter]
-            if let resultLetter = currentLetter
-            {
-                currentLetter = rotorCradle.forward[resultLetter]
-            }
-            if let resultLetter = currentLetter
-            {
-                currentLetter = plugboard.reverse[resultLetter]
-            }
-            litLamp = currentLetter
+            litLamp = plugboard.forward[aLetter]
+                >>- { rotorCradle.forward[$0] }
+                >>- { plugboard.reverse[$0] }
             notifyStateChange()
         }
     }
