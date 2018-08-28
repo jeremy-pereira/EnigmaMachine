@@ -21,7 +21,7 @@ limitations under the License.
 
 */
 
-import Foundation
+import Toolbox
 
 /**
 
@@ -180,25 +180,25 @@ public class RotorCradle: Connector
             [unowned self] letter in
             var currentLetter: Letter? = letter
 
+            // Use monad bind to chain functions together
             currentLetter = self.slot.reduce(letter)
             {
                 (currentLetter, slot) -> Letter? in
                 guard let aLetter = currentLetter else { return nil }
                 return slot.forward[aLetter]
             }
-            if let aLetter = currentLetter
+            >>-
+            { self.reflect(letter: $0) }
+            >>-
             {
-                currentLetter = self.reflect(letter: aLetter)
-            }
-            if let aLetter = currentLetter
-            {
-                currentLetter = self.slot.reversed().reduce(aLetter)
+                self.slot.reversed().reduce($0)
                 {
                     (currentLetter, slot) -> Letter? in
                     guard let aLetter = currentLetter else { return nil }
                     return slot.reverse[aLetter]
                 }
             }
+
             return currentLetter
         }
         reverse = forward
