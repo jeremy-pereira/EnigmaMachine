@@ -93,19 +93,19 @@ class TestRotorCradle: XCTestCase
         standardCradle.slot[0].insert(rotor: standardCradle.slot[0].rotor!, position: Letter.V)
         standardCradle.rotate()
         var letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.U, "Letter 1 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.U, "Letter 1 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.Q, "Letter 2 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.Q, "Letter 2 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.O, "Letter 3 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.O, "Letter 3 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.F, "Letter 4 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.F, "Letter 4 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.X, "Letter 5 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.X, "Letter 5 incorrect, (\(String(describing: letter)))")
     }
 
     func testMiddleNotch()
@@ -113,19 +113,19 @@ class TestRotorCradle: XCTestCase
         standardCradle.slot[1].insert(rotor: standardCradle.slot[1].rotor!, position: Letter.E)
         standardCradle.rotate()
         var letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.F, "Letter 1 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.F, "Letter 1 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.J, "Letter 2 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.J, "Letter 2 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.B, "Letter 3 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.B, "Letter 3 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.W, "Letter 4 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.W, "Letter 4 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.Z, "Letter 5 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.Z, "Letter 5 incorrect, (\(String(describing: letter)))")
     }
 
     func testLeftNotch()
@@ -133,18 +133,18 @@ class TestRotorCradle: XCTestCase
         standardCradle.slot[2].insert(rotor: standardCradle.slot[2].rotor!, position: Letter.Q)
         standardCradle.rotate()
         var letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.F, "Letter 1 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.F, "Letter 1 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.B, "Letter 2 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.B, "Letter 2 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.J, "Letter 3 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.J, "Letter 3 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.Z, "Letter 4 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.Z, "Letter 4 incorrect, (\(String(describing: letter)))")
         standardCradle.rotate()
         letter = standardCradle.forward[Letter.A]
-        XCTAssert(letter! == Letter.D, "Letter 5 incorrect, (\(letter))")
+        XCTAssert(letter! == Letter.D, "Letter 5 incorrect, (\(String(describing: letter)))")
     }
 }

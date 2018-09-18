@@ -130,7 +130,7 @@ class LightPanelView: NSView
                 path.lineWidth = 2
                 path.fill()
                 path.stroke()
-                letter.drawInRect(rect: circleRect, attributes: [ NSAttributedStringKey.foregroundColor : letterColour])
+                letter.drawInRect(rect: circleRect, attributes: [ NSAttributedString.Key.foregroundColor : letterColour])
             }
         }
     }

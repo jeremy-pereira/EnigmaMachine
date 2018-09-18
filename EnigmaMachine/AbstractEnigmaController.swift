@@ -94,7 +94,7 @@ class AbstractEnigmaController:
 
 	convenience init()
     {
-        self.init(windowNibName: NSNib.Name(rawValue: "AbstractEnigmaWindow"))
+        self.init(windowNibName: "AbstractEnigmaWindow")
     }
 
     override func windowDidLoad()

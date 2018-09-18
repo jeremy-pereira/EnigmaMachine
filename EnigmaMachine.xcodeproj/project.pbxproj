@@ -265,6 +265,7 @@
 					FC3D16091A9CAE5B00FE44B9 = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = 25H66HFZX2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -274,6 +275,7 @@
 					};
 					FC3D16191A9CAE5C00FE44B9 = {
 						CreatedOnToolsVersion = 6.3;
+						LastSwiftMigration = 1000;
 						TestTargetID = FC3D16091A9CAE5B00FE44B9;
 					};
 				};
@@ -497,6 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeremyp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -515,6 +518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeremyp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -535,6 +539,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeremyp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnigmaMachine.app/Contents/MacOS/EnigmaMachine";
 			};
 			name = Debug;
@@ -552,6 +557,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeremyp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnigmaMachine.app/Contents/MacOS/EnigmaMachine";
 			};
 			name = Release;
