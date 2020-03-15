@@ -67,8 +67,6 @@ private struct PlugPosition: Hashable, CustomStringConvertible
     let x: CGFloat
     let y: CGFloat
 
-    var hashValue: Int { return self.x.hashValue ^ self.y.hashValue }
-
     var description: String
     {
         get { return "PlugPosition(x: \(x), y: \(y))" }

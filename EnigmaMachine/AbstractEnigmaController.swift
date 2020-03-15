@@ -171,7 +171,7 @@ class AbstractEnigmaController:
 
     func stateChanged(machine: EnigmaMachine)
     {
-        var displayLetters = enigmaMachine.rotorReadOut
+		let displayLetters = enigmaMachine.rotorReadOut
         ringDisplay1.letter = displayLetters[2]
         ringDisplay2.letter = displayLetters[1]
         ringDisplay3.letter = displayLetters[0]
