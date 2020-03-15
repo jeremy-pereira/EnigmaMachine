@@ -61,7 +61,7 @@ Put a rotor in the box.
     public func removeRotor(name: String) -> Rotor?
     {
         var ret: Rotor?
-        if let foundIndex = rotor.index(where: { $0.name == name })
+        if let foundIndex = rotor.firstIndex(where: { $0.name == name })
         {
             ret = rotor.remove(at: foundIndex)
         }
@@ -76,7 +76,7 @@ Put a rotor in the box.
     public func remove(rotor rotorToGo: Rotor) -> Rotor?
     {
         var ret: Rotor?
-        if let foundIndex = rotor.index(where: { $0 === rotorToGo })
+        if let foundIndex = rotor.firstIndex(where: { $0 === rotorToGo })
         {
             ret = rotor.remove(at: foundIndex)
         }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,8 +32,7 @@
 		FC9AF86E1A9FA17B00335A29 /* RotorCradle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */; };
 		FCA6C1F41AB6E526000D18F6 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6C1F31AB6E526000D18F6 /* StepperView.swift */; };
 		FCAEF6731AC92FB40010EB5D /* RotorBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAEF6721AC92FB40010EB5D /* RotorBoxController.swift */; };
-		FCE8B138212C23C500960808 /* Toolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE8B136212C23BC00960808 /* Toolbox.framework */; };
-		FCE8B139212C23C500960808 /* Toolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCE8B136212C23BC00960808 /* Toolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FCCE8D65241E60BD00187D21 /* Toolbox in Frameworks */ = {isa = PBXBuildFile; productRef = FCCE8D64241E60BD00187D21 /* Toolbox */; };
 		FCF0E1411AAD86E000DBC483 /* SpareRotorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF0E1401AAD86E000DBC483 /* SpareRotorBox.swift */; };
 		FCF0E1431AAD88DC00DBC483 /* TestRotorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF0E1421AAD88DC00DBC483 /* TestRotorBox.swift */; };
 /* End PBXBuildFile section */
@@ -55,7 +54,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FCE8B139212C23C500960808 /* Toolbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,7 +91,6 @@
 		FC9AF86D1A9FA17B00335A29 /* RotorCradle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorCradle.swift; sourceTree = "<group>"; };
 		FCA6C1F31AB6E526000D18F6 /* StepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		FCAEF6721AC92FB40010EB5D /* RotorBoxController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorBoxController.swift; sourceTree = "<group>"; };
-		FCE8B136212C23BC00960808 /* Toolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Toolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF0E1401AAD86E000DBC483 /* SpareRotorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpareRotorBox.swift; sourceTree = "<group>"; };
 		FCF0E1421AAD88DC00DBC483 /* TestRotorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRotorBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCE8B138212C23C500960808 /* Toolbox.framework in Frameworks */,
+				FCCE8D65241E60BD00187D21 /* Toolbox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +205,6 @@
 		FCE8B135212C23BC00960808 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FCE8B136212C23BC00960808 /* Toolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,6 +226,9 @@
 			dependencies = (
 			);
 			name = EnigmaMachine;
+			packageProductDependencies = (
+				FCCE8D64241E60BD00187D21 /* Toolbox */,
+			);
 			productName = EnigmaMachine;
 			productReference = FC3D160A1A9CAE5B00FE44B9 /* EnigmaMachine.app */;
 			productType = "com.apple.product-type.application";
@@ -259,13 +258,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Jeremy Pereira";
 				TargetAttributes = {
 					FC3D16091A9CAE5B00FE44B9 = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = 25H66HFZX2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -275,20 +274,23 @@
 					};
 					FC3D16191A9CAE5C00FE44B9 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1130;
 						TestTargetID = FC3D16091A9CAE5B00FE44B9;
 					};
 				};
 			};
 			buildConfigurationList = FC3D16051A9CAE5B00FE44B9 /* Build configuration list for PBXProject "EnigmaMachine" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
 			mainGroup = FC3D16011A9CAE5B00FE44B9;
+			packageReferences = (
+				FCCE8D63241E60BD00187D21 /* XCRemoteSwiftPackageReference "toolbox" */,
+			);
 			productRefGroup = FC3D160B1A9CAE5B00FE44B9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -384,6 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -427,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -440,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -476,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -493,13 +497,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 25H66HFZX2;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = EnigmaMachine/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeremyp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -512,13 +520,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 25H66HFZX2;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = EnigmaMachine/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeremyp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -526,7 +538,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -536,10 +551,15 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = EnigmaMachineTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeremyp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnigmaMachine.app/Contents/MacOS/EnigmaMachine";
 			};
 			name = Debug;
@@ -548,16 +568,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = EnigmaMachineTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.jeremyp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnigmaMachine.app/Contents/MacOS/EnigmaMachine";
 			};
 			name = Release;
@@ -593,6 +621,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCCE8D63241E60BD00187D21 /* XCRemoteSwiftPackageReference "toolbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://jeremy-pereira@bitbucket.org/jeremy-pereira/toolbox.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 18.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCCE8D64241E60BD00187D21 /* Toolbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCCE8D63241E60BD00187D21 /* XCRemoteSwiftPackageReference "toolbox" */;
+			productName = Toolbox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FC3D16021A9CAE5B00FE44B9 /* Project object */;
 }
